@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather:300,300i");
 * {
   box-sizing: border-box; }
 
@@ -7,9 +8,9 @@ body {
   color: white;
   position: relative; }
 
-/*Fontface*/
-/*@import url('https://fonts.googleapis.com/css?family=Merriweather:400,400i,700');*/
-/*variables*/
+/*variables columns width*/
+/*variables type of background border*/
+/*212121*/
 /*columns*/
 .bg-col-1 {
   width: 11.1%;
@@ -17,35 +18,55 @@ body {
   padding: 15px; }
 
 [class*="col-"] {
-  /*float: left;*/
-  padding: 15px; }
+  padding-bottom: 1px;
+  padding-top: 1px; }
+  [class*="col-"] p {
+    padding-right: 7%; }
 
 .col-1 {
-  width: 90%; }
+  width: 90%;
+  padding-top: 1px;
+  padding-bottom: 1px; }
 
 .col-2 {
-  width: 22.2%; }
+  width: 22.2%;
+  padding-top: 1px;
+  padding-bottom: 1px; }
 
 .col-3 {
-  width: 33.3%; }
+  width: 33.3%;
+  padding-top: 1px;
+  padding-bottom: 1px; }
 
 .col-4 {
-  width: 44.4%; }
+  width: 44.4%;
+  padding-top: 1px;
+  padding-bottom: 1px; }
 
 .col-5 {
-  width: 55.5%; }
+  width: 55.5%;
+  padding-top: 1px;
+  padding-bottom: 1px; }
 
 .col-6 {
-  width: 66.6%; }
+  width: 66.6%;
+  padding-top: 1px;
+  padding-bottom: 1px; }
 
 .col-7 {
-  width: 77.7%; }
+  width: 77.7%;
+  padding-top: 1px;
+  padding-bottom: 1px; }
 
 .col-8 {
-  width: 88.88%; }
+  width: 88.88%;
+  padding-top: 1px;
+  padding-bottom: 1px; }
 
 .col-9 {
-  width: 100%; }
+  width: 100%;
+  padding-top: 1px;
+  padding-bottom: 1px; }
 
 /*end of columns*/
 #content {
@@ -65,7 +86,8 @@ body {
   height: 100%;
   margin: 0;
   z-index: -100;
-  border: 1px solid #333; }
+  border-left: 1px solid #303030;
+  border-right: 1px solid #303030; }
 
 /*special features*/
 #timeline {
@@ -78,10 +100,12 @@ body {
 
 /*text*/
 p {
-  font-family: arial, serif;
+  font-family: merriweather, serif;
   font-style: normal;
-  font-weight: 400;
-  font-size: 14px; }
+  font-weight: 300;
+  font-size: 14px;
+  color: #d6d6d6;
+  line-height: 150%; }
 
 .centered-text {
   margin: auto; }
