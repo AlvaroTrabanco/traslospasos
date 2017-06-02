@@ -1,3 +1,8 @@
+%fixPadding{
+  padding-top:1px;
+  padding-bottom:1px;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -36,19 +41,23 @@ $border-properties: 1px solid #303030;/*212121*/
     }
 }
 
-.col-1 {width: 90%; padding-top:1px;padding-bottom:1px;}
-.col-2 {width: 22.2%; padding-top:1px;padding-bottom:1px;}
-.col-3 {width: 33.3%; padding-top:1px;padding-bottom:1px;}
-.col-4 {width: 44.4%; padding-top:1px;padding-bottom:1px;}
-.col-5 {width: 55.5%; padding-top:1px;padding-bottom:1px;}
-.col-6 {width: 66.6%; padding-top:1px;padding-bottom:1px;}
-.col-7 {width: 77.7%; padding-top:1px;padding-bottom:1px;}
-.col-8 {width: 88.88%; padding-top:1px;padding-bottom:1px;}
-.col-9 {width: 100%; padding-top:1px;padding-bottom:1px;}
+.col-1 {width: 90%; }
+.col-2 {width: 22.2%; @extend %fixPadding;}
+.col-3 {width: 33.3%; @extend %fixPadding;}
+.col-4 {width: 44.4%; @extend %fixPadding;}
+.col-5 {width: 55.5%; @extend %fixPadding;}
+.col-6 {width: 66.6%; @extend %fixPadding;}
+.col-7 {width: 77.7%; @extend %fixPadding;}
+.col-8 {width: 88.88%; @extend %fixPadding;}
+.col-9 {width: 100%; @extend %fixPadding;}
 
 /*end of columns*/
 
 
+
+
+
+/*Rest*/
 #content{
     position:relative;
 }
