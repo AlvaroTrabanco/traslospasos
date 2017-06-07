@@ -1,5 +1,201 @@
 %text
-  background-color: rgb(66, 66, 66)
+  background-color: rgb(15, 15, 15)
   width: 100%
   padding: 15px
-  margin: auto
+  position: relative
+  @extend %mobile-9-9
+  @extend %tablet-v-7-9
+  @extend %tablet-h-5-9
+  @extend %desktop-3-9
+
+
+%single-img
+  img
+    width: 100%
+    height: 100%
+
+
+
+/*These are the options for different widths basing
+//on the 9 column system for mobile width (<40em)
+// They are supposed to be extended within another class*/
+%mobile-1-9
+  @include mobile
+    width: $col-1
+%mobile-2-9
+  @include mobile
+    width: $col-2
+%mobile-3-9
+  @include mobile
+    width: $col-3
+%mobile-4-9
+  @include mobile
+    width: $col-4
+%mobile-5-9
+  @include mobile
+    width: $col-5
+%mobile-6-9
+  @include mobile
+    width: $col-6
+%mobile-7-9
+  @include mobile
+    width: $col-7
+%mobile-8-9
+  @include mobile
+    width: $col-8
+%mobile-9-9
+  @include mobile
+    width: $col-9
+    margin: 0
+
+
+
+
+/*These are the options for different widths basing
+//on the 9 column system for tablet-portrait width (40em-50em)
+// They are supposed to be extended within another class*/
+%tablet-v-1-9
+  @include tablet-v
+    width: $col-1
+%tablet-v-2-9
+  @include tablet-v
+    width: $col-2
+%tablet-v-3-9
+  @include tablet-v
+    width: $col-3
+%tablet-v-4-9
+  @include tablet-v
+    width: $col-4
+%tablet-v-5-9
+  @include tablet-v
+    width: $col-5
+%tablet-v-6-9
+  @include tablet-v
+    width: $col-6
+%tablet-v-7-9
+  @include tablet-v
+    width: $col-7
+%tablet-v-8-9
+  @include tablet-v
+    width: $col-8
+%tablet-v-9-9
+  @include tablet-v
+    width: $col-9
+
+
+
+/*These are the options for different widths basing
+//on the 9 column system for tablet-landscape width (50em-75em)
+// They are supposed to be extended within another class*/
+%tablet-h-1-9
+  @include tablet-h
+    width: $col-1
+%tablet-h-2-9
+  @include tablet-h
+    width: $col-2
+%tablet-h-3-9
+  @include tablet-h
+    width: $col-3
+%tablet-h-4-9
+  @include tablet-h
+    width: $col-4
+%tablet-h-5-9
+  @include tablet-h
+    width: $col-5
+%tablet-h-6-9
+  @include tablet-h
+    width: $col-6
+%tablet-h-7-9
+  @include tablet-h
+    width: $col-7
+%tablet-h-8-9
+  @include tablet-h
+    width: $col-8
+%tablet-h-9-9
+  @include tablet-h
+    width: $col-9
+
+
+/*These are the options for different widths basing
+//on the 9 column system for desktop width (>75em)
+// They are supposed to be extended within another class*/
+%desktop-1-9
+  @include desktop
+    width: $col-1
+%desktop-2-9
+  @include desktop
+    width: $col-2
+%desktop-3-9
+  @include desktop
+    width: $col-3
+%desktop-4-9
+  @include desktop
+    width: $col-4
+%desktop-5-9
+  @include desktop
+    width: $col-5
+%desktop-6-9
+  @include desktop
+    width: $col-6
+%desktop-7-9
+  @include desktop
+    width: $col-7
+%desktop-8-9
+  @include desktop
+    width: $col-8
+%desktop-9-9
+  @include desktop
+    width: $col-9
+
+
+
+
+
+
+%tablet-v-left
+  @include tablet-v
+    margin-left: 0
+%tablet-h-left
+  @include tablet-h
+    margin-left: $col-1
+%tablet-h-far-left
+  @include tablet-h
+    margin-left: 0
+%desktop-left
+  @include desktop
+    margin-left: $col-2
+%desktop-far-left
+  @include desktop
+    margin-left: $col-1
+%desktop-far-far-left
+  @include desktop
+    margin-left: 0
+
+
+
+
+
+%tablet-v-right
+  @include tablet-v
+    float: right
+    margin-right: 0
+%tablet-h-right
+  @include tablet-h
+    float: right
+    margin-right: $col-1
+%tablet-h-far-right
+  @include tablet-h
+    float: right
+    margin-right: 0
+%desktop-right
+  @include desktop
+    float: right
+    margin-right: $col-2
+%desktop-far-right
+  @include desktop
+    float: right
+    margin-right: $col-1
+%desktop-far-far-right
+  @include desktop
+    float: right
+    margin-right: 0

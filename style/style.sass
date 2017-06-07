@@ -1,7 +1,6 @@
 @import "helpers/variables"
 @import "helpers/mixin"
 @import "helpers/placeholders"
-@import "helpers/placeholders-queries"
 @import "helpers/columns"
 @import "toast-grid"
 @import url('https://fonts.googleapis.com/css?family=Merriweather:300,300i')
@@ -9,7 +8,7 @@
 
 *
   -webkit-box-sizing: border-box
-  -moz-box-sizing: border-bo
+  -moz-box-sizing: border-box
   box-sizing: border-box
 
 
@@ -22,9 +21,9 @@ body
 
 p
   color: white
-  font-family: merriweather, serif
+  font-family: merriweather, georgia, serif
   font-size: $main-font-size
-  line-height: 150%
+  line-height: 200%
 
 
 
@@ -34,12 +33,114 @@ p
   margin: auto
 
 
+
+
 .text
-  @extend %text
+  &-center
+    @extend %text
+    margin: auto
+  &-left
+    @extend %text
+    @extend %tablet-v-left
+    @extend %tablet-h-left
+    @extend %desktop-left
+  &-far-left
+    @extend %text
+    @extend %tablet-v-left
+    @extend %tablet-h-far-left
+    @extend %desktop-far-left
+  &-far-far-left
+    @extend %text
+    @extend %tablet-v-left
+    @extend %tablet-h-far-left
+    @extend %desktop-far-far-left
+  &-right
+    @extend %text
+    @extend %tablet-v-right
+    @extend %tablet-h-right
+    @extend %desktop-right
+  &-far-right
+    @extend %text
+    @extend %tablet-v-right
+    @extend %tablet-h-far-right
+    @extend %desktop-far-right
+  &-far-far-right
+    @extend %text
+    @extend %tablet-v-right
+    @extend %tablet-h-far-right
+    @extend %desktop-far-far-right
+
+
+
+
+.single-img
+  &-center
+    margin: auto
+  &-left
+    @extend %tablet-v-left
+    @extend %tablet-h-left
+    @extend %desktop-left
+  &-far-left
+    @extend %tablet-v-left
+    @extend %tablet-h-far-left
+    @extend %desktop-far-left
+  &-right
+    @extend %tablet-v-right
+    @extend %tablet-h-right
+    @extend %desktop-right
+  &-far-right
+    @extend %tablet-v-right
+    @extend %tablet-h-far-right
+    @extend %desktop-far-right
+  &-far-far-right
+    @extend %tablet-v-right
+    @extend %tablet-h-far-right
+    @extend %desktop-far-far-right
+
+.vertical-img
+  @extend %single-img
+  @extend %mobile-9-9
+  @extend %tablet-v-7-9
+  @extend %tablet-h-5-9
+  @extend %desktop-3-9
+/*vertical images in tablet-h work as fully-left sided in both far-left+far-far-left as well as far-right+far-far-right*/
+
+.horizontal-img
+  @extend %single-img
   @extend %mobile-9-9
   @extend %tablet-v-7-9
   @extend %tablet-h-5-9
   @extend %desktop-5-9
+/*horizontal left or right in desktop mode (>75em) works as centered*/
+/*horizontal far-left+far-far-left  as well as far-right+far-far-right in tablet-h (50-75em) work as fully left sided*/
+
+
+.clearfix
+  clear: both
+
+
+
+
+
+.img-bg
+  width: 100%
+  left: -50%
+  height: 200%
+  z-index: -1
+  img
+
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  margin: auto
+  min-width: 50%
+  min-height: 50%
+
+
+
+
+
 
 /*columns background*/
 .grid
@@ -60,12 +161,3 @@ p
     height: 100vh
     &:hover
       background-color: black
-
-.single-img
-  @extend %mobile-9-9
-  @extend %tablet-v-7-9
-  @extend %tablet-h-5-9
-  @extend %desktop-5-9
-  margin: auto
-  img
-    display: block

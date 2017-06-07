@@ -2,31 +2,94 @@
 /*size of the screen for the media queries */
 /*width of columns */
 @import url("https://fonts.googleapis.com/css?family=Merriweather:300,300i");
-.text {
-  background-color: #424242;
+.text-center, .text-left, .text-far-left, .text-far-far-left, .text-right, .text-far-right, .text-far-far-right {
+  background-color: #0f0f0f;
   width: 100%;
   padding: 15px;
-  margin: auto; }
+  position: relative; }
+
+.vertical-img img, .horizontal-img img {
+  width: 100%;
+  height: 100%; }
 
 /*These are the options for different widths basing */
 @media (max-width: 40em) {
-  .text, .single-img {
-    width: 100%; } }
+  .text-center, .text-left, .text-far-left, .text-far-far-left, .text-right, .text-far-right, .text-far-far-right, .vertical-img, .horizontal-img {
+    width: 100%;
+    margin: 0; } }
 
 /*These are the options for different widths basing */
 @media (min-width: 40em) {
-  .text, .single-img {
+  .text-center, .text-left, .text-far-left, .text-far-far-left, .text-right, .text-far-right, .text-far-far-right, .vertical-img, .horizontal-img {
     width: 77.77778%; } }
 
 /*These are the options for different widths basing */
 @media (min-width: 50em) {
-  .text, .single-img {
+  .text-center, .text-left, .text-far-left, .text-far-far-left, .text-right, .text-far-right, .text-far-far-right, .vertical-img, .horizontal-img {
     width: 55.55556%; } }
 
 /*These are the options for different widths basing */
 @media (min-width: 75em) {
-  .text, .single-img {
+  .text-center, .text-left, .text-far-left, .text-far-far-left, .text-right, .text-far-right, .text-far-far-right, .vertical-img {
+    width: 33.33333%; } }
+
+@media (min-width: 75em) {
+  .horizontal-img {
     width: 55.55556%; } }
+
+@media (min-width: 40em) {
+  .text-left, .text-far-left, .text-far-far-left, .single-img-left, .single-img-far-left {
+    margin-left: 0; } }
+
+@media (min-width: 50em) {
+  .text-left, .single-img-left {
+    margin-left: 11.11111%; } }
+
+@media (min-width: 50em) {
+  .text-far-left, .text-far-far-left, .single-img-far-left {
+    margin-left: 0; } }
+
+@media (min-width: 75em) {
+  .text-left, .single-img-left {
+    margin-left: 22.22222%; } }
+
+@media (min-width: 75em) {
+  .text-far-left, .single-img-far-left {
+    margin-left: 11.11111%; } }
+
+@media (min-width: 75em) {
+  .text-far-far-left {
+    margin-left: 0; } }
+
+@media (min-width: 40em) {
+  .text-right, .text-far-right, .text-far-far-right, .single-img-right, .single-img-far-right, .single-img-far-far-right {
+    float: right;
+    margin-right: 0; } }
+
+@media (min-width: 50em) {
+  .text-right, .single-img-right {
+    float: right;
+    margin-right: 11.11111%; } }
+
+@media (min-width: 50em) {
+  .text-far-right, .text-far-far-right, .single-img-far-right, .single-img-far-far-right {
+    float: right;
+    margin-right: 0; } }
+
+@media (min-width: 75em) {
+  .text-right, .single-img-right {
+    float: right;
+    margin-right: 22.22222%; } }
+
+@media (min-width: 75em) {
+  .text-far-right, .single-img-far-right {
+    float: right;
+    margin-right: 11.11111%; } }
+
+@media (min-width: 75em) {
+  .text-far-far-right, .single-img-far-far-right {
+    float: right;
+    margin-right: 0; } }
 
 /*-----------------------------------*\
   $TOAST-GRID
@@ -349,7 +412,7 @@
 
 * {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-bo;
+  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
 html {
@@ -360,13 +423,38 @@ body {
 
 p {
   color: white;
-  font-family: merriweather, serif;
+  font-family: merriweather, georgia, serif;
   font-size: 16px;
-  line-height: 150%; }
+  line-height: 200%; }
 
 #container {
   max-width: 1920px;
   margin: auto; }
+
+.text-center {
+  margin: auto; }
+
+.single-img-center {
+  margin: auto; }
+
+/*vertical images in tablet-h work as fully-left sided in both far-left+far-far-left as well as far-right+far-far-right */
+/*horizontal left or right in desktop mode (>75em) works as centered */
+/*horizontal far-left+far-far-left  as well as far-right+far-far-right in tablet-h (50-75em) work as fully left sided */
+.clearfix {
+  clear: both; }
+
+.img-bg {
+  width: 100%;
+  left: -50%;
+  height: 200%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%; }
 
 /*columns background */
 .grid {
@@ -386,10 +474,5 @@ p {
   height: 100vh; }
   .grid__col .box:hover {
     background-color: black; }
-
-.single-img {
-  margin: auto; }
-  .single-img img {
-    display: block; }
 
 /*# sourceMappingURL=style.css.map */
