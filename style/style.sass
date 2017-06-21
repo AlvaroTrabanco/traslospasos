@@ -2,9 +2,9 @@
 @import "helpers/mixin"
 @import "helpers/placeholders"
 @import "helpers/columns"
+@import "menu"
 @import "toast-grid"
-@import url('https://fonts.googleapis.com/css?family=Merriweather:300,300i')
-
+@import url('https://fonts.googleapis.com/css?family=Eczar:800|Lora:400,400i,700')
 
 *
   -webkit-box-sizing: border-box
@@ -19,21 +19,173 @@ html
 body
   margin: 0
 
+
+
+body::-webkit-scrollbar
+  width: 1em
+
+
+body::-webkit-scrollbar-track
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.8)
+
+
+body::-webkit-scrollbar-thumb
+  background-color: rgba(0,0,0,0.3)
+  outline: none
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+h1
+  color: white
+  font-family: eczar, georgia, serif
+  font-size: 8vw
+  line-height: 100%
+  font-weight: 800
+  text-overflow: clip
+  overflow-wrap: break-word
+
+
+//h2 as subtitle separator//
+
+h2
+  color: white
+  font-family: eczar, georgia, serif
+  font-size: 6vw
+  line-height: 100%
+  font-weight: 800
+  text-overflow: clip
+  overflow-wrap: break-word
+  @include mobile
+    font-size: 15vw
+  @include tablet-v
+    font-size: 10vw
+  @include tablet-h
+    font-size: 7vw
+  @include desktop
+    font-size: 8vw
+
+
+
+
+/*h3 as landing page explanation text*/
+h3
+  color: white
+  font-family: lora, georgia, serif
+  font-size: 1.25em
+  line-height: 150%
+  font-weight: 400
+  font-style: italic
+  text-overflow: clip
+  overflow-wrap: break-word
+  @include mobile
+    font-size: 16px
+
 p
   color: white
-  font-family: merriweather, georgia, serif
+  font-family: lora, georgia, serif
   font-size: $main-font-size
   line-height: 200%
+  font-weight: 300
+
+em
+  font-family: Lora, georgia, serif
+  font-weight: 700
+  font-style: normal
+
+i
+  font-style: italic
+  font-family: Lora, georgia, serif
+  font-weight: 400i
+
+a
+  color: rgb(255, 214, 0)
+  text-decoration: none
 
 
-
+/*used within br in order to define where to cut a title in mobile*/
+.break-here
+  display: none
+  @include mobile
+    display: block
 
 #container
   max-width: 1920px
   margin: auto
 
 
+.landing
+  max-width: 100vw
+  height: 100vh
+  overflow: hidden
+  position: relative
+  @media (max-width: $medium) and (orientation: landscape)
+    height: auto
+    padding-top: 2em
+  &-text
+    position: relative
+    top: 25%
+    h1
+      @include mobile
+        font-size: 15vw
+      @include tablet-v
+        font-size: 13vw
+      @include tablet-h
+        font-size: 10vw
+      @include desktop
+        font-size: 8vw
+      text-align: center
+      margin: auto
+    h3
+      @include tablet-v
+        max-width: 90%
+      padding: 5vw
+      max-width: 75%
+      margin: auto
 
+
+
+.landing-img
+  position: absolute
+  top: 0
+  left: 0
+  z-index: -1
+  img
+    width: 100vw
+    position: absolute
+    top: 0
+    z-index: -1
+  .vignete
+
+    @extend %vignete-gradient
+    position: relative
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    background-color: rgba(0,0,0,0.25)
+
+
+#marker1
+  color: yellow
+  opacity: 1
+  transition: all 200ms ease-in
+
+.full-opacity
+  opacity: 1!important
 
 .text
   &-center
@@ -97,6 +249,9 @@ p
     @extend %tablet-h-far-right
     @extend %desktop-far-far-right
 
+
+
+
 .vertical-img
   @extend %single-img
   @extend %mobile-9-9
@@ -128,18 +283,52 @@ p
   height: 200%
   z-index: -1
   img
-
-  top: 0
-  left: 0
-  right: 0
-  bottom: 0
-  margin: auto
-  min-width: 50%
-  min-height: 50%
-
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    margin: auto
+    min-width: 50%
+    min-height: 50%
 
 
 
+.timeline
+  @extend %side-element
+  #vignete
+    @extend %vignete-gradient
+    display: none
+    width: 125%
+    height: 100%
+    position: absolute
+    right: 1px
+  img
+    position: absolute
+    top: 0
+
+#timeline
+  &-first
+    display: none
+    // transition: all 200ms ease-in
+
+  &-second
+    display: none
+    // transition: all 200ms ease-in
+
+  &-third
+    display: none
+    // transition: all 200ms ease-in
+
+  &-fourth
+    display: none
+    // transition: all 200ms ease-in
+
+
+
+
+
+.family-tree
+  @extend %side-element
 
 
 /*columns background*/
@@ -157,7 +346,292 @@ p
 .grid__col
 
   .box
-    background-color: rgb(31, 31, 31)
+    background-color: black
     height: 100vh
     &:hover
       background-color: black
+
+
+/*attempt of fullscreen video*/
+#attempt
+  width: 100vw
+  height: 100vh
+  display: block
+  position: absolute
+  z-index: 20000
+
+.video-background
+  background: #000
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  //z-index: -99
+
+.video-foreground,
+.video-background iframe
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  pointer-events: none
+
+
+
+@media (min-aspect-ratio: 16/9)
+  .video-foreground
+    height: 300%
+    top: -100%
+
+@media (max-aspect-ratio: 16/9)
+  .video-foreground
+    width: 300%
+    left: -100%
+
+@media all and (max-width: 600px)
+  .vid-info
+    width: 50%
+    padding: .5rem
+  .vid-info h1
+    margin-bottom: .2rem
+
+@media all and (max-width: 500px)
+  .vid-info .acronym
+    display: none
+
+
+.end-video
+  width: 100%
+  height: 200px
+  background: orange
+
+
+
+
+.hide
+  visibility: hidden
+.visible
+  visibility: visible
+.absolute
+  position: absolute!important
+.active
+  opacity: 1!important
+  visiblity: visible!important
+
+.darkened
+  opacity: 0.5!important
+
+
+#video
+  width: 100%
+  height: 100vh
+  object-fit: fill
+  overflow: hidden
+
+  iframe
+    // opacity: 0
+    // transition: opacity .333s ease-in
+    min-width: 100%
+    min-height: 100%
+    height: auto
+    width: auto
+    margin: 0
+    display: block
+    pointer-events: none
+    position: absolute
+    top: 0
+    left: 0
+
+
+    @media (min-aspect-ratio: 16/9)
+      height: 200%
+      top: -50%
+
+    @media (max-aspect-ratio: 16/9)
+      width: 300%
+      left: -100%
+
+
+
+
+.lazy-loaded
+  opacity: 1!important
+
+.poster
+  min-height: 100%
+  min-width: 112.5em
+  width: 100%
+  height: auto
+  position: absolute
+  top: 0
+  left: 0
+  @media screen and (max-width: 112.5em)
+    img
+      left: 50%
+      margin-left: -512px
+
+
+
+
+
+.single-img-container
+  position: relative
+
+.legend
+  // left: -100%
+  opacity: 0
+  transition: all .8s ease-in-out
+  @extend %legend
+  p
+    margin: 0
+  @include mobile
+    display: none
+  @include tablet-v
+    display: none
+  @include tablet-v
+    display: inline-block
+  @include tablet-v
+    display: inline-block
+
+/*Need to be added to .legend in right vertical images and far-far-right horizontal ones*/
+.mgLeftCol1
+  margin-left: $col-1
+/*For far-right vertical images*/
+.mgLeftCol2
+  margin-left: $col-2
+/*For far-far-right vertical images*/
+.mgLeftCol3
+  margin-left: $col-3
+
+
+
+
+.legend::-webkit-scrollbar
+  width: 1em
+
+
+.legend::-webkit-scrollbar-track
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.8)
+
+
+.legend::-webkit-scrollbar-thumb
+  background-color: rgba(0,0,0,0.3)
+  outline: none
+
+
+
+
+.singleImgFadingContainer
+  overflow: hidden
+  p
+    width: 58%
+    display: block
+    text-align: left
+    line-height: 150%
+    margin-left: 11.1111%
+    font-style: italic
+    opacity: 0.6
+
+  @include mobile
+    position: static
+    display: block
+    width: 100%
+    overflow: hidden
+    line-height: 0
+    .fadingImages
+      transition: all 0.4s ease-in-out
+      opacity: 1
+      position: relative
+      display: inline-block
+      width: 100%
+      margin-top: 10%
+      margin-bottom: 10%
+      img
+        max-width: 100%
+        transition: all 0.3s ease-in-out
+        opacity: 0.5
+        margin: auto
+      .active
+        opacity: 1!important
+
+
+  @include tablet-v
+    position: static
+    display: block
+    width: 100%
+    overflow: hidden
+    .fadingImages
+      transition: all 0.4s ease-in-out
+      opacity: 1
+      position: relative
+      display: inline-block
+      width: 100%
+      margin-top: 10%
+      margin-bottom: 10%
+      img
+        max-width: 100%
+        transition: all 0.3s ease-in-out
+        opacity: 0.5
+        margin: auto
+      .active
+        opacity: 1!important
+        max-width: 100%!important
+        max-height: 100vh!important
+
+
+
+  @include tablet-h
+    display: block
+    position: fixed
+    top: 0
+    left: 0
+    width: $col-5
+    height: 100vh
+    .fadingImages
+      transition: all 0.4s ease-in-out
+      width: 100%
+      opacity: 0
+      position: absolute
+      height: 100%
+      margin-top: 0
+      margin-bottom: 0
+      img
+        max-width: 100%
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        opacity: 1
+      .vertical
+        max-width: 44.4444vw
+        width: auto
+        max-height: 100vh
+
+
+
+  @include desktop
+    display: block
+    position: fixed
+    top: 0
+    left: 0
+    width: $col-5
+    height: 100vh
+    .fadingImages
+      transition: all 0.4s ease-in-out
+      width: 100%
+      opacity: 0
+      position: absolute
+      height: 100%
+      margin-top: 0
+      margin-bottom: 0
+      img
+        max-width: 100%
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+        opacity: 1
+      .vertical
+        max-width: 33.33333vw
+        width: auto
+        max-height: 100vh

@@ -1,5 +1,5 @@
 %text
-  background-color: rgb(15, 15, 15)
+  background-color: rgba(0, 0, 0, 0.4)
   width: 100%
   padding: 15px
   position: relative
@@ -8,8 +8,24 @@
   @extend %tablet-h-5-9
   @extend %desktop-3-9
 
+%legend
+  background-color: rgb(11, 11, 11)
+  width: 100%
+  padding: 15px
+  position: absolute
+  display: inline-block
+  overflow-y: auto
+  max-height: 70vh
+  @extend %mobile-9-9
+  @extend %tablet-v-7-9
+  @extend %tablet-h-3-9
+  @extend %desktop-3-9
+
+
+
 
 %single-img
+  display: inline-block
   img
     width: 100%
     height: 100%
@@ -199,3 +215,70 @@
   @include desktop
     float: right
     margin-right: 0
+
+
+
+
+/*side elements*/
+
+
+%vignete-gradient
+  background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,1) 80%)
+  /* FF3.6-15 */
+
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,1) 80%)
+  //Chrome10-25,Safari5.1-6
+
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,1) 80%)
+  //W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=1 )
+  //IE6-9 fallback on horizontal gradient */
+
+
+%menu-gradient
+  background: -moz-linear-gradient(left, rgba(0,0,0,0.3) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0.3) 100%)
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,1) 50%,rgba(0,0,0,0.3) 100%)
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(0,0,0,0.3) 0%,rgba(0,0,0,1) 50%,rgba(0,0,0,0.3) 100%)
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6000000', endColorstr='#d9000000',GradientType=1 )
+  /* IE6-9 */
+
+%menu-gradient-hover
+  background: -moz-linear-gradient(left, rgba(255,225,255,0) 0%, rgba(255,255,255,0.7) 50%, rgba(255,225,255,0) 100%)
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(255,225,255,0) 0%,rgba(255,255,255,0.7) 50%, rgba(255,225,255,0) 100%)
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(255,225,255,0) 0%,rgba(255,255,255,0.7) 50%, rgba(255,225,255,0) 100%)
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffe100', endColorstr='#00ffe100',GradientType=1 )
+  /* IE6-9 */
+
+
+%side-element
+
+  height: 50vh
+  position: fixed
+  top: 25%
+  padding-left: 10px
+  overflow: hidden
+  @media (max-width: $small)
+    display: none
+  @extend %tablet-v-2-9
+  @media (max-width: 65em)
+    width: $col-2
+  @extend %tablet-h-1-9
+  @extend %desktop-1-9
+
+  img
+    width: 100%
+    z-index: -1
+
+
+%transition-02
+  -webkit-transition: all 0.2s ease-in-out
+  -moz-transition: all 0.2s ease-in-out
+  -o-transition: all 0.2s ease-in-out
+  transition: all 0.2s ease-in-out
