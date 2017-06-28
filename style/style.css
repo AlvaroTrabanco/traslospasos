@@ -18,7 +18,7 @@
   max-height: 70vh; }
 
 .vertical-img, .horizontal-img {
-  display: inline-block; }
+  display: block; }
   .vertical-img img, .horizontal-img img {
     width: 100%;
     height: 100%; }
@@ -176,7 +176,7 @@
   max-height: 70vh; }
 
 .vertical-img, .horizontal-img {
-  display: inline-block; }
+  display: block; }
   .vertical-img img, .horizontal-img img {
     width: 100%;
     height: 100%; }
@@ -520,12 +520,6 @@
   height: auto; }
 
 /*until here */
-iframe {
-  width: 200px;
-  height: 200px;
-  margin-top: 500px;
-  margin-left: 0; }
-
 /*-----------------------------------*\
   $TOAST-GRID
   An insane grid.
@@ -1068,13 +1062,6 @@ a {
     background-color: black; }
 
 /*attempt of fullscreen video */
-#attempt {
-  width: 100vw;
-  height: 100vh;
-  display: block;
-  position: absolute;
-  z-index: 20000; }
-
 .video-background {
   background: #000;
   position: absolute;
@@ -1098,18 +1085,8 @@ a {
     top: -100%; } }
 @media (max-aspect-ratio: 16 / 9) {
   .video-foreground {
-    width: 300%;
+    height: 300%;
     left: -100%; } }
-@media all and (max-width: 600px) {
-  .vid-info {
-    width: 50%;
-    padding: 0.5rem; }
-
-  .vid-info h1 {
-    margin-bottom: 0.2rem; } }
-@media all and (max-width: 500px) {
-  .vid-info .acronym {
-    display: none; } }
 .end-video {
   width: 100%;
   height: 200px;
@@ -1126,17 +1103,17 @@ a {
 
 .active {
   opacity: 1 !important;
-  visiblity: visible !important; }
+  visibility: visible !important; }
 
 .darkened {
   opacity: 0.5 !important; }
 
-#video {
+.video {
   width: 100%;
   height: 100vh;
   object-fit: fill;
   overflow: hidden; }
-  #video iframe {
+  .video iframe {
     min-width: 100%;
     min-height: 100%;
     height: auto;
@@ -1148,16 +1125,21 @@ a {
     top: 0;
     left: 0; }
     @media (min-aspect-ratio: 16 / 9) {
-      #video iframe {
+      .video iframe {
         height: 200%;
         top: -50%; } }
     @media (max-aspect-ratio: 16 / 9) {
-      #video iframe {
+      .video iframe {
         width: 300%;
         left: -100%; } }
 
-.lazy-loaded {
-  opacity: 1 !important; }
+.audio {
+  opacity: 1;
+  width: 0;
+  height: 0; }
+  .audio iframe {
+    width: 0;
+    height: 0; }
 
 .poster {
   min-height: 100%;
@@ -1322,5 +1304,78 @@ a {
           max-width: 33.33333vw;
           width: auto;
           max-height: 100vh; } }
+
+.fullScreenFadingImages {
+  width: 100%;
+  min-height: 300vh; }
+
+.bgFsImg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow: hidden; }
+  .bgFsImg img {
+    position: absolute;
+    margin: auto;
+    width: 100vw;
+    height: auto;
+    transition: all 0.5s ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0; }
+
+.corrected {
+  width: auto !important;
+  height: 100% !important;
+  left: 50% !important;
+  transform: translateX(-50%); }
+
+.galleryController .galleryControllerEl {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 2; }
+  .galleryController .galleryControllerEl p {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    line-height: 165%;
+    word-wrap: break-word;
+    position: absolute;
+    bottom: 0;
+    display: block;
+    left: 50%;
+    transform: translateX(-50%); }
+
+.mancheta {
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10; }
+
+#cuencasMineras {
+  position: relative; }
+
+@media (max-width: 40em) {
+  #bgImagesCuenca {
+    display: none; } }
+@media (min-width: 40em) {
+  #bgImagesCuenca {
+    display: block; } }
+@media (min-width: 50em) {
+  #bgImagesCuenca {
+    display: block; } }
+@media (min-width: 75em) {
+  #bgImagesCuenca {
+    display: block; } }
+
+.bgController {
+  width: 100%;
+  position: absolute;
+  top: 0; }
+  .bgController > div {
+    width: 100%; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
 
   console.log("start!");
@@ -18,7 +17,8 @@ $(document).ready(function(){
   var $fadingImagesDiv = $(".fadingImages");
   var $singleImgSmall = $(".fadingImages img");
 
-
+  var $fullScreenContainer = $("#fullScreenImages1");
+  var $fullScreenImages = $(".fullscreenImages img");
 
   function checkSize(){
       if ($(".singleImgFadingContainer").css("position") == "fixed" ){
@@ -112,6 +112,235 @@ $(document).ready(function(){
       }
   }
 
+
+
+
+  var $exFsGalleryControllerEl1 = $("#exFsGalleryControllerEl1");
+  var $exFsGalleryControllerEl2 = $("#exFsGalleryControllerEl2");
+  var $exFsGalleryControllerEl3 = $("#exFsGalleryControllerEl3");
+
+  var $exGalleryEl1 = $("#exGalleryEl1");
+  var $exGalleryEl2 = $("#exGalleryEl2");
+  var $exGalleryEl3 = $("#exGalleryEl3");
+
+  $exFsGalleryControllerEl1.waypoint(function(direction) {
+    if (direction == "down"){
+      $exGalleryEl1.addClass("active");
+    } else {
+      $exGalleryEl1.removeClass('active');
+    }
+  }, {offset: "0"} );
+  $exFsGalleryControllerEl1.waypoint(function(direction) {
+    if (direction == "down"){
+      $exGalleryEl1.removeClass("active");
+    } else {
+      $exGalleryEl1.addClass('active');
+    }
+  }, {offset: "-100%"} );
+
+
+  $exFsGalleryControllerEl2.waypoint(function(direction) {
+    if (direction == "down"){
+      $exGalleryEl2.addClass("active");
+    } else {
+      $exGalleryEl2.removeClass('active');
+    }
+  }, {offset: "0"} );
+  $exFsGalleryControllerEl2.waypoint(function(direction) {
+    if (direction == "down"){
+      $exGalleryEl2.removeClass("active");
+    } else {
+      $exGalleryEl2.addClass('active');
+    }
+  }, {offset: "-100%"} );
+
+
+  $exFsGalleryControllerEl3.waypoint(function(direction) {
+    if (direction == "down"){
+      $exGalleryEl3.addClass("active");
+    } else {
+      $exGalleryEl3.removeClass('active');
+    }
+  }, {offset: "0"} );
+  $exFsGalleryControllerEl3.waypoint(function(direction) {
+    if (direction == "down"){
+      $exGalleryEl3.removeClass("active");
+    } else {
+      $exGalleryEl3.addClass('active');
+    }
+  }, {offset: "-100%"} );
+
+
+
+
+  var $windowHeight = $(window).height();
+  var $bgImg = $(".bgFsImg img");
+  var $bgImgHeight = $(".bgFsImg img").height();
+
+
+
+  function correctBg(){
+    if ($windowHeight > $bgImgHeight) {
+      $bgImg.addClass("corrected");
+      console.log("working");
+    }else{
+      $bgImg.removeClass("corrected");
+    }
+  }
+
+correctBg();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var cuencasMinerasHeight = $("#cuencasMineras").height();
+$(".bgControllerEl").css("height", cuencasMinerasHeight/4);
+
+
+
+
+  var $cuencasMinerasController1 = $("#cuencasMinerasController1");
+  var $cuencasMinerasController2 = $("#cuencasMinerasController2");
+  var $cuencasMinerasController3 = $("#cuencasMinerasController3");
+  var $cuencasMinerasController4 = $("#cuencasMinerasController4");
+
+  var $bgCuenca1 = $("#bgCuenca1 img");
+  var $bgCuenca2 = $("#bgCuenca2 img");
+  var $bgCuenca3 = $("#bgCuenca3 img");
+  var $bgCuenca4 = $("#bgCuenca4 img");
+
+
+  $cuencasMinerasController1.waypoint(function(direction) {
+    if (direction == "down"){
+      $bgCuenca1.addClass("active");
+    } else {
+      $bgCuenca1.removeClass('active');
+    }
+  }, {offset: "0"} );
+  $cuencasMinerasController1.waypoint(function(direction) {
+    if (direction == "down"){
+      $bgCuenca1.removeClass("active");
+    } else {
+      $bgCuenca1.addClass('active');
+    }
+  }, {offset: function() {
+    return -this.element.clientHeight}  });
+
+
+  $cuencasMinerasController2.waypoint(function(direction) {
+    if (direction == "down"){
+      $bgCuenca2.addClass("active");
+    } else {
+      $bgCuenca2.removeClass('active');
+    }
+  }, {offset: "0"} );
+  $cuencasMinerasController2.waypoint(function(direction) {
+    if (direction == "down"){
+      $bgCuenca2.removeClass("active");
+    } else {
+      $bgCuenca2.addClass('active');
+    }
+  }, {offset: function() {
+    return -this.element.clientHeight} } );
+
+
+
+  $cuencasMinerasController3.waypoint(function(direction) {
+    if (direction == "down"){
+      $bgCuenca3.addClass("active");
+    } else {
+      $bgCuenca3.removeClass('active');
+    }
+  }, {offset: "0"} );
+  $cuencasMinerasController3.waypoint(function(direction) {
+    if (direction == "down"){
+      $bgCuenca3.removeClass("active");
+    } else {
+      $bgCuenca3.addClass('active');
+    }
+  }, {offset: function() {
+    return -this.element.clientHeight} } );
+
+
+  $cuencasMinerasController4.waypoint(function(direction) {
+    if (direction == "down"){
+      $bgCuenca4.addClass("active");
+    } else {
+      $bgCuenca4.removeClass('active');
+    }
+  }, {offset: "0"} );
+  $cuencasMinerasController4.waypoint(function(direction) {
+    if (direction == "down"){
+      $bgCuenca4.removeClass("active");
+    } else {
+      $bgCuenca4.addClass('active');
+    }
+  }, {offset: function() {
+    return -this.element.clientHeight} } );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   // run test on initial page load
   checkSize();
 
@@ -170,12 +399,12 @@ var $vigneteTimeline = $("#vignete");
 
 $timelineMarker1.waypoint(function(direction) {
   if(direction == "down"){
-    $timelineFirst.fadeIn(1000);
-    $vigneteTimeline.fadeIn(1000);
+    $timelineFirst.fadeIn(500);
+    $vigneteTimeline.fadeIn(500);
     console.log("I should be seen");
   } else{
-    $timelineFirst.fadeOut(400);
-    $vigneteTimeline.fadeOut(500);
+    $timelineFirst.fadeOut(200);
+    $vigneteTimeline.fadeOut(300);
     console.log("I should have disappeared");
   }
 }, {offset: "70%"} );
@@ -185,8 +414,8 @@ $timelineMarker1.waypoint(function(direction) {
     $timelineFirst.fadeIn(500);
     $vigneteTimeline.fadeIn(500)
   }else{
-    $timelineFirst.fadeOut(400);
-    $vigneteTimeline.fadeOut(500);
+    $timelineFirst.fadeOut(200);
+    $vigneteTimeline.fadeOut(300);
   }
 }, {offset: "100px"});
 
@@ -339,6 +568,24 @@ Menu.init();
   });
 
 
+var $hamburger = $(".hamburger-slim");
+
+function hideMenu(){
+    if ($("#menu").css("display") == "inherit") {
+        console.log("icon should be hidden");
+        $hamburger.addClass("hide");
+    } else {
+        $hamburger.removeClass("hide");
+        console.log("icon should be visible");
+    }
+  }
+
+hideMenu();
+$(window).resize(hideMenu);
+
+
+
+
 
 
 
@@ -347,11 +594,11 @@ Menu.init();
   var controller = new ScrollMagic.Controller();
 
   var pinVideo = new ScrollMagic.Scene({
-    triggerElement: '#video',
+    triggerElement: '#videoA',
     triggerHook: 0,
     duration: "150%"
   })
-  .setPin("#video")
+  .setPin("#videoA")
   .addIndicators({
     name: "video pin",
     colorTrigger: "yellow",
@@ -359,62 +606,41 @@ Menu.init();
   })
   .addTo(controller);
 
-
-
-  // scroll magic for the height of the element, not viewport
-  var controller = new ScrollMagic.Controller({
-    globalSceneOptions: {
-      triggerHook: 'onLeave'
-    }
-  });
-  var imgpin = $(".imgpin");
-  var durat = [];
-  imgpin.each(function() {
-    var h;
-    if ($(this).height() < $(window).height()) {
-      h = $(this).height();
-    } else {
-      h = 1;
-    }
-    durat.push(h);
-  });
-  imgpin.each(function(index) {
-    new ScrollMagic.Scene({
-      triggerElement: imgpin.get(index),
-      // duration: slides.eq(index).height(),
-      duration: durat[index],
-      // offset: slides.eq(index - 1 * index).offset().top
-      offset: 0
-    })
-    .setPin(imgpin.get(index), {
-      pushFollowers: false
-    })
-    .addIndicators({
-      name: "img pin",
-      colorTrigger: "yellow",
-      colorStart: "white"
-    })
-    .addTo(controller);
-  });
+  var pinVideoB = new ScrollMagic.Scene({
+    triggerElement: '#videoB',
+    triggerHook: 0,
+    duration: "150%"
+  })
+  .setPin("#videoB")
+  .addIndicators({
+    name: "video pin B",
+    colorTrigger: "yellow",
+    colorStart: "white",
+    intent: "200"
+  })
+  .addTo(controller);
 
 
 
 
-
-
-  /*lazy load*/
-    //
-    // $(".lazy").recliner({
-    //     attrib: "data-src", // selector for attribute containing the media src
-    //     throttle: 300,      // millisecond interval at which to process events
-    //     threshold: 500,     // scroll distance from element before its loaded
-    //     printable: true,    // be printer friendly and show all elements on document print
-    //     live: true          // auto bind lazy loading to ajax loaded elements
-    // });
-
-
-
-
+$(function() {
+    var controller = new ScrollMagic.Controller();
+    $(".imgpin").each(function () {
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        triggerHook: 0,
+        duration: "100%"
+      })
+      .setPin(this, {pushFollowers:false})
+      .addTo(controller)
+      .addIndicators({
+        name: "imgpin",
+        colorTrigger: "orange",
+        colorStart: "white",
+        indent: "200"
+      });
+    });
+});
 
 
 
@@ -464,11 +690,12 @@ window.onYouTubePlayerAPIReady = function(){
         IsElementInViewport: function(el){
             if (typeof jQuery === "function" && el instanceof jQuery) el = el[0];
             var rect = el.getBoundingClientRect();
+            // console.log(rect);
             return (
                 rect.top >= -1000 &&
-                rect.left >= -1000 &&
+                rect.left >= -2000 &&
                 rect.bottom <= (window.innerHeight*2 || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth*1.5 || document.documentElement.clientWidth)
+                rect.right <= (window.innerWidth*2 || document.documentElement.clientWidth)
             );
         }
 
@@ -480,19 +707,31 @@ window.onYouTubePlayerAPIReady = function(){
 
   LoadVideo('playerA');
   LoadVideo('playerB');
-  LoadVideo('playerC');
+
+  // LoadVideo('playerC');
 
 // or (loop mode)
-  $('iframe').each(function(){
-  	LoadVideo($(this).attr('id'));
-  });
+  // $('#video').each(function(){
+  // 	LoadVideo($(this).attr('#playerA'));
+  // });
 }
 
 
 
 
 
+/*lazy load*/
 
+
+
+  $(function() {
+      $(".lazy").recliner({
+          attrib: "data-src", // selector for attribute containing the media src
+          throttle: 300,      // millisecond interval at which to process events
+          threshold: 500,     // scroll distance from element before its loaded
+          live: true          // auto bind lazy loading to ajax loaded elements
+      });
+  });
 
 
 
