@@ -1105,6 +1105,9 @@ a {
   opacity: 1 !important;
   visibility: visible !important; }
 
+.displayed {
+  display: block; }
+
 .darkened {
   opacity: 0.5 !important; }
 
@@ -1377,5 +1380,9 @@ a {
   top: 0; }
   .bgController > div {
     width: 100%; }
+
+audio {
+  visibility: hidden;
+  position: fixed; }
 
 /*# sourceMappingURL=style.css.map */
