@@ -104,20 +104,39 @@
 
 
       <div class="landing">
-        <div class="landing-text">
-          <h1><span style="color:rgb(255, 222, 0);">1. </span>Raíces</h1>
+        <div class="landingText">
+          <h1><span style="color:rgb(255, 222, 0);">1<span class="rotating">.</span> </span><span id="introAudioMarker">Raíces</span></h1>
           <h3>Esta es la historia de los que partieron y regresaron, de aquellos que se quedaron y de quienes todavía no se han ido. Una familia marcada por la emigración en una Europa divida.<h3>
         </div>
-        <div class="landing-img">
+        <div class="landingImage">
+          
           <div class="vignete"></div>
-          <img src="images/chapterone/0-landing-big.jpg" srcset="images/chapterone/0-landing-big.jpg 1920w,
+          <img  src="images/chapterone/0-intro.png" srcset="images/chapterone/0-intro.png 1920w,
           images/chapterone/0-landing-small.jpg 800w, images/chapterone/0-landing-big2x.jpg 2x"
           alt="landing attempt">
+          <img class="landingImageClipped" src="images/chapterone/0-intro.jpg" srcset="images/chapterone/0-intro.jpg 1920w,
+          images/chapterone/0-landing-small.jpg 800w, images/chapterone/0-landing-big2x.jpg 2x"
+          alt="landing attempt">
+
         </div>
+
       </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
       <div class="text-center">
-        <p>Una familia <em>dividida por la búsqueda</em> de una prosperidad <i>que nunca pareció corresponderles</i>. Vidas construidas en torno a la dureza del trabajo físico, nocturno, repetitivo y peligroso,<a href="#"> en equilibrios imposibles</a> entre dos zonas mineras a mil setecientos kilómetros de distancia. Es la historia de Ezequiel y Pepita, quienes engrosaron las filas de la emigración asturiana en los años sesenta, haciendo de Alemania su hogar durante una década. Es también la historia de sus hijos, quienes hicieron suyo aquel país hasta el día de hoy. Es también la historia de la familia que les sucedió, de identidades cuestionadas, ausencias, distancias y preguntas de difícil respuesta. Es el mundo del trabajo llevado a lo concreto, dotado de rostro, humanizado y reconstruido para ser contado.</p>
+        <p><span id="stopAudioIntro">Una</span> familia <em>dividida por la búsqueda</em> de una prosperidad <i>que nunca pareció corresponderles</i>. Vidas construidas en torno a la dureza del trabajo físico, nocturno, repetitivo y peligroso,<a href="#"> en equilibrios imposibles</a> entre dos zonas mineras a mil setecientos kilómetros de distancia. Es la historia de Ezequiel y Pepita, quienes engrosaron las filas de la emigración asturiana en los años sesenta, haciendo de Alemania su hogar durante una década. Es también la historia de sus hijos, quienes hicieron suyo aquel país hasta el día de hoy. Es también la historia de la familia que les sucedió, de identidades cuestionadas, ausencias, distancias y preguntas de difícil respuesta. Es el mundo del trabajo llevado a lo concreto, dotado de rostro, humanizado y reconstruido para ser contado.</p>
       </div>
 
       <div class="subtitule">
@@ -148,7 +167,10 @@
         <h2>Audio<br class="break-here"> while reading</h2>
       </div>
 
-
+      <audio id="introAudio" controls>
+        <source src="audio/Ovejas_Grillos_pajaros.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+      </audio>
       <audio id="firstAudio" controls>
         <source src="audio/CarBeginning_Bird.mp3" type="audio/mpeg">
       Your browser does not support the audio element.

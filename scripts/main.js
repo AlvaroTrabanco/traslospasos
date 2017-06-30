@@ -1,15 +1,66 @@
 $(document).ready(function(){
   console.log("start!");
 
+
+// $(".landingImageClipped").addClass("clipAction");
+
+/*landing*/
+var $landing = $(".landingImage");
+
+$landing.waypoint(function(direction) {
+  if (direction == "down"){
+    $landing.fadeOut(500);
+  } else{
+    $landing.fadeIn(500);
+  }
+
+}, {offset: "-100%"} );
+
+// $landing.waypoint(function(direction) {
+//   if(direction == "up"){
+//     $landing.fadeIn(500);
+//
+//   }else{
+//     $landing.fadeOut(200);
+//
+//   }
+// }, {offset: "botom-in-view"});
+/*until here*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   /*Audio with text*/
+  var $introAudio = $("#introAudio");
   var $firstAudio = $("#firstAudio");
   var $secondAudio = $("#secondAudio");
   var $thirdAudio = $("#thirdAudio");
-  var $firstAudioMarker = $("#firstAudioMarker")
+
+  var $introAudioMarker = $("#introAudioMarker");
+  var $firstAudioMarker = $("#firstAudioMarker");
   var $secondAudioMarker = $("#secondAudioMarker");
   var $thirdAudioMarker = $("#thirdAudioMarker");
   var $exitingText = $("#stopAudio");
+  var $exitingIntro = $("#stopAudioIntro");
 
+
+  $introAudioMarker.waypoint(function(){
+    $introAudio.get(0).play();
+    $introAudio.animate({volume: 1}, 2000);
+  }, {offset: "bottom-in-view"}
+  );
   $firstAudioMarker.waypoint(function(){
     $firstAudio.get(0).play();
     $firstAudio.animate({volume: 1}, 2000);
@@ -30,6 +81,9 @@ $(document).ready(function(){
     $firstAudio.animate({volume: 0}, 2000);
     $secondAudio.animate({volume: 0}, 2000);
     $thirdAudio.animate({volume: 0}, 2000);
+  });
+  $exitingIntro.waypoint(function(){
+    $introAudio.animate({volume: 0}, 2000);
   });
   /*until here*/
 
@@ -488,7 +542,7 @@ $(window).resize(hideMenu);
 
 
 
-/*pinning video*/
+  /*pinning video*/
 
   var controller = new ScrollMagic.Controller();
 
@@ -518,99 +572,120 @@ $(window).resize(hideMenu);
     intent: "200"
   })
   .addTo(controller);
-/*until here*/
+  /*until here*/
 
 
-/*pinned images*/
-$(function() {
-    var controller = new ScrollMagic.Controller();
-    $(".imgpin").each(function () {
-      new ScrollMagic.Scene({
-        triggerElement: this,
-        triggerHook: 0,
-        duration: "100%"
-      })
-      .setPin(this, {pushFollowers:false})
-      .addTo(controller)
-      .addIndicators({
-        name: "imgpin",
-        colorTrigger: "orange",
-        colorStart: "white",
-        indent: "200"
+  /*pinned images*/
+  $(function() {
+      var controller = new ScrollMagic.Controller();
+      $(".imgpin").each(function () {
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          triggerHook: 0,
+          duration: "100%"
+        })
+        .setPin(this, {pushFollowers:false})
+        .addTo(controller)
+        .addIndicators({
+          name: "imgpin",
+          colorTrigger: "orange",
+          colorStart: "white",
+          indent: "200"
+        });
       });
-    });
-});
-/*until here*/
+  });
 
 
 
-/*youtube video playing when visible*/
-window.onYouTubePlayerAPIReady = function(){
-
-  var LoadVideo = function(player_id){
-
-    var Program = {
-      Init: function(){
-          this.NewPlayer();
-          this.EventHandler();
-      },
-
-      NewPlayer: function(){
-          var _this = this;
-          this.Player = new YT.Player(player_id, {});
-          _this.Player.$element = $('#' + player_id);
-      },
-
-      Play: function(){
-      	if( this.Player.getPlayerState() === 1 ) return;
-          this.Player.playVideo();
-      },
-
-      Pause: function(){
-      	if( this.Player.getPlayerState() === 2 ) return;
-          this.Player.pauseVideo();
-      },
-
-      ScrollControl: function(){
-      	if( Utils.IsElementInViewport(this.Player.$element[0]) ) this.Play();
-          else this.Pause();
-      },
-
-      EventHandler: function(){
-          var _this = this;
-          $(window).on('scroll', function(){
-              _this.ScrollControl();
-          });
-      }
-
-    };
-
-    var Utils = {
+  // $(function(){
+  //   var controller = new ScrollMagic.Controller();
+  //   $(".landing").each(function(){
+  //     new ScrollMagic.Scene({
+  //       triggerElement: this,
+  //       triggerHook: 0,
+  //       duration: "150%"
+  //     })
+  //     .setPin(this, {pushFollowers:true})
+  //     .addTo(controller)
+  //     .addIndicators({
+  //       name: "landingpage",
+  //       colorTrigger: "blue",
+  //       colorStart: "white",
+  //       indent: "200"
+  //     });
+  //   });
+  // });
+  /*until here*/
 
 
-        IsElementInViewport: function(el){
-            if (typeof jQuery === "function" && el instanceof jQuery) el = el[0];
-            var rect = el.getBoundingClientRect();
-            // console.log(rect);
-            return (
-                rect.top >= -1000 &&
-                rect.left >= -2000 &&
-                rect.bottom <= (window.innerHeight*2 || document.documentElement.clientHeight) &&
-                rect.right <= (window.innerWidth*2 || document.documentElement.clientWidth)
-            );
+
+  /*youtube video playing when visible*/
+  window.onYouTubePlayerAPIReady = function(){
+
+    var LoadVideo = function(player_id){
+
+      var Program = {
+        Init: function(){
+            this.NewPlayer();
+            this.EventHandler();
+        },
+
+        NewPlayer: function(){
+            var _this = this;
+            this.Player = new YT.Player(player_id, {});
+            _this.Player.$element = $('#' + player_id);
+        },
+
+        Play: function(){
+        	if( this.Player.getPlayerState() === 1 ) return;
+            this.Player.playVideo();
+        },
+
+        Pause: function(){
+        	if( this.Player.getPlayerState() === 2 ) return;
+            this.Player.pauseVideo();
+        },
+
+        ScrollControl: function(){
+        	if( Utils.IsElementInViewport(this.Player.$element[0]) ) this.Play();
+            else this.Pause();
+        },
+
+        EventHandler: function(){
+            var _this = this;
+            $(window).on('scroll', function(){
+                _this.ScrollControl();
+            });
         }
 
+      };
+
+      var Utils = {
+
+
+          IsElementInViewport: function(el){
+              if (typeof jQuery === "function" && el instanceof jQuery) el = el[0];
+              var rect = el.getBoundingClientRect();
+              // console.log(rect);
+              return (
+                  rect.top >= -1000 &&
+                  rect.left >= -2000 &&
+                  rect.bottom <= (window.innerHeight*2 || document.documentElement.clientHeight) &&
+                  rect.right <= (window.innerWidth*2 || document.documentElement.clientWidth)
+              );
+          }
+
+      };
+
+      return Program.Init();
+
     };
 
-    return Program.Init();
+    LoadVideo('playerA');
+    LoadVideo('playerB');
 
-  };
-
-  LoadVideo('playerA');
-  LoadVideo('playerB');
-
-}
-/*until here*/
+  }
+  /*until here*/
 
 
 

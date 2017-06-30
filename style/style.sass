@@ -126,18 +126,29 @@ a
   max-width: 1920px
   margin: auto
 
-
+@keyframes scaleLandingText
+  20%
+    transform: scale(1)
+  100%
+    transform: scale(0.5)
+@keyframes rotating
+  from
+    transform: rotate(0deg)
+  to
+    transform: rotate(360deg)
 .landing
   max-width: 100vw
   height: 100vh
   overflow: hidden
   position: relative
+  margin-bottom: 20%
   @media (max-width: $medium) and (orientation: landscape)
     height: auto
     padding-top: 2em
-  &-text
+  &Text
     position: relative
     top: 25%
+
     h1
       @include mobile
         font-size: 15vw
@@ -146,9 +157,14 @@ a
       @include tablet-h
         font-size: 10vw
       @include desktop
-        font-size: 8vw
+        font-size: 18vw
+        transform: scale(1)
+        animation: scaleLandingText 0.5s cubic-bezier(0.82, 0.58, 0, 0.99) 1s 1
+        animation-fill-mode: forwards
       text-align: center
       margin: auto
+
+
     h3
       @include tablet-v
         max-width: 90%
@@ -156,26 +172,37 @@ a
       max-width: 75%
       margin: auto
 
+.rotating
+  animation: rotating 2s linear 0s infinite
 
 
-.landing-img
-  position: absolute
-  top: 0
-  left: 0
+.landingImage
+  position: fixed
+  top: -50%
+  left: -50%
+  width: 200%
+  height: 200%
   z-index: -1
   img
-    width: 100vw
     position: absolute
     top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    margin: auto
+    min-width: 50%
+    min-height: 50%
     z-index: -1
   .vignete
 
     @extend %vignete-gradient
-    position: relative
+    position: absolute
     top: 0
     left: 0
-    width: 100vw
-    height: 100vh
+    right: 0
+    bottom: 0
+    min-width: 50%
+    min-height: 50%
     background-color: rgba(0,0,0,0.25)
 
 
@@ -752,4 +779,20 @@ a
 audio
   visibility: hidden
   position: fixed
-  
+
+@keyframes clipAnimation
+  0%
+    -webkit-clip-path: polygon(0% 0, 11.11% 5%, 11.11% 10%, 22.22% 4%, 22.22% 9%, 33.33% 4%, 33.33% 12%, 44.44% 6%, 44.44% 2%, 55.55% 8%, 55.55% 4%, 66.66% 10%, 66.66% 3%, 77.77% 15%, 77.77% 3%, 88.88% 4%, 88.88% 10%, 100% 10%, 100% 95%, 88.88% 92%, 88.88% 88%, 77.77% 95%, 77.77% 90%, 66.66% 93%, 66.66% 84%, 55.55% 95%, 55.55% 80%, 44.44% 92%, 44.44% 97%, 33.33% 80%, 33.33% 95%, 22.22% 86%, 22.22% 93%, 11.11% 98%, 11.11% 78%, 0% 90%)
+    clip-path: polygon(0 0, 11.11% 5%, 11.11% 10%, 22.22% 4%, 22.22% 9%, 33.33% 4%, 33.33% 12%, 44.44% 6%, 44.44% 2%, 55.55% 8%, 55.55% 4%, 66.66% 10%, 66.66% 3%, 77.77% 15%, 77.77% 3%, 88.88% 4%, 88.88% 10%, 100% 10%, 100% 95%, 88.88% 92%, 88.88% 88%, 77.77% 95%, 77.77% 90%, 66.66% 93%, 66.66% 84%, 55.55% 95%, 55.55% 80%, 44.44% 92%, 44.44% 97%, 33.33% 80%, 33.33% 95%, 22.22% 86%, 22.22% 93%, 11.11% 98%, 11.11% 78%, 0% 90%)
+  100%
+    -webkit-clip-path: polygon(0 50%, 11.11% 5%, 11.11% 10%, 22.22% 4%, 22.22% 9%, 33.33% 4%, 33.33% 12%, 44.44% 6%, 44.44% 2%, 55.55% 8%, 55.55% 4%, 66.66% 10%, 66.66% 3%, 77.77% 15%, 77.77% 3%, 88.88% 4%, 88.88% 10%, 100% 10%, 100% 95%, 88.88% 92%, 88.88% 88%, 77.77% 95%, 77.77% 90%, 66.66% 93%, 66.66% 84%, 55.55% 95%, 55.55% 80%, 44.44% 92%, 44.44% 50%, 33.33% 60%, 33.33% 95%, 22.22% 86%, 22.22% 93%, 11.11% 98%, 11.11% 78%, 0% 90%)
+    clip-path: polygon(0 50%, 11.11% 5%, 11.11% 10%, 22.22% 4%, 22.22% 9%, 33.33% 4%, 33.33% 12%, 44.44% 6%, 44.44% 2%, 55.55% 8%, 55.55% 4%, 66.66% 10%, 66.66% 3%, 77.77% 15%, 77.77% 3%, 88.88% 4%, 88.88% 10%, 100% 10%, 100% 95%, 88.88% 92%, 88.88% 88%, 77.77% 95%, 77.77% 90%, 66.66% 93%, 66.66% 84%, 55.55% 95%, 55.55% 80%, 44.44% 92%, 44.44% 50%, 33.33% 60%, 33.33% 95%, 22.22% 86%, 22.22% 93%, 11.11% 98%, 11.11% 78%, 0% 90%)
+  // 100%
+  //   -webkit-clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0% 100%)
+  //   clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0% 100%)
+.landingImageClipped
+  animation: clipAnimation 1s cubic-bezier(0.82, 0.58, 0, 0.99) 0s
+  animation-fill-mode: forwards
+  animation-direction: alternate
+  animation-iteration-count: 8
+  clip-path: polygon(0 0, 11.11% 5%, 11.11% 10%, 22.22% 4%, 22.22% 9%, 33.33% 4%, 33.33% 12%, 44.44% 6%, 44.44% 2%, 55.55% 8%, 55.55% 4%, 66.66% 10%, 66.66% 3%, 77.77% 15%, 77.77% 3%, 88.88% 4%, 88.88% 10%, 100% 10%, 100% 95%, 88.88% 92%, 88.88% 88%, 77.77% 95%, 77.77% 90%, 66.66% 93%, 66.66% 84%, 55.55% 95%, 55.55% 80%, 44.44% 92%, 44.44% 97%, 33.33% 80%, 33.33% 95%, 22.22% 86%, 22.22% 93%, 11.11% 98%, 11.11% 78%, 0% 90%)
