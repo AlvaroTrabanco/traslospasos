@@ -44,50 +44,141 @@ $landing.waypoint(function(direction) {
 
   /*Audio with text*/
   var $introAudio = $("#introAudio");
-  var $firstAudio = $("#firstAudio");
-  var $secondAudio = $("#secondAudio");
-  var $thirdAudio = $("#thirdAudio");
+  var $carStarting = $("#carStarting");
+  var $softRiver = $("#softRiver");
+  var $mineAudio = $("#mineAudio");
+
+
+
 
   var $introAudioMarker = $("#introAudioMarker");
-  var $firstAudioMarker = $("#firstAudioMarker");
-  var $secondAudioMarker = $("#secondAudioMarker");
-  var $thirdAudioMarker = $("#thirdAudioMarker");
+  var $carStartingMarker = $("#carStartingMarker");
+  var $softRiverMarker = $("#softRiverMarker");
+  var $mineAudioMarker = $("#mineAudioMarker");
+
+
+
   var $exitingText = $("#stopAudio");
   var $exitingIntro = $("#stopAudioIntro");
 
 
-  $introAudioMarker.waypoint(function(){
-    $introAudio.get(0).play();
-    $introAudio.animate({volume: 1}, 2000);
-  }, {offset: "bottom-in-view"}
-  );
-  $firstAudioMarker.waypoint(function(){
-    $firstAudio.get(0).play();
-    $firstAudio.animate({volume: 1}, 2000);
-  }, {offset: "bottom-in-view"}
-  );
-  $secondAudioMarker.waypoint(function(){
-    $secondAudio.get(0).play();
-    $secondAudio.animate({volume: 1}, 2000);
-  }, {offset: "bottom-in-view"}
-  );
-  $thirdAudioMarker.waypoint(function(){
-    $thirdAudio.get(0).play();
-    $thirdAudio.animate({volume: 1}, 2000);
-  }, {offset: "bottom-in-view"}
-  );
+  // $introAudioMarker.waypoint(function(){
+  //   $introAudio.get(0).play();
+  //   $introAudio.animate({volume: 1}, 2000);
+  // }, {offset: "bottom-in-view"}
+  // );
 
-  $exitingText.waypoint(function(){
-    $firstAudio.animate({volume: 0}, 2000);
-    $secondAudio.animate({volume: 0}, 2000);
-    $thirdAudio.animate({volume: 0}, 2000);
+
+  // $exitingText.waypoint(function(){
+    // $firstAudio.animate({volume: 0}, 2000);
+    // // $secondAudio.animate({volume: 0}, 2000);
+    // $thirdAudio.animate({volume: 0}, 2000);
+  // });
+  // $exitingIntro.waypoint(function(){
+  //   $introAudio.animate({volume: 0}, 2000);
+  // });
+
+var $newAudio = $("#newAudio");
+var $newAudioMarker = $("#newAudioMarker");
+var $bangAudio = $("#bangAudio");
+var $bangAudioMarker = $("#bangAudioMarker");
+var $guerraAudio = $("#guerraAudio");
+var $guerraAudioMarker = $("#guerraAudioMarker");
+
+$.fn.isInViewport = function() {
+  var elementTop = $(this).offset().top;
+  var elementBottom = elementTop + $(this).outerHeight();
+  var viewportTop = $(window).scrollTop();
+  var viewportBottom = viewportTop + $(window).height();
+  return elementBottom > viewportTop && elementTop < viewportBottom;
+};
+
+$.fn.isNotInViewport = function() {
+  var elementTop = $(this).offset().top;
+  var elementBottom = elementTop + $(this).outerHeight();
+  var viewportTop = $(window).scrollTop();
+  var viewportBottom = viewportTop + $(window).height();
+  return elementBottom < viewportTop || elementTop > viewportBottom;
+};
+
+var lastScrollTop = 0;
+
+$(window).on('resize scroll', function() {
+  var st = $(this).scrollTop();
+  $('#newAudioMarker').each(function() {
+    if ($(this).isInViewport()) {
+      $("#newAudio").get(0).play();
+      $newAudio.stop(true,false);
+      $("#newAudio").animate({volume: 1}, 1000);
+      $("#newAudioMarker").addClass("played");
+      // console.log("in");
+    } else if ($(this).isNotInViewport() && st > lastScrollTop) {
+      $("#newAudio").animate({volume: 0}, 1000);
+      // console.log("OUT_down");
+    } else {
+      $("#newAudio").animate({volume: 0}, 1000);
+      // console.log("out_up");
+    }
   });
-  $exitingIntro.waypoint(function(){
-    $introAudio.animate({volume: 0}, 2000);
+
+  $('#bangAudioMarker').each(function() {
+    if ($(this).isInViewport() && !$(this).hasClass('played')) {
+      $("#bangAudio").get(0).play();
+      $bangAudio.stop(true,true);
+      $("#bangAudio").animate({volume: 1}, 200);
+      $("#bangAudioMarker").addClass("played");
+      // console.log("in");
+    } else if ($(this).isNotInViewport()) {
+      $("#bangAudio").animate({volume: 0}, 1000);
+      // console.log("OUT_down");
+    }
   });
+
+  $('#carStartingMarker').each(function() {
+    if ($(this).isInViewport() && !$(this).hasClass('played')) {
+      $("#carStarting").get(0).play();
+      $carStarting.stop(true,true);
+      $("#carStarting").animate({volume: 1}, 200);
+      $("#carStartingMarker").addClass("played");
+      // console.log("in");
+    } else if ($(this).isNotInViewport()) {
+      $("#carStarting").animate({volume: 0}, 1000);
+      // console.log("OUT_down");
+    }
+  });
+
+  $('#softRiverMarker').each(function() {
+    if ($(this).isInViewport() && !$(this).hasClass('played')) {
+      $("#softRiver").get(0).play();
+      $softRiver.stop(true,true);
+      $("#softRiver").animate({volume: 1}, 200);
+      $("#softRiverMarker").addClass("played");
+      // console.log("in");
+    } else if ($(this).isNotInViewport()) {
+      $("#softRiver").animate({volume: 0}, 1000);
+      // console.log("OUT_down");
+    }
+  });
+
+  $('#mineAudioMarker').each(function() {
+    if ($(this).isInViewport() && !$(this).hasClass('played')) {
+      $("#mineAudio").get(0).play();
+      $mineAudio.stop(true,true);
+      $("#mineAudio").animate({volume: 1}, 200);
+      $("#mineAudioMarker").addClass("played");
+      // console.log("in");
+    } else if ($(this).isNotInViewport()) {
+      $("#mineAudio").animate({volume: 0}, 1000);
+      // console.log("OUT_down");
+    }
+  });
+
+
+  lastScrollTop = st;
+});
+
+
   /*until here*/
-
-
 
 
 
@@ -111,6 +202,14 @@ $landing.waypoint(function(direction) {
   var $singleImgFade4 = $("#imgFadeIntro4");
   var $fadingImagesDiv = $(".fadingImages");
   var $singleImgSmall = $(".fadingImages img");
+
+
+
+  /*attempt to make a second fadein lateral gallery*/
+  var $markerFadeSecondAttempt = $("#markerFadeSecondAttempt");
+  var $singleImgFadeSecond1 = $("#imgFadeSecond1");
+  var $singleImgFadeSecond2 = $("#imgFadeSecond2");
+  var $singleImgFadeSecond3 = $("#imgFadeSecond3");
 
   var $fullScreenContainer = $("#fullScreenImages1");
   var $fullScreenImages = $(".fullscreenImages img");
@@ -182,6 +281,70 @@ $landing.waypoint(function(direction) {
           }
         }, {offset: "0%"} );
 
+
+
+
+
+
+
+
+
+
+        $markerFadeSecondAttempt.waypoint(function(direction) {
+          if (direction == "down"){
+            $singleImgFadeSecond1.addClass("active");
+          } else {
+            $singleImgFadeSecond1.removeClass('active');
+          }
+        }, {offset: "120%"} );
+        $markerFadeSecondAttempt.waypoint(function(direction) {
+          if (direction == "down"){
+            $singleImgFadeSecond1.removeClass("active");
+          } else {
+            $singleImgFadeSecond1.addClass('active');
+          }
+        }, {offset: "80%"} );
+
+
+        $markerFadeSecondAttempt.waypoint(function(direction) {
+          if (direction == "down"){
+            $singleImgFadeSecond2.addClass("active");
+          } else {
+            $singleImgFadeSecond2.removeClass('active');
+          }
+        }, {offset: "80%"} );
+        $markerFadeSecondAttempt.waypoint(function(direction) {
+          if (direction == "down"){
+            $singleImgFadeSecond2.removeClass("active");
+          } else {
+            $singleImgFadeSecond2.addClass('active');
+          }
+        }, {offset: "40%"} );
+
+
+        $markerFadeSecondAttempt.waypoint(function(direction) {
+          if (direction == "down"){
+            $singleImgFadeSecond3.addClass("active");
+          } else {
+            $singleImgFadeSecond3.removeClass('active');
+          }
+        }, {offset: "40%"} );
+        $markerFadeSecondAttempt.waypoint(function(direction) {
+          if (direction == "down"){
+            $singleImgFadeSecond3.removeClass("active");
+          } else {
+            $singleImgFadeSecond3.addClass('active');
+          }
+        }, {offset: "0%"} );
+
+
+
+
+
+
+
+
+
       } else {
         $(".fadingImages p").addClass("visible");
         $singleImgSmall.each(function() {
@@ -204,6 +367,8 @@ $landing.waypoint(function(direction) {
     }
   }
 
+
+
   // run test on initial page load
   checkSize();
 
@@ -217,6 +382,24 @@ $landing.waypoint(function(direction) {
 
 
 /*Code for fullscreen gallery controlled by blocks with text inside*/
+
+/*Fit images in fullscreen*/
+var $windowHeight = $(window).height();
+var $bgImg = $(".bgFsImg img");
+var $bgImgHeight = $(".bgFsImg img").height();
+
+function correctBg(){
+  if ($windowHeight > $bgImgHeight) {
+    $bgImg.addClass("corrected");
+  }else{
+    $bgImg.removeClass("corrected");
+  }
+}
+correctBg();
+
+
+
+
   var $exFsGalleryControllerEl1 = $("#exFsGalleryControllerEl1");
   var $exFsGalleryControllerEl2 = $("#exFsGalleryControllerEl2");
   var $exFsGalleryControllerEl3 = $("#exFsGalleryControllerEl3");
@@ -274,23 +457,64 @@ $landing.waypoint(function(direction) {
   /*until here*/
 
 
+/*let's make a second fullscreen gallery*/
 
-  /*Fit images in fullscreen*/
-  var $windowHeight = $(window).height();
-  var $bgImg = $(".bgFsImg img");
-  var $bgImgHeight = $(".bgFsImg img").height();
+  var $FsGallery2ControllerEl1 = $("#FsGallery2ControllerEl1");
+  var $FsGallery2ControllerEl2 = $("#FsGallery2ControllerEl2");
+  var $FsGallery2ControllerEl3 = $("#FsGallery2ControllerEl3");
 
-  function correctBg(){
-    if ($windowHeight > $bgImgHeight) {
-      $bgImg.addClass("corrected");
-      console.log("working");
-    }else{
-      $bgImg.removeClass("corrected");
+  var $fsGalleryEl1 = $("#fsGalleryEl1");
+  var $fsGalleryEl2 = $("#fsGalleryEl2");
+  var $fsGalleryEl3 = $("#fsGalleryEl3");
+
+  $FsGallery2ControllerEl1.waypoint(function(direction) {
+    if (direction == "down"){
+      $fsGalleryEl1.addClass("active");
+    } else {
+      $fsGalleryEl1.removeClass('active');
     }
-  }
+  }, {offset: "0"} );
+  $FsGallery2ControllerEl1.waypoint(function(direction) {
+    if (direction == "down"){
+      $fsGalleryEl1.removeClass("active");
+    } else {
+      $fsGalleryEl1.addClass('active');
+    }
+  }, {offset: "-100%"} );
 
-  correctBg();
+
+  $FsGallery2ControllerEl2.waypoint(function(direction) {
+    if (direction == "down"){
+      $fsGalleryEl2.addClass("active");
+    } else {
+      $fsGalleryEl2.removeClass('active');
+    }
+  }, {offset: "0"} );
+  $FsGallery2ControllerEl2.waypoint(function(direction) {
+    if (direction == "down"){
+      $fsGalleryEl2.removeClass("active");
+    } else {
+      $fsGalleryEl2.addClass('active');
+    }
+  }, {offset: "-100%"} );
+
+
+  $FsGallery2ControllerEl3.waypoint(function(direction) {
+    if (direction == "down"){
+      $fsGalleryEl3.addClass("active");
+    } else {
+      $fsGalleryEl3.removeClass('active');
+    }
+  }, {offset: "0"} );
+  $FsGallery2ControllerEl3.waypoint(function(direction) {
+    if (direction == "down"){
+      $fsGalleryEl3.removeClass("active");
+    } else {
+      $fsGalleryEl3.addClass('active');
+    }
+  }, {offset: "-100%"} );
   /*until here*/
+
 
 
 
@@ -432,11 +656,9 @@ $timelineMarker1.waypoint(function(direction) {
   if(direction == "down"){
     $timelineFirst.fadeIn(500);
     $vigneteTimeline.fadeIn(500);
-    console.log("I should be seen");
   } else{
     $timelineFirst.fadeOut(200);
     $vigneteTimeline.fadeOut(300);
-    console.log("I should have disappeared");
   }
 }, {offset: "70%"} );
 
@@ -511,7 +733,6 @@ Menu.init();
     $('#backgroundColor').toggleClass('darkBackground');
   });
   $('.hamburger-slim').click(function(){
-    console.log('hice click en el hamburger');
     $('#menu').addClass('enabled');
     $('body').addClass('stop-scrolling');
   });
@@ -525,11 +746,9 @@ var $hamburger = $(".hamburger-slim");
 
 function hideMenu(){
     if ($("#menu").css("display") == "inherit") {
-        console.log("icon should be hidden");
         $hamburger.addClass("hide");
     } else {
         $hamburger.removeClass("hide");
-        console.log("icon should be visible");
     }
   }
 
@@ -546,33 +765,79 @@ $(window).resize(hideMenu);
 
   var controller = new ScrollMagic.Controller();
 
-  var pinVideo = new ScrollMagic.Scene({
-    triggerElement: '#videoA',
+  // var pinVideo = new ScrollMagic.Scene({
+  //   triggerElement: '#videoA',
+  //   triggerHook: 0,
+  //   duration: "150%"
+  // })
+  // .setPin("#videoA")
+  // .addIndicators({
+  //   name: "Scroll to stop",
+  //   colorTrigger: "yellow",
+  //   colorStart: "white"
+  // })
+  // .addTo(controller);
+
+
+
+
+  var pinVideoB = new ScrollMagic.Scene({
+    triggerElement: '#playerB',
     triggerHook: 0,
     duration: "150%"
   })
-  .setPin("#videoA")
+  .setPin("#playerB")
   .addIndicators({
-    name: "video pin",
-    colorTrigger: "yellow",
-    colorStart: "white"
+    name: " ",
+    colorTrigger: "black",
+    colorStart: "black",
+    indent: "0"
   })
   .addTo(controller);
 
-  var pinVideoB = new ScrollMagic.Scene({
-    triggerElement: '#videoB',
+
+
+
+  var pinVideoC = new ScrollMagic.Scene({
+    triggerElement: '#playerC',
     triggerHook: 0,
     duration: "150%"
   })
-  .setPin("#videoB")
+  .setPin("#playerC")
   .addIndicators({
-    name: "video pin B",
-    colorTrigger: "yellow",
-    colorStart: "white",
-    intent: "200"
+    name: " ",
+    colorTrigger: "black",
+    colorStart: "black",
+    indent: "0"
+  })
+  .addTo(controller);
+
+
+
+
+  var pinVideoHagel = new ScrollMagic.Scene({
+    triggerElement: '#playerHagel',
+    triggerHook: 0,
+    duration: "150%"
+  })
+  .setPin("#playerHagel")
+  .addIndicators({
+    name: " ",
+    colorTrigger: "black",
+    colorStart: "black",
+    indent: "0"
   })
   .addTo(controller);
   /*until here*/
+
+
+
+
+
+
+
+
+
 
 
   /*pinned images*/
@@ -584,13 +849,13 @@ $(window).resize(hideMenu);
           triggerHook: 0,
           duration: "100%"
         })
-        .setPin(this, {pushFollowers:false})
+        .setPin(this, {pushFollowers:true})
         .addTo(controller)
         .addIndicators({
           name: "imgpin",
-          colorTrigger: "orange",
-          colorStart: "white",
-          indent: "200"
+          colorTrigger: "black",
+          colorStart: "black",
+          indent: "0"
         });
       });
   });
@@ -619,79 +884,112 @@ $(window).resize(hideMenu);
 
 
 
-  /*youtube video playing when visible*/
-  window.onYouTubePlayerAPIReady = function(){
+  // /*youtube video playing when visible*/
+  // window.onYouTubePlayerAPIReady = function(){
+  //
+  //   var LoadVideo = function(player_id){
+  //
+  //     var Program = {
+  //       Init: function(){
+  //           this.NewPlayer();
+  //           this.EventHandler();
+  //       },
+  //
+  //       NewPlayer: function(){
+  //           var _this = this;
+  //           this.Player = new YT.Player(player_id, {});
+  //           _this.Player.$element = $('#' + player_id);
+  //       },
+  //
+  //       Play: function(){
+  //       	if( this.Player.getPlayerState() === 1 ) return;
+  //           this.Player.playVideo();
+  //       },
+  //
+  //       Pause: function(){
+  //       	if( this.Player.getPlayerState() === 2 ) return;
+  //           this.Player.pauseVideo();
+  //       },
+  //
+  //       ScrollControl: function(){
+  //       	if( Utils.IsElementInViewport(this.Player.$element[0]) ) this.Play();
+  //           else this.Pause();
+  //       },
+  //
+  //       EventHandler: function(){
+  //           var _this = this;
+  //           $(window).on('scroll', function(){
+  //               _this.ScrollControl();
+  //           });
+  //       }
+  //
+  //     };
+  //
+  //     var Utils = {
+  //
+  //
+  //         IsElementInViewport: function(el){
+  //             if (typeof jQuery === "function" && el instanceof jQuery) el = el[0];
+  //             var rect = el.getBoundingClientRect();
+  //             // console.log(rect);
+  //             return (
+  //                 rect.top >= -1000 &&
+  //                 rect.left >= -2000 &&
+  //                 rect.bottom <= (window.innerHeight*2 || document.documentElement.clientHeight) &&
+  //                 rect.right <= (window.innerWidth*2 || document.documentElement.clientWidth)
+  //             );
+  //         }
+  //
+  //     };
+  //
+  //     return Program.Init();
+  //
+  //
+  //     // player.addEventListener("onStateChange", function(state){
+  //     //   if(state === 0){
+  //     //     console.log("It worked");
+  //     //   }
+  //     // });
+  //
+  //   };
+  //
+  //   LoadVideo('playerA');
+  //
+  //
+  //
+  //
+  //
+  //
+  // }
+  // /*until here*/
 
-    var LoadVideo = function(player_id){
-
-      var Program = {
-        Init: function(){
-            this.NewPlayer();
-            this.EventHandler();
-        },
-
-        NewPlayer: function(){
-            var _this = this;
-            this.Player = new YT.Player(player_id, {});
-            _this.Player.$element = $('#' + player_id);
-        },
-
-        Play: function(){
-        	if( this.Player.getPlayerState() === 1 ) return;
-            this.Player.playVideo();
-        },
-
-        Pause: function(){
-        	if( this.Player.getPlayerState() === 2 ) return;
-            this.Player.pauseVideo();
-        },
-
-        ScrollControl: function(){
-        	if( Utils.IsElementInViewport(this.Player.$element[0]) ) this.Play();
-            else this.Pause();
-        },
-
-        EventHandler: function(){
-            var _this = this;
-            $(window).on('scroll', function(){
-                _this.ScrollControl();
-            });
-        }
-
-      };
-
-      var Utils = {
-
-
-          IsElementInViewport: function(el){
-              if (typeof jQuery === "function" && el instanceof jQuery) el = el[0];
-              var rect = el.getBoundingClientRect();
-              // console.log(rect);
-              return (
-                  rect.top >= -1000 &&
-                  rect.left >= -2000 &&
-                  rect.bottom <= (window.innerHeight*2 || document.documentElement.clientHeight) &&
-                  rect.right <= (window.innerWidth*2 || document.documentElement.clientWidth)
-              );
-          }
-
-      };
-
-      return Program.Init();
-
-    };
-
-    LoadVideo('playerA');
-    LoadVideo('playerB');
-
-  }
-  /*until here*/
 
 
 
+//mute button//
+// $('.speaker').click(function(e) {
+//   e.preventDefault();
+//
+//   if (!$(this).hasClass("muted")){
+//     $(this).addClass("muted");
+//     console.log("ev muted");
+//     $('body video, body audio').each(function(){
+//       $(this).prop('muted', true);
+//     });
+//
+//   } else {
+//     $(this).removeClass("muted");
+//     console.log("ev UNmuted");
+//     $('body video, body audio').each(function(){
+//        $(this).prop('muted', false);
+//     });
+//   }
+//
+//
+// });
 
 
-
+//until here//
 
 
 

@@ -3,7 +3,7 @@
  * The javascript library for magical scroll interactions.
  * (c) 2015 Jan Paepke (@janpaepke)
  * Project Website: http://scrollmagic.io
- * 
+ *
  * @version 2.0.5
  * @license Dual licensed under MIT license and GPL.
  * @author Jan Paepke - e-mail@janpaepke.de
@@ -67,7 +67,7 @@
 		};
 
 		/**
-		 * Add visual indicators for a ScrollMagic.Scene.  
+		 * Add visual indicators for a ScrollMagic.Scene.
 		 * @memberof! debug.addIndicators#
 		 *
 		 * @example
@@ -78,13 +78,13 @@
 		 * scene.addIndicators({name: "pin scene", colorEnd: "#FFFFFF"});
 		 *
 		 * @param {object} [options] - An object containing one or more options for the indicators.
-		 * @param {(string|object)} [options.parent=undefined] - A selector, DOM Object or a jQuery object that the indicators should be added to.  
+		 * @param {(string|object)} [options.parent=undefined] - A selector, DOM Object or a jQuery object that the indicators should be added to.
 		 If undefined, the controller's container will be used.
 		 * @param {number} [options.name=""] - This string will be displayed at the start and end indicators of the scene for identification purposes. If no name is supplied an automatic index will be used.
 		 * @param {number} [options.indent=0] - Additional position offset for the indicators (useful, when having multiple scenes starting at the same position).
-		 * @param {string} [options.colorStart=green] - CSS color definition for the start indicator.
-		 * @param {string} [options.colorEnd=red] - CSS color definition for the end indicator.
-		 * @param {string} [options.colorTrigger=blue] - CSS color definition for the trigger indicator.
+		 * @param {string} [options.colorStart=white] - CSS color definition for the start indicator.
+		 * @param {string} [options.colorEnd=white] - CSS color definition for the end indicator.
+		 * @param {string} [options.colorTrigger=white] - CSS color definition for the trigger indicator.
 		 */
 		Scene.addIndicators = function (options) {
 			if (!_indicator) {
@@ -94,7 +94,7 @@
 					indent: 0,
 					parent: undefined,
 					colorStart: "green",
-					colorEnd: "red",
+					colorEnd: "rgba(0,0,0,0.4)",
 					colorTrigger: "blue",
 				};
 
@@ -143,7 +143,7 @@
 	 */
 	// add option to globally auto-add indicators to scenes
 	/**
-	 * Every ScrollMagic.Controller instance now accepts an additional option.  
+	 * Every ScrollMagic.Controller instance now accepts an additional option.
 	 * See {@link ScrollMagic.Controller} for a complete list of the standard options.
 	 * @memberof! debug.addIndicators#
 	 * @method new ScrollMagic.Controller(options)
@@ -430,20 +430,26 @@
 			var v = _ctrl.info("vertical");
 			// apply stuff we didn't know before...
 			_util.css(_elemStart.firstChild, {
+				"opacity": "0.2",
 				"border-bottom-width": v ? 1 : 0,
 				"border-right-width": v ? 0 : 1,
 				"bottom": v ? -1 : options.indent,
 				"right": v ? options.indent : -1,
-				"padding": v ? "0 8px" : "2px 4px",
+				"padding": v ? "7px" : "2px 4px",
 			});
 			_util.css(_elemEnd, {
+				"opacity": 0.2,
+				"-webkit-transform": "skew(-10deg)",
+	   		"-moz-transform": "skew(-10deg)",
+	     	"-o-transform": "skew(-10deg)",
+				// "border-radius": "20px",
 				"border-top-width": v ? 1 : 0,
 				"border-left-width": v ? 0 : 1,
 				"top": v ? "100%" : "",
 				"right": v ? options.indent : "",
 				"bottom": v ? "" : options.indent,
 				"left": v ? "" : "100%",
-				"padding": v ? "0 8px" : "2px 4px"
+				"padding": v ? "7px" : "2px 4px"
 			});
 			// append
 			_boundsContainer.appendChild(_elemBounds);
@@ -504,7 +510,7 @@
 		};
 
 		// updates the trigger group -> either join existing or add new one
-/*	
+/*
 		 * Logic:
 		 * 1 if a trigger group exist, check if it's in sync with Scene settings – if so, nothing else needs to happen
 		 * 2 try to find an existing one that matches Scene parameters
@@ -591,12 +597,12 @@
 		start: function (color) {
 			// inner element (for bottom offset -1, while keeping top position 0)
 			var inner = document.createElement("div");
-			inner.textContent = "start";
+			inner.textContent = " ";
 			_util.css(inner, {
 				position: "absolute",
 				overflow: "visible",
-				"border-width": 0,
-				"border-style": "solid",
+				// "border-width": 0,
+				// "border-style": "solid",
 				color: color,
 				"border-color": color
 			});
@@ -613,14 +619,25 @@
 		},
 		end: function (color) {
 			var e = document.createElement('div');
-			e.textContent = "end";
+			e.textContent = "Scroll to skip";
 			_util.css(e, {
 				position: "absolute",
 				overflow: "visible",
-				"border-width": 0,
-				"border-style": "solid",
+
+				// "border-width": 0,
+				// "border-style": "solid",
 				color: color,
-				"border-color": color
+				"font-family": "lora, georgia, serif",
+				"font-size": "12px",
+				// "border-color": color,
+				"opacity": "0.2!important",
+				// "border-radius": "21px!important",
+				"backgroundColor": "rgba(255,255,255,0.1)",
+				"width": "auto",
+				"height": "auto",
+				"-webkit-transform": "skew(-20deg)",
+	   		"-moz-transform": "skew(-20deg)",
+	     "-o-transform": "skew(-20deg)"
 			});
 			return e;
 		},
