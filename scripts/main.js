@@ -121,6 +121,32 @@ $(window).on('resize scroll', function() {
     }
   });
 
+  $('#introAudioMarker').each(function() {
+    if ($(this).isInViewport() && !$(this).hasClass('played')) {
+      $("#introAudio").get(0).play();
+      $mineAudio.stop(true,true);
+      $("#introAudio").animate({volume: 1}, 200);
+      $("#introAudioMarker").addClass("played");
+      // console.log("in");
+    } else if ($(this).isNotInViewport()) {
+      $("#introAudio").animate({volume: 0}, 1000);
+      // console.log("OUT_down");
+    }
+  });
+
+  $('#introMusicMarker').each(function() {
+    if ($(this).isInViewport() && !$(this).hasClass('played')) {
+      $("#introMusic").get(0).play();
+      $mineAudio.stop(true,true);
+      $("#introMusic").animate({volume: 1}, 200);
+      $("#introMusicMarker").addClass("played");
+      // console.log("in");
+    } else if ($(this).isNotInViewport()) {
+      $("#introMusic").animate({volume: 0}, 1000);
+      // console.log("OUT_down");
+    }
+  });
+
   $('#bangAudioMarker').each(function() {
     if ($(this).isInViewport() && !$(this).hasClass('played')) {
       $("#bangAudio").get(0).play();
@@ -862,24 +888,24 @@ $(window).resize(hideMenu);
 
 
 
-  // $(function(){
-  //   var controller = new ScrollMagic.Controller();
-  //   $(".landing").each(function(){
-  //     new ScrollMagic.Scene({
-  //       triggerElement: this,
-  //       triggerHook: 0,
-  //       duration: "150%"
-  //     })
-  //     .setPin(this, {pushFollowers:true})
-  //     .addTo(controller)
-  //     .addIndicators({
-  //       name: "landingpage",
-  //       colorTrigger: "blue",
-  //       colorStart: "white",
-  //       indent: "200"
-  //     });
-  //   });
-  // });
+  $(function(){
+    var controller = new ScrollMagic.Controller();
+    $(".landing").each(function(){
+      new ScrollMagic.Scene({
+        triggerElement: this,
+        triggerHook: 0,
+        duration: "150%"
+      })
+      .setPin(this, {pushFollowers:true})
+      .addTo(controller)
+      .addIndicators({
+        name: "landingpage",
+        colorTrigger: "blue",
+        colorStart: "white",
+        indent: "200"
+      });
+    });
+  });
   /*until here*/
 
 
@@ -972,20 +998,24 @@ $(window).resize(hideMenu);
 //
 //   if (!$(this).hasClass("muted")){
 //     $(this).addClass("muted");
-//     console.log("ev muted");
+//     // console.log("ev muted");
 //     $('body video, body audio').each(function(){
 //       $(this).prop('muted', true);
 //     });
+//     playerB.mute();
+//     playerC.mute();
+//     playerHagel.mute();
 //
 //   } else {
 //     $(this).removeClass("muted");
-//     console.log("ev UNmuted");
+//     // console.log("ev UNmuted");
 //     $('body video, body audio').each(function(){
 //        $(this).prop('muted', false);
 //     });
+//     playerB.unMute();
+//     playerC.unMute();
+//     playerHagel.unMute();
 //   }
-//
-//
 // });
 
 

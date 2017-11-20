@@ -4,6 +4,7 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="163.601px" height="637.468px" viewBox="0 0 163.601 637.468" enable-background="new 0 0 163.601 637.468"
 	 xml:space="preserve">
+<rect x="0" width="163.601" height="637.468"/>
 <g>
 	<line fill="none" stroke="#FFCC07" stroke-miterlimit="10" x1="10.96" y1="-680.589" x2="10.96" y2="636.411"/>
 	<circle fill="#1B1B1B" stroke="#FFCC07" stroke-miterlimit="10" cx="10.96" cy="27.911" r="7.333"/>
@@ -11,44 +12,63 @@
 		<text transform="matrix(1 0 0 1 26.9602 33.3273)" fill="#FFFFFF" font-family="'Merriweather-Regular'" font-size="17">1960</text>
 	</g>
 	<g>
-		<text transform="matrix(1 0 0 1 26.9602 54.8273)"><tspan x="0" y="0" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">Emigración </tspan><tspan x="0" y="19" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">de Ricardo</tspan></text>
+		<text transform="matrix(1 0 0 1 26.9602 54.8273)" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">Emigración </text>
+		<text transform="matrix(1 0 0 1 26.9602 73.8273)" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">de Ricardo</text>
 	</g>
 	<circle fill="#1B1B1B" stroke="#FFCC07" stroke-miterlimit="10" cx="10.96" cy="99.911" r="7.333"/>
 	<g>
 		<text transform="matrix(1 0 0 1 26.9602 105.3273)" fill="#FFFFFF" font-family="'Merriweather-Regular'" font-size="17">1961</text>
 	</g>
 	<g>
-		<text transform="matrix(1 0 0 1 26.9602 126.8273)"><tspan x="0" y="0" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">Emigración de </tspan><tspan x="0" y="19" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">Ezequiel y Pepita</tspan></text>
+		<text transform="matrix(1 0 0 1 26.9602 126.8273)" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">Emigración de </text>
+		<text transform="matrix(1 0 0 1 26.9602 145.8273)" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">Ezequiel y Pepita</text>
 	</g>
 	<circle fill="#1B1B1B" stroke="#FFCC07" stroke-miterlimit="10" cx="10.96" cy="173.911" r="7.333"/>
 	<g>
 		<text transform="matrix(1 0 0 1 26.9602 179.3273)" fill="#FFFFFF" font-family="'Merriweather-Regular'" font-size="17">1962</text>
 	</g>
 	<g>
-		<text transform="matrix(1 0 0 1 26.9602 200.8273)"><tspan x="0" y="0" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">Sus hijos </tspan><tspan x="0" y="19" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">van a Alemania</tspan></text>
+		<text transform="matrix(1 0 0 1 26.9602 200.8273)" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">Sus hijos </text>
+		<text transform="matrix(1 0 0 1 26.9602 219.8273)" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">van a Alemania</text>
 	</g>
 	<circle fill="#1B1B1B" stroke="#FFCC07" stroke-miterlimit="10" cx="10.96" cy="242.911" r="7.333"/>
 	<g>
 		<text transform="matrix(1 0 0 1 26.9602 248.3273)" fill="#FFFFFF" font-family="'Merriweather-Regular'" font-size="17">1965</text>
 	</g>
 	<g>
-		<text transform="matrix(1 0 0 1 26.9602 269.8273)"><tspan x="0" y="0" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">Nacimiento </tspan><tspan x="0" y="19" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">De Eugenia</tspan><tspan x="0" y="59" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">Vuelta a España </tspan><tspan x="0" y="78" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">de sus hijos</tspan></text>
+		<text transform="matrix(1 0 0 1 26.9602 269.8273)" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">Nacimiento </text>
+		<text transform="matrix(1 0 0 1 26.9602 288.8273)" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">De Eugenia</text>
+		<text transform="matrix(1 0 0 1 26.9602 328.8273)" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">Vuelta a España </text>
+		<text transform="matrix(1 0 0 1 26.9602 347.8273)" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">de sus hijos</text>
 	</g>
 	<circle fill="#1B1B1B" stroke="#FFCC07" stroke-miterlimit="10" cx="10.96" cy="377.911" r="7.333"/>
 	<g>
 		<text transform="matrix(1 0 0 1 26.9602 383.3273)" fill="#FFFFFF" font-family="'Merriweather-Regular'" font-size="17">1969</text>
 	</g>
 	<g>
-		<text transform="matrix(1 0 0 1 26.9602 404.8273)"><tspan x="0" y="0" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">José Luis sale </tspan><tspan x="0" y="19" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">del colegio </tspan><tspan x="0" y="38" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">y va a Alemania </tspan><tspan x="0" y="57" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">a trabajar</tspan></text>
+		<text transform="matrix(1 0 0 1 26.9602 404.8273)" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">José Luis sale </text>
+		<text transform="matrix(1 0 0 1 26.9602 423.8273)" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">del colegio </text>
+		<text transform="matrix(1 0 0 1 26.9602 442.8273)" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">y va a Alemania </text>
+		<text transform="matrix(1 0 0 1 26.9602 461.8273)" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">a trabajar</text>
 	</g>
 	<circle fill="#1B1B1B" stroke="#FFCC07" stroke-miterlimit="10" cx="10.96" cy="494.911" r="7.333"/>
 	<g>
 		<text transform="matrix(1 0 0 1 26.9602 500.3273)" fill="#FFFFFF" font-family="'Merriweather-Regular'" font-size="17">1971</text>
 	</g>
 	<g>
-		<text transform="matrix(1 0 0 1 26.9602 521.8273)"><tspan x="0" y="0" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">Ezequiel y Pepita </tspan><tspan x="0" y="19" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">regresan a España</tspan><tspan x="0" y="59" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">Nacimiento de </tspan><tspan x="0" y="78" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">la primera hija </tspan><tspan x="0" y="97" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">de José Luis</tspan></text>
+		<text transform="matrix(1 0 0 1 26.9602 521.8273)" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">Ezequiel y Pepita </text>
+		<text transform="matrix(1 0 0 1 26.9602 540.8273)" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">regresan a España</text>
+		<text transform="matrix(1 0 0 1 26.9602 580.8273)" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">Nacimiento de </text>
+		<text transform="matrix(1 0 0 1 26.9602 599.8273)" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">la primera hija </text>
+		<text transform="matrix(1 0 0 1 26.9602 618.8273)" fill="#676767" font-family="'Merriweather-Regular'" font-size="15">de José Luis</text>
 	</g>
 	<line fill="none" stroke="#343434" stroke-miterlimit="10" x1="26.46" y1="304.911" x2="75.46" y2="304.911"/>
 	<line fill="none" stroke="#343434" stroke-miterlimit="10" x1="26.46" y1="556.911" x2="75.46" y2="556.911"/>
 </g>
+<radialGradient id="SVGID_1_" cx="81.8005" cy="318.734" r="301.6496" gradientTransform="matrix(-0.0302 -0.9995 0.4212 -0.0127 -49.9873 404.5517)" gradientUnits="userSpaceOnUse">
+	<stop  offset="0" style="stop-color:#000000;stop-opacity:0"/>
+	<stop  offset="0.8846" style="stop-color:#000000;stop-opacity:0.8846"/>
+	<stop  offset="1" style="stop-color:#000000"/>
+</radialGradient>
+<rect x="0" fill="url(#SVGID_1_)" width="163.601" height="637.468"/>
 </svg>

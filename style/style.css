@@ -137,11 +137,14 @@
   /* IE6-9 */ }
 
 .timeline, .family-tree {
-  height: 50vh;
+  height: 100%;
   position: fixed;
-  top: 25%;
+  top: 0;
   padding-left: 10px;
-  overflow: hidden; }
+  padding-right: 1px;
+  overflow: hidden;
+  display: table;
+  z-index: -1; }
   @media (max-width: 40em) {
     .timeline, .family-tree {
       display: none; } }
@@ -295,11 +298,14 @@
   /* IE6-9 */ }
 
 .timeline, .family-tree {
-  height: 50vh;
+  height: 100%;
   position: fixed;
-  top: 25%;
+  top: 0;
   padding-left: 10px;
-  overflow: hidden; }
+  padding-right: 1px;
+  overflow: hidden;
+  display: table;
+  z-index: -1; }
   @media (max-width: 40em) {
     .timeline, .family-tree {
       display: none; } }
@@ -520,6 +526,73 @@
   height: auto; }
 
 /*until here */
+/*new burger/ */
+#nav-icon1, #nav-icon2, #nav-icon3, #nav-icon4 {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  z-index: 100; }
+
+#nav-icon1 span, #nav-icon3 span, #nav-icon4 span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: #fff;
+  border-radius: 15px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out; }
+
+#nav-icon3 span:nth-child(1) {
+  top: 0px; }
+
+#nav-icon3 span:nth-child(2), #nav-icon3 span:nth-child(3) {
+  top: 9px; }
+
+#nav-icon3 span:nth-child(4) {
+  top: 18px; }
+
+#nav-icon3.open span:nth-child(1) {
+  top: 9px;
+  width: 0%;
+  left: 50%; }
+
+#nav-icon3.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg); }
+
+#nav-icon3.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg); }
+
+#nav-icon3.open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%; }
+
 /*-----------------------------------*\
   $TOAST-GRID
   An insane grid.
@@ -808,9 +881,8 @@
 .grid__col {
   box-sizing: border-box;
   display: inline-block;
-  margin-right: -.25em;
   min-height: 1px;
-  padding-left: 1px;
+  padding-right: 1px;
   vertical-align: top; }
 
 .grid__col--centered {
@@ -849,16 +921,6 @@ html {
 
 body {
   margin: 0; }
-
-body::-webkit-scrollbar {
-  width: 1em; }
-
-body::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.8); }
-
-body::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.3);
-  outline: none; }
 
 h1 {
   color: white;
@@ -905,7 +967,7 @@ h3 {
       font-size: 16px; } }
 
 p {
-  color: white;
+  color: #cccccc;
   font-family: lora, georgia, serif;
   font-size: 18px;
   line-height: 200%;
@@ -1085,18 +1147,18 @@ a {
   z-index: -1;
   width: 100%;
   top: 0;
-  left: -1px;
-  right: 18px;
   bottom: 0px;
   margin: 0;
   PADDING: 0;
   background-color: #3d3d3d; }
 
-.grid__col .box {
-  background-color: black;
-  height: 100vh; }
-  .grid__col .box:hover {
-    background-color: black; }
+.grid__col {
+  height: 100%; }
+  .grid__col .box {
+    background-color: black;
+    height: 100%; }
+    .grid__col .box:hover {
+      background-color: black; }
 
 /*attempt of fullscreen video */
 .video-background {
@@ -1315,7 +1377,7 @@ a {
           transform: translateY(-50%);
           opacity: 1; }
         .singleImgFadingContainer .fadingImages .vertical {
-          max-width: 44.4444vw;
+          max-width: 44.4444%;
           width: auto;
           max-height: 100vh; } }
   @media (min-width: 75em) {
@@ -1341,7 +1403,7 @@ a {
           transform: translateY(-50%);
           opacity: 1; }
         .singleImgFadingContainer .fadingImages .vertical {
-          max-width: 33.33333vw;
+          max-width: 60%;
           width: auto;
           max-height: 100vh; } }
 

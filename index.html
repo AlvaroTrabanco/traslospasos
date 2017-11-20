@@ -9,7 +9,7 @@
     <!---<meta http-equiv="refresh" content="30">-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link type='text/css' rel='stylesheet' href='style/style.css'>
+    <link type='text/css' rel='stylesheet' href='style/style_.css'>
 
     <!-- javascript -->
     <script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
@@ -17,9 +17,16 @@
     <script type="text/javascript" src="scripts/jquery.waypoints.min.js"></script>
     <script type="text/javascript" src="scripts/inview.min.js"></script>
     <!-- <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script> -->
-    <script type="text/javascript" src="scripts/main.js"></script>
-    <script type="text/javascript" src="scripts/youtubeAPI.js"></script>
+    <script type="text/javascript" src="scripts/main_.js"></script>
+    <script type="text/javascript" src="scripts/youtubeAPI_.js"></script>
+
     <script src="scripts/scrollmagic/uncompressed/ScrollMagic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script src="scripts/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+
+
+
+
     <script src="scripts/scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
     <script src="scripts/scrollmagic/uncompressed/plugins/jquery.ScrollMagic.js"></script>
     <script src="scripts/recliner.min.js"></script>
@@ -30,44 +37,82 @@
 
   <body>
 
-    <div class="grid">
-      <div class="grid__col grid__col--1-of-9">
-        <div class="box"></div>
-      </div>
-      <div class="grid__col grid__col--1-of-9">
-        <div class="box"></div>
-      </div>
-      <div class="grid__col grid__col--1-of-9">
-        <div class="box"></div>
-      </div>
-      <div class="grid__col grid__col--1-of-9">
-        <div class="box"></div>
-      </div>
-      <div class="grid__col grid__col--1-of-9">
-        <div class="box"></div>
-      </div>
-      <div class="grid__col grid__col--1-of-9">
-        <div class="box"></div>
-      </div>
-      <div class="grid__col grid__col--1-of-9">
-        <div class="box"></div>
-      </div>
-      <div class="grid__col grid__col--1-of-9">
-        <div class="box"></div>
-      </div>
-      <div class="grid__col grid__col--1-of-9">
-        <div class="box"></div>
-      </div>
+    <div id="darkScreen" class="noDisplay">
     </div>
 
+    <div id="allAudio">
+      <audio id="introAudio" controls>
+        <source src="audio/Thinking_Back_INTRO.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
 
+      <audio id="introMusic" controls>
+        <source src="audio/Riachuelo_pajaros.mp3" type="audio/mpeg"> <!--Thinking Back	2:43	Max Surla/Media Right Productions-->
+        Your browser does not support the audio element.
+      </audio>
 
+      <audio id="carStarting" controls>
+        <source src="audio/CarBeginning_Bird.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
 
-    <div id="container">
+      <audio id="softRiver" controls>
+        <source src="audio/SoftRiver.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
 
+      <audio id="mineAudio" controls>
+        <source src="audio/SonidosMina.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
 
+      <!-- <audio id="newAudio" controls>
+        <source src="audio/AidalaFuente.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio> -->
 
-      <div class="hamburger-slim"></div>
+      <audio id="bangAudio" controls>
+        <source src="audio/Bang.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <div id="fixedMenuMuteButton">
+      <div class="grid"><!----><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!----></div>
+
+      <!-- <div class="hamburger-slim"></div> -->
+      <div id="nav-icon3">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
       <div id="menu">
         <div id="menu-alignment-box">
@@ -100,598 +145,530 @@
         </div>
       </div>
 
-      <div class="sound">
-
+      <div class="sound"> <!--The JS of the button is within the YT plugin. If there is no YT content it should be placed in the main.js -->
         <a id="muteButton" href="#" class="speaker">
           <span></span>
         </a>
       </div>
 
+    </div>
+
+    <div id="container">
+
 
 
       <div class="landing">
+        <div id="landingFadeOutMarker">
+
+        </div>
         <div class="landingText">
-          <h1><span style="color:rgb(255, 222, 0);">1<span class="rotating">.</span> </span><span id="introAudioMarker">Raíces</span></h1>
-          <h3>Esta es la historia de los que partieron y regresaron, de aquellos que se quedaron y de quienes todavía no se han ido. Una familia marcada por la emigración en una Europa divida.<h3>
+          <div class="boxTitleLanding">
+            <h1><span style="color:rgb(255, 222, 0);">1<span class="rotating">.</span> </span><span id="introAudioMarker">Raíces</span></h1>
+          </div>
+
+          <div class="boxParagraphLanding">
+            <h3>Un amigo vino a verme en un sueño. Desde muy lejos. Y pregunté en el sueño: "¿Viniste en fotografía o en tren?". Toda fotografía es un medio de transporte y la expresión de una ausencia.</h3>
+            <p><i>Un séptimo hombre</i>, John Berger</p>
+          </div>
+
         </div>
 
         <div class="landingImage">
           <div class="vignete"></div>
-          <img  src="images/chapterone/0-intro.png" srcset="images/chapterone/0-intro.png 1920w,
+          <img class="landingImg" src="images/chapterone/0-landing-big.jpg" srcset="images/chapterone/1-Portada_.jpg 1920w,
           images/chapterone/0-landing-small.jpg 800w, images/chapterone/0-landing-big2x.jpg 2x"
           alt="landing attempt">
-          <img class="landingImageClipped" src="images/chapterone/0-intro.jpg" srcset="images/chapterone/0-intro.jpg 1920w,
+          <!-- <img class="landingImageClipped" src="images/chapterone/0-intro.jpg" srcset="images/chapterone/0-intro.jpg 1920w,
           images/chapterone/0-landing-small.jpg 800w, images/chapterone/0-landing-big2x.jpg 2x"
-          alt="landing attempt">
+          alt="landing attempt"> -->
+        </div>
+
+        <div class="scrollCalling">
+          <div class="mouse">
+            <div class="scroll"></div>
+          </div>
+        </div>
+
+        <!--new design attempt-->
+        <div id="firstRectanglesGroup" class="rectanglesAnimationBox">
+          <div id="rectangleAnimation1" class="rectanglesAnimation layer1 firstMoment"></div>
+          <div id="rectangleAnimation1" class="rectanglesAnimation layer1 secondMoment"></div>
+          <div id="rectangleAnimation1" class="rectanglesAnimation layer1 thirdMoment"></div>
+
+          <div id="rectangleAnimation2"  class="rectanglesAnimation layer2 firstMoment"></div>
+          <div id="rectangleAnimation2"  class="rectanglesAnimation layer2 secondMoment"></div>
+          <div id="rectangleAnimation2"  class="rectanglesAnimation layer2 thirdMoment"></div>
+
+          <div id="rectangleAnimation3"  class="rectanglesAnimation layer3 firstMoment"></div>
+          <div id="rectangleAnimation3"  class="rectanglesAnimation layer3 secondMoment"></div>
+          <div id="rectangleAnimation3"  class="rectanglesAnimation layer3 thirdMoment"></div>
+
+          <div id="rectangleAnimation4"  class="rectanglesAnimation layer1 firstMoment"></div>
+          <div id="rectangleAnimation4"  class="rectanglesAnimation layer1 secondMoment"></div>
+          <div id="rectangleAnimation4"  class="rectanglesAnimation layer1 thirdMoment"></div>
+
+          <div id="rectangleAnimation5"  class="rectanglesAnimation layer2 firstMoment"></div>
+          <div id="rectangleAnimation5"  class="rectanglesAnimation layer2 secondMoment"></div>
+          <div id="rectangleAnimation5"  class="rectanglesAnimation layer2 thirdMoment"></div>
+
+          <div id="rectangleAnimation6"  class="rectanglesAnimation layer3 firstMoment"></div>
+          <div id="rectangleAnimation6"  class="rectanglesAnimation layer3 secondMoment"></div>
+          <div id="rectangleAnimation6"  class="rectanglesAnimation layer3 thirdMoment"></div>
+
+          <div id="rectangleAnimation7"  class="rectanglesAnimation layer1 firstMoment"></div>
+          <div id="rectangleAnimation7"  class="rectanglesAnimation layer1 secondMoment"></div>
+          <div id="rectangleAnimation7"  class="rectanglesAnimation layer1 thirdMoment"></div>
+
+          <div id="rectangleAnimation8"  class="rectanglesAnimation layer2 firstMoment"></div>
+          <div id="rectangleAnimation8"  class="rectanglesAnimation layer2 secondMoment"></div>
+          <div id="rectangleAnimation8"  class="rectanglesAnimation layer2 thirdMoment"></div>
+
+          <div id="rectangleAnimation9"  class="rectanglesAnimation layer3 firstMoment"></div>
+          <div id="rectangleAnimation9"  class="rectanglesAnimation layer3 secondMoment"></div>
+          <div id="rectangleAnimation9"  class="rectanglesAnimation layer3 thirdMoment"></div>
+
         </div>
       </div>
 
+      <div id="introduction">
+        <div id="secondRectanglesGroup" class="rectanglesAnimationBox">
+          <div id="rectangleAnimationV2-1" class="rectanglesAnimation layer1 firstMoment"></div>
+          <div id="rectangleAnimationV2-1" class="rectanglesAnimation layer1 thirdMoment"></div>
+          <div id="rectangleAnimationV2-1" class="rectanglesAnimation layer1 secondMoment"></div>
 
+          <div id="rectangleAnimationV2-2"  class="rectanglesAnimation layer2 firstMoment"></div>
+          <div id="rectangleAnimationV2-2"  class="rectanglesAnimation layer2 secondMoment"></div>
+          <div id="rectangleAnimationV2-2"  class="rectanglesAnimation layer2 thirdMoment"></div>
 
+          <div id="rectangleAnimationV2-3"  class="rectanglesAnimation layer3 firstMoment"></div>
+          <div id="rectangleAnimationV2-3"  class="rectanglesAnimation layer3 secondMoment"></div>
+          <div id="rectangleAnimationV2-3"  class="rectanglesAnimation layer3 thirdMoment"></div>
 
+          <div id="rectangleAnimationV2-4"  class="rectanglesAnimation layer1 firstMoment"></div>
+          <div id="rectangleAnimationV2-4"  class="rectanglesAnimation layer1 secondMoment"></div>
+          <div id="rectangleAnimationV2-4"  class="rectanglesAnimation layer1 thirdMoment"></div>
 
+          <div id="rectangleAnimationV2-5"  class="rectanglesAnimation layer2 firstMoment"></div>
+          <div id="rectangleAnimationV2-5"  class="rectanglesAnimation layer2 secondMoment"></div>
+          <div id="rectangleAnimationV2-5"  class="rectanglesAnimation layer2 thirdMoment"></div>
 
+          <div id="rectangleAnimationV2-6"  class="rectanglesAnimation layer3 firstMoment"></div>
+          <div id="rectangleAnimationV2-6"  class="rectanglesAnimation layer3 secondMoment"></div>
+          <div id="rectangleAnimationV2-6"  class="rectanglesAnimation layer3 thirdMoment"></div>
 
+          <div id="rectangleAnimationV2-7"  class="rectanglesAnimation layer1 firstMoment"></div>
+          <div id="rectangleAnimationV2-7"  class="rectanglesAnimation layer1 secondMoment"></div>
+          <div id="rectangleAnimationV2-7"  class="rectanglesAnimation layer1 thirdMoment"></div>
 
+          <div id="rectangleAnimationV2-8"  class="rectanglesAnimation layer2 firstMoment"></div>
+          <div id="rectangleAnimationV2-8"  class="rectanglesAnimation layer2 secondMoment"></div>
+          <div id="rectangleAnimationV2-8"  class="rectanglesAnimation layer2 thirdMoment"></div>
 
-
-
-
-
-
-      <div class="text-center">
-        <p class="initialParagraph">Una familia <em>dividida por la búsqueda</em> de una prosperidad <i>que nunca pareció corresponderles</i>. Vidas construidas en torno a la dureza del trabajo físico, nocturno, repetitivo y peligroso,<a href="#"> en equilibrios imposibles</a> entre dos zonas mineras a mil setecientos kilómetros de distancia. Es la historia de Ezequiel y Pepita, quienes engrosaron las filas de la emigración asturiana en los años sesenta, haciendo de Alemania su hogar durante una década. Es también la historia de sus hijos, quienes hicieron suyo aquel país hasta el día de hoy. Es también la historia de la familia que les sucedió, de identidades cuestionadas, ausencias, distancias y preguntas de difícil respuesta. Es el mundo del trabajo llevado a lo concreto, dotado de rostro, humanizado y reconstruido para ser contado.</p>
-      </div>
-
-      <div class="subtitle">
-        <h2>Timeline <br class="break-here">fading</h2>
-      </div>
-
-      <div class="text-right">
-        <p class="initialParagraph">Una familia <em>dividida por la búsqueda</em> de una prosperidad <i>que nunca pareció corresponderles</i>. Vidas construidas en torno a la dureza del trabajo físico, nocturno, repetitivo y peligroso,<a href="#"> en equilibrios imposibles</a> entre dos zonas mineras a mil setecientos kilómetros de distancia. Es la historia de Ezequiel y Pepita, quienes engrosaron las filas de la emigración asturiana en los años sesenta, haciendo de Alemania su hogar durante una década. Es también la historia de sus hijos, quienes hicieron suyo aquel país hasta el día de hoy. <span id="timelineMarker1">Ineludiblemente</span>, es también la historia de la familia que les sucedió, de identidades cuestionadas, ausencias, distancias y preguntas de difícil respuesta. Es el mundo del trabajo llevado a lo concreto, dotado de rostro, humanizado y reconstruido para ser contado. María Josefa Álvarez García “Pepita” (1934) y Ezequiel Suárez Solís (1932–2002) son dos hijos de la clase social sobre la que no suelen versar las historias. Silenciada, despersonalizada, infravalorada y parodiada: la clase obrera construye el presente y el futuro, pero no tiene el lugar que se merece en la historia. Al fin y al cabo, ésta es escrita por los vencedores. La de Ezequiel y Pepita es una historia de heroicidad diaria y silenciosa, más cercana del maratón que del sprint, donde el reto es alimentar a la familia un día sí y otro también, jugarse la vida picando carbón en las galerías o colgándose de cables de acero. Levantarse cada mañana y ponerse las botas aunque te duelan los pies, las manos, los hombros, la espalda y cada centímetro de tu piel. Solo quienes han tenido estas penalidades suficientemente lejos de su vida se atreven a menospreciarlas. Buscando los héroes en lo cotidiano cambia nuestra forma de mirar a los condenados al anonimato.María Josefa Álvarez García “Pepita” (1934) y Ezequiel Suárez Solís (1932–2002) son dos hijos de la clase social sobre la que no suelen versar las historias. Silenciada, despersonalizada, infravalorada y parodiada: la clase obrera construye el presente y el futuro, pero no tiene el lugar que se merece en la historia. Al fin y al cabo, ésta es escrita por los vencedores. La de Ezequiel y Pepita es una historia de heroicidad diaria y silenciosa, más cercana del maratón que del sprint, donde el reto es alimentar a la familia un día sí y otro también, jugarse la vida picando carbón en las galerías o colgándose de cables de acero. Levantarse cada mañana y ponerse las botas aunque te duelan los pies, las manos, los hombros, la espalda y cada centímetro de tu piel. Solo quienes han tenido estas penalidades suficientemente lejos de su vida se atreven a menospreciarlas. Buscando los héroes en lo cotidiano cambia nuestra forma de mirar a los condenados al anonimato.</p>
-      </div>
-      <div class="timeline">
-        <div id="vignete">
+          <div id="rectangleAnimationV2-9"  class="rectanglesAnimation layer3 firstMoment"></div>
+          <div id="rectangleAnimationV2-9"  class="rectanglesAnimation layer3 secondMoment"></div>
+          <div id="rectangleAnimationV2-9"  class="rectanglesAnimation layer3 thirdMoment"></div>
         </div>
-        <img id="timeline-first" src="images/chapterone/timeline-01.svg">
-        <img id="timeline-second" src="images/chapterone/timeline-02.svg">
-        <img id="timeline-third" src="images/chapterone/timeline-03.svg">
-        <img id="timeline-fourth" src="images/chapterone/timeline-04.svg">
-      </div>
-
-      <!-- <div class="family-tree">
-        <div id="vignete-family">
+        <div  class="text-center margin30">
+          <p class="initialParagraph">Esta <span id="textRectangles">es</span> la historia de quienes partieron y regresaron, de aquellos que se quedaron y de quienes todavía no se han ido. Habla de una familia marcada por la emigración en Europa, dividida por la búsqueda de una prosperidad que nunca pareció corresponderle. Vidas construidas en torno a la dureza del esfuerzo físico, nocturno, repetitivo y peligroso, en equilibrios imposibles entre dos zonas mineras a mil setecientos kilómetros de distancia. Es el mundo del trabajo llevado a lo concreto, dotado de rostro, humanizado y reconstruido para ser contado. Esta es la historia de Ezequiel y Pepita, quienes engrosaron las filas de la emigración asturiana en los años sesenta, convirtiendo Alemania en su hogar durante una década. Inevitablemente es también la de sus hijos y descendientes –varios de los cuales hicieron suyo aquel país hasta el día de hoy–, la de identidades cuestionadas, ausencias, distancias y preguntas de difícil respuesta.
+          </p>
         </div>
-        <img id="family-first" src="images/chapterone/family-01.svg">
-        <img id="family-second" src="images/chapterone/family-02.svg">
-        <img id="family-third" src="images/chapterone/family-03.svg">
-        <img id="family-fourth" src="images/chapterone/family-04.svg">
-      </div> -->
-      <div class="subtitle">
-        <h2>Audio<br class="break-here"> while reading</h2>
-      </div>
-
-      <audio id="introAudio" controls>
-        <source src="audio/Ovejas_Grillos_pajaros.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-      </audio>
-      <audio id="carStarting" controls>
-        <source src="audio/CarBeginning_Bird.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-      </audio>
-      <audio id="softRiver" controls>
-        <source src="audio/SoftRiver.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-      </audio>
-      <audio id="mineAudio" controls>
-        <source src="audio/SonidosMina.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-      </audio>
-
-      <audio id="newAudio" controls>
-        <source src="audio/AidalaFuente.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-      </audio>
-
-      <audio id="bangAudio" controls>
-        <source src="audio/Bang.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-      </audio>
-
-
-
-      <div class="text-center">
-        <p>Unos años atrás, cuando Ricardo todavía se encontraba en Alemania, sufrió un accidente de tráfico mientras se dirigía a Düsseldorf para realizar los rutinarios trámites de documentos a los que los inmigrantes españoles se veían sometidos con regularidad. Para convencer a su madre Lola de que no había revestido gravedad, volvió a Asturias para encontrarse con la familia. Él vió oportuno tratar de convencer a sus allegados en aventurarse a probar suerte en el extranjero como él llevaba haciendo desde hacía un año. Pese a tener trabajo en aquel momento, Pepita y Ezequiel decidieron aceptar la propuesta y embarcarse en lo que serían casi diez años de trabajo en <span id="newAudioMarker" style="color:yellow;">tierras</span> alemanas. Dejaron tras de sí su casa de Entrialgo, que sería alquilada durante unos años y finalmente vendida por el tío de Ezequiel, Alfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadoraAlfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadora– de seguir sus pasos, ya que ésta sabía que terminaría únicamente cuidando de sus nietos para que los más jóvenes se enfocaran en el trabajo a destajo y el ahorro.
-        </p>
-        <p>Al comienzo de septiembre de 1961, Ezequiel y Pepita comienzan en el largo y tortuoso trayecto en tren que uniría su pequeña y aislada Cuenca del Nalón con las planicies y campos de Renania del Norte–Westfalia. A las siete de la mañana, un tren que tanto transportaba pasajeros como toneladas de carbón, La Campurra, les lleva de Entrialgo hasta Pola de Laviana. Allí parten hacia la costa gijonesa.
-        <span style="color: yellow;" id="carStartingMarker">Pasearían</span>
-        por la ciudad –a la que no iban regularmente– para terminar embarcándose a las nueve de la noche en el tren con destino a La Robla, León. Pepita, una mujer nerviosa, y no muy viajada, gritaba al asustarse cada vez que el entre atravesaba uno de los numerosos túneles en su recorrido montañoso hacia el sur. El siguiente destino sería Irún, localidad vasca que hace de frontera entre el territorio español y el francés. Los diferentes anchos de vía y la consecuente necesidad del transbordo reforzaban la idea de estar abandonando aquel país gris y represivo que era España, para entrar en una realidad que en cuanto a derechos y libertades civiles parecía a años luz. El tren tendría como destino la Gare d’Austerlitz, estación parisina al sudeste de la ciudad, a orillas del río Sena. Es una imagen tierna la de la joven pareja cruzando París, cargados de maletas, con el nombre de la estación a la que se dirigían escrito a mano por Ricardo en un pedazo de papel. Ya en la Gare du Nord se subirían al último de los trayectos en ferrocarril, con destino Lieja, Bélgica.
-        </p>
-        <p>Una vez llegados en el país vecino, Ricardo vendría vendría a su encuentro, para facilitarles los documentos que les permitirían entrar al país. A diferencia de otros procesos migrantes en Alemania en años posteriores, en aquella época pocos llevaban el trabajo asegurado. Por tanto, entraban en Alemania como falsos turistas, y en esta ocasión, con la justificación de un supeusto bautizo del hizo de Ricardo –el cual ya se había celebrado un año atrás. Peor suerte correrían otros, como su amigo “Manolín”: las ropas de trabajo, llenas de cal, alertaron a los gendarmes, quienes no le permitieron proseguir. La última vez que lo verían, sería mientras se despedía desde la ventana de la comisaría de policía. Manolín terminaría trabajando en Bélgica durante años, donde ya tenía tres hermanas.
-        </p>
-        <p>El primer hogar tras su llegada a Alemania, sería la cocina de Ricardo. Pasarían luego un mes en casa de la hermana de Ezequiel, Chelo, quien habría ido poco tiempo antes con su marido Ceferino. Fue un domingo cuando llegaron a Alemania y fue un lunes cuando Ezequiel bajaría a la mina Emile Mayrisch con Ricardo por primera vez. Al igual que su hermano, decidió trabajar en el derrabe, la extracción de mineral con martillo neumático. La Alemania que mis abuelos se encontraron, quince años después del fin de la guerra, no había conseguido despegarse completamente de su pasado. El primer alojamiento que la empresa les facilitó era el llamado “Casino” de Alsdorf, un antiguo edificio que hizo de vivienda para las tropas alemanas en la guerra, y luego para los proletarios que el país necesitaba. Un país con una capacidad económica creciente, que requeriría de mano de obra imperiosamente durante las siguientes décadas para tareas de reconstrucción y levantar el “milagro económico alemán”.
-        </p>
-        <p>La siguiente localización temporal facilitada por la empresa fue uno de esos detalles históricos que los alemanes se han esforzado por hacer desaparecer: las barracas de madera. Letrinas colectivas, hacinados en poco espacio y tomando baño en un barreño.
-        <span id="softRiverMarker" style="color:yellow;">Por</span>
-        último, fueron instalados en unas viviendas obreras en Aldenhoven. Si bien modestas y no muy espaciosas, se convertirían en el nuevo hogar de la familia Suárez Álvarez durante los años que les restarían emigrados. Se mudarían del número 16 al número 18 en la misma calle, pasando a disponer de una huerta y un garaje donde disfrutarían de espacio exterior. Al fin y al cabo, Aldenhoven, pese a sus reducida extensión, se convirtió en localidad más poblada donde habían residido.
-        </p>
-        <p>Ezequiel no tendría la suerte de su lado. No permaneció todos los años el tiempo en el mismo puesto de trabajo, ya que un año más tarde sufrió un accidente grave al quedar enterrado tras un derrumbe. No fueron lesiones severas, y solamente pasó un día en el hospital, pero tras este suceso, pasaría a dedicarse a tareas que le eran más propias, acordes a su condición de mecánico calderero. Sería en este puesto donde conocería a Billy von Vover, con quien trabajaría durante años en el turno nocturno encargándose del mantenimiento del pozo. No lo sabían todavía, pero Billy se convertiría su consuegro, unos diez años más tarde. Pepita comenzó a trabajar en lo que pensaba sería una continuación de su profesión anterior. No obstante, cambió la pequeña habitación de costura en un pueblo asturiano por un proceso industrializado en una fábrica alemana. No consiguió establecerse: cambiaban las partes que debía coser cada día y le daban órdenes en un idioma totalmente desconocido. Finalmente, terminó buscando otro trabajo. Comenzaron entonces nueve años consecutivos en la empresa Philips ensamblando pequeñas bombillas. Cuántas veces habremos oído en casa las historias del gélido frío invernal camino a la factoría, combatido por capas de periódicos envolviéndole el cuerpo. No sería aquella una época de huelgas, aunque sí había representación sindical, proceso en el que mis abuelos se involucraron, ejerciendo el derecho al voto.No lo sabían todavía, pero Billy se convertiría su consuegro, unos diez años más tarde. Pepita comenzó a trabajar en lo que pensaba sería una continuación de su profesión anterior. No obstante, cambió la pequeña habitación de costura en un pueblo asturiano por un proceso industrializado en una fábrica alemana. No consiguió establecerse: cambiaban las partes que debía coser cada día y le daban órdenes en un idioma totalmente desconocido. Finalmente, terminó buscando otro trabajo. Comenzaron entonces nueve años consecutivos en la empresa Philips ensamblando pequeñas bombillas. Cuántas veces habremos oído en casa las historias del gélido frío invernal camino a la factoría, combatido por capas de periódicos envolviéndole el cuerpo. No sería aquella una época de huelgas, aunque sí había representación sindical, proceso en el que mis abuelos se involucraron, ejerciendo el derecho al voto.No lo sabían todavía, pero Billy se convertiría su consuegro, unos diez años más tarde. Pepita comenzó a trabajar en lo que pensaba sería una continuación de su profesión anterior. No obstante, cambió la pequeña habitación de costura en un pueblo asturiano por un proceso industrializado en una fábrica alemana. No consiguió establecerse: cambiaban las partes que debía coser cada día y le daban órdenes en un idioma totalmente desconocido. Finalmente, terminó buscando otro trabajo. Comenzaron entonces nueve años consecutivos en la empresa Philips ensamblando pequeñas bombillas. Cuántas veces habremos oído en casa las historias del gélido frío invernal camino a la factoría, combatido por capas de periódicos envolviéndole el cuerpo. No sería aquella una época de huelgas, aunque sí había representación sindical, proceso en el que mis abuelos se involucraron, ejerciendo el derecho al voto.No lo sabían todavía, pero Billy se convertiría su consuegro, unos diez años más tarde. Pepita comenzó a trabajar en lo que pensaba sería una continuación de su profesión anterior. No obstante, cambió la pequeña habitación de costura en un pueblo asturiano por un proceso industrializado en una fábrica alemana. No consiguió establecerse: cambiaban las partes que debía coser cada día y le daban órdenes en un idioma totalmente desconocido. Finalmente, terminó buscando otro trabajo. Comenzaron entonces nueve años consecutivos en la empresa Philips ensamblando pequeñas bombillas. Cuántas veces habremos oído en casa las historias del gélido frío invernal camino a la factoría, combatido por capas de periódicos envolviéndole el cuerpo. No sería aquella una época de huelgas, aunque sí había representación sindical, proceso en el que mis abuelos se involucraron, ejerciendo el derecho al voto.No lo sabían todavía, pero Billy se convertiría su consuegro, unos diez años más tarde. Pepita comenzó a trabajar en lo que pensaba sería una continuación de su profesión anterior. No obstante, cambió la pequeña habitación de costura en un pueblo asturiano por un proceso industrializado en una fábrica alemana. No consiguió establecerse: cambiaban las partes que debía coser cada día y le daban órdenes en un idioma totalmente desconocido. Finalmente, terminó buscando otro trabajo. Comenzaron entonces nueve años consecutivos en la empresa Philips ensamblando pequeñas bombillas. Cuántas veces habremos oído en casa las historias del gélido frío invernal camino a la factoría, combatido por capas de periódicos envolviéndole el cuerpo. No sería aquella una época de huelgas, aunque sí había representación sindical, proceso en el que mis abuelos se involucraron, ejerciendo el derecho al voto.No lo sabían todavía, pero Billy se convertiría su consuegro, unos diez años más tarde. Pepita comenzó a trabajar en lo que pensaba sería una continuación de su profesión anterior. No obstante, cambió la pequeña habitación de costura en un pueblo asturiano por un proceso industrializado en una fábrica alemana. No consiguió establecerse: cambiaban las partes que debía coser cada día y le daban órdenes en un idioma totalmente desconocido. Finalmente, terminó buscando otro trabajo. Comenzaron entonces nueve años consecutivos en la empresa Philips ensamblando pequeñas bombillas. Cuántas veces habremos oído en casa las historias del gélido frío invernal camino a la factoría, combatido por capas de periódicos envolviéndole el cuerpo. No sería aquella una época de huelgas, aunque sí había representación sindical, proceso en el que mis abuelos se involucraron, ejerciendo el derecho al voto.No lo sabían todavía, pero Billy se convertiría su consuegro, unos diez años más tarde. Pepita comenzó a trabajar en lo que pensaba sería una continuación de su profesión anterior. No obstante, cambió la pequeña habitación de costura en un pueblo asturiano por un proceso industrializado en una fábrica alemana. No consiguió establecerse: cambiaban las partes que debía coser cada día y le daban órdenes en un idioma totalmente desconocido. Finalmente, terminó buscando otro trabajo. Comenzaron entonces nueve años consecutivos en la empresa Philips ensamblando pequeñas bombillas. Cuántas veces habremos oído en casa las historias del gélido frío invernal camino a la factoría, combatido por capas de periódicos envolviéndole el cuerpo. No sería aquella una época de huelgas, aunque sí había representación sindical, proceso en el que mis abuelos se involucraron, ejerciendo el derecho al voto.No lo sabían todavía, pero Billy se convertiría su consuegro, unos diez años más tarde. Pepita comenzó a trabajar en lo que pensaba sería una continuación de su profesión anterior. No obstante, cambió la pequeña habitación de costura en un pueblo asturiano por un proceso industrializado en una fábrica alemana. No consiguió establecerse: cambiaban las partes que debía coser cada día y le daban órdenes en un idioma totalmente desconocido.
-        <span id="bangAudioMarker" style="color:yellow;">BANG</span>
-        , terminó buscando otro trabajo. Comenzaron entonces nueve años consecutivos en la empresa Philips ensamblando pequeñas bombillas. Cuántas veces habremos oído en casa las historias del gélido frío invernal camino a la factoría, combatido por capas de periódicos envolviéndole el cuerpo. No sería aquella una época de huelgas, aunque sí había representación sindical, proceso en el que mis abuelos se involucraron, ejerciendo el derecho al voto.No lo sabían todavía, pero Billy se convertiría su consuegro, unos diez años más tarde. Pepita comenzó a trabajar en lo que pensaba sería una continuación de su profesión anterior. No obstante, cambió la pequeña habitación de costura en un pueblo asturiano por un proceso industrializado en una fábrica alemana. No consiguió establecerse: cambiaban las partes que debía coser cada día y le daban órdenes en un idioma totalmente desconocido. Finalmente, terminó buscando otro trabajo. Comenzaron entonces nueve años consecutivos en la empresa Philips ensamblando pequeñas bombillas. Cuántas veces habremos oído en casa las historias del gélido frío invernal camino a la factoría, combatido por capas de periódicos envolviéndole el cuerpo. No sería aquella una época de huelgas, aunque sí había representación sindical, proceso en el que mis abuelos se involucraron, ejerciendo el derecho al voto.
-        </p>
-        <p>Unos meses después de llegar a Alemania por primera vez, ya en 1962, Ezequiel se desplazó hasta Asturias y regresó el mismo fin de semana con sus dos hijos, José Luis y Ezequiel. El equipaje viajó paralelo a ellos en tren, ya que no había espacio en el coche:
-        <span id="mineAudioMarker" style="color:yellow;">Ezequiel</span>
-        viajó en el cuello de su padre durante esos mil setecientos kilómetros. Con seis y cuatro años, consiguieron aprender el idioma, aunque los recuerdos de estar en una escuela sin entender ni una sola palabra perduran. No existía segregación en las aulas, esos alumnos de cabello negro como el carbón eran identificables en las fotos de grupo. Excepto en la primera comunión. Ezequiel se convirtió en uno de los pocos niños que hayan hecho una “primera comunión” en dos ocasiones. Volvió a casa un sábado asegurando que al día siguiente era el susodicho evento, y su madre –bastante histérica– salió camino a Holanda, donde las tiendas estarían abiertas, para comprar a su hijo ropa adecuada. Fue el único niño español que hizo la comunión con los niños alemanes. El 30 de junio de 1965 la familia se completaría con el nacimiento de Eugenia en tierras alemanas
-        <span id="stopAudio" style="color:orange;">.</span>
-        </p>
-      </div>
-
-
-
-
-
-      <div class="subtitle">
-        <h2>Videos<br class="break-here"> fullscreen</h2>
-      </div>
-
-
-
-      <div class="text-right">
-        <p>María Josefa Álvarez García “Pepita” (1934) y Ezequiel Suárez Solís (1932–2002) son dos hijos de la clase social sobre la que no suelen versar las historias. Silenciada, despersonalizada, infravalorada y parodiada: la clase obrera construye el presente y el futuro, pero no tiene el lugar que se merece en la historia. Al fin y al cabo, ésta es escrita por los vencedores. La de Ezequiel y Pepita es una historia de heroicidad diaria y silenciosa, más cercana del maratón que del sprint, donde el reto es alimentar a la familia un día sí y otro también, jugarse la vida picando carbón en las galerías o colgándose de cables de acero. Levantarse cada mañana y ponerse las botas aunque te duelan los pies, las manos, los hombros, la espalda y cada centímetro de tu piel. Solo quienes han tenido estas penalidades suficientemente lejos de su vida se atreven a menospreciarlas. Buscando los héroes en lo cotidiano cambia nuestra forma de mirar a los condenados al anonimato.</p>
-      </div>
-
-
-
-
-      <div class="text-left">
-        <p>
-        Aquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vida y cómo dan forma a las generaciones venideras. Emigrar se convierte en un reto propio de un equilibrista, en el que no se conoce el final y del que se ha removido la red que frene su caída. Seguir avanzando en el inestable cable de acero es la única opción. Volver atrás no es posible y cada vez la distancia con el origen es mayor. Y cuando el miedo te atenaza, una pregunta acecha: ¿para que me habré metido yo en este embolado? Pepita y Ezequiel fueron poniendo parches a lo largo de los años, esperando paliar las consecuencias de haberlo dejado todo tras de sí durante una década. Como quien ataca los síntomas y no la enfermedad, se alejaron de sus hijos para acelerar el ahorro que se erigía como la razón de peso de la emigración. Dividieron a la familia, la hirieron con esa insalvable distancia en aquellos años en que los niños deberían estar con sus padres. Existe aquí el riesgo de juzgar desde una perspectiva incorrecta. Ejercer una empatía real pasaría por ponerse en el lugar de quien sufrió las condiciones penosas de la Guerra Civil, el hambre de la posguerra y de a quienes las dificultades económicas nunca abandonaron. Aquel país todavía en reconstrucción y que disfrutaba de todo el apoyo para convertirse en un nuevo imperio económico, necesitaba de mano de obra urgente. El trabajo no escaseaba. Alemania parecía una opción segura y así lo aseguraban los que se fueron antes que ellos. ¿Quién sería el primero en probar suerte?</p>
-      </div>
-
-
-      <!-- <div id="videoA" class="video">
-        <iframe id="playerA" frameborder="0" title="YouTube video player" type="text/html" src="https://www.youtube.com/embed/vLtp6FOzmS4?rel=0&enablejsapi=1&loop=1&modestbranding=1&color=white&iv_load_policy=3"></iframe>
-
-
-      </div> -->
-
-
-
-
-      <div class="text-far-left">
-        <p>
-        Aquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vida y cómo dan forma a las generaciones venideras. Aquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vida y cómo dan forma a las generaciones venideras. Aquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vida y cómo dan forma a las generaciones venideras.Aquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vida y cómo dan forma a las generaciones venideras.Aquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vida y cómo dan forma a las generaciones venideras.</p>
-      </div>
-
-      <div id="playerB" class="video">
-        <div id="videoB"></div>
-      </div>
-
-      <div id="afterVideoB" class="afterVideo"></div>
-
-      <div class="text-far-left">
-        <p>
-        Aquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vida y cómo dan forma a las generaciones venideras. Aquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vida y cómo dan forma a las generaciones venideras. Aquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vida y cómo dan forma a las generaciones venideras.Aquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vidaAquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vida y cómo dan forma a las generaciones venideras.Aquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vidaAquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vida y cómo dan forma a las generaciones venideras.Aquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vidaAquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vida y cómo dan forma a las generaciones venideras.Aquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vidaAquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vida y cómo dan forma a las generaciones venideras.Aquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vidaAquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vida y cómo dan forma a las generaciones venideras.Aquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vida y cómo dan forma a las generaciones venideras.Aquí pongo rostro y nombre a una historia de migración económica, que reflexiona sobre las difíciles decisiones que afrontamos en nuestra vida y cómo dan forma a las generaciones venideras.</p>
-      </div>
-
-      <div id="playerC" class="video">
-        <div id="videoC"></div>
-      </div>
-
-      <div id="afterVideoC" class="afterVideo"></div>
-
-      <div class="text-far-right">
-        <p>El río Nalón serpentea por un valle salpicado por pozos de carbón y castilletes, cubierto por un manto verde y por casas que desafían la gravedad de su escarpada orografía.Deja la racionalidad a parte cuando habla de esa lotería que sigue sin tocar o cuando de forma frontal expresa sus infundados miedos sobre el siguiente viaje de sus hijos al extranjero. La ternura que expresa a sus nietos tampoco parece tener límite, mientras intenta expresar con palabras un amor que no acepta ser moldeado por el lenguaje. De familia con pocos recursos, Pepita repitió toda su vida como un mantra algo que marcó varias generaciones en nuestro país: el hambre de la posguerra. Como se dice en lengua asturiana: la fame. La suya era una zona de pequeñas propiedades – pequeños huertos y poco ganado– así que el estraperlo y la compraventa informal florecieron. La creatividad para alimentar malamente a la familia marca aquella generación que en su gran mayoría, sufrió severas dificultades. El miedo a que los fantasmas del pasado retornen eclipsa la idea de que el futuro también puede deparar penurias similares.
-        </p>
-      </div>
-
-      <div id="playerHagel" class="video">
-        <div id="videoHagel"></div>
-      </div>
-      <div id="afterVideoHagel" class="afterVideo"></div>
-
-
-
-      <div class="subtitle">
-        <h2>Fading side images</h2>
-      </div>
-
-
-      <div class="text-far-right">
-        <p>La familia de Ezequiel</p><p>Ezequiel procede de una familia más inusual que la de Pepita. Su madre había estado casada con Alfredo, con quien tendría a su primer hijo: Ricardo. Antes de terminar su relación con Alfredo, Lola comenzó a verse con José Manuel Suárez Corte “Chalana”, con quien pese a no contraer matrimonio, tendría tres hijos. Alfredo registró a Ezequiel como su hijo, bajo el nombre de Jeromo González Solís un 28 de julio de 1932. Sería su madre Lola quien lo registraría nuevamente, esta vez bajo el nombre de Ezequiel, con la fecha de nacimiento de su padre José: un 9 de abril de 1932. José siempre trataría a Ricardo como otro hijo más. Para ayudar a la nueva familia, José compró la mitad de la casa de la madre de Lola para ayudar a que que sus hijos y su pareja tuvieran un hogar. El primer marido de Lola, Alfredo, moriría en 1947 en un accidente laboral en una mina de extracción de carbón.</p><p>José “Chalana” era contratista de madera. Los que le conocían le recordaban con su pesada y potente moto recorriendo el valle. José, pese a no participar directamente en los combates de la Guerra Civil, era socialista, y fue preso por las tropas fascistas en la cárcel de Laviana.</p>
-      </div>
-
-      <div class="text-far-right">
-        <p> El Frente Norte, había caído, y las tropas republicanas no pudieron contener más el avance de los fascistas. Poco tardarían en aplicar la Instrucción Reservada Base 5ª del 19 de julio de 1936, que clamaba “Es necesario crear una atmósfera de terror, hay que dejar sensación de dominio eliminando sin escrúpulos ni vacilación a todo el que no piense como nosotros . Tenemos que causar una gran impresión, todo aquel que sea abierta o secretamente defensor del Frente Popular debe ser fusilado”. Sería un 26 de noviembre de 1937 cuando José, otros tres hombres y cinco mujeres, serían sacados al amanecer de la cárcel en un camión con destino a Oviedo. El padre de Ezequiel se escaparía del camión en marcha con sus manos atadas. Sería interceptado cerca de la estación de ferrocarril y asesinado a golpes con una llave de reparación de vías. El fascista que le sesgó la vida frívolamente gritó “A este Chalana ‘no hay dios’ quien lo mate”. Los otros ocho compañeros serían sacados del camión en una escombrera en la conocida como Cuesta de Vindoria, y fusilados al alba. Muchos años más tarde del hediondo crimen y una profunda investigación, Ricardo consiguió conocer la identidad y localización del asesino de José. Se dió el caso que el susodicho falangista tenía por <span id="timelineMarker3">costumbre</span> pasear todos los días por la playa San Lorenzo en Gijón, a cinco minutos de la casa que Pepita y<span style="color: yellow;" id="markerFadeImg1"> Ezequiel</span> comprarían años más tarde.</p>
-      </div>
-
-      <div id="imgFadingContainerIntro" class="singleImgFadingContainer">
-        <div id="imgFadeIntro1" class="fadingImages">
-          <img
-            src="images/chapterone/9-Josechalana1.jpg"
-            alt="#">
-          <p class="hide">El cuaderno de ventas de José Chalana.</p>
+        <div class="text-far-right" id="introMusicMarker">
+          <p>María Josefa Álvarez García “Pepita” (1934) y Ezequiel Suárez Solís (1932–2002) eran dos hijos del estrato social sobre el que no suelen versar las historias. La clase obrera, silenciada, despersonalizada, infravalorada y parodiada, construye el presente y el futuro, pero no tiene el lugar que se merece en la historia. Al fin y al cabo, esta la escriben los vencedores. El de Ezequiel y Pepita es un relato de heroicidad diaria y silenciosa, más cercana al maratón que al sprint, donde el reto es alimentar a la familia un día sí y otro también, jugarse la vida picando carbón en las galerías o colgándose de cables de acero.  Levantarse cada mañana y ponerse las botas aunque te duelan los pies, las manos, los hombros, la espalda y cada centímetro de tu piel. Sólo quienes han tenido estas penalidades suficientemente lejos se atreven a menospreciarlas. <span  id="markerFadeImg1">Buscando</span> los héroes en lo cotidiano cambia nuestra forma de mirar a los condenados al anonimato. Aquí pretendo poner nombre y rostro a una historia de migración económica, que reflexiona sobre las decisiones difíciles que debemos afrontar y cómo estas dan forma a las generaciones venideras. Emigrar se convierte en un reto propio de un equilibrista, en el que se desconoce el final y del que se ha eliminado toda red que frene la caída. Seguir avanzando en el tambaleante cable es la única opción. Volver atrás no es posible y la distancia con el origen es cada vez mayor. Y cuando el miedo te atenaza, una pregunta acecha: ¿para qué me habré metido yo en este embolado?
+          </p>
+          <p>Pepita y Ezequiel fueron poniendo parches a lo largo de los años, esperando paliar las consecuencias de haberlo dejado todo tras de sí durante una década de emigración. Como quien ataca los síntomas y no la enfermedad, se alejaron de sus hijos para acelerar el ahorro, que se erigía como la razón de peso de la emigración. Dividieron a la familia, la hirieron con esa insalvable distancia en unos años en los que los niños deberían estar con sus padres. Existe aquí el riesgo de juzgar desde una perspectiva incorrecta. Ejercer una empatía real pasaría por ponerse en el lugar de quienes habían sufrido las condiciones penosas de la Guerra Civil y el hambre de la posguerra y a quienes las dificultades económicas nunca abandonaron. Alemania, aquel país todavía en reconstrucción y que disfrutaba de todo el apoyo para convertirse en un nuevo imperio económico, necesitaba de mano de obra urgente. El trabajo no escaseaba. Parecía una opción segura y así lo afirmaban los que se fueron antes que ellos. ¿Quién sería el siguiente en probar suerte?
+          </p>
         </div>
-        <div  id="imgFadeIntro2" class="fadingImages">
-          <img class="vertical"
-            src="images/chapterone/7-Ezequiel2.jpg"
-            alt="#">
-          <p class="hide">Ezequiel probando su fortaleza a otros inmigrantes en Alemania.</p>
-        </div>
-        <div  id="imgFadeIntro3" class="fadingImages">
-          <img class="vertical"
-            src="images/chapterone/8-Lola.jpg"
-            alt="#">
-          <p class="hide">Lola, la madre de Ezequiel.</p>
-        </div>
-        <div  id="imgFadeIntro4" class="fadingImages">
-          <img class="vertical"
-            src="images/chapterone/7-Ezequiel.jpg"
-            alt="#">
-          <p class="hide">Ezequiel a caballo con unos dieciocho años.</p>
-        </div>
-      </div>
-
-
-      <div class="text-far-right">
-          <p>Gracias a la firmeza de mi abuela, los dos hermanos fueron a encontrarse con el criminal. Ella “no quería ir a visitarles a la cárcel”. Ezequiel perdió a su padre muy joven, con cinco años de edad. Nunca se conservaron fotografías de él, pero el infante consiguió guardar para siempre una vívida imagen: trepando por las curvas del concejo en la ruidosa motocicleta con Jose, camino al Alto de San Pedro. Su padre le golpearía levemente con el manillar y se le llenarían los ojos de lágrimas por haber lastimado a su retoño.</p>
-          <p>La madre de Ezequiel, Lola, fue una mujer de una fortaleza enorme, muy inteligente e independiente. Siempre trabajó como sirvienta en casas de familias adineradas, como para la familia Velasco en el pueblo de Sotrondio. Apoyó a la guerrilla antifranquista –también llamada maquis –nombre atribuido por la lucha de muchos de ellos en la liberación de Francia de las tropas del Tercer Reich. El pequeño Ezequiel, de cuatro añomo para la familia Velasco en el pueblo de Sotrondio. Apoyó a la guerrilla antifranquista –también llamada maquis –nombre atribuido por la lucha de muchos de ellos en la liberación de Francia de las tropas del Tercer Reich. El pequeño Ezequiel, de cuatro añomo para la familia Velasco en el pueblo de Sotrondio. Apoyó a la guerrilla antifranquista –también llamada maquis –nombre atribuido por la lucha de muchos de ellos en la liberación de Francia de las tropas del Tercer Reich. El pequeño Ezequiel, de cuatro añomo para la familia Velasco en el pueblo de Sotrondio. Apoyó a la guerrilla antifranquista –también llamada maquis –nombre atribuido por la lucha de muchos de ellos en la liberación de Francia de las tropas del Tercer Reich. El pequeño Ezequiel, de cuatro años de edad, en varisa ocasiones llevaba comida a un punto acordado en la montaña, donde más tarde guerilleros como los hermanos Caxigales, pasarían a recogerla. Ellos habrían estado en casa de Lola en algunas ocasiones, para luego volver a “echarse al monte”. Tras la muerte de <span id="markerFadeSecondAttempt" style="color:orange;">José</span>, la familia pasó por épocas muy difíciles, y el ingenio para conseguir ingresos florecía. Por ello era relevante que su hijo Ezequiel estuviese registrado a nombre de José, proveniente de una familia económicamente más holgada.</p>
-          <p>Los hermanos de José ‘el Chalana’ eran dueños de un restaurante de bastante éxito llamado Casa Hermanos Suárez, en Entrialgo, ostentaban la propiedad de algunas tierras en la zona. No obstante, con el dinero suelen venir los problemas. </p>
-      </div>
-
-      <div id="imgFadingContainerSecond" class="singleImgFadingContainer">
-        <div id="imgFadeSecond1" class="fadingImages">
-          <img
-            src="images/chapterone/9-Josechalana1.jpg"
-            alt="#">
-          <p class="hide">El cuaderno de ventas de José Chalana.</p>
-        </div>
-        <div  id="imgFadeSecond2" class="fadingImages">
-          <img class="vertical"
-            src="images/chapterone/7-Ezequiel2.jpg"
-            alt="#">
-          <p class="hide">Ezequiel probando su fortaleza a otros inmigrantes en Alemania.</p>
-        </div>
-        <div  id="imgFadeSecond3" class="fadingImages">
-          <img class="vertical"
-            src="images/chapterone/8-Lola.jpg"
-            alt="#">
-          <p class="hide">Lola, la madre de Ezequiel.</p>
-        </div>
-      </div>
-
-      <div class="subtitle">
-        <h2>Fullscreen<br class="break-here"> Gallery</h2>
-      </div>
-
-      <div class="text-far-right">
-        <p>El mayor de los hermanos, quien llevaba el nombre familiar, se mudó a Argentina. Sus cuatro hermanas nunca se casaron: en cartas quedó marcado el rastro de la presión familiar a la que eran sometidas por el resto de hermanos. Por último está Alfredo, el personaje más oscuro. Siempre de gafas de sol, autoritario y reaccionario, fue apropiándose de buena parte de las propiedades de la familia, a la vez que pagando deudas de sus congéneres. Tampoco se casó, aunque sí dejó un vástago, que tras su muerte heredó buena parte de las propiedades que en su día pertenecieron a todos los hermanos. Alfredo llegó a poner una pistola en el pecho a su sobrino Ezequiel, para forzarle a que firmase la venta de su parte en la propiedad de un manzanar. Quien conociera a Ezequiel –y a buena parte de los hombres de la zona– sabría que la terquedad está en su ADN. Hizo gala de ello al responderle “tira si te atreves”. Un hecho como este para muchos sería un punto y final, pero nunca llegaría a romper relaciones.
-        </p>
-      </div>
-
-
-
-
-
-
-      <div id="exFsGallery" class="bgFsImg">
-        <img id="exGalleryEl1"
-          src="images/chapterone/9-Josechalana1.jpg"
-          alt="#">
-
-        <img id="exGalleryEl2"
-          src="images/chapterone/background.jpg"
-          alt="#">
-
-        <img id="exGalleryEl3"
-          src="images/chapterone/poster.jpg"
-          alt="#">
-      </div>
-
-      <div id="exFsGalleryController" class="galleryController">
-        <div id="exFsGalleryControllerEl1" class="galleryControllerEl">
-          <p>El cuaderno de ventas de José Chalana.</p>
-        </div>
-        <div id="exFsGalleryControllerEl2" class="galleryControllerEl">
-          <p>La mina al pie de la carretera.</p>
-        </div>
-        <div id="exFsGalleryControllerEl3" class="galleryControllerEl">
-          <p>El valle del Nalón.</p>
-        </div>
-      </div>
-
-
-
-
-
-
-      <div class="single-img-center horizontal-img">
-        <img
-          srcset="images/chapterone/2-carbon-small.jpg 650w,
-                  images/chapterone/2-carbon-big.jpg 1500w"
-          src="images/chapterone/2-carbon-big.jpg"
-          alt="attempt2">
-      </div>
-
-      <div class="text-far-right">
-        <p>Si bien no hay muchas carreteras rectas en Asturias, la que une Muñera y Ciargüelo es una excepción. Como a modo de metáfora, el kilómetro que separa a las dos poblaciones es una línea recta, que no obedece los meandros del río. Pepita conocía a Ezequiel desde que eran niños, durante toda su vida. De hecho, los dos nacieron con cinco días de diferencia. Tardarían 17 años en conocerse de verdad y ganar confianza. Sería durante una Semana Santa, en la que como tantas otras desde el inicio de la dictadura, los bailes no estaban permitidos. La policía custodiaba los locales donde los jóvenes se relajaban, se divertían y enamoraban. Como prohibir a la gente ser feliz es un camino de corto recorrido, algunas señoras con panderetas y botellas tocaban al borde de la carretera, música que los jóvenes y no tan jóvenes acompañaban con sus bailes. Comenzaría aquel día una relación que se extendería a lo largo de todas sus vidas.</p>
-      </div>
-
-      <div id="FsGallery2" class="bgFsImg">
-        <img id="fsGalleryEl1"
-          src="images/chapterone/9-Josechalana1.jpg"
-          alt="#">
-
-        <img id="fsGalleryEl2"
-          src="images/chapterone/background.jpg"
-          alt="#">
-
-        <img id="fsGalleryEl3"
-          src="images/chapterone/poster.jpg"
-          alt="#">
-      </div>
-
-      <div id="FsGallery2Controller" class="galleryController">
-        <div id="FsGallery2ControllerEl1" class="galleryControllerEl">
-          <p>Cambiamos alguna cosa para diferenciar...</p>
-        </div>
-        <div id="FsGallery2ControllerEl2" class="galleryControllerEl">
-          <p>La mina al pie de la carretera.</p>
-        </div>
-        <div id="FsGallery2ControllerEl3" class="galleryControllerEl">
-          <p>El valle del Nalón.</p>
-        </div>
-      </div>
-
-
-      <div class="text-far-right">
-        <p>Si bien no hay muchas carreteras rectas en Asturias, la que une Muñera y Ciargüelo es una excepción. Como a modo de metáfora, el kilómetro que separa a las dos poblaciones es una línea recta, que no obedece los meandros del río. Pepita conocía a Ezequiel desde que eran niños, durante toda su vida. De hecho, los dos nacieron con cinco días de diferencia. Tardarían 17 años en conocerse de verdad y ganar confianza. Sería durante una Semana Santa, en la que como tantas otras desde el inicio de la dictadura, los bailes no estaban permitidos. La policía custodiaba los locales donde los jóvenes se relajaban, se divertían y enamoraban. Como prohibir a la gente ser feliz es un camino de corto recorrido, algunas señoras con panderetas y botellas tocaban al borde de la carretera, música que los jóvenes y no tan jóvenes acompañaban con sus bailes. Comenzaría aquel día una relación que se extendería a lo largo de todas sus vidas.</p>
-      </div>
-
-      <div class="subtitle">
-        <h2>Pinned<br class="break-here"> Images</h2>
-      </div>
-
-      <div  class="text-far-far-right">
-        <p>Cuatro años más tarde, el segundo, quien tomaría el nombre de su padre: Ezequiel. La familia solo se completaría en 1965 con el nacimiento de Eugenia. Esos primeros años en el valle serían para siempre recordados por los dos hermanos como los más felices. Disfrutaban de gran libertad y pasaban sus horas en espectaculares paisajes, en los que el río Nalón y sus afluentes tendrían un rol mayúsculo. Unos años atrás, cuando Ricardo todavía se encontraba en Alemania, sufrió un accidente de tráfico mientras se dirigía a Düsseldorf para realizar los rutinarios trámites de documentos a los que los inmigrantes españoles se veían sometidos con regularidad. Para convencer a su madre Lola de que no había revestido gravedad, volvió a Asturias para encontrarse con la familia. Él vió oportuno tratar de convencer a sus allegados en aventurarse a probar suerte en el extranjero como él llevaba haciendo desde hacía un año. Pese a tener trabajo en aquel momento, Pepita y Ezequiel decidieron aceptar la propuesta y embarcarse en lo que serían casi diez años de trabajo en tierras alemanas.</p><p class="txtpin"> Dejaron tras de sí su casa de Entrialgo, que sería alquilada durante unos años y finalmente vendida por el tío de Ezequiel, Alfredo, por valor de 350.000 pesetas. Ricardo, sin embargo, nunca conseguiría convencer a su madre Lola –una mujer independiente y trabajadora– de seguir sus pasos, ya que ésta sabía que terminaría únicamente cuidando de sus nietos para que los más jóvenes se enfocaran en el trabajo a destajo y el ahorro.</p>
-      </div>
-
-      <div  class="single-img-far-left vertical-img imgpin">
-        <img
-          srcset="images/chapterone/1-ezequiel-pepitasmall.jpg 650w,
-                  images/chapterone/1-ezequiel-pepitabig.jpg 1500w"
-          src="images/chapterone/1-ezequiel-pepitabig.jpg"
-          alt="attempt">
-
-      </div>
-
-
-      <div class="text-far-far-right">
-        <p>Al comienzo de septiembre de 1961, Ezequiel y Pepita comienzan en el largo y tortuoso trayecto en tren que uniría su pequeña y aislada Cuenca del Nalón con las planicies y campos de Renania del Norte–Westfalia. A las siete de la mañana, un tren que tanto transportaba pasajeros como toneladas de carbón, La Campurra, les lleva de Entrialgo hasta Pola de Laviana. Allí parten hacia la costa gijonesa. Pasearían por la ciudad –a la que no iban regularmente– para terminar embarcándose a las nueve de la noche en el tren con destino a La Robla, León. Pepita, una mujer nerviosa, y no muy viajada, gritaba al asustarse cada vez que el entre atravesaba uno de los numerosos túneles en su recorrido montañoso hacia el sur. El siguiente destino sería Irún, localidad vasca que hace de frontera entre el territorio español y el francés. Los diferentes anchos de vía y la consecuente necesidad del transbordo reforzaban la idea de estar abandonando aquel país gris y represivo que era España, para entrar en una realidad que en cuanto a derechos y libertades civiles parecía a años luz. El tren tendría como destino la Gare d’Austerlitz, estación parisina al sudeste de la ciudad, a orillas del río Sena. Es una imagen tierna la de la joven pareja cruzando París, cargados de maletas, con el nombre de la estación a la que se dirigían escrito a mano por Ricardo en un pedazo de papel. Ya en la Gare du Nord se subirían al último de los trayectos en ferrocarril, con destino Lieja, Bélgica.</p><p>El primer hogar tras su llegada a Alemania, sería la cocina de Ricardo. Pasarían luego un mes en casa de la hermana de Ezequiel, Chelo, quien habría ido poco tiempo antes con su marido Ceferino. <span id="timelineMarker4">Fue</span> un domingo cuando llegaron a Alemania y fue un lunes cuando Ezequiel bajaría a la mina Emile Mayrisch con Ricardo por primera vez. Al igual que su hermano, decidió trabajar en el derrabe, la extracción de mineral con martillo neumático. La Alemania que mis abuelos se encontraron, quince años después del fin de la guerra, no había conseguido despegarse completamente de su pasado. El primer alojamiento que la empresa les facilitó era el llamado “Casino” de Alsdorf, un antiguo edificio que hizo de vivienda para las tropas alemanas en la guerra, y luego para los proletarios que el país necesitaba. Un país con una capacidad económica creciente, que requeriría de mano de obra imperiosamente durante las siguientes décadas para tareas de reconstrucción y levantar el “milagro económico alemán”.</p>
-      </div>
-      <div class="single-img-container imgpin">
-        <div class="single-img-far-left horizontal-img">
-          <img
-            srcset="images/chapterone/2-carbon-small.jpg 650w,
-                    images/chapterone/2-carbon-big.jpg 1500w"
-            src="images/chapterone/2-carbon-big.jpg"
-            alt="attempt2">
-        </div>
-      </div>
-      <div class="single-img-container imgpin">
-        <div class="single-img-center horizontal-img">
-          <img
-            srcset="images/chapterone/2-carbon-small.jpg 650w,
-                    images/chapterone/2-carbon-big.jpg 1500w"
-            src="images/chapterone/2-carbon-big.jpg"
-            alt="attempt2">
-        </div>
-      </div>
-
-      <div  class="text-far-far-right">
-        <p>La siguiente localización temporal facilitada por la empresa fue uno de esos detalles históricos que los alemanes se han esforzado por hacer desaparecer: las barracas de madera. Letrinas colectivas, hacinados en poco espacio y tomando baño en un barreño. Por último, fueron instalados en unas viviendas obreras en Aldenhoven. Si bien modestas y no muy espaciosas, se convertirían en el nuevo hogar de la familia Suárez Álvarez durante los años que les restarían emigrados. Se mudarían del número 16 al número 18 en la misma calle, pasando a disponer de una huerta y un garaje donde disfrutarían de espacio exterior. Al fin y al cabo, Aldenhoven, pese a sus reducida extensión, se convirtió en localidad más poblada donde habían residido.</p><p>Ezequiel no tendría la suerte de su lado. No permaneció todos los años el tiempo en el mismo puesto de trabajo, ya que un año más tarde sufrió un accidente grave al quedar enterrado tras un derrumbe. Ezequiel y Pepita no estarían presentes en los primeros seis años de vida de Eugenia, quien vivió felizmente con los padres de Pepita, Carlos y Covadonga. El nivel de crueldad con que sus hijos varones fueron tratados en el internado que ellos escogieron, tampoco ayudó a curar las heridas o responder los porqués que sin duda recorrían sus mentes. El objetivo de la emigración siempre fue ahorrar. Ahorrar para retornar y tener una vida mejor. Podemos preguntarnos: ¿a qué precio? No obstante, tendríamos que hacernos esa pregunta desde la perspectiva de quienes sufrieron el hambre de la posguerra, de quien se ganaba su vida a un kilómetro bajo la montaña en riesgo constante, de quienes hacían malabarismos para llegar a fin de mes.</p>
-      </div>
-      <div class="single-img-container imgpin">
-        <div class="single-img-far-right horizontal-img">
-          <img
-            srcset="images/chapterone/2-carbon-small.jpg 650w,
-                    images/chapterone/2-carbon-big.jpg 1500w"
-            src="images/chapterone/2-carbon-big.jpg"
-            alt="attempt2">
-        </div>
-      </div>
-      <div class="single-img-container imgpin">
-        <div id="imgTarget1" class="single-img-center vertical-img">
-          <img
-            srcset="images/chapterone/1-ezequiel-pepitasmall.jpg 650w,
-                    images/chapterone/1-ezequiel-pepitabig.jpg 1500w"
-            src="images/chapterone/1-ezequiel-pepitabig.jpg"
-            alt="attempt">
-        </div>
-      </div>
-
-      <div class="single-img-container">
-        <div class="single-img-far-far-left vertical-img imgpin">
-          <img
-            srcset="images/chapterone/1-ezequiel-pepitasmall.jpg 650w,
-                    images/chapterone/1-ezequiel-pepitabig.jpg 1500w"
-            src="images/chapterone/1-ezequiel-pepitabig.jpg"
-            alt="attempt">
-        </div>
-      </div>
-
-
-
-
-      <div class="subtitle">
-        <h2>Different position<br class="break-here"> images</h2>
-      </div>
-
-      <div class="single-img-container">
-        <div class="single-img-far-far-left vertical-img">
-          <img
-            srcset="images/chapterone/1-ezequiel-pepitasmall.jpg 650w,
-                    images/chapterone/1-ezequiel-pepitabig.jpg 1500w"
-            src="images/chapterone/1-ezequiel-pepitabig.jpg"
-            alt="attempt">
-        </div>
-      </div>
-      <div class="single-img-container">
-        <div class="single-img-far-left vertical-img">
-          <img
-            srcset="images/chapterone/1-ezequiel-pepitasmall.jpg 650w,
-                    images/chapterone/1-ezequiel-pepitabig.jpg 1500w"
-            src="images/chapterone/1-ezequiel-pepitabig.jpg"
-            alt="attempt">
-        </div>
-      </div>
-      <div class="text-far-right">
-        <p>Si bien no hay muchas carreteras rectas en Asturias, la que une Muñera y Ciargüelo es una excepción. Como a modo de metáfora, el kilómetro que separa a las dos poblaciones es una línea recta, que no obedece los meandros del río. Pepita conocía a Ezequiel desde que eran niños, durante toda su vida. De hecho, los dos nacieron con cinco días de diferencia. Tardarían 17 años en conocerse de verdad y ganar confianza. Sería durante una Semana Santa, en la que como tantas otras desde el inicio de la dictadura, los bailes no estaban permitidos. La policía custodiaba los locales donde los jóvenes se relajaban, se divertían y enamoraban. Como prohibir a la gente ser feliz es un camino de corto recorrido, algunas señoras con panderetas y botellas tocaban al borde de la carretera, música que los jóvenes y no tan jóvenes acompañaban con sus bailes. Comenzaría aquel día una relación que se extendería a lo largo de todas sus vidas.</p>
-      </div>
-      <div class="single-img-container">
-        <div class="single-img-left vertical-img">
-          <img
-            srcset="images/chapterone/1-ezequiel-pepitasmall.jpg 650w,
-                    images/chapterone/1-ezequiel-pepitabig.jpg 1500w"
-            src="images/chapterone/1-ezequiel-pepitabig.jpg"
-            alt="attempt">
-        </div>
-      </div>
-      <div class="single-img-container">
-        <div class="single-img-center vertical-img">
-          <img
-            srcset="images/chapterone/1-ezequiel-pepitasmall.jpg 650w,
-                    images/chapterone/1-ezequiel-pepitabig.jpg 1500w"
-            src="images/chapterone/1-ezequiel-pepitabig.jpg"
-            alt="attempt">
-        </div>
-      </div>
-      <div class="single-img-container">
-        <div class="single-img-right vertical-img">
-          <img
-            srcset="images/chapterone/1-ezequiel-pepitasmall.jpg 650w,
-                    images/chapterone/1-ezequiel-pepitabig.jpg 1500w"
-            src="images/chapterone/1-ezequiel-pepitabig.jpg"
-            alt="attempt">
-        </div>
-      </div>
-      <div class="text-far-far-left">
-        <p>Si bien no hay muchas carreteras rectas en Asturias, la que une Muñera y Ciargüelo es una excepción. Como a modo de metáfora, el kilómetro que separa a las dos poblaciones es una línea recta, que no obedece los meandros del río. Pepita conocía a Ezequiel desde que eran niños, durante toda su vida. De hecho, los dos nacieron con cinco días de diferencia. Tardarían 17 años en conocerse de verdad y ganar confianza. Sería durante una Semana Santa, en la que como tantas otras desde el inicio de la dictadura, los bailes no estaban permitidos. La policía custodiaba los locales donde los jóvenes se relajaban, se divertían y enamoraban. Como prohibir a la gente ser feliz es un camino de corto recorrido, algunas señoras con panderetas y botellas tocaban al borde de la carretera, música que los jóvenes y no tan jóvenes acompañaban con sus bailes. Comenzaría aquel día una relación que se extendería a lo largo de todas sus vidas.</p>
-      </div>
-      <div class="single-img-container">
-        <div class="single-img-far-right vertical-img">
-          <img
-            srcset="images/chapterone/1-ezequiel-pepitasmall.jpg 650w,
-                    images/chapterone/1-ezequiel-pepitabig.jpg 1500w"
-            src="images/chapterone/1-ezequiel-pepitabig.jpg"
-            alt="attempt">
-        </div>
-      </div>
-      <div class="single-img-container">
-        <div class="single-img-far-far-right vertical-img">
-          <img
-            srcset="images/chapterone/1-ezequiel-pepitasmall.jpg 650w,
-                    images/chapterone/1-ezequiel-pepitabig.jpg 1500w"
-            src="images/chapterone/1-ezequiel-pepitabig.jpg"
-            alt="attempt">
-        </div>
-      </div>
-
-      <div class="single-img-container">
-        <div class="single-img-far-far-left horizontal-img">
-          <img
-            srcset="images/chapterone/2-carbon-small.jpg 650w,
-                    images/chapterone/2-carbon-big.jpg 1500w"
-            src="images/chapterone/2-carbon-big.jpg"
-            alt="attempt2">
-        </div>
-      </div>
-      <div class="text-center">
-        <p>Si bien no hay muchas carreteras rectas en Asturias, la que une Muñera y Ciargüelo es una excepción. Como a modo de metáfora, el kilómetro que separa a las dos poblaciones es una línea recta, que no obedece los meandros del río. Pepita conocía a Ezequiel desde que eran niños, durante toda su vida. De hecho, los dos nacieron con cinco días de diferencia. Tardarían 17 años en conocerse de verdad y ganar confianza. Sería durante una Semana Santa, en la que como tantas otras desde el inicio de la dictadura, los bailes no estaban permitidos. La policía custodiaba los locales donde los jóvenes se relajaban, se divertían y enamoraban. Como prohibir a la gente ser feliz es un camino de corto recorrido, algunas señoras con panderetas y botellas tocaban al borde de la carretera, música que los jóvenes y no tan jóvenes acompañaban con sus bailes. Comenzaría aquel día una relación que se extendería a lo largo de todas sus vidas.</p>
-      </div>
-
-      <div class="single-img-container">
-        <div class="single-img-far-left horizontal-img">
-          <img
-            srcset="images/chapterone/2-carbon-small.jpg 650w,
-                    images/chapterone/2-carbon-big.jpg 1500w"
-            src="images/chapterone/2-carbon-big.jpg"
-            alt="attempt2">
-        </div>
-      </div>
-      <div class="single-img-container">
-        <div class="single-img-center horizontal-img">
-          <img
-            srcset="images/chapterone/2-carbon-small.jpg 650w,
-                    images/chapterone/2-carbon-big.jpg 1500w"
-            src="images/chapterone/2-carbon-big.jpg"
-            alt="attempt2">
-        </div>
-      </div>
-      <div class="single-img-container">
-        <div class="single-img-far-right horizontal-img">
-          <img
-            srcset="images/chapterone/2-carbon-small.jpg 650w,
-                    images/chapterone/2-carbon-big.jpg 1500w"
-            src="images/chapterone/2-carbon-big.jpg"
-            alt="attempt2">
-        </div>
-      </div>
-      <div class="single-img-container">
-        <div class="single-img-far-far-right horizontal-img">
-          <img
-            srcset="images/chapterone/2-carbon-small.jpg 650w,
-                    images/chapterone/2-carbon-big.jpg 1500w"
-            src="images/chapterone/2-carbon-big.jpg"
-            alt="attempt2">
-        </div>
-      </div>
-
-
-
-
-
-
-
-
-
-
-
-      <div class="subtitle">
-        <h2>Background<br class="break-here"> Images</h2>
-      </div>
-
-      <div id="cuencasMineras">
-
-        <div class="text-far-left mancheta">
-          <p>Al comienzo de septiembre de 1961, Ezequiel y Pepita comienzan en el largo y tortuosAl comienzo de septiembre de 1961, Ezequiel y Pepita comienzan en el largo y tortuoso trayecto en tren que uniría su pequeña y aislada Cuenca del Nalón con las planicies y campos de Renania del Norte–Westfalia. A las siete de la mañana, un tren que tanto transportaba pasajeros como toneladas de carbón, La Campurra, les lleva de Entrialgo hasta Pola de Laviana. Allí parten hacia la costa gijonesa. Pasearían por la ciudad –a la que no iban regularmente– para terminar embarcándose a las nueve de la noche en el tren con destino a La Robla, León. Pepita, una mujer nerviosa, y no muy viajada, gritaba al asustarse cada vez que el entre atravesaba uno de los numerosos túneles en su recorrido montañoso hacia el sur. El siguiente destino sería Irún, localidad vasca que hace de frontera entre el territorio español y el francés. Los diferentes anchos de vía y la consecuente necesidad del transbordo reforzaban la idea de estar abandonando aquel país gris y represivo que era España, para entrar en una realidad que en cuanto a derechos y libertades civiles parecía a años luz. El tren tendría como destino la Gare d’Austerlitz, estación parisina al sudeste de la ciudad, a orillas del río Sena. Es una imagen tierna la de la joven pareja cruzando París, cargados de maletas, con el nombre de la estación a la que se dirigían escrito a mano por Ricardo en un pedazo de papel. Ya en la Gare du Nord se subirían al último de los trayectos en ferrocarril, con destino Lieja, Bélgica.</p><p>Una vez llegados en el país vecino, Ricardo vendría vendría a su encuentro, para facilitarles los documentos que les permitirían entrar al país. A diferencia de otros procesos migrantes en Alemania en años posteriores, en aquella época pocos llevaban el trabajo asegurado. Por tanto, entraban en Alemania como falsos turistas, y en esta ocasión, con la justificación de un supeusto bautizo del hizo de Ricardo –el cual ya se había celebrado un año atrás. Peor suerte correrían otros, como su amigo “Manolín”: las ropas de trabajo, llenas de cal, alertaron a los gendarmes, quienes no le permitieron proseguir. La última vez que lo verían, sería mientras se despedía desde la ventana de la comisaría de policía. Manolín terminaría trabajando en Bélgica durante años, donde ya tenía tres hermanas.</p><p>El primer hogar tras su llegada a Alemania, sería la cocina de Ricardo. Pasarían luego un mes en casa de la hermana de Ezequiel, Chelo, quien habría ido poco tiempo antes con su marido Ceferino. <span id="timelineMarker4">Fue</span> un domingo cuando llegaron a Alemania y fue un lunes cuando Ezequiel bajaría a la mina Emile Mayrisch con Ricardo por primera vez. Al igual que su hermano, decidió trabajar en el derrabe, la extracción de mineral con martillo neumático. La Alemania que mis abuelos se encontraron, quince años después del fin de la guerra, no había conseguido despegarse completamente de su pasado. El primer alojamiento que la empresa les facilitó era el llamado “Casino” de Alsdorf, un antiguo edificio que hizo de vivienda para las tropas alemanas en la guerra, y luego para los proletarios que el país necesitaba. Un país con una capacidad económica creciente, que requeriría de mano de obra imperiosamente durante las siguientes décadas para tareas de reconstrucción y levantar el “milagro económico alemán”.</p><p>La siguiente localización temporal facilitada por la empresa fue uno de esos detalles históricos que los alemanes se han esforzado por hacer desaparecer: las barracas de madera. Letrinas colectivas, hacinados en poco espacio y tomando baño en un barreño. Por último, fueron instalados en unas viviendas obreras en Aldenhoven. Si bien modestas y no muy espaciosas, se convertirían en el nuevo hogar de la familia Suárez Álvarez durante los años que les restarían emigrados. Se mudarían del número 16 al número 18 en la misma calle, pasando a disponer de una huerta y un garaje donde disfrutarían de espacio exterior. Al fin y al cabo, Aldenhoven, pese a sus reducida extensión, se convirtió en localidad más poblada donde habían residido.</p><p>Ezequiel no tendría la suerte de su lado. No permaneció todos los años el tiempo en el mismo puesto de trabajo, ya que un año más tarde sufrió un accidente grave al quedar enterrado tras un derrumbe. No fueron lesiones severas, y solamente pasó un día en el hospital, pero tras este suceso, pasaría a dedicarse a tareas que le eran más propias, acordes a su condición de mecánico calderero. Sería en este puesto donde conocería a Billy von Vover, con quien trabajaría durante años en el turno nocturno encargándose del mantenimiento del pozo. No lo sabían todavía, pero Billy se convertiría su consuegro, unos diez años más tarde. Pepita comenzó a trabajar en lo que pensaba sería una continuación de su profesión anterior. No obstante, cambió la pequeña habitación de costura en un pueblo asturiano por un proceso industrializado en una fábrica alemana. No consiguió establecerse: cambiaban las partes que debía coser cada día y le daban órdenes en un idioma totalmente desconocido. Finalmente, terminó buscando otro trabajo. Comenzaron entonces nueve años consecutivos en la empresa Philips ensamblando pequeñas bombillas. Cuántas veces habremos oído en casa las historias del gélido frío invernal camino a la factoría, combatido por capas de periódicos envolviéndole el cuerpo. No sería aquella una época de huelgas, aunque sí había representación sindical, proceso en el que mis abuelos se involucraron, ejerciendo el derecho al voto.</p><p>Unos meses después de llegar a Alemania por primera vez, ya en 1962, Ezequiel se desplazó hasta Asturias y regresó el mismo fin de semana con sus dos hijos, José Luis y Ezequiel. El equipaje viajó paralelo a ellos en tren, ya que no había espacio en el coche: Ezequiel viajó en el cuello de su padre durante esos mil setecientos kilómetros. Con seis y cuatro años, consiguieron aprender el idioma, aunque los recuerdos de estar en una escuela sin entender ni una sola palabra perduran. No existía segregación en las aulas, esos alumnos de cabello negro como el carbón eran identificables en las fotos de grupo. Excepto en la primera comunión. Ezequiel se convirtió en uno de los pocos niños que hayan hecho una “primera comunión” en dos ocasiones. Volvió a casa un sábado asegurando que al día siguiente era el susodicho evento, y su madre –bastante histérica– salió camino a Holanda, donde las tiendas estarían abiertas, para comprar a su hijo ropa adecuada. Fue el único niño español que hizo la comunión con los niños alemanes. El 30 de junio de 1965 la familia se completaría con el nacimiento de Eugenia en tierras alemanas.</p><p>La placentera vida de la que disfrutaban José Luis y Ezequiel en Aldenhoven terminó una vez que mis abuelos decidieron traerlos a España e internarlos a régimen completo en un colegio religioso en Villaviciosa. En agosto de 1965 fueron llevados de vuelta a la tierra que los vió nacer, mientras que su hermana fue dejada con sus abuelos en diciembre. La vida que les esperaría a los jóvenes hermanos no sería nada fácil: una educación religiosa, basada en el castigo físico y psicológico, hambre y mala alimentación, duchas con agua fría y violencia entre alumnos. No tenían posibilidad de comunicarse con el exterior libremente, y cuando hablaban con sus padres no les creían: al fin y al cabo eran los señores de la casa donde trabajaba Lola, su abuela, los que les habían recomendado el centro. Solo terminarían siendo cambiados de centro –en el caso de Ezequiel– o llevados a trabajar –en el caso de José Luis– tras descubrir su padre que la escuela estaba estafándoles dinero con facturas de bienes que nunca recibían.</p><p>Ezequiel y Pepita no estarían presentes en los primeros seis años de vida de Eugenia, quien vivió felizmente con los padres de Pepita, Carlos y Covadonga. El nivel de crueldad con que sus hijos varones fueron tratados en el internado que ellos escogieron, tampoco ayudó a curar las heridas o responder los porqués que sin duda recorrían sus mentes. El objetivo de la emigración siempre fue ahorrar. Ahorrar para retornar y tener una vida mejor. Podemos preguntarnos: ¿a qué precio? No obstante, tendríamos que hacernos esa pregunta desde la perspectiva de quienes sufrieron el hambre de la posguerra, de quien se ganaba su vida a un kilómetro bajo la montaña en riesgo constante, de quienes hacían malabarismos para llegar a fin de mes.Al comienzo de septiembre de 1961, Ezequiel y Pepita comienzan en el largo y tortuoso trayecto en tren que uniría su pequeña y aislada Cuenca del Nalón con las planicies y campos de Renania del Norte–Westfalia. A las siete de la mañana, un tren que tanto transportaba pasajeros como toneladas de carbón, La Campurra, les lleva de Entrialgo hasta Pola de Laviana. Allí parten hacia la costa gijonesa. Pasearían por la ciudad –a la que no iban regularmente– para terminar embarcándose a las nueve de la noche en el tren con destino a La Robla, León. Pepita, una mujer nerviosa, y no muy viajada, gritaba al asustarse cada vez que el entre atravesaba uno de los numerosos túneles en su recorrido montañoso hacia el sur. El siguiente destino sería Irún, localidad vasca que hace de frontera entre el territorio español y el francés. Los diferentes anchos de vía y la consecuente necesidad del transbordo reforzaban la idea de estar abandonando aquel país gris y represivo que era España, para entrar en una realidad que en cuanto a derechos y libertades civiles parecía a años luz. El tren tendría como destino la Gare d’Austerlitz, estación parisina al sudeste de la ciudad, a orillas del río Sena. Es una imagen tierna la de la joven pareja cruzando París, cargados de maletas, con el nombre de la estación a la que se dirigían escrito a mano por Ricardo en un pedazo de papel. Ya en la Gare du Nord se subirían al último de los trayectos en ferrocarril, con destino Lieja, Bélgica.</p><p>Una vez llegados en el país vecino, Ricardo vendría vendría a su encuentro, para facilitarles los documentos que les permitirían entrar al país. A diferencia de otros procesos migrantes en Alemania en años posteriores, en aquella época pocos llevaban el trabajo asegurado. Por tanto, entraban en Alemania como falsos turistas, y en esta ocasión, con la justificación de un supeusto bautizo del hizo de Ricardo –el cual ya se había celebrado un año atrás. Peor suerte correrían otros, como su amigo “Manolín”: las ropas de trabajo, llenas de cal, alertaron a los gendarmes, quienes no le permitieron proseguir. La última vez que lo verían, sería mientras se despedía desde la ventana de la comisaría de policía. Manolín terminaría trabajando en Bélgica durante años, donde ya tenía tres hermanas.</p><p>El primer hogar tras su llegada a Alemania, sería la cocina de Ricardo. Pasarían luego un mes en casa de la hermana de Ezequiel, Chelo, quien habría ido poco tiempo antes con su marido Ceferino. <span id="timelineMarker4">Fue</span> un domingo cuando llegaron a Alemania y fue un lunes cuando Ezequiel bajaría a la mina Emile Mayrisch con Ricardo por primera vez. Al igual que su hermano, decidió trabajar en el derrabe, la extracción de mineral con martillo neumático. La Alemania que mis abuelos se encontraron, quince años después del fin de la guerra, no había conseguido despegarse completamente de su pasado. El primer alojamiento que la empresa les facilitó era el llamado “Casino” de Alsdorf, un antiguo edificio que hizo de vivienda para las tropas alemanas en la guerra, y luego para los proletarios que el país necesitaba. Un país con una capacidad económica creciente, que requeriría de mano de obra imperiosamente durante las siguientes décadas para tareas de reconstrucción y levantar el “milagro económico alemán”.</p><p>La siguiente localización temporal facilitada por la empresa fue uno de esos detalles históricos que los alemanes se han esforzado por hacer desaparecer: las barracas de madera. Letrinas colectivas, hacinados en poco espacio y tomando baño en un barreño. Por último, fueron instalados en unas viviendas obreras en Aldenhoven. Si bien modestas y no muy espaciosas, se convertirían en el nuevo hogar de la familia Suárez Álvarez durante los años que les restarían emigrados. Se mudarían del número 16 al número 18 en la misma calle, pasando a disponer de una huerta y un garaje donde disfrutarían de espacio exterior. Al fin y al cabo, Aldenhoven, pese a sus reducida extensión, se convirtió en localidad más poblada donde habían residido.</p>
-        </div>
-
-
-        <div id="bgImagesCuenca" class="bgFsImg">
-          <div id="bgCuenca1" class="bgFsImgEl">
-            <img src="images/chapterone/3-Cuenca_primero.jpg"
+        <div id="imgFadingContainerIntro" class="singleImgFadingContainer">
+          <div id="imgFadeIntro1" class="fadingImages">
+            <img class="vertical"
+              src="images/chapterone/2-Ezequiel_y_Pepita.jpg"
               alt="#">
+            <p class="hide">Ezequiel y Pepita con su segundo hijo en Alemania.</p>
           </div>
-          <div  id="bgCuenca2" class="bgFsImgEl">
-            <img src="images/chapterone/4-Cuenca_segunda.jpg"
+          <div  id="imgFadeIntro2" class="fadingImages">
+            <img class="vertical"
+              src="images/chapterone/2-Ezequiel_y_Pepita_3.jpg"
               alt="#">
+            <p class="hide">Documentos de trabajo de Ezequiel en Alemania.</p>
           </div>
-          <div  id="bgCuenca3" class="bgFsImgEl">
-            <img src="images/chapterone/4-Cuenca_segunda2.jpg"
-              alt="#">
+        </div>
+      </div>
+
+
+      <div id="CuencaNalon">
+
+        <div id="CuencaNalonBeginning" class="beginningSectionTwoColumns">
+
+          <div class="titleAndMoreButton">
+            <h2>La Cuenca<br class="break-here"> del Nalón</h2>
+            <div class="text-far-left">
+              <p>El río Nalón serpentea por un valle salpicado de pozos de carbón y castilletes, cubierto por un manto verde y casas que desafían la gravedad de su escarpada orografía.
+              </p>
+            </div>
+            <div class="seeMoreButton"><p>More</p></div>
           </div>
-          <div  id="bgCuenca4" class="bgFsImgEl">
-            <img src="images/chapterone/5-Cuenca-tercera.jpg"    alt="#">
+
+          <div id="playerFamilyIntro" class="video">
+            <div id="videoFamilyIntro"></div>
+            <div id="posterCuencaNalon" class="poster">
+              <img src="images/chapterone/posterCuenca.jpg" alt=""></img>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="hiddenTitleMore">
+          <h2>La Cuenca<br class="break-here"> del Nalón</h2>
+        </div>
+
+        <div id="seeMoreCuencaNalon" class="extraContentLoad">
+          <div id="moreInfoCuencaNalon" class="moreInfo">
+            <div class="text-far-left mancheta">
+              <p>Al igual que el río que ahonda el valle, los dos siglos de intensa actividad minerosiderúrgica han esculpido una vívida personalidad a las cuencas mineras asturianas, en el norte de España. La del Nalón ha sido testimonio de una industrialización pesada que dio lugar a dos mundos paralelos, el rural y el industrial, que todavía hoy coexisten en extraño equilibrio. Testimonio de duras luchas obreras, insurrecciones como la Revolución de Octubre de 1934, de sangrienta represión franquista y de lucha guerrillera, es una zona marcada por una fuerte identidad —asturiana, minera, proletaria— que también influyó en la historia de Ezequiel y Pepita.
+              </p>
+              <p>Habrá quien vea estos paisajes sólo como un elemento estático o decorativo, pero las montañas que se extienden a lo largo de sesenta kilómetros sirvieron de hogar a aquellos que perdieron la guerra, pero que no se habían rendido. Los guerrilleros antifranquistas tomaron esas cumbres, hoy en inmutable calma, durante quince años. Ellas les ofrecieron hogar y protección, así como personas como Lola, la madre de Ezequiel, quien les proveía de comida y en ocasiones cobijo. La vida de la población fue tomando forma  sobre la base de tres pilares: el trabajo, la política y el campo.
+              </p>
+              <p>Una carretera une las poblaciones a medida que zigzaguea hasta llegar al Puerto de Tarna, frontera en el sureste de Asturias. Parece ir imitando las curvas del río Nalón mientras asciende cruzando el Parque Natural de Redes, como hacían los otrora abundantes y preciados salmones. El camino se hace cada vez más inhóspito a medida que nos acercamos a la frontera asturiana. Sin embargo, aquí, inhóspito significa espectacular. El sol se pone antes que en otros lugares; nunca alcanzará el horizonte, ya que algún pico proyectará la última sombra del día sobre el cada vez más estrecho valle.
+              </p>
+            </div>
+
+            <div id="bgImagesCuenca" class="bgFsImg">
+              <div id="bgCuenca1" class="bgFsImgEl">
+                <img src="images/chapterone/3-Cuenca_primero.jpg"
+                  alt="#">
+              </div>
+              <div  id="bgCuenca2" class="bgFsImgEl">
+                <img src="images/chapterone/4-Cuenca_segunda.jpg"
+                  alt="#">
+              </div>
+            </div>
+
+            <div id="cuencasMinerasController" class="bgController">
+              <div id="cuencasMinerasController1" class="bgControllerEl"></div>
+              <div id="cuencasMinerasController2" class="bgControllerEl"></div>
+            </div>
+
           </div>
         </div>
 
-        <div id="cuencasMinerasController" class="bgController">
-          <div id="cuencasMinerasController1" class="bgControllerEl"></div>
-          <div id="cuencasMinerasController2" class="bgControllerEl"></div>
-          <div id="cuencasMinerasController3" class="bgControllerEl"></div>
-          <div id="cuencasMinerasController4" class="bgControllerEl"></div>
+
+
+
+
+
+
+      </div>
+
+      <div id="EzequielPepita" class="fadeSection">
+
+        <div id="subtitleEzequielPepita" class="subtitleIntro">
+          <h2>Pepita <br class="break-here">y Ezequiel</h2>
         </div>
+
+        <div id="Pepita" class="margin40">
+          <div class="text-far-left">
+            <p>La historia de Pepita comienza en la aldea de Les Xinariegues, a orillas de este río Nalón. Cuando tenía un año de edad la familia se trasladó a Muñera, a un par de kilómetros de distancia. La primera de cuatro hermanos, ejerció el oficio de costurera mientras estaba en su tierra y le esperarían aún nueve años de trabajo industrial en el extranjero. Pepita es una persona difícil de olvidar. Hábitos y actitudes que se le pueden achacar erróneamente a la avanzada edad la acompañan desde que era una niña. Es difícil explicar cómo alguien que vivió durante una década a miles de kilómetros de distancia de su lugar de nacimiento, siga poniéndose nerviosa por ir a una ciudad a veinte minutos en coche y califique el suceso como “viaje”. Nerviosa, pero jamás <span style="color: yellow;" id="markerFadePepita">tímida</span>, saca conversación a la menor oportunidad. De fuertes convicciones políticas, aunque habiendo pasado poco por la escuela, es una de esas personas que pone pasión a la menor de las discusiones. En ocasiones roza los límites del pesimismo y la negatividad. No se puede decir que se le dé muy bien relativizar y quitar hierro a los problemas. Con los sentimientos siempre a flor de piel, Pepita se deja llevar por la rabia que le genera oír hablar por televisión a un presidente del gobierno, heredero político de quienes sostuvieron la dictadura franquista, por haber recortado los salarios de los funcionarios, entre los que se encuentra su hijo. Deja aparte la racionalidad cuando habla de esa lotería que echa religiosamente pero sigue sin tocar, o cuando de forma frontal expresa sus infundados miedos sobre el siguiente viaje de sus hijos al extranjero. De familia con pocos recursos, Pepita repitió toda su vida una y otra vez algo que marcó a varias generaciones en nuestro país: el hambre de la posguerra. Como se dice en lengua asturiana, la fame. La suya era una zona de pequeñas propiedades —modestos huertos y poco ganado—, así que el estraperlo y la compraventa informal florecieron. La creatividad para alimentar malamente a la familia señala a aquella generación que en su gran mayoría sufrió severas dificultades. El miedo a que los fantasmas del pasado retornen eclipsa la idea de que el futuro también puede deparar penurias similares.
+            </p>
+          </div>
+          <div id="imgFadingContainerPepita" class="singleImgFadingContainer">
+            <div id="imgFadePepita1" class="fadingImages">
+              <img class="vertical"
+                src="images/chapterone/6-Pepita.png"
+                alt="#">
+              <!-- <p class="hide">Ezequiel y Pepita con su segundo hijo en Alemania.</p> -->
+            </div>
+            <div  id="imgFadePepita2" class="fadingImages">
+              <img class="vertical"
+                src="images/chapterone/6-Pepita2.png"
+                alt="#">
+              <!-- <p class="hide">Pepita en 2017 sosteniendo una de las bombillas que fabricaba.</p> -->
+            </div>
+            <div  id="imgFadePepita3" class="fadingImages">
+              <img class="vertical"
+                src="images/chapterone/6-Pepita3.png"
+                alt="#">
+              <!-- <p class="hide">Pepita en 2017</p> -->
+            </div>
+          </div>
+        </div>
+
+        <div id="Ezequiel">
+
+          <div class="single-img-container imgpinNoPush">
+            <div  class="single-img-center vertical-img">
+              <img class="imgInfo"
+                srcset="images/chapterone/7-Ezequiel3.png 650w,
+                        images/chapterone/7-Ezequiel3.png 1500w"
+                src="images/chapterone/7-Ezequiel3.png"
+                alt="attempt">
+              <div class="text-far-left">
+                <p>A su vez, la vida de Ezequiel comienza en otro pueblo también situado al borde de la antigua carretera, Ciargüelo (en castellano, Celleruelo). En una época en la que recorrer cuarenta kilómetros hasta la costa o viajar a la capital conllevaba varias horas de incómodo trayecto, no sorprendería compartir valle con tu futura mujer.
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="single-img-container imgpinNoPush">
+            <div  class="single-img-far-right vertical-img">
+              <img
+                srcset="images/chapterone/7-Ezequiel.jpg 650w,
+                        images/chapterone/7-Ezequiel.jpg 1500w"
+                src="images/chapterone/7-Ezequiel.jpg"
+                alt="attempt">
+
+            </div>
+          </div>
+          <div class="single-img-container imgpinNoPush">
+            <div class="single-img-far-right vertical-img">
+              <img class="imgInfo"
+                srcset="images/chapterone/7-Ezequiel2.png 650w,
+                        images/chapterone/7-Ezequiel2.png 1500w"
+                src="images/chapterone/7-Ezequiel2.png"
+                alt="attempt">
+              <div class="text-far-left">
+                <p>Empezó a trabajar procesando madera a los doce años, el sector de su padre José ‘el Chalana’. Desde niño también trabajó en el campo. De hecho, las presiones de sus tíos por encargarse del gaa trabajar procesando madera a los doce años, el sector de su padre José ‘el Chalana’.</p>
+              </div>
+            </div>
+          </div>
+          <div class="text-left">
+            <p>A su vez, la vida de Ezequiel comienza en otro pueblo también situado al borde de la antigua carretera, Ciargüelo (en castellano, Celleruelo). En una época en la que recorrer cuarenta kilómetros hasta la costa o viajar a la capital conllevaba varias horas de incómodo trayecto, no sorprendería compartir valle con tu futura mujer. Ezequiel era un hombre corpulento, forjado por la dureza del esfuerzo físico desde muy temprana edad. Empezó a trabajar a los doce años procesando madera, el sector de su padre José “el Chalana”. Desde niño también se dedicó al campo. De hecho, las presiones de sus tíos por que se encargase del ganado y sus limitadas tierras serían una de las razones por las que buscaría una vida más próspera, y por tanto independiente, a través de la emigración. En los años venideros, el sector del carbón pasaría a ser el centro de su vida laboral. Se dedicó a tareas mecánicas y reparaciones. Pasó por talleres y por pozos mineros. Para completar el salario, solía trabajar fines de semana para reparar el pozo Sotón, en los días de descanso de extracción de mineral. Le reconocían su gran habilidad —y valentía— en la reparación de los cables de acero que transportaban los contenedores con la hulla del carbón de un lado al otro del valle, para luego ser descargados en los trenes. Sin duda se puede decir que su vida y sus valores giraban en torno al trabajo como elemento fundamental. Al fin y al cabo, quien no tiene más que sus propias manos para ganarse la vida, no podría emprender caminos alternativos. Ezequiel era un hombre muy carismático. Afable, gracioso y bromista es como le recuerdan todos los que le conocieron. Era un hombre valiente, de una personalidad marcada y con un fuerte temperamento. Sin embargo, sería recordado con una sonrisa en la boca o las bromas que siempre acompañaban sus conversaciones.
+            </p>
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+      <div id="familyEzequiel" class="afterFadeSection noOpacity">
+
+        <div id="beginningfamilyEzequiel" class="beginningSectionPhoto">
+          <div class="bcg-parallax">
+            <div class="gradientParallax">
+            </div>
+
+            <div class="bcg"></div>
+
+            <div class="content-wrapper">
+              <h2>La familia <br class="break-here">de Ezequiel</h2>
+            </div>
+
+            <div class="text-center">
+              <p>
+                Ezequiel procedía de una familia más inusual que la de Pepita. Su madre había estado casada con Alfredo, con quien había tenido a su primer hijo, Ricardo. Antes de terminar su relación con Alfredo, Lola comenzó a verse con José Manuel Suárez Corte “el Chalana”, con quien tendría tres hijos pese a no contraer matrimonio, entre ellos Ezequiel. Pero fue Alfredo quien lo registró como su hijo, bajo el nombre de Jeromo González Solís, un 28 de julio de 1932. Lola lo registrará nuevamente, esta vez ya bajo el nombre de Ezequiel, con la fecha de nacimiento de su padre, José: 9 de abril de 1932. Para ayudar a que su nueva familia tuviera un hogar, José compró la mitad de la casa de la madre de Lola.
+              </p>
+            </div>
+
+            <div class="seeMoreButton">
+              <div>
+                <p>More</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="hiddenTitleMore">
+          <h2>La familia <br class="break-here">de Ezequiel</h2>
+        </div>
+
+
+
+        <div id="seeMoreFamilyEzequiel" class="extraContentLoad">
+
+          <div class="text-far-right">
+            <p>
+              Los hermanos de José eran dueños de un restaurante de bastante éxito llamado Casa Hermanos Suárez, en Entrialgo, y de algunas tierras en la zona. No obstante, con el dinero suelen venir los problemas. El mayor de ellos, quien llevaba el nombre familiar de Ezequiel, se marchó a Argentina. Sus cuatro hermanas nunca se casaron: en cartas quedó señalado el rastro de la presión familiar a la que eran sometidas. Por último estaba Alfredo, el personaje más oscuro. Siempre de gafas de sol, autoritario y reaccionario, fue apropiándose de buena parte de las posesiones de la familia, a la vez que pagando deudas de sus parientes. Tampoco se casó, aunque sí dejó un vástago, que tras su muerte heredó buena parte de lo que en su día perteneció a todos los hermanos. <span id="timelineMarker1" style="color: yellow;">Alfredo</span> llegó a poner una pistola en el pecho a su sobrino Ezequiel, para forzarle a que firmase la venta de su parte en la propiedad de un manzanar. Quien conociera a Ezequiel —y a buena parte de los hombres de la zona— sabría que la terquedad está en su ADN. Hizo gala de ella al responderle: “Tira si te atreves”. Un hecho como este para muchos sería un punto y final, pero él nunca llegaría a romper relaciones con su tío.
+            </p>
+          </div>
+
+          <!-- <div id="playerFamily" class="video">
+            <div id="videoFamily"></div>
+            <div id="posterFamily">
+              <img src="images/chapterone/posterFamily.jpg" alt=""></img>
+            </div>
+          </div>
+
+          <div id="afterVideoFamily" class="afterVideo"></div> -->
+
+          <div class="text-far-right">
+            <p>
+              José “el Chalana” era contratista de madera. Los que lo conocían lo recordaban con su pesada y potente moto recorriendo el valle. Pese a no participar directamente en los combates de la Guerra Civil, era socialista, y fue preso por las tropas fascistas en la cárcel de Laviana. El Frente Norte había caído y las tropas republicanas no pudieron contener más el avance de los fascistas. Estos tardarían poco en aplicar la Instrucción Reservada Base 5ª del 19 de julio de 1936, que proclamaba: “Es necesario crear una atmósfera de terror, hay que dejar sensación de dominio eliminando sin <span id="timelineMarker2" style="color: yellow;">escrúpulos</span> ni vacilación a todo el que no piense como nosotros. Tenemos que causar una gran impresión, todo aquel que sea abierta o secretamente defensor del Frente Popular debe ser fusilado”. El 26 de noviembre de 1937 José, otros tres hombres y cinco mujeres, fueron sacados de la cárcel al amanecer en un camión con destino a Oviedo. El padre de Ezequiel logró escaparse del camión en marcha con sus manos atadas. Fue interceptado cerca de la estación de ferrocarril y asesinado a golpes con una llave inglesa de reparación de vías. El fascista que le segó la vida gritó frívolamente: “A este Chalana ‘no hay dios’ quien lo mate”. Los otros ocho compañeros de José fueron sacados del camión en una escombrera en la conocida como Cuesta de Vindoria y fusilados al alba.
+            </p>
+            <p>
+              Ezequiel perdió a su padre muy joven, con cinco años de edad. No se conservaron fotografías suyas, pero él consiguió guardar para siempre una vívida imagen: montado en la ruidosa motocicleta con José mientras ascendía por las curvas de la carretera, camino al Alto de San Pedro. Su padre le golpeó sin querer levemente con el manillar y se le llenaron los ojos de lágrimas por haber lastimado a su retoño. Muchos años después del hediondo crimen y tras una profunda investigación, el hermano de <span id="timelineMarker3" style="color: yellow;">Ezequiel</span>, Ricardo, consiguió descubrir la identidad y localización del asesino de José. Se dio el caso de que el susodicho falangista tenía por costumbre pasear todos los días por la playa San Lorenzo en Gijón, a cinco minutos de la casa que Pepita y Ezequiel habían comprado. Gracias a la firmeza de ella, los dos hermanos no fueron a encontrarse con el criminal. Pepita “no quería ir a visitarles a la cárcel”.
+            </p>
+            <p>
+              La madre de Ezequiel, Lola, fue una mujer de una fortaleza enorme, muy inteligente e independiente. Siempre trabajó como sirvienta en casas de familias adineradas, como en la de la familia Velasco en el pueblo de Sotrondio. Apoyó a la guerrilla antifranquista —también llamada maquis, nombre atribuido por la lucha de muchos de ellos en la liberación de Francia de las tropas del Tercer Reich—. Con cuatro años de edad, Ezequiel llevaba comida a un punto acordado en la montaña, donde más tarde guerrilleros como los hermanos Caxigales pasarían a recogerla. Ellos habían estado en casa de Lola en algunas ocasiones, para luego volver a “echarse al monte”.
+            </p>
+          </div>
+        </div>
+
+
+
+        <div class="timeline">
+
+          <div>
+            <div>
+              <img id="timeline1" src="images/chapterone/timeline-01.svg">
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline">
+
+          <div>
+            <div>
+              <img id="timeline2" src="images/chapterone/timeline-02.svg">
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline">
+
+          <div>
+            <div>
+              <img id="timeline3" src="images/chapterone/timeline-03.svg">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="lifeTogether">
+        <div class="subtitleIntro">
+          <h2>Por fin <br class="break-here">juntos</h2>
+        </div>
+
+        <div class="text-left">
+          <p>
+            Si bien no hay muchas carreteras rectas en Asturias, la que une Muñera y Ciargüelo es una excepción. Como a modo de metáfora, el kilómetro que separa a las dos poblaciones es una línea recta, que no obedece los meandros del río. Pepita conocía a Ezequiel desde que eran niños, durante toda su vida. De hecho, los dos nacieron con cinco días de diferencia. Tardarían 17 años en conocerse de verdad y ganar confianza. Sería durante una Semana Santa, en la que como tantas otras desde el inicio de la dictadura, los bailes no estaban permitidos. La policía custodiaba los locales donde los jóvenes se relajaban, se divertían y enamoraban. Como prohibir a la gente ser feliz es un camino de corto recorrido, algunas señoras con panderetas y botellas tocaban al borde de la carretera, música que los jóvenes y no tan jóvenes acompañaban con sus bailes. Comenzaría aquel día una relación que se extendería a lo largo de todas sus vidas.
+          </p>
+        </div>
+
+        <div id="playerRoad" class="video">
+          <div id="videoRoad"></div>
+          <div id="posterRoad">
+            <img src="images/chapterone/posterRoad.jpg" alt=""></img>
+          </div>
+        </div>
+
+        <div id="afterVideoRoad" class="afterVideo"></div>
+
+
+
+
+        <div class="text-left">
+          <p>
+            Se casaron dos años más tarde, en mayo de 1952. Pero el pasado a veces se pone caprichoso y amenaza con volver. Pepita tuvo que tomar en matrimonio no a Ezequiel, sino a “Jeromo”, ya que en el Juzgado no conseguían encontrar el registro con su nombre real. Y como en aquella época de privaciones no se podían dejar cabos sueltos, un miedo les acechaba: la mina daba a sus empleados 15.000 pesetas al casarse, y era Ezequiel quien trabajaba allí de mecánico, no aquel tal Jeromo... Al final el párroco que ofició la ceremonia tuvo que desplazarse hasta Oviedo para declarar como testigo y que la joven pareja consiguiera comenzar la nueva vida juntos con buen pie.
+          </p>
+        </div>
+        <div class="text-right">
+          <p>
+            Tras la boda, Ezequiel fue destinado a Zamora para cumplir el servicio militar obligatorio. Unas semanas más tarde, representantes del juzgado fueron al pueblo en busca de un tal Ezequiel al que consideraban prófugo por no haberse presentado al servicio militar; según sus registros, el que estaba en Zamora era alguien llamado Jeromo. Pepita tuvo que salir a toda prisa con su bicicleta en busca de Lola, para que fuera a declarar por su hijo y consiguiese de una vez por todas terminar con los problemas originados casi veinte años atrás.
+          </p>
+        </div>
+        <div class="text-center">
+          <p>
+            Solo nueve meses después de la boda nació el primer hijo de la pareja, José Luis. Cuatro años más tarde, el segundo, quien tomaría el nombre de su padre: Ezequiel. La familia sólo se completaría en 1965 con el nacimiento de Eugenia. Esos primeros años en el valle serán recordados siempre por los dos hermanos como los más felices. Disfrutaban de gran libertad y pasaban sus horas en espectaculares paisajes, en los que el río Nalón y sus afluentes tendrían un rol mayúsculo. El primogénito dio su alma a la pesca desde la más tierna infancia. Ezequiel hijo no conseguió conservar recuerdos nítidos de aquellos primeros años, siendo su madre Pepita la que terminaría generándolos a través de las fidedignas descripciones que le posibilita su todavía hoy infalible memoria.
+          </p>
+        </div>
+
+
+
+      </div>
+
+      <div id="Ricardo">
+        <div id="beginningRicardo" class="beginningSectionPhoto">
+          <div class="bcg-parallax">
+            <div class="gradientParallax">
+            </div>
+
+            <div class="bcg"></div>
+
+            <div class="content-wrapper">
+              <h2>Ricardo, el hermano </br>de Ezequiel</h2>
+
+            </div>
+
+            <div class="text-center">
+              <p>
+                En 1960 Ricardo, el hermano de Ezequiel padre, emigró al occidente de Alemania siguiendo los pasos de uno de sus cuñados. Con su mujer, Chata, llegaron en tren a Bélgica, y unos amigos les pasaron a Alemania en coche. Como ilustración del giro cinematográfico que tomó su vida, fue dos días después de llegar cuando nació en tierras germanas su hijo Sigfrido.
+              </p>
+            </div>
+
+            <div class="seeMoreButton">
+              <div>
+                <p>More</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="hiddenTitleMore">
+          <h2>Ricardo,<br class="break-here"> el hermano de Ezequiel</h2>
+        </div>
+
+        <div id="seeMoreRicardo" class="extraContentLoad">
+          <div id="moreInfoRicardo" class="moreInfo">
+            <div class="text-far-left">
+              <p>En 1960 Ricardo, el hermano de Ezequiel padre, emigró al occidente de Alemania siguiendo los pasos de uno de sus cuñados. Con su mujer, Chata, llegaron en tren a Bélgica, y unos amigos les pasaron a Alemania en coche. Como ilustración del giro cinematográfico que tomó su vida, fue dos días después de llegar cuando nació en tierras germanas su hijo Sigfrido. Hay que ponerse en el lugar de Chata, quien —embarazada de nueve meses y con seguridad terriblemente incómoda—, siguió a su aventurero marido en un tortuoso viaje para pasar los años siguientes cuidando de sus hijos, sin la ayuda de los familiares que habían dejado tras de sí. Tiempo después fue su hija Eva la que nacería en tierras germanas.
+              </p>
+              <p>Ricardo, minero picador de primera con certificación, bajó a la mina al poco de llegar. No muchos mineros estaban a la altura técnica y aguantaban el ritmo. Ellos eran del grupo de obreros con salarios más altos. Después de tres años se mudó a Lieja, Bélgica, para continuar otros tres años como minero picador. Tras ello, la historia cambia radicalmente, aunque para quien ha conocido a Ricardo no es nada inesperado. Dejó la mina para dedicarse a hacer viajes en furgoneta trasladando a migrantes asturianos entre los dos países. Sería, sorprendentemente, en esta etapa en la que aprendería más lenguas, ya que en los años de picador —ya fuera por el aislamiento de la comunidad germana o por el trabajo constante— no consiguió avanzar demasiado. Los viajes, además de con personas, empezaron a llenarse de contrabando. Transportaba cognac y anís que llevaba a los obreros asturianos en Bélgica o Alemania. Además, compraba allí por valor de 9.000 pesetas una gran cantidad de tabaco, que en España vendía a un único cliente, sacándole un beneficio de un mil por ciento en cada viaje. En una de esas idas y venidas, por no haber aceptado el aumento del soborno exigido por un agente de aduanas, fue detenido en Bayona, Francia, casi en la frontera con España. Allí le confiscaron la furgoneta, le multaron por valor de más de un millón de pesetas y fue enviado a la cárcel. Su hermana María Luisa pagaría la multa y Ricardo fue liberado tras cuarenta y un días preso. Pudo recuperar la furgoneta, ya que su pena se vio rebajada al entender las autoridades que el destino del tabaco era España y no el territorio francés.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div id="roadToGermany" class="fadeSection">
+
+        <div id="subtitleRoadToGermany" class="subtitleIntro">
+          <h2>Camino <br class="break-here">a Alemania</h2>
+        </div>
+
+        <div class="text-center">
+          <p>A principios de septiembre de 1961, Ezequiel y Pepita dejan a sus dos hijos en Asturias y comienzan en el largo y tortuoso trayecto que unirá su pequeña y aislada Cuenca del Nalón con las planicies y campos de Renania del Norte–Westfalia. A las siete de la mañana, un tren que tanto transportaba pasajeros como toneladas de carbón, La Campurra, les lleva de Entrialgo hasta Pola de Laviana. Allí parten hacia la costa. Pasean por la ciudad de Gijón, para terminar embarcándose a las nueve de la noche en el tren con rumbo a La Robla, León. Pepita, una mujer nerviosa y nada viajada, grita al asustarse cada vez que el tren atraviesa uno de los numerosos túneles en su recorrido montañoso hacia el sur. El siguiente destino es Irún, localidad vasca que hace de frontera entre el territorio español y el francés. Los diferentes anchos de vía y la consecuente necesidad del transbordo refuerzan la idea de estar abandonando aquel país gris y represivo que era España, para entrar en una realidad que en cuanto a derechos y libertades civiles parecía a años luz. El tren tiene como destino la Gare d’Austerlitz, estación al sudeste de París, pero ellos deben ir a la Gare du Nord para emprender el último de sus trayectos en ferrocarril. Es una imagen tierna la de la joven pareja cruzando París, cargados de maletas, con el nombre de la estación escrito a mano por Ricardo en un pedazo de papel.
+          </p>
+          <p>
+          Una vez llegados a Lieja, Bélgica, Ricardo viene a su encuentro para facilitarles los documentos que les permitirían entrar. A diferencia de otros procesos migrantes en Alemania en épocas posteriores, en aquella época pocos llevaban el trabajo asegurado. Por tanto, entraban como falsos turistas y, en esta ocasión, con la justificación de un supuesto bautizo del hijo de Ricardo —el cual ya se había celebrado un año atrás—. Peor suerte correrían otros, como su amigo Manolín: su maleta repleta de ropa de trabajo manchada de cal alertó de sus intenciones a los gendarmes, que no le permitieron proseguir. La última vez que lo vieron fue mientras se despedía desde la ventana de la comisaría de policía.
+          </p>
+          <p>
+          La cocina de Ricardo se convirtió en el primer hogar tras su llegada a Alemania. Pasaron luego un mes en casa de una hermana de Ezequiel, Chelo, quien había ido poco tiempo antes con su marido Ceferino. Fue un domingo cuando llegaron a Alemania y ese lunes Ezequiel ya bajó a la mina Emile Mayrisch con Ricardo por primera vez. Al igual que su hermano, decidió trabajar en el derrabe, la extracción de mineral con martillo neumático. La Alemania que se encontraron, quince años después del fin de la guerra, no había conseguido despegarse completamente de su pasado. El primer alojamiento que la empresa les facilitó estaba en el llamado “Casino” de Alsdorf, un antiguo edificio que hizo de vivienda para las tropas alemanas en la guerra, y luego para los proletarios que el estado necesitaba. Un país con una capacidad económica creciente, que requeriría de mano de obra imperiosamente durante las siguientes décadas para tareas de reconstrucción y levantar el “milagro económico alemán”.
+          </p>
+          <p>
+          La siguiente residencia temporal proporcionada por la empresa fue uno de esos detalles históricos que los alemanes se han esforzado por hacer desaparecer: las barracas de madera. Letrinas colectivas, hacinados en poco espacio y bañándose en un barreño. Poco tiempo después fueron instalados en unas viviendas obreras en Aldenhoven. Si bien modestas y no muy espaciosas, se convirtieron en el hogar de la familia Suárez Álvarez durante los años que les quedarían emigrados. Finalmente se mudaron del número 16 al número 18 de la misma calle, pasando a disponer de una huerta y un garaje donde disfrutarán de espacio exterior. Al fin y al cabo, Aldenhoven, pese a su reducida extensión, resultó ser la localidad más poblada en la que habían residido.
+          </p>
+          <p>
+          Ezequiel no tendría la suerte de su lado. No permaneció todo el tiempo en el mismo puesto de trabajo, ya que un año después de su llegada sufrió un accidente grave al quedar enterrado tras un derrumbe. No fueron lesiones severas y sólamente pasó un día en el hospital, pero tras este suceso se dedicó a tareas que le eran más propias, acordes a su condición de mecánico calderero. Será en este puesto donde conocerá a Billy von Vover, con quien trabajará durante años en el turno nocturno encargándose del mantenimiento del pozo. No lo sabían todavía, pero Billy se convertiría su consuegro, unos diez años más tarde. Pepita comenzó lo que pensaba que sería una continuación de su profesión anterior. No obstante, cambió la pequeña habitación de modista en un pueblo asturiano por un proceso de costura industrializado en una fábrica alemana. No consiguió establecerse: cambiaban las partes que debía coser cada día y le daban órdenes en un idioma totalmente desconocido. Finalmente, terminó buscando otro empleo. Comenzaron entonces nueve años consecutivos en la empresa Philips ensamblando pequeñas bombillas, combatiendo el gélido frío invernal camino a la factoría con capas de periódicos envolviéndole el cuerpo. No fue aquella una época de huelgas, aunque sí había representación sindical, proceso en el que Ezequiel y Pepita se involucraron ejerciendo el derecho al voto.
+          </p>
+          <p>
+          Unos meses después, ya en 1962, Ezequiel se desplazó hasta Asturias y regresó a Alemania el mismo fin de semana con sus dos hijos, José Luis y Ezequiel. El equipaje se trasladó paralelo a ellos en tren, puesto que no había espacio en el coche: Ezequiel hijo viajó en el regazo de su padre durante esos mil setecientos kilómetros. Con seis y cuatro años, los pequeños consiguieron aprender el idioma rápidamente, aunque los recuerdos de estar en una escuela sin entender ni una sola palabra aún perduran. Esos alumnos de cabello negro como el carbón eran identificables en las fotos de grupo; no existía segregación en las aulas, excepto al celebrar la primera comunión. Un sábado Ezequiel llegó a casa asegurando que al día siguiente tenía lugar el susodicho evento, y su madre —bastante histérica, porque le pilló completamente por sorpresa— salió camino a la cercana Holanda, donde las tiendas estaban abiertas, para comprar a su hijo ropa apropiada. Finalmente resultó tratarse de la celebración de los niños alemanes, a la que Ezequiel no tenía por qué haber ido. Poco después volvió a hacer la comunión, esta vez ya con sus compatriotas españoles; se convirtió así en una de las pocas personas que haya hecho una “primera comunión” en dos ocasiones.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div id="theReturn" class="fadeSection">
+
+        <div id="subtitleRoadToGermany" class="subtitleIntro">
+          <h2>El Regreso</h2>
+        </div>
+
+        <div class="text-center">
+          <p>El 30 de junio de 1965 la familia se completaría con el nacimiento de Eugenia en Alemania. La placentera vida de la que disfrutaban José Luis y Ezequiel en Aldenhoven terminó una vez que sus padres decidieron llevarlos a España e internarlos a régimen completo en un colegio religioso en Villaviciosa. En agosto de 1965 fueron conducidos de vuelta a la tierra que los vio nacer, mientras que Eugenia fue dejada al cuidado de sus abuelos en diciembre. La vida que les esperaría a los jóvenes hermanos no sería nada fácil: una educación religiosa, basada en el castigo físico y psicológico, hambre y mala alimentación, duchas con agua fría y violencia entre alumnos. No tenían posibilidad de comunicarse con el exterior libremente, y cuando hablaban con sus padres estos no les creían: al fin y al cabo quienes les habían recomendado el centro eran los señores de la casa donde trabajaba su abuela Lola. Solo terminarían siendo cambiados de colegio —en el caso de Ezequiel— o llevados a trabajar —en el caso de José Luis— tras descubrir su padre que la escuela estaba estafándoles dinero con facturas de bienes que los niños nunca recibían.
+          </p>
+          <p>Ezequiel y Pepita no estuvieron presentes en los primeros seis años de vida de Eugenia, quien vivió felizmente con los padres de Pepita, Carlos y Covadonga. El nivel de crueldad con que sus hijos varones fueron tratados en el internado que ellos escogieron tampoco ayudó a curar las heridas o responder los porqués que sin duda recorrían sus mentes. El objetivo de la emigración siempre fue ahorrar. Ahorrar para retornar y tener una vida mejor. Podemos preguntarnos: ¿a qué precio? No obstante, tendríamos que plantearnos esa cuestión desde la perspectiva de quienes sufrieron el hambre de la posguerra, de quien se ganaba su vida a un kilómetro bajo la montaña en riesgo constante, de quienes hacían malabarismos para llegar a fin de mes.
+          </p>
+        </div>
+
       </div>
 
 
@@ -703,8 +680,66 @@
 
 
 
-    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div id="pinContainer">
+        <section class="panel blue">
+
+
+
+        </section>
+        <section class="panel turqoise">
+          <div class="parallelStoriesTitle">
+            <h1>Juš</h1>
+            <div class="text-center">
+              <i>
+                Al igual que el río que ahonda el valle, los dos siglos de fuerte actividad minerosiderúrgica han tallado una vívida personalidad a las llamadas Cuencas Mineras asturianas.
+              </i>
+            </div>
+          </div>
+
+        </section>
+        <section class="panel green">
+          <img class="mask"
+            src="images/chapterone/jus.jpg"
+            alt="#">
+
+        </section>
+        <section class="panel bordeaux">
+          <img class="maskReverse"
+            src="images/chapterone/jus.jpg"
+            alt="#">
+        </section>
+        <section class="panel endSection">
+          <h2>Juš Škraban</h2>
+          <div class="text-far-left">
+            <p>
+              Al igual que el río que ahonda el valle, los dos siglos de fuerte actividad minerosiderúrgica han tallado una vívida personalidad a las llamadas Cuencas Mineras asturianas. La Cuenca del Nalón, situada en el norte de España, ha sido testimonio de una industrialización pesada que dió lugar a un mundo rural e industrial que todavía hoy coexisten en extraño equilibrio.
+            </p>
+          </div>
+        </section>
+      </div>
+
+
+
+
+
+
+
+
 
     </div>
 
   </body>
+</html>

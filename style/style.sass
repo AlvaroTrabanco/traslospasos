@@ -21,17 +21,17 @@ body
 
 
 
-body::-webkit-scrollbar
-  width: 1em
-
-
-body::-webkit-scrollbar-track
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.8)
-
-
-body::-webkit-scrollbar-thumb
-  background-color: rgba(0,0,0,0.3)
-  outline: none
+// body::-webkit-scrollbar
+//   width: 1em
+//
+//
+// body::-webkit-scrollbar-track
+//   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.8)
+//
+//
+// body::-webkit-scrollbar-thumb
+//   background-color: rgba(0,0,0,0.3)
+//   outline: none
 
 
 
@@ -95,7 +95,7 @@ h3
     font-size: 16px
 
 p
-  color: white
+  color: #cccccc
   font-family: lora, georgia, serif
   font-size: $main-font-size
   line-height: 200%
@@ -377,17 +377,17 @@ a
   z-index: -1
   width: 100%
   top: 0
-  left: -1px
-  right: 18px
+  // left: -1px
+  // right: 18px
   bottom: 0px
   margin: 0
   PADDING: 0
   background-color: #3d3d3d
 .grid__col
-
+  height: 100%
   .box
     background-color: black
-    height: 100vh
+    height: 100%
     &:hover
       background-color: black
 
@@ -638,7 +638,7 @@ a
         transform: translateY(-50%)
         opacity: 1
       .vertical
-        max-width: 44.4444vw
+        max-width: 44.4444%
         width: auto
         max-height: 100vh
 
@@ -666,7 +666,7 @@ a
         transform: translateY(-50%)
         opacity: 1
       .vertical
-        max-width: 33.33333vw
+        max-width: 60%
         width: auto
         max-height: 100vh
 

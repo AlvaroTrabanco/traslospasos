@@ -259,11 +259,14 @@
 
 %side-element
 
-  height: 50vh
+  height: 100%
   position: fixed
-  top: 25%
+  top: 0
   padding-left: 10px
+  padding-right: 1px
   overflow: hidden
+  display: table
+  z-index: -1
   @media (max-width: $small)
     display: none
   @extend %tablet-v-2-9
