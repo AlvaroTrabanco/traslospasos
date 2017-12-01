@@ -3,7 +3,7 @@
  * The javascript library for magical scroll interactions.
  * (c) 2015 Jan Paepke (@janpaepke)
  * Project Website: http://scrollmagic.io
- * 
+ *
  * @version 2.0.5
  * @license Dual licensed under MIT license and GPL.
  * @author Jan Paepke - e-mail@janpaepke.de
@@ -13,10 +13,10 @@
  * requires: jQuery ~1.11 or ~2.1
  */
 /**
- * This plugin is meant to be used in conjunction with jQuery.  
- * It enables ScrollMagic to make use of jQuery's advanced selector engine (sizzle) for all elements supplied to ScrollMagic objects, like scroll containers or trigger elements.  
+ * This plugin is meant to be used in conjunction with jQuery.
+ * It enables ScrollMagic to make use of jQuery's advanced selector engine (sizzle) for all elements supplied to ScrollMagic objects, like scroll containers or trigger elements.
  * ScrollMagic also accepts jQuery elements for all methods that expect references to DOM elements. Please note, that in most cases the first element of the matched set will be used.
- * 
+ *
  * Additionally it provides the ScrollMagic object within the jQuery namespace, so it can be accessed using `$.ScrollMagic`.
  *
  * In contrast to most other plugins it does not offer new API additions for ScrollMagic.

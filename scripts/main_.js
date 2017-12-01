@@ -6,29 +6,38 @@ $(document).ready(function(){
   /*Audio with text*/
   var $introAudio = $("#introAudio");
   var $introAudioMarker = $("#introAudioMarker");
+  var $introAudioGrillos = $("#introAudioGrillos");
+  var $introAudioGrillosMarker = $("#introAudioGrillosMarker")
+  var $introAudioMetalNoise = $("#introAudioMetalNoise");
+  var $introAudioMetalNoiseMarker = $("#introAudioMetalNoiseMarker")
+  var $maquinaCoserAudio = $("#maquinaCoserAudio");
+  var $maquinaCoserAudioMarker = $("#maquinaCoserAudioMarker")
+  var $endAudio = $("#endAudio");
+  var $endAudioMarker = $("#endAudioMarker");
 
   var $introMusic = $("#introMusic");
   var $introMusicMarker = $("#introMusicMarker");
 
-  $.fn.isInViewport = function() {
-    var elementTop = $(this).offset().top;
-    var elementBottom = elementTop + $(this).outerHeight();
-    var viewportTop = $(window).scrollTop();
-    var viewportBottom = viewportTop + $(window).height();
-    return elementBottom > viewportTop && elementTop < viewportBottom;
-  };
-
-  $.fn.isNotInViewport = function() {
-    var elementTop = $(this).offset().top;
-    var elementBottom = elementTop + $(this).outerHeight();
-    var viewportTop = $(window).scrollTop();
-    var viewportBottom = viewportTop + $(window).height();
-    return elementBottom < viewportTop || elementTop > viewportBottom;
-  };
-
   var lastScrollTop = 0;
 
   $(window).on('load resize scroll', function() {
+
+    $.fn.isInViewport = function() {
+      var elementTop = $(this).offset().top;
+      var elementBottom = elementTop + $(this).outerHeight();
+      var viewportTop = $(window).scrollTop();
+      var viewportBottom = viewportTop + $(window).height();
+      return viewportTop <= elementTop && viewportBottom >= elementBottom;
+    };
+
+    $.fn.isNotInViewport = function() {
+      var elementTop = $(this).offset().top;
+      var elementBottom = elementTop + $(this).outerHeight();
+      var viewportTop = $(window).scrollTop();
+      var viewportBottom = viewportTop + $(window).height();
+      return elementBottom <= viewportTop || elementTop >= viewportBottom;
+    };
+
     var st = $(this).scrollTop();
 
     $('#introAudioMarker').each(function() {
@@ -57,6 +66,65 @@ $(document).ready(function(){
       }
     });
 
+    $('#introAudioMetalNoiseMarker').each(function() {
+      if ($(this).isInViewport() && !$(this).hasClass('played')) {
+        $("#introAudioMetalNoise").get(0).play();
+        $introAudioMetalNoise.stop(true,true);
+        $("#introAudioMetalNoise").animate({volume: 0.08}, 500);
+        $("#introAudioMetalNoiseMarker").addClass("played");
+
+        // console.log("in");
+      } else if ($(this).isNotInViewport()) {
+        $("#introAudioMetalNoise").animate({volume: 0}, 2000);
+        // console.log("OUT_down");
+      }
+    });
+
+    $('#introAudioGrillosMarker').each(function() {
+      if ($(this).isInViewport() && !$(this).hasClass('played')) {
+        $("#introAudioGrillos").get(0).play();
+        $introAudioGrillos.stop(true,true);
+        $("#introAudioGrillos").animate({volume: 1}, 200);
+        $("#introAudioGrillosMarker").addClass("played");
+
+        // console.log("in");
+      } else if ($(this).isNotInViewport()) {
+        $("#introAudioGrillos").animate({volume: 0}, 2000);
+        // console.log("OUT_down");
+      }
+    });
+
+
+    $('#maquinaCoserAudioMarker').each(function() {
+      if ($(this).isInViewport() && !$(this).hasClass('played')) {
+        $("#maquinaCoserAudio").get(0).play();
+        $maquinaCoserAudio.stop(true,true);
+        $("#maquinaCoserAudio").animate({volume: 0.5}, 200);
+        $("#maquinaCoserAudioMarker").addClass("played");
+
+        // console.log("in");
+      } else if ($(this).isNotInViewport()) {
+        $("#maquinaCoserAudio").animate({volume: 0}, 2000);
+        // console.log("OUT_down");
+      }
+    });
+
+    $('#endAudioMarker').each(function() {
+      setTimeout(function () {
+        if ($("#endAudioMarker").isInViewport() && !$(this).hasClass('played')) {
+          $("#endAudio").get(0).play();
+          $endAudio.stop(true,true);
+          $("#endAudio").animate({volume: 1}, 500);
+          $("#endAudioMarker").addClass("played");
+        } else if ($("#endAudioMarker").isNotInViewport()) {
+          $("#endAudio").animate({volume: 0}, 2000);
+        }
+
+      }, 1000);
+
+    });
+
+
     lastScrollTop = st;
   });
 
@@ -71,6 +139,13 @@ var $landingFadeOutMarker = $("#landingFadeOutMarker");
 var lastScrollTop = 0;
 
 $(window).on('load resize scroll', function() {
+  $.fn.isInViewport = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+    return elementBottom > viewportTop && elementTop < viewportBottom;
+  };
   var st = $(this).scrollTop();
 
   $('#landingFadeOutMarker').each(function() {
@@ -209,6 +284,25 @@ $(".mouse").click(function(){
           triggerElement: this,
           triggerHook: 0,
           duration: "100%"
+        })
+        .setPin(this, {pushFollowers:false})
+        .addTo(controller)
+        // .addIndicators({
+        //   name: "imgpin",
+        //   colorTrigger: "black",
+        //   colorStart: "black",
+        //   indent: "0"
+        // });
+      });
+  });
+
+  $(function() {
+      var controller = new ScrollMagic.Controller();
+      $(".imgpinNoPushShorter").each(function () {
+        new ScrollMagic.Scene({
+          triggerElement: this,
+          triggerHook: 0,
+          duration: "80%"
         })
         .setPin(this, {pushFollowers:false})
         .addTo(controller)
@@ -424,6 +518,54 @@ $(".mouse").click(function(){
   // run test on resize of the window
   $(window).resize(checkSize2);
 
+
+
+//now with Lola
+var $markerFadeLola = $("#markerFadeLola");
+var $singleImgFadeLola1 = $("#imgFadeLola1");
+var $singleImgFadeLola2 = $("#imgFadeLola2");
+
+function checkSizeLola(){
+  if ($(".singleImgFadingContainer").css("position") == "fixed" ){
+    $markerFadeLola.waypoint(function(direction) {
+      if (direction == "down"){
+        $singleImgFadeLola1.addClass("active");
+
+      } else {
+        $singleImgFadeLola1.removeClass('active');
+      }
+    }, {offset: "100%"} );
+    $markerFadeLola.waypoint(function(direction) {
+      if (direction == "down"){
+        $singleImgFadeLola1.removeClass("active");
+      } else {
+        $singleImgFadeLola1.addClass('active');
+      }
+    }, {offset: "50%"} );
+
+
+    $markerFadeLola.waypoint(function(direction) {
+      if (direction == "down"){
+        $singleImgFadeLola2.addClass("active");
+      } else {
+        $singleImgFadeLola2.removeClass('active');
+      }
+    }, {offset: "50%"} );
+    $markerFadeLola.waypoint(function(direction) {
+      if (direction == "down"){
+        $singleImgFadeLola2.removeClass("active");
+      } else {
+        $singleImgFadeLola2.addClass('active');
+      }
+    }, {offset: "0%"} );
+
+
+
+  }
+}
+
+
+
 /*until here*/
 
 
@@ -531,19 +673,23 @@ $(".mouse").click(function(){
   .addTo(controller);
 
 
-  // var pinVideoFamily = new ScrollMagic.Scene({
-  //   triggerElement: '#playerFamily',
-  //   triggerHook: 0,
-  //   duration: "100%"
-  // })
-  // .setPin("#playerFamily")
+  var pinVideoFamily = new ScrollMagic.Scene({
+    triggerElement: '#playerFamily',
+    triggerHook: 0,
+    duration: "100%"
+  })
+  .setPin("#playerFamily")
   // .addIndicators({
   //   name: " ",
   //   colorTrigger: "black",
   //   colorStart: "black",
   //   indent: "0"
   // })
-  // .addTo(controller);
+  .addTo(controller);
+
+
+
+
 
   /*until here*/
 
@@ -733,12 +879,23 @@ $('#familyEzequiel .seeMoreButton').click(function(){
   Waypoint.refreshAll()
   checkSize();
   checkSize2();
+  checkSizeHouse();
+  checkSizeJuntos();
   cuencaBackgroundImages();
+  ArbeitFsController();
+  setTimeout(function () {
+    checkSizeLola();
+
+  }, 1000);
+
 });
 
 $('#CuencaNalon .seeMoreButton').click(function(){
-
+// console.log('asdfasd');
   $("#CuencaNalonBeginning.beginningSectionTwoColumns").addClass("noHeight noOpacity");
+  setTimeout(function () {
+    $("#playerFamilyIntro iframe").remove();
+  }, 1000);
   $("#seeMoreCuencaNalon.extraContentLoad").addClass("fullHeight");
   $("#seeMoreCuencaNalon.extraContentLoad").addClass("doDisplay");
   $('html,body').animate({ scrollTop:$("#CuencaNalon .hiddenTitleMore ").offset().top}, 500);
@@ -747,9 +904,27 @@ $('#CuencaNalon .seeMoreButton').click(function(){
   Waypoint.refreshAll()
   checkSize();
   checkSize2();
+  checkSizeHouse();
+  checkSizeJuntos();
   cuencaBackgroundImages();
-  // checkSize3();
+
+  setTimeout(function () {
+    $(window).on("load resize scroll",function(e){
+     correctBgCuencaEl1();
+     correctBgCuencaEl2();
+     correctBgCuencaEl3();
+     correctBgCuencaEl4();
+     correctBgCuencaEl5();
+     correctBgCuencaEl6();
+
+     cuencaFsController();
+   });
+
+  }, 2000);
+
+  ArbeitFsController();
 });
+
 
 $('#Ricardo .seeMoreButton').click(function(){
 
@@ -762,7 +937,11 @@ $('#Ricardo .seeMoreButton').click(function(){
   Waypoint.refreshAll()
   checkSize();
   checkSize2();
+  checkSizeHouse();
+  checkSizeJuntos();
   cuencaBackgroundImages();
+  ArbeitFsController();
+
 });
 
 /*until here*/
@@ -791,9 +970,6 @@ $('#Ricardo .seeMoreButton').click(function(){
       $(this).siblings().removeClass("doDisplay");
     }
   });
-
-
-
 
 
 
@@ -848,30 +1024,30 @@ $(window).on('load resize scroll', function() {
 /*until here*/
 
 
-/*attempt unrelated stories*/
-$(function () { // wait for document ready
-  // init
-  var controller = new ScrollMagic.Controller();
-
-  // define movement of panels
-  var wipeAnimation = new TimelineMax()
-    .fromTo("section.panel.turqoise", 1, {x: "-100%"}, {x: "0%", ease: Linear.easeNone})  // in from left
-    .fromTo("section.panel.green",    1, {x:  "100%"}, {x: "0%", ease: Linear.easeNone})  // in from right
-    .fromTo("section.panel.bordeaux", 1, {y: "-100%"}, {y: "0%", ease: Linear.easeNone}) // in from top
-    .fromTo("section.panel.endSection", 1, {y: "200%"}, {y: "0%", ease: Linear.easeNone}); // in from top
-
-  // create scene to pin and link animation
-  new ScrollMagic.Scene({
-      triggerElement: "#pinContainer",
-      triggerHook: "onLeave",
-      duration: "600%"
-    })
-    .setPin("#pinContainer")
-    .setTween(wipeAnimation)
-    // .addIndicators() // add indicators (requires plugin)
-    .addTo(controller);
-});
-/*until here*/
+// /*attempt unrelated stories*/
+// $(function () { // wait for document ready
+//   // init
+//   var controller = new ScrollMagic.Controller();
+//
+//   // define movement of panels
+//   var wipeAnimation = new TimelineMax()
+//     .fromTo("section.panel.turqoise", 1, {x: "-100%"}, {x: "0%", ease: Linear.easeNone})  // in from left
+//     .fromTo("section.panel.green",    1, {x:  "100%"}, {x: "0%", ease: Linear.easeNone})  // in from right
+//     .fromTo("section.panel.bordeaux", 1, {y: "-100%"}, {y: "0%", ease: Linear.easeNone}) // in from top
+//     .fromTo("section.panel.endSection", 1, {y: "200%"}, {y: "0%", ease: Linear.easeNone}); // in from top
+//
+//   // create scene to pin and link animation
+//   new ScrollMagic.Scene({
+//       triggerElement: "#pinContainer",
+//       triggerHook: "onLeave",
+//       duration: "600%"
+//     })
+//     .setPin("#pinContainer")
+//     .setTween(wipeAnimation)
+//     // .addIndicators() // add indicators (requires plugin)
+//     .addTo(controller);
+// });
+// /*until here*/
 
 
 
@@ -1091,6 +1267,674 @@ moveBackground();
 
 
 /*until here*/
+
+
+// /*Fit images in fullscreen*/
+// var $windowHeight = $(window).height();
+// var $windowWidth = $(window).width();
+// var $windowRatio = $windowWidth / $windowHeight;
+// var $bgImg = $("#cuencaGalleryEl1");
+// var $bgImgHeight = $("#cuencaGalleryEl1").height();
+// var $bgImgWidth = $("#cuencaGalleryEl1").width();
+// var $bgImgRatio = $bgImgWidth /$bgImgHeight;
+//
+// function correctBgEl1(){
+//   if (($(window).width() / $(window).height()) < ($("#cuencaGalleryEl1").width() / $("#cuencaGalleryEl1").height())) {
+//     $("#cuencaGalleryEl1").addClass("corrected");
+//   }
+// }
+// function correctBgEl2(){
+//   if (($(window).width() / $(window).height()) < ($("#cuencaGalleryEl2").width() / $("#cuencaGalleryEl2").height())) {
+//     $("#cuencaGalleryEl2").addClass("corrected");
+//   }
+// }
+// function correctBgEl3(){
+//   if (($(window).width() / $(window).height()) < ($("#cuencaGalleryEl3").width() / $("#cuencaGalleryEl3").height())) {
+//     $("#cuencaGalleryEl3").addClass("corrected");
+//   }
+// }
+// function correctBgEl4(){
+//   if (($(window).width() / $(window).height()) < ($("#cuencaGalleryEl4").width() / $("#cuencaGalleryEl4").height())) {
+//     $("#cuencaGalleryEl4").addClass("corrected");
+//   }
+// }
+// function correctBgEl5(){
+//   if (($(window).width() / $(window).height()) < ($("#cuencaGalleryEl5").width() / $("#cuencaGalleryEl5").height())) {
+//     $("#cuencaGalleryEl5").addClass("corrected");
+//   }
+// }
+// function correctBgEl6(){
+//   if (($(window).width() / $(window).height()) < ($("#cuencaGalleryEl6").width() / $("#cuencaGalleryEl6").height())) {
+//     $("#cuencaGalleryEl6").addClass("corrected");
+//   }
+// }
+//
+//
+// function cuencaFsController(){
+//
+//   var $cuencaFsGalleryControllerEl1 = $("#cuencaFsGalleryControllerEl1");
+//   var $cuencaFsGalleryControllerEl2 = $("#cuencaFsGalleryControllerEl2");
+//   var $cuencaFsGalleryControllerEl3 = $("#cuencaFsGalleryControllerEl3");
+//   var $cuencaFsGalleryControllerEl4 = $("#cuencaFsGalleryControllerEl4");
+//   var $cuencaFsGalleryControllerEl5 = $("#cuencaFsGalleryControllerEl5");
+//   var $cuencaFsGalleryControllerEl6 = $("#cuencaFsGalleryControllerEl6");
+//
+//   var $cuencaGalleryEl1 = $("#cuencaGalleryEl1");
+//   var $cuencaGalleryEl2 = $("#cuencaGalleryEl2");
+//   var $cuencaGalleryEl3 = $("#cuencaGalleryEl3");
+//   var $cuencaGalleryEl4 = $("#cuencaGalleryEl4");
+//   var $cuencaGalleryEl5 = $("#cuencaGalleryEl5");
+//   var $cuencaGalleryEl6 = $("#cuencaGalleryEl6");
+//
+//   $cuencaFsGalleryControllerEl1.waypoint(function(direction) {
+//     if (direction == "down"){
+//       $cuencaGalleryEl1.addClass("active");
+//     } else {
+//       $cuencaGalleryEl1.removeClass('active');
+//     }
+//   }, {offset: "25%"} );
+//   $cuencaFsGalleryControllerEl1.waypoint(function(direction) {
+//     if (direction == "down"){
+//       $cuencaGalleryEl1.removeClass("active");
+//     } else {
+//       $cuencaGalleryEl1.addClass('active');
+//     }
+//   }, {offset: "-100%"} );
+//
+//
+//   $cuencaFsGalleryControllerEl2.waypoint(function(direction) {
+//     if (direction == "down"){
+//       $cuencaGalleryEl2.addClass("active");
+//     } else {
+//       $cuencaGalleryEl2.removeClass('active');
+//     }
+//   }, {offset: "25%"} );
+//   $cuencaFsGalleryControllerEl2.waypoint(function(direction) {
+//     if (direction == "down"){
+//       $cuencaGalleryEl2.removeClass("active");
+//     } else {
+//       $cuencaGalleryEl2.addClass('active');
+//     }
+//   }, {offset: "-100%"} );
+//
+//
+//   $cuencaFsGalleryControllerEl3.waypoint(function(direction) {
+//     if (direction == "down"){
+//       $cuencaGalleryEl3.addClass("active");
+//     } else {
+//       $cuencaGalleryEl3.removeClass('active');
+//     }
+//   }, {offset: "25%"} );
+//   $cuencaFsGalleryControllerEl3.waypoint(function(direction) {
+//     if (direction == "down"){
+//       $cuencaGalleryEl3.removeClass("active");
+//     } else {
+//       $cuencaGalleryEl3.addClass('active');
+//     }
+//   }, {offset: "-100%"} );
+//
+//
+//
+//   $cuencaFsGalleryControllerEl4.waypoint(function(direction) {
+//     if (direction == "down"){
+//       $cuencaGalleryEl4.addClass("active");
+//     } else {
+//       $cuencaGalleryEl4.removeClass('active');
+//     }
+//   }, {offset: "25%"} );
+//   $cuencaFsGalleryControllerEl4.waypoint(function(direction) {
+//     if (direction == "down"){
+//       $cuencaGalleryEl4.removeClass("active");
+//     } else {
+//       $cuencaGalleryEl4.addClass('active');
+//     }
+//   }, {offset: "-100%"} );
+//
+//
+//
+//   $cuencaFsGalleryControllerEl5.waypoint(function(direction) {
+//     if (direction == "down"){
+//       $cuencaGalleryEl5.addClass("active");
+//     } else {
+//       $cuencaGalleryEl5.removeClass('active');
+//     }
+//   }, {offset: "25%"} );
+//   $cuencaFsGalleryControllerEl5.waypoint(function(direction) {
+//     if (direction == "down"){
+//       $cuencaGalleryEl5.removeClass("active");
+//     } else {
+//       $cuencaGalleryEl5.addClass('active');
+//     }
+//   }, {offset: "-100%"} );
+//
+//
+//
+//
+//   $cuencaFsGalleryControllerEl6.waypoint(function(direction) {
+//     if (direction == "down"){
+//       $cuencaGalleryEl6.addClass("active");
+//     } else {
+//       $cuencaGalleryEl6.removeClass('active');
+//     }
+//   }, {offset: "25%"} );
+//   $cuencaFsGalleryControllerEl6.waypoint(function(direction) {
+//     if (direction == "down"){
+//       $cuencaGalleryEl6.removeClass("active");
+//     } else {
+//       $cuencaGalleryEl6.addClass('active');
+//     }
+//   }, {offset: "-100%"} );
+//
+//   }
+
+/*Fit images in fullscreen*/
+// var $windowHeight = $(window).height();
+// var $windowWidth = $(window).width();
+// var $windowRatio = $windowWidth / $windowHeight;
+// var $bgImg = $("#siblingGalleryEl1");
+// var $bgImgHeight = $("#siblingGalleryEl1").height();
+// var $bgImgWidth = $("#siblingGalleryEl1").width();
+// var $bgImgRatio = $bgImgWidth /$bgImgHeight;
+
+function correctBgCuencaEl1(){
+  if (($(window).width() / $(window).height()) < ($("#cuencaGalleryEl1").width() / $("#cuencaGalleryEl1").height())) {
+    $("#cuencaGalleryEl1").addClass("corrected");
+  }
+}
+function correctBgCuencaEl2(){
+  if (($(window).width() / $(window).height()) < ($("#cuencaGalleryEl2").width() / $("#cuencaGalleryEl2").height())) {
+    $("#cuencaGalleryEl2").addClass("corrected");
+  }
+}
+function correctBgCuencaEl3(){
+  if (($(window).width() / $(window).height()) < ($("#cuencaGalleryEl3").width() / $("#cuencaGalleryEl3").height())) {
+    $("#cuencaGalleryEl3").addClass("corrected");
+  }
+}
+function correctBgCuencaEl4(){
+  if (($(window).width() / $(window).height()) < ($("#cuencaGalleryEl4").width() / $("#cuencaGalleryEl4").height())) {
+    $("#cuencaGalleryEl4").addClass("corrected");
+  }
+}
+function correctBgCuencaEl5(){
+  if (($(window).width() / $(window).height()) < ($("#cuencaGalleryEl5").width() / $("#cuencaGalleryEl5").height())) {
+    $("#cuencaGalleryEl5").addClass("corrected");
+  }
+}
+function correctBgCuencaEl6(){
+  if (($(window).width() / $(window).height()) < ($("#cuencaGalleryEl6").width() / $("#cuencaGalleryEl6").height())) {
+    $("#cuencaGalleryEl6").addClass("corrected");
+  }
+}
+
+
+
+
+
+
+var lastScrollTop = 0;
+function cuencaFsController(){
+
+  $.fn.isInViewport = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+    return elementTop < viewportBottom && elementBottom > viewportTop;
+  };
+
+  $.fn.someOfItIsInViewport = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+    return elementTop < viewportBottom && elementBottom > viewportBottom;
+  };
+
+  $.fn.mixOfPrevious = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+    return elementTop < viewportBottom && elementBottom > viewportBottom;
+  };
+
+
+  var st = $(this).scrollTop();
+
+
+
+
+  $('#cuencaFsGalleryControllerEl1').each(function() {
+
+    if ($(this).someOfItIsInViewport()) {
+      // console.log("at least working in general");
+      $("#cuencaGalleryEl1").addClass("active");
+    } else {
+      $("#cuencaGalleryEl1").removeClass("active");
+    }
+  });
+
+
+  $('#cuencaFsGalleryControllerEl2').each(function() {
+    if ($(this).someOfItIsInViewport()) {
+      $("#cuencaGalleryEl2").addClass("active");
+    } else {
+      $("#cuencaGalleryEl2").removeClass("active");
+    }
+  });
+
+  $('#cuencaFsGalleryControllerEl3').each(function() {
+    if ($(this).someOfItIsInViewport()) {
+      $("#cuencaGalleryEl3").addClass("active");
+    } else {
+      $("#cuencaGalleryEl3").removeClass("active");
+    }
+  });
+
+  $('#cuencaFsGalleryControllerEl4').each(function() {
+    if ($(this).someOfItIsInViewport()) {
+      $("#cuencaGalleryEl4").addClass("active");
+    } else {
+      $("#cuencaGalleryEl4").removeClass("active");
+    }
+  });
+
+  $('#cuencaFsGalleryControllerEl5').each(function() {
+    if ($(this).someOfItIsInViewport()) {
+      $("#cuencaGalleryEl5").addClass("active");
+    } else {
+      $("#cuencaGalleryEl5").removeClass("active");
+    }
+  });
+
+  $('#cuencaFsGalleryControllerEl6').each(function() {
+    if ($(this).someOfItIsInViewport()) {
+      $("#cuencaGalleryEl6").addClass("active");
+    } else {
+      $("#cuencaGalleryEl6").removeClass("active");
+    }
+  });
+
+
+  lastScrollTop = st;
+}
+
+
+  // $(window).on("load resize scroll",function(e){
+  //   correctBgCuencaEl1();
+  //   correctBgCuencaEl2();
+  //   correctBgCuencaEl3();
+  //   correctBgCuencaEl4();
+  //   correctBgCuencaEl5();
+  //   correctBgCuencaEl6();
+  //
+  //   cuencaFsController();
+  // });
+
+  /*until here*/
+
+
+
+
+
+
+  /*sections transitions*/
+
+
+
+  // var lastScrollTop = 0;
+  //
+  //
+  // function pathDrawing(){
+  //   $.fn.pathInViewport = function() {
+  //     var elementTop = $(this).offset().top;
+  //     var elementBottom = elementTop + $(this).outerHeight();
+  //     var viewportTop = $(window).scrollTop();
+  //     var viewportBottom = viewportTop + $(window).height();
+  //     return viewportTop < elementTop && viewportBottom > elementBottom;
+  //   };
+  //
+  //   var st = $(this).scrollTop();
+  //   if ($pathController.pathInViewport()) {
+  //     $("#mapaSvgs").addClass("fullOpacity")
+  //     $("#germanyPath").addClass("activePath");
+  //     $("#mapaSvgs div img").addClass("activePath");
+  //     console.log("PATHHHHH");
+  //   }else{
+  //     $("#mapaSvgs").removeClass("fullOpacity")
+  //     $("#germanyPath").removeClass("activePath");
+  //     $("#mapaSvgs div img").removeClass("activePath");
+  //   }
+  //
+  //
+  //   lastScrollTop = st;
+  // }
+  //
+  // // cuencaBackgroundImages();
+  //
+  // $(window).on("load resize scroll",function(e){
+  //   pathDrawing();
+  // });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  var $markerFadeHouse = $("#markerFadeHouse");
+  var $singleImgFadeHouse1 = $("#imgFadeHouse1");
+  var $singleImgFadeHouse2 = $("#imgFadeHouse2");
+
+
+  function checkSizeHouse(){
+    if ($(".singleImgFadingContainer").css("position") == "fixed" ){
+      $markerFadeHouse.waypoint(function(direction) {
+        if (direction == "down"){
+          $singleImgFadeHouse1.addClass("active");
+
+        } else {
+          $singleImgFadeHouse1.removeClass('active');
+        }
+      }, {offset: "100%"} );
+      $markerFadeHouse.waypoint(function(direction) {
+        if (direction == "down"){
+          $singleImgFadeHouse1.removeClass("active");
+        } else {
+          $singleImgFadeHouse1.addClass('active');
+        }
+      }, {offset: "50%"} );
+
+
+      $markerFadeHouse.waypoint(function(direction) {
+        if (direction == "down"){
+          $singleImgFadeHouse2.addClass("active");
+        } else {
+          $singleImgFadeHouse2.removeClass('active');
+        }
+      }, {offset: "50%"} );
+      $markerFadeHouse.waypoint(function(direction) {
+        if (direction == "down"){
+          $singleImgFadeHouse2.removeClass("active");
+        } else {
+          $singleImgFadeHouse2.addClass('active');
+        }
+      }, {offset: "0%"} );
+
+
+
+    }
+    // else {
+    //   $(".fadingImages p").addClass("visible");
+    //   $singleImgSmall.each(function() {
+    //     $(this).waypoint(function(direction) {
+    //       if (direction == "down"){
+    //         $(this.element).addClass("active");
+    //       } else {
+    //         $(this.element).removeClass('active');
+    //       }
+    //     }, {offset: "80%"});
+    //
+    //     $(this).waypoint(function(direction) {
+    //       if (direction == "down"){
+    //         $(this.element).removeClass("active");
+    //       } else {
+    //         $(this.element).addClass('active');
+    //       }
+    //     }, {offset: "-20%"});
+    //   });
+    // }
+  }
+
+  // run test on initial page load
+
+  checkSizeHouse();
+
+  // run test on resize of the window
+  $(window).resize(checkSizeHouse);
+
+
+
+
+
+
+
+
+
+  /*Fit images in fullscreen*/
+  var $windowHeight = $(window).height();
+  var $windowWidth = $(window).width();
+  var $windowRatio = $windowWidth / $windowHeight;
+  var $bgImg = $("#ArbeitGalleryEl1");
+  var $bgImgHeight = $("#ArbeitGalleryEl1").height();
+  var $bgImgWidth = $("#ArbeitGalleryEl1").width();
+  var $bgImgRatio = $bgImgWidth /$bgImgHeight;
+
+  function correctBgEl1(){
+    if (($(window).width() / $(window).height()) < ($("#ArbeitGalleryEl1").width() / $("#ArbeitGalleryEl1").height())) {
+      $("#ArbeitGalleryEl1").addClass("corrected");
+    }
+  }
+  function correctBgEl2(){
+    if (($(window).width() / $(window).height()) < ($("#ArbeitGalleryEl2").width() / $("#ArbeitGalleryEl2").height())) {
+      $("#ArbeitGalleryEl2").addClass("corrected");
+    }
+  }
+  function correctBgEl3(){
+    if (($(window).width() / $(window).height()) < ($("#ArbeitGalleryEl3").width() / $("#ArbeitGalleryEl3").height())) {
+      $("#ArbeitGalleryEl3").addClass("corrected");
+    }
+  }
+  function correctBgEl4(){
+    if (($(window).width() / $(window).height()) < ($("#ArbeitGalleryEl4").width() / $("#ArbeitGalleryEl4").height())) {
+      $("#ArbeitGalleryEl4").addClass("corrected");
+    }
+  }
+
+
+  function ArbeitFsController(){
+
+    var $ArbeitFsGalleryControllerEl1 = $("#ArbeitFsGalleryControllerEl1");
+    var $ArbeitFsGalleryControllerEl2 = $("#ArbeitFsGalleryControllerEl2");
+    var $ArbeitFsGalleryControllerEl3 = $("#ArbeitFsGalleryControllerEl3");
+    var $ArbeitFsGalleryControllerEl4 = $("#ArbeitFsGalleryControllerEl4");
+
+    var $ArbeitGalleryEl1 = $("#ArbeitGalleryEl1");
+    var $ArbeitGalleryEl2 = $("#ArbeitGalleryEl2");
+    var $ArbeitGalleryEl3 = $("#ArbeitGalleryEl3");
+    var $ArbeitGalleryEl4 = $("#ArbeitGalleryEl4");
+
+
+    $ArbeitFsGalleryControllerEl1.waypoint(function(direction) {
+      if (direction == "down"){
+        $ArbeitGalleryEl1.addClass("active");
+      } else {
+        $ArbeitGalleryEl1.removeClass('active');
+      }
+    }, {offset: "25%"} );
+    $ArbeitFsGalleryControllerEl1.waypoint(function(direction) {
+      if (direction == "down"){
+        $ArbeitGalleryEl1.removeClass("active");
+      } else {
+        $ArbeitGalleryEl1.addClass('active');
+      }
+    }, {offset: "-100%"} );
+
+
+    $ArbeitFsGalleryControllerEl2.waypoint(function(direction) {
+      if (direction == "down"){
+        $ArbeitGalleryEl2.addClass("active");
+      } else {
+        $ArbeitGalleryEl2.removeClass('active');
+      }
+    }, {offset: "25%"} );
+    $ArbeitFsGalleryControllerEl2.waypoint(function(direction) {
+      if (direction == "down"){
+        $ArbeitGalleryEl2.removeClass("active");
+      } else {
+        $ArbeitGalleryEl2.addClass('active');
+      }
+    }, {offset: "-100%"} );
+
+
+    $ArbeitFsGalleryControllerEl3.waypoint(function(direction) {
+      if (direction == "down"){
+        $ArbeitGalleryEl3.addClass("active");
+      } else {
+        $ArbeitGalleryEl3.removeClass('active');
+      }
+    }, {offset: "25%"} );
+    $ArbeitFsGalleryControllerEl3.waypoint(function(direction) {
+      if (direction == "down"){
+        $ArbeitGalleryEl3.removeClass("active");
+      } else {
+        $ArbeitGalleryEl3.addClass('active');
+      }
+    }, {offset: "-100%"} );
+
+
+
+    $ArbeitFsGalleryControllerEl4.waypoint(function(direction) {
+      if (direction == "down"){
+        $ArbeitGalleryEl4.addClass("active");
+      } else {
+        $ArbeitGalleryEl4.removeClass('active');
+      }
+    }, {offset: "25%"} );
+    $ArbeitFsGalleryControllerEl4.waypoint(function(direction) {
+      if (direction == "down"){
+        $ArbeitGalleryEl4.removeClass("active");
+      } else {
+        $ArbeitGalleryEl4.addClass('active');
+      }
+    }, {offset: "-100%"} );
+
+    }
+
+    $(window).on("load resize scroll",function(e){
+        ArbeitFsController();
+    });
+
+    /*until here*/
+
+
+
+    /*Fadein/out gallery according to a certain word. Together in Germany*/
+      var $markerFadeJuntosImg1 = $("#markerFadeJuntosImg1");
+      var $singleImgFadeJuntos1 = $("#imgFadeJuntos1");
+      var $singleImgFadeJuntos2 = $("#imgFadeJuntos2");
+
+      function checkSizeJuntos(){
+        if ($(".singleImgFadingContainer").css("position") == "fixed" ){
+          $markerFadeJuntosImg1.waypoint(function(direction) {
+            if (direction == "down"){
+              $singleImgFadeJuntos1.addClass("active");
+            } else {
+              $singleImgFadeJuntos1.removeClass('active');
+            }
+          }, {offset: "100%"} );
+          $markerFadeJuntosImg1.waypoint(function(direction) {
+            if (direction == "down"){
+              $singleImgFadeJuntos1.removeClass("active");
+            } else {
+              $singleImgFadeJuntos1.addClass('active');
+            }
+          }, {offset: "50%"} );
+
+
+          $markerFadeJuntosImg1.waypoint(function(direction) {
+            if (direction == "down"){
+              $singleImgFadeJuntos2.addClass("active");
+            } else {
+              $singleImgFadeJuntos2.removeClass('active');
+            }
+          }, {offset: "50%"} );
+          $markerFadeJuntosImg1.waypoint(function(direction) {
+            if (direction == "down"){
+              $singleImgFadeJuntos2.removeClass("active");
+            } else {
+              $singleImgFadeJuntos2.addClass('active');
+            }
+          }, {offset: "0%"} );
+
+
+
+        }
+        // else {
+        //   $(".fadingImages p").addClass("visible");
+        //   $singleImgSmall.each(function() {
+        //     $(this).waypoint(function(direction) {
+        //       if (direction == "down"){
+        //         $(this.element).addClass("active");
+        //       } else {
+        //         $(this.element).removeClass('active');
+        //       }
+        //     }, {offset: "80%"});
+        //
+        //     $(this).waypoint(function(direction) {
+        //       if (direction == "down"){
+        //         $(this.element).removeClass("active");
+        //       } else {
+        //         $(this.element).addClass('active');
+        //       }
+        //     }, {offset: "-20%"});
+        //   });
+        // }
+      }
+
+      // run test on initial page load
+      checkSizeJuntos();
+
+      // run test on resize of the window
+      $(window).resize(checkSizeJuntos());
+    /*until here*/
+
+
+
+
+    /*small animation single images*/
+
+    var lastScrollTop = 0;
+
+    $(window).on('load resize scroll', function() {
+
+      $.fn.isInViewport = function() {
+        var elementTop = $(this).offset().top;
+        var elementBottom = elementTop + $(this).outerHeight();
+        var viewportTop = $(window).scrollTop();
+        var viewportBottom = viewportTop + $(window).height();
+        return elementTop <= viewportBottom - $(window).height()/4;
+      };
+
+      var st = $(this).scrollTop();
+
+      $('.single-img-container').each(function() {
+        if ($(this).isInViewport() && !$(this).hasClass('activeSingleImg')) {
+          $(this).addClass("activeSingleImg");
+          console.log("in");
+        }
+      });
+
+      $('.single-img-container-push').each(function() {
+        if ($(this).isInViewport() && !$(this).hasClass('activeSingleImg')) {
+          $(this).addClass("activeSingleImg");
+          console.log("in");
+        }
+      });
+
+      lastScrollTop = st;
+      });
+    /*until here*/
+
 
 
 

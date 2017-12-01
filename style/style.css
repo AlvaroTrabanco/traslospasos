@@ -549,7 +549,7 @@
   position: absolute;
   height: 4px;
   width: 100%;
-  background: #fff;
+  background: #ffd600;
   border-radius: 15px;
   opacity: 1;
   left: 0;
@@ -1553,5 +1553,16 @@ audio {
   .speaker.muted span:before {
     transform: scale(0.5) translate(-15px, 0) rotate(36deg);
     opacity: 0; }
+
+.fsParallax {
+  background-image: url("images/secondChapter/general/7.jpg");
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%; }
+  .fsParallax p {
+    color: yellow; }
 
 /*# sourceMappingURL=style.css.map */

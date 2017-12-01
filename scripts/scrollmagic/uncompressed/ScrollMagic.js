@@ -1950,21 +1950,22 @@
 						});
 						// update pin spacer
 						updatePinDimensions();
+						var
+						fixedPos = _util.get.offset(_pinOptions.spacer, true),
+							// get viewport position of spacer
+							scrollDistance = _options.reverse || _options.duration === 0 ? containerInfo.scrollPos - _scrollOffset.start // quicker
+							: Math.round(_progress * _options.duration * 10) / 10; // if no reverse and during pin the position needs to be recalculated using the progress
+						// add scrollDistance
+						fixedPos[containerInfo.vertical ? "top" : "left"] += scrollDistance;
+
+						// set new values
+						_util.css(_pinOptions.spacer.firstChild, {
+							top: fixedPos.top,
+							left: fixedPos.left
+						});
 					}
 
-					var
-					fixedPos = _util.get.offset(_pinOptions.spacer, true),
-						// get viewport position of spacer
-						scrollDistance = _options.reverse || _options.duration === 0 ? containerInfo.scrollPos - _scrollOffset.start // quicker
-						: Math.round(_progress * _options.duration * 10) / 10; // if no reverse and during pin the position needs to be recalculated using the progress
-					// add scrollDistance
-					fixedPos[containerInfo.vertical ? "top" : "left"] += scrollDistance;
 
-					// set new values
-					_util.css(_pinOptions.spacer.firstChild, {
-						top: fixedPos.top,
-						left: fixedPos.left
-					});
 				} else {
 					// unpinned state
 					var

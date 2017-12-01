@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tras los pasos</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="journalism, photojournalism, storytelling, migration, Germany, Spain">
+    <meta name="description" content="A digital storytelling exploration regarding migrant processes in Western Europe">
+    <meta name="author" content="Álvaro Trabanco">
+    <!---<meta http-equiv="refresh" content="30">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type='text/css' rel='stylesheet' href='style/style_.css'>
+
+    <!-- javascript -->
+    <script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="scripts/underscore.js"></script>
+    <script type="text/javascript" src="scripts/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="scripts/inview.min.js"></script>
+    <!-- <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script> -->
+    <script type="text/javascript" src="scripts/intro.js"></script>
+    <script type="text/javascript" src="scripts/youtubeAPI_.js"></script>
+
+    <script src="scripts/scrollmagic/uncompressed/ScrollMagic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script src="scripts/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+
+
+
+
+    <script src="scripts/scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
+    <script src="scripts/scrollmagic/uncompressed/plugins/jquery.ScrollMagic.js"></script>
+    <script src="scripts/recliner.min.js"></script>
+
+
+
+  </head>
+
+  <body>
+
+
+
+    <div id="allAudio">
+      <audio id="introAudio" controls>
+        <source src="audio/Thinking_Back_INTRO.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+    </div>
+
+    <div id="fixedMenuMuteButton">
+      <div class="grid"><!----><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!----></div>
+
+      <!-- <div class="hamburger-slim"></div> -->
+      <div id="nav-icon3">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div id="menu">
+        <div id="menu-alignment-box">
+          <div id="menu-alignment-box2">
+            <button id="close_excerpts"><img src="images/close_white.svg"></img></button>
+            <h2>Menú</h2>
+            <ul id="vertical">
+              <a href="index.html"><li>Inicio</li></a>
+              <hr>
+              <a href="#"><li>1 · Raíces</li></a>
+              <hr>
+              <a href="#"><li>2 · Búsqueda</li></a>
+              <hr>
+              <a href="#"><li>3 · Encuentros improbables</li></a>
+              <hr>
+              <a href="#"><li>About</li></a>
+            </ul>
+            <ul id="horizontal">
+              <a href="index.html">Inicio</a>
+
+              <a href="#">1 · Raíces</a>
+
+              <a href="#">2 · Búsqueda</a></br>
+
+              <a href="#">3 · Encuentros improbables</a>
+
+              <a href="#">About </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="sound"> <!--The JS of the button is within the YT plugin. If there is no YT content it should be placed in the main.js -->
+        <a id="muteButton" href="#" class="speaker">
+          <span></span>
+        </a>
+      </div>
+
+    </div>
+
+    <div id="container">
+
+
+
+      <div id="landingIntro" class="landing">
+        <!--new design attempt-->
+        <div class="scrollCalling">
+          <div class="mouse">
+            <div class="scroll"></div>
+          </div>
+        </div>
+        <div id="firstRectanglesGroup" class="rectanglesAnimationBox">
+          <div id="rectangleAnimation1" class="rectanglesAnimation layer1 firstMoment"></div>
+          <div id="rectangleAnimation1" class="rectanglesAnimation layer1 secondMoment"></div>
+          <div id="rectangleAnimation1" class="rectanglesAnimation layer1 thirdMoment"></div>
+
+          <div id="rectangleAnimation2"  class="rectanglesAnimation layer2 firstMoment"></div>
+          <div id="rectangleAnimation2"  class="rectanglesAnimation layer2 secondMoment"></div>
+          <div id="rectangleAnimation2"  class="rectanglesAnimation layer2 thirdMoment"></div>
+
+          <div id="rectangleAnimation3"  class="rectanglesAnimation layer3 firstMoment"></div>
+          <div id="rectangleAnimation3"  class="rectanglesAnimation layer3 secondMoment"></div>
+          <div id="rectangleAnimation3"  class="rectanglesAnimation layer3 thirdMoment"></div>
+
+          <div id="rectangleAnimation4"  class="rectanglesAnimation layer1 firstMoment"></div>
+          <div id="rectangleAnimation4"  class="rectanglesAnimation layer1 secondMoment"></div>
+          <div id="rectangleAnimation4"  class="rectanglesAnimation layer1 thirdMoment"></div>
+
+          <div id="rectangleAnimation5"  class="rectanglesAnimation layer2 firstMoment"></div>
+          <div id="rectangleAnimation5"  class="rectanglesAnimation layer2 secondMoment"></div>
+          <div id="rectangleAnimation5"  class="rectanglesAnimation layer2 thirdMoment"></div>
+
+          <div id="rectangleAnimation6"  class="rectanglesAnimation layer3 firstMoment"></div>
+          <div id="rectangleAnimation6"  class="rectanglesAnimation layer3 secondMoment"></div>
+          <div id="rectangleAnimation6"  class="rectanglesAnimation layer3 thirdMoment"></div>
+
+          <div id="rectangleAnimation7"  class="rectanglesAnimation layer1 firstMoment"></div>
+          <div id="rectangleAnimation7"  class="rectanglesAnimation layer1 secondMoment"></div>
+          <div id="rectangleAnimation7"  class="rectanglesAnimation layer1 thirdMoment"></div>
+
+          <div id="rectangleAnimation8"  class="rectanglesAnimation layer2 firstMoment"></div>
+          <div id="rectangleAnimation8"  class="rectanglesAnimation layer2 secondMoment"></div>
+          <div id="rectangleAnimation8"  class="rectanglesAnimation layer2 thirdMoment"></div>
+
+          <div id="rectangleAnimation9"  class="rectanglesAnimation layer3 firstMoment"></div>
+          <div id="rectangleAnimation9"  class="rectanglesAnimation layer3 secondMoment"></div>
+          <div id="rectangleAnimation9"  class="rectanglesAnimation layer3 thirdMoment"></div>
+
+        </div>
+
+        <div id="landingFadeOutMarker">
+
+        </div>
+
+        <div class="landingText">
+          <div class="boxTitleLanding">
+            <h1><span id="titlePiece1Intro">Tras</span><span id="titlePiece2Intro"> los </span><span id="titlePiece3Intro">pasos</span></h1>
+          </div>
+
+          <div id="introAudioMarker" class="boxParagraphLanding">
+            <h3><i>Tras los pasos</i> es un cruce de la historia de tres generaciones migrantes. Una visión contemporánea de un dilema familiar, económico y social.</h3>
+            <p>por <i>Álvaro Trabanco</i></p>
+          </div>
+
+        </div>
+
+        <div id="darkScreen" class="">
+        </div>
+
+        <div class="landingImage">
+          <div id="playerIntro" class="video">
+            <div id="videoIntro"></div>
+            <div id="posterIntro" class="poster">
+              <div class="posterInner">
+                <img src="images/intro/posterIntro.jpg" alt=""></img>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+      <div id="introParagraph" class="introduction fadeSection">
+        <div id="afterVideoIntro" class="afterVideo"></div>
+
+        <div id="secondRectanglesGroup" class="rectanglesAnimationBox">
+          <div id="rectangleAnimationV2-1" class="rectanglesAnimation layer1 firstMoment"></div>
+          <div id="rectangleAnimationV2-1" class="rectanglesAnimation layer1 thirdMoment"></div>
+          <div id="rectangleAnimationV2-1" class="rectanglesAnimation layer1 secondMoment"></div>
+
+          <div id="rectangleAnimationV2-2"  class="rectanglesAnimation layer2 firstMoment"></div>
+          <div id="rectangleAnimationV2-2"  class="rectanglesAnimation layer2 secondMoment"></div>
+          <div id="rectangleAnimationV2-2"  class="rectanglesAnimation layer2 thirdMoment"></div>
+
+          <div id="rectangleAnimationV2-3"  class="rectanglesAnimation layer3 firstMoment"></div>
+          <div id="rectangleAnimationV2-3"  class="rectanglesAnimation layer3 secondMoment"></div>
+          <div id="rectangleAnimationV2-3"  class="rectanglesAnimation layer3 thirdMoment"></div>
+
+          <div id="rectangleAnimationV2-4"  class="rectanglesAnimation layer1 firstMoment"></div>
+          <div id="rectangleAnimationV2-4"  class="rectanglesAnimation layer1 secondMoment"></div>
+          <div id="rectangleAnimationV2-4"  class="rectanglesAnimation layer1 thirdMoment"></div>
+
+          <div id="rectangleAnimationV2-5"  class="rectanglesAnimation layer2 firstMoment"></div>
+          <div id="rectangleAnimationV2-5"  class="rectanglesAnimation layer2 secondMoment"></div>
+          <div id="rectangleAnimationV2-5"  class="rectanglesAnimation layer2 thirdMoment"></div>
+
+          <div id="rectangleAnimationV2-6"  class="rectanglesAnimation layer3 firstMoment"></div>
+          <div id="rectangleAnimationV2-6"  class="rectanglesAnimation layer3 secondMoment"></div>
+          <div id="rectangleAnimationV2-6"  class="rectanglesAnimation layer3 thirdMoment"></div>
+
+          <div id="rectangleAnimationV2-7"  class="rectanglesAnimation layer1 firstMoment"></div>
+          <div id="rectangleAnimationV2-7"  class="rectanglesAnimation layer1 secondMoment"></div>
+          <div id="rectangleAnimationV2-7"  class="rectanglesAnimation layer1 thirdMoment"></div>
+
+          <div id="rectangleAnimationV2-8"  class="rectanglesAnimation layer2 firstMoment"></div>
+          <div id="rectangleAnimationV2-8"  class="rectanglesAnimation layer2 secondMoment"></div>
+          <div id="rectangleAnimationV2-8"  class="rectanglesAnimation layer2 thirdMoment"></div>
+
+          <div id="rectangleAnimationV2-9"  class="rectanglesAnimation layer3 firstMoment"></div>
+          <div id="rectangleAnimationV2-9"  class="rectanglesAnimation layer3 secondMoment"></div>
+          <div id="rectangleAnimationV2-9"  class="rectanglesAnimation layer3 thirdMoment"></div>
+        </div>
+        <div  class="text-center">
+          <p class="initialParagraph">Esta <span id="textRectangles">es</span> la historia de quienes partieron y regresaron, de aquellos que se quedaron y de quienes todavía no se han ido. Habla de una familia marcada por la emigración en Europa, dividida por la búsqueda de una prosperidad que nunca pareció corresponderle. Vidas construidas en torno a la dureza del esfuerzo físico, nocturno, repetitivo y peligroso, en equilibrios imposibles entre dos zonas mineras a mil setecientos kilómetros de distancia. Es el mundo del trabajo llevado a lo concreto, dotado de rostro, humanizado y reconstruido para ser contado. Esta es la historia de Ezequiel y Pepita, quienes engrosaron las filas de la emigración asturiana en los años sesenta, convirtiendo Alemania en su hogar durante una década. Inevitablemente es también la de sus hijos y descendientes –varios de los cuales hicieron suyo aquel país hasta el día de hoy–, la de identidades cuestionadas, ausencias, distancias y preguntas de difícil respuesta.
+          </p>
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+  </body>
+</html>

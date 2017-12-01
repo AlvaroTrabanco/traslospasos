@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tras los pasos</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content="journalism, photojournalism, storytelling, migration, Germany, Spain">
+    <meta name="description" content="A digital storytelling exploration regarding migrant processes in Western Europe">
+    <meta name="author" content="Álvaro Trabanco">
+    <!---<meta http-equiv="refresh" content="30">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type='text/css' rel='stylesheet' href='style/style_.css'>
+
+    <!-- javascript -->
+    <script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="scripts/underscore.js"></script>
+    <script type="text/javascript" src="scripts/jquery.waypoints.min.js"></script>
+    <script type="text/javascript" src="scripts/inview.min.js"></script>
+    <!-- <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script> -->
+    <script type="text/javascript" src="scripts/thirdChapter.js"></script>
+    <script type="text/javascript" src="scripts/youtubeAPI_.js"></script>
+
+    <script src="scripts/scrollmagic/uncompressed/ScrollMagic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script src="scripts/scrollmagic/uncompressed/plugins/animation.gsap.js"></script>
+
+
+
+
+    <script src="scripts/scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
+    <script src="scripts/scrollmagic/uncompressed/plugins/jquery.ScrollMagic.js"></script>
+    <script src="scripts/recliner.min.js"></script>
+
+
+
+  </head>
+
+  <body>
+
+    <div id="darkScreen" class="noDisplay">
+    </div>
+
+
+    <div id="allAudio">
+      <audio id="introAudio" controls>
+        <source src="audio/Sony_Battery_AM_Radio_short.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audioPlotTwist" controls>
+        <source src="audio/Thinking_Back_INTRO.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audio1" controls>
+        <source src="audio/airtone_nightRain.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audio2" controls>
+        <source src="audio/bensound-betterdays.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audio3" controls>
+        <source src="audio/Doll_Dancing.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audio4" controls>
+        <source src="audio/The_Woods.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audio5" controls>
+        <source src="audio/bensound-sadday.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audio6" controls>
+        <source src="audio/Lost_Cowboy.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audio7" controls>
+        <source src="audio/Moonlight_Sonata_by_Beethoven.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="audio8" controls>
+        <source src="audio/Time_Stops.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+    </div>
+
+    <div id="fixedMenuMuteButtonLight">
+      <div class="grid"><!----><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!--
+      --><div class="grid__col grid__col--1-of-9">
+              <div class="box"></div>
+            </div><!----></div>
+
+      <!-- <div class="hamburger-slim"></div> -->
+      <div id="nav-icon3">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div id="menu">
+        <div id="menu-alignment-box">
+          <div id="menu-alignment-box2">
+            <button id="close_excerpts"><img src="images/close_white.svg"></img></button>
+            <h2>Menú</h2>
+            <ul id="vertical">
+              <a href="index.html"><li>Inicio</li></a>
+              <hr>
+              <a href="#"><li>1 · Raíces</li></a>
+              <hr>
+              <a href="#"><li>2 · Búsqueda</li></a>
+              <hr>
+              <a href="#"><li>3 · Encuentros improbables</li></a>
+              <hr>
+              <a href="#"><li>About</li></a>
+            </ul>
+            <ul id="horizontal">
+              <a href="index.html">Inicio</a>
+
+              <a href="#">1 · Raíces</a>
+
+              <a href="#">2 · Búsqueda</a></br>
+
+              <a href="#">3 · Encuentros improbables</a>
+
+              <a href="#">About </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="sound"> <!--The JS of the button is within the YT plugin. If there is no YT content it should be placed in the main.js -->
+        <a id="muteButton" href="#" class="speaker">
+          <span></span>
+        </a>
+      </div>
+
+    </div>
+
+    <div id="containerThird">
+
+
+
+      <div id="landingThird" class="landing">
+
+        <div class="scrollCalling">
+          <div class="mouse">
+            <div class="scroll"></div>
+          </div>
+        </div>
+        <div id="firstRectanglesGroup" class="rectanglesAnimationBox">
+          <div id="rectangleAnimation1" class="rectanglesAnimation layer1 firstMoment"></div>
+          <div id="rectangleAnimation1" class="rectanglesAnimation layer1 secondMoment"></div>
+          <div id="rectangleAnimation1" class="rectanglesAnimation layer1 thirdMoment"></div>
+
+          <div id="rectangleAnimation2"  class="rectanglesAnimation layer2 firstMoment"></div>
+          <div id="rectangleAnimation2"  class="rectanglesAnimation layer2 secondMoment"></div>
+          <div id="rectangleAnimation2"  class="rectanglesAnimation layer2 thirdMoment"></div>
+
+          <div id="rectangleAnimation3"  class="rectanglesAnimation layer3 firstMoment"></div>
+          <div id="rectangleAnimation3"  class="rectanglesAnimation layer3 secondMoment"></div>
+          <div id="rectangleAnimation3"  class="rectanglesAnimation layer3 thirdMoment"></div>
+
+          <div id="rectangleAnimation4"  class="rectanglesAnimation layer1 firstMoment"></div>
+          <div id="rectangleAnimation4"  class="rectanglesAnimation layer1 secondMoment"></div>
+          <div id="rectangleAnimation4"  class="rectanglesAnimation layer1 thirdMoment"></div>
+
+          <div id="rectangleAnimation5"  class="rectanglesAnimation layer2 firstMoment"></div>
+          <div id="rectangleAnimation5"  class="rectanglesAnimation layer2 secondMoment"></div>
+          <div id="rectangleAnimation5"  class="rectanglesAnimation layer2 thirdMoment"></div>
+
+          <div id="rectangleAnimation6"  class="rectanglesAnimation layer3 firstMoment"></div>
+          <div id="rectangleAnimation6"  class="rectanglesAnimation layer3 secondMoment"></div>
+          <div id="rectangleAnimation6"  class="rectanglesAnimation layer3 thirdMoment"></div>
+
+          <div id="rectangleAnimation7"  class="rectanglesAnimation layer1 firstMoment"></div>
+          <div id="rectangleAnimation7"  class="rectanglesAnimation layer1 secondMoment"></div>
+          <div id="rectangleAnimation7"  class="rectanglesAnimation layer1 thirdMoment"></div>
+
+          <div id="rectangleAnimation8"  class="rectanglesAnimation layer2 firstMoment"></div>
+          <div id="rectangleAnimation8"  class="rectanglesAnimation layer2 secondMoment"></div>
+          <div id="rectangleAnimation8"  class="rectanglesAnimation layer2 thirdMoment"></div>
+
+          <div id="rectangleAnimation9"  class="rectanglesAnimation layer3 firstMoment"></div>
+          <div id="rectangleAnimation9"  class="rectanglesAnimation layer3 secondMoment"></div>
+          <div id="rectangleAnimation9"  class="rectanglesAnimation layer3 thirdMoment"></div>
+
+        </div>
+
+        <div id="landingFadeOutMarker">
+
+        </div>
+
+        <div class="landingText">
+          <div class="boxTitleLanding">
+            <h1><span id="titlePiece1Second" style="color:rgb(255, 222, 0);">3.</span><span id="titlePiece2Second">La </span><span id="titlePiece3Second">historia</span><span id="titlePiece4Second">se</span><span id="titlePiece5Second">repite</span></h1>
+          </div>
+
+          <div id="introAudioMarker" class="boxParagraphLanding">
+            <h3><i>Tras los pasos</i> es un cruce de la historia de tres generaciones migrantes. Una visión contemporánea de un dilema familiar, económico y social.</h3>
+            <p>por <i>Álvaro Trabanco</i></p>
+          </div>
+
+
+
+        </div>
+
+        <div id="darkScreen" class="">
+        </div>
+
+        <div class="landingImage">
+          <div class="vignete"></div>
+          <img class="landingImg" src="images/thirdChapter/1-Beginning/_DSC0235.jpg" srcset="images/thirdChapter/1-Beginning/_DSC0235.jpg 1920w,
+          images/thirdChapter/1-Beginning/_DSC0235.jpg 800w, images/thirdChapter/1-Beginning/_DSC0235.jpg 2x"
+          alt="landing attempt">
+          <!-- <img class="landingImageClipped" src="images/chapterone/0-intro.jpg" srcset="images/chapterone/0-intro.jpg 1920w,
+          images/chapterone/0-landing-small.jpg 800w, images/chapterone/0-landing-big2x.jpg 2x"
+          alt="landing attempt"> -->
+        </div>
+
+        <div class="scrollCalling">
+          <div class="mouse">
+            <div class="scroll"></div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+      <div id="beginning" class="fadeSection">
+
+
+        <div class="text-center mgB30">
+          <p class="initialParagraph">En septiembre de 2012 trasladé mi residencia a Lisboa con el objetivo de disfrutar de una beca Erasmus en su modalidad de prácticas en empresa. Había terminado mi tercer y último año de clases en la Escuela Superior de Arte de Asturias, donde estudiaba Diseño Gráfico. Mis estudios no exigían la realización de un periodo de prácticas, pero aproveché la oportunidad y conseguí una de las dos plazas que ofertaban. Sin duda alguna no estaba en mis planes quedarme para siempre en el lugar al que me dirigiera, sino escoger una salida más fácil hacia el mercado de trabajo, menos abrupta que aquel precipicio al que se asoman todos los estudiantes al comenzar su vida laboral. El inicio de esta historia ha sido el mismo para muchísimas de las experiencias migratorias dentro del continente europeo en los últimos años.
+          </p>
+        </div>
+        <div class="single-img-container-push imgpinNoPush">
+          <div  class="single-img-far-left vertical-img">
+            <img
+              srcset="images/thirdChapter/1-Beginning/_DSC0248.jpg 650w,
+                      images/thirdChapter/1-Beginning/_DSC0248.jpg 1500w"
+              src="images/thirdChapter/1-Beginning/_DSC0248.jpg"
+              alt="attempt">
+          </div>
+        </div>
+
+        <div class="single-img-container">
+          <div  class="single-img-far-right vertical-img">
+            <img
+              srcset="images/thirdChapter/1-Beginning/_DSC5875.jpg 650w,
+                      images/thirdChapter/1-Beginning/_DSC5875.jpg 1500w"
+              src="images/thirdChapter/1-Beginning/_DSC5875.jpg"
+              alt="attempt">
+          </div>
+        </div>
+        <div class="text-far-right mg230 mgB30">
+          <p>Para gran cantidad de personas, la primera experiencia en el extranjero se convierte en el disparo de salida y, a pesar de regresos temporales, al poco vuelven a partir. En mi caso, durante aquel curso debía realizar mi trabajo de fin de grado. Decidí aprovechar mi estancia en Lisboa para desarrollar un proyecto de comunicación en forma de libro de fotografía sobre la realidad portuguesa y sobre mi relación con ella al que titulé As portas que abril abriu. Ya desde un inicio asumí como propia mi identidad como migrante, así que cuando tuve la posibilidad de continuar trabajando en el estudio que me acogió para las prácticas, no lo dudé mucho tiempo. Las condiciones salariales eran duras, como la de millones de trabajadores portugueses: un salario mínimo situado en los 500 euros te condena a una vida de privaciones. Zapatos remendados, horas de caminatas para ahorrar el billete de autobús...
+          </p>
+        </div>
+        <div class="single-img-container-push imgpinNoPush">
+          <div  class="single-img-far-far-left horizontal-img">
+            <img
+              srcset="images/thirdChapter/1-Beginning/_DSC7655.jpg 650w,
+                      images/thirdChapter/1-Beginning/_DSC7655.jpg 1500w"
+              src="images/thirdChapter/1-Beginning/_DSC7655.jpg"
+              alt="attempt">
+          </div>
+        </div>
+
+        <div class="single-img-container">
+          <div  class="single-img-far-far-right horizontal-img">
+            <img
+              srcset="images/thirdChapter/1-Beginning/_DSC9987.jpg 650w,
+                      images/thirdChapter/1-Beginning/_DSC9987.jpg 1500w"
+              src="images/thirdChapter/1-Beginning/_DSC9987.jpg"
+              alt="attempt">
+          </div>
+        </div>
+
+        <div class="text-center mgT20 mgB30">
+          <p>Una de las principales cuestiones que levanta este proyecto es ¿cómo de distintas son las razones para la migración entre la historia de mis abuelos y la mía? Las diferencias de riqueza y condiciones económicas en el seno de la Europa occidental generan una dualidad norte–sur. El miedo e inseguridad sobre el futuro laboral y vital son compartidos por los jóvenes españoles, portugueses, italianos, turcos y eslovenos con los que he ido conversando a lo largo de los años. Toda esta experiencia me ha hecho sentirme mucho más cercano a otros jóvenes trabajadores extranjeros. No obstante, entiendo que Lisboa no significa lo mismo para todas las personas que por ella pasan. Para unos, son esos tres meses de prácticas o trabajo impagado (“voluntario”); para otros, son esos dos años transcurridos en un call-center mientras encuentran algún trabajo más cercano a su profesión en su país de origen; para otros, ha sido una historia de idas y venidas; para otros, unos cuantos meses sabáticos aprovechando las olas atlánticas.
+          </p>
+        </div>
+        <div class="single-img-container-push imgpinNoPush">
+          <div  class="single-img-far-far-left horizontal-img">
+            <img
+              srcset="images/thirdChapter/1-Beginning/_DSC0535.jpg 650w,
+                      images/thirdChapter/1-Beginning/_DSC0535.jpg 1500w"
+              src="images/thirdChapter/1-Beginning/_DSC0535.jpg"
+              alt="attempt">
+          </div>
+        </div>
+        <div class="text-far-far-right mgB80">
+          <p>No pretendo decir lo que debería ser o lo que realmente es. Al fin y al cabo, compartimos ciudad de acogida con miles de compañeros asiáticos, africanos, brasileños y refugiados. Nunca diré que mi historia es la más relevante. Pero siempre defenderé que es profunda y que refleja decisiones que sin duda ya han condicionado mi vida para siempre, con enormes contradicciones personales e importantes consecuencias psicológicas. Es una historia que merece la pena ser leída y cuestionada. Es, con todas las letras, un relato de migración económica.
+          </p>
+        </div>
+
+        <div id="crisesFs" class="fsParallax">
+        </div>
+      </div>
+
+      <div id="economy" class="fadeSection">
+
+        <div class="text-center mgT20">
+          <p class="initialParagraph">Corría el año 2008 y en España la quiebra de Lehman Brothers no estaba teniendo un impacto inmediato. Como cuando el mar se retira antes del tsunami, sabríamos lo que vendría. Ya desde 2007 me encontraba involucrado en la participación política, así que aquello de la “crisis de sobreproducción y sobreacumulación de capital” que se avecinaba resonaba entonces en mi cabeza. En una España que había liberalizado el sector de la construcción y la adjudicación de suelo para tal efecto, se cernía sobre nosotros la sombra de un enorme stock de viviendas que no se vendería. El ciclo económico capitalista se cierra con la venta de las mercancías y, en el caso de un sector como este, donde la producción se dilata varios años, tardó tiempo en sentirse la crisis. Pero vaya si se sintió. España pasó de un 8,26% de tasa de desempleo en 2006 a un 18,66% en 2009, alcanzando su pico en el año en el que decidí marcharme: 25,77%. Para los jóvenes que nos encontrábamos entre los 20 y los 24 años de edad en el año 2012 alcanzaba un 48,70% a nivel nacional. Los contratos temporales copan aún hoy el 90% de los nuevos contratos. Para mí, como alguien de familia de clase trabajadora, los números se convertían en los rostros de mis amigos y familiares. Las terribles condiciones del mercado de trabajo suponen una losa incapaz de sobrepasarse o ignorarse. Cinco años después, las condiciones son prácticamente iguales. No hay maquillaje de datos que pueda hacer cambiar de opinión a aquellos sobre los que los números versan, porque las cosas no han mejorado, ni hay perspectivas de que lo hagan. La enorme temporalidad combinada con poco trabajo da lugar a épocas sin ocupación alguna. Para qué hablar de los salarios y condiciones laborales, una vez entrados en actividad.
+          </p>
+        </div>
+        <div class="single-img-container-push imgpinNoPush">
+          <div  class="single-img-far-far-left horizontal-img">
+            <img
+              srcset="images/thirdChapter/2-Crisis/_DSC0309.jpg 650w,
+                      images/thirdChapter/2-Crisis/_DSC0309.jpg 1500w"
+              src="images/thirdChapter/2-Crisis/_DSC0309.jpg"
+              alt="attempt">
+          </div>
+        </div>
+        <div class="single-img-container-push imgpinNoPush">
+          <div  class="single-img-far-far-right horizontal-img">
+            <img
+              srcset="images/thirdChapter/2-Crisis/_DSC0400.jpg 650w,
+                      images/thirdChapter/2-Crisis/_DSC0400.jpg 1500w"
+              src="images/thirdChapter/2-Crisis/_DSC0400.jpg"
+              alt="attempt">
+          </div>
+        </div>
+        <div class="single-img-container-push imgpinNoPush">
+          <div  class="single-img-far-left horizontal-img">
+            <img
+              srcset="images/thirdChapter/2-Crisis/_DSC5347.jpg 650w,
+                      images/thirdChapter/2-Crisis/_DSC5347.jpg 1500w"
+              src="images/thirdChapter/2-Crisis/_DSC5347.jpg"
+              alt="attempt">
+          </div>
+        </div>
+
+
+        <div class="single-img-container-push imgpinNoPush">
+          <div  class="single-img-left vertical-img">
+            <img
+              srcset="images/thirdChapter/2-Crisis/_DSC5311.jpgg 650w,
+                      images/thirdChapter/2-Crisis/_DSC5311.jpg 1500w"
+              src="images/thirdChapter/2-Crisis/_DSC5311.jpg"
+              alt="attempt">
+          </div>
+        </div>
+        <div class="text-far-far-right mgB50">
+          <p>Antes de emigrar tenía muy presentes todas estas condiciones. No había terminado mis estudios, así que no había comenzado a buscar empleo en mi sector. La realidad fue demostrando lo difícil de salir adelante, también en las industrias creativas, una vez que mis compañeros se fueron incorporando al mercado laboral. En mi caso, prácticamente de forma ininterrumpida estuve trabajando en el estudio de diseño donde comencé con el Erasmus, hasta febrero de 2015, con el sacrificio de haber dejado a la familia y amigos tras de mí. Después, como a casi todo español que pase por Lisboa, me tocó la inevitable etapa de trabajar en un call-center. En mi caso fueron sólamente siete meses mostrando mi infinita amabilidad y perfil más robótico mientras diagnosticaba errores técnicos y reparaba impresoras. Por suerte, aunque la paciencia no me sobrara, yo tenía otro futuro en mente. Fue entonces cuando decidí cursar el Máster en Diseño de Comunicación y Nuevos Medios: era una gran oportunidad académica y a un coste menor que en España. Este proyecto será el punto y final de esos estudios. Me tocará, esta vez sí, asomarme al precipicio y buscar un nuevo camino. Pero, muy probablemente, las vistas desde allí no serán del mar Cantábrico de mi Asturias natal, sino del océano Atlántico que da forma a las costas lusitanas.
+          </p>
+        </div>
+
+
+        <div id="asPortasFs" class="fsParallax">
+        </div>
+
+      </div>
+
+
+      <div id="asPortas" class="fadeSection">
+
+        <div class="text-center mgT20 mgB20">
+          <p class="initialParagraph">Casi cinco años después, me encuentro llevando a cabo otro proyecto editorial, de comunicación, fotografía y diseño, con el objetivo de reflexionar sobre mi condición migrante y mi identidad. En ambas ocasiones, los proyectos respondían a un briefing abierto, que configuré de manera similar. De forma natural y sin una gran reflexión a priori, asumí el rol de diseñador como autor. Aprovecharía las herramientas que nuestra disciplina otorga: visión crítica y transversal, así como un camino para aplicar la creatividad y la creación a través de una metodología flexible. Tras los pasos explora en la vertiente digital muchos elementos que As portas que abril abriu ya introdujo en el soporte impreso. A través de la práctica del diseño llevada a este ámbito, no solo doy forma al contenido de otros, sino que asumo que la forma también es contenido, y decido construirlo desde sus cimientos, reivindicando con la acción que el diseñador se convierta en una especie de periodista visual. Al fin y al cabo, mi voluntad de comunicar me llevó a buscar herramientas visuales en el Diseño Gráfico, allá por la adolescencia. La madurez profesional está significando encontrar caminos por los que hacer transitar ideas más profundas sobre la vida, que la madurez existencial hace bailar en mi cabeza.
+          </p>
+        </div>
+        <div class="single-img-container-push imgpinNoPush">
+          <div  class="single-img-center horizontal-img">
+            <img
+              srcset="images/thirdChapter/3-AsPortas/_DSC0235.jpg 650w,
+                      images/thirdChapter/3-AsPortas/_DSC0235.jpg 1500w"
+              src="images/thirdChapter/3-AsPortas/_DSC0235.jpg"
+              alt="attempt">
+          </div>
+        </div>
+        <div class="single-img-container-push imgpinNoPush">
+          <div  class="single-img-center horizontal-img">
+            <img
+              srcset="images/thirdChapter/3-AsPortas/_DSC0369.jpg 650w,
+                      images/thirdChapter/3-AsPortas/_DSC0369.jpg 1500w"
+              src="images/thirdChapter/3-AsPortas/_DSC0369.jpg"
+              alt="attempt">
+          </div>
+        </div>
+        <div class="text-center mgT100">
+          <p>Viéndolo con perspectiva, es inusual que alguien que viaja al extranjero a través del programa Erasmus se considere a sí mismo un migrante. Quizás fue el orgullo de pertenecer al mundo del trabajo y que ya veía el fin de mis estudios próximo lo que me incitó a etiquetarme así. Adoptar aquel rol fue un acierto mayúsculo. Se convirtió en una forma de construir mi propia identidad y buscar mi lugar en una nueva sociedad. Todo lo que configuraba mi realidad cotidiana desapareció: la tierra que me vio nacer, la familia, los amigos, la Escuela de Arte, la participación política. No tenía claro que no fuera a regresar, pero sí que existía esa posibilidad. Intenté sentirme como en casa y hacer de Lisboa un hogar. Tenía que dejar de sentirme un extraño.
+          </p>
+        </div>
+        <div class="single-img-container-push imgpinNoPush">
+          <div  class="single-img-far-right vertical-img">
+            <img
+              srcset="images/thirdChapter/3-AsPortas/_DSC0638.jpg 650w,
+                      images/thirdChapter/3-AsPortas/_DSC0638.jpg 1500w"
+              src="images/thirdChapter/3-AsPortas/_DSC0638.jpg"
+              alt="attempt">
+          </div>
+        </div>
+        <div class="single-img-container-push imgpinNoPush">
+          <div  class="single-img-center vertical-img">
+            <img
+              srcset="images/thirdChapter/3-AsPortas/_DSC5604.jpg 650w,
+                      images/thirdChapter/3-AsPortas/_DSC5604.jpg 1500w"
+              src="images/thirdChapter/3-AsPortas/_DSC5604.jpg"
+              alt="attempt">
+          </div>
+        </div>
+        <div class="single-img-container-push imgpinNoPush">
+          <div  class="single-img-far-left vertical-img">
+            <img
+              srcset="images/thirdChapter/3-AsPortas/_DSC0520.jpg 650w,
+                      images/thirdChapter/3-AsPortas/_DSC0520.jpg 1500w"
+              src="images/thirdChapter/3-AsPortas/_DSC0520.jpg"
+              alt="attempt">
+          </div>
+        </div>
+
+        <div class="text-far-right mgB30">
+          <p>Para alguien interesado en política, mis enormes lagunas sobre la realidad e historia reciente portuguesa me atenazaban. Me sentía de nuevo un adolescente comenzando a comprender la sociedad de la que forma parte. A través de la lectura fui entendiendo el orden de los acontecimientos, las limitaciones del proceso revolucionario, cómo era Portugal bajo el fascismo y, de paso, la lengua portuguesa. Fue gracias a esta necesidad de comprender la realidad que conseguí esa pieza fundamental para la integración. Hoy en día en Lisboa, junto al portugués –y dejando de lado a los turistas– se oye mucho inglés. La lengua franca por excelencia pone en contacto a esos <i>expats</i>, pero también los aísla en una burbuja difícil de romper. Veo de forma cercana la frustración de quien no consigue comunicarse en la lengua local, así como las consecuencias en el trato. Si bien Portugal tiene la fama –merecida– del respeto a los migrantes, en ocasiones se convierte en una aceptación de dos mundos paralelos, que pocas veces se cruzan. Quizás es una forma de preservar la identidad, propia de un país pequeño, atenazado por una invasión turística y un hype que ya le ha ido dando forma.
+          </p>
+        </div>
+        <div class="text-far-far-right mgT100 mgB100">
+          <p>Era hablando de política con portugueses cuando un fenómeno curioso se manifestaba: su obsesión por remarcar las diferencias. Esa defensa de la identidad se volvía a repetir. No obstante, esas supuestas peculiaridades nacionales son unas viejas conocidas en política, sirviendo para justificar los más variopintos eclecticismos ideológicos y tácticos. Desde el inicio asumí como propia la tarea de encontrar las similitudes y exponerlas. La historia de España y Portugal en el siglo XX se solapa en muchas ocasiones. Fue entonces cuando comencé a imaginar Portugal como una realidad paralela que se desarrolló de forma diferente. En parte se convirtió en “lo que España podría haber sido”, y viceversa. Los mayores parecidos, como era de esperar, se encontraban en el seno de la <span id="markerFadeAsPortas">clase</span> obrera. No en vano Karl Marx se refiere a una única clase obrera internacional. Esas diferencias se diluyen cuando te interesas por los trabajadores en cuanto tales, cuando te involucras en la actividad sindical y reivindicativa. No niego las disparidades en la economía y condiciones de vida, ya que al fin y al cabo Portugal tiene una economía exponencialmente menor que la española en proporción a la población de ambos países. Portugal es un país más pobre, y su clase obrera también. No obstante, en términos absolutos, las desemejanzas son nimias. Es en ese puñado de familias que dominan nuestros dos países donde se encuentran las diferencias abismales. Estas diferencias no son de fronteras, sino de clases sociales. Involucrarme en la política portuguesa me permitió sentirme como en casa, integrarme, levantar la cabeza, ponerme nervioso en los recuentos electorales y enervarme con nuevos envites a los trabajadores. Me permitió, en el fondo, ser uno más y hablar de tú a tú con la población de mi país de acogida.
+          </p>
+        </div>
+
+        <div id="imgFadingContainerAsPortas" class="singleImgFadingContainer">
+          <div id="imgFadeAsPortas1" class="fadingImages">
+            <img class="horizontal"
+              src="images/thirdChapter/3-AsPortas/_DSC5210.jpg"
+              alt="#">
+            <p class="hide">Ezequiel y Pepita con su segundo hijo en Alemania.</p>
+          </div>
+          <div  id="imgFadeAsPortas2" class="fadingImages">
+            <img class="horizontal"
+              src="images/thirdChapter/3-AsPortas/_DSC5751.jpg"
+              alt="#">
+            <p class="hide">Documentos de trabajo de Ezequiel en Alemania.</p>
+          </div>
+          <div  id="imgFadeAsPortas3" class="fadingImages">
+            <img class="horizontal"
+              src="images/thirdChapter/3-AsPortas/_DSC3137.jpg"
+              alt="#">
+            <p class="hide">Documentos de trabajo de Ezequiel en Alemania.</p>
+          </div>
+
+        </div>
+
+
+        <div class="text-center mgB30">
+          <p>El proyecto de <i>As portas que abril abriu</i> coge prestado su nombre del largo poema de José Carlos Ary dos Santos, poeta comunista, en el que exalta las conquistas populares que siguieron a la Revolución iniciada el 25 de abril de 1974 y que puso fin a la dictadura fascista, al Estado Novo, y a la guerras coloniales. El objetivo del libro era mostrar una visión de Lisboa y Portugal desde los ojos de un joven migrante. No obstante, la finalidad subyacente era pasar a conocer a ese desconocido que pretendería describir a través de la fotografía y del objeto editorial. En esta ocasión, cinco años más tarde, el objetivo es cuestionar mi identidad como migrante, tras un lustro como tal, así como mi relación con la vida dejada tras de mí, mediante la investigación sobre las migraciones en mi familia en generaciones anteriores.
+          </p>
+        </div>
+
+        <div id="generalFs" class="fsParallax">
+        </div>
+
+      </div>
+
+
+
+      <div id="trasLosPasos" class="fadeSection">
+
+        <div class="text-center mgT30">
+          <p class="initialParagraph">Han pasado cuatro años desde que finalicé <i>As portas que abril abriu</i> y paulatinamente mi visión de la ciudad y país de acogida ha ido distorsionándose. Antes de comenzar este proyecto estaba sumido en una espiral de negatividad que hundía sus raíces en las consecuencias del turismo masivo que comenzaba a notarse en Lisboa y en problemas estructurales que la población portuguesa tiene que afrontar. De la mano de estos pensamientos, se erigió la idealización de la tierra que dejé atrás. Es probable que lo que antaño eran los puntos débiles de Asturias, hoy los afronte con una perspectiva más positiva: la calma y tranquilidad, gracias a poblaciones más pequeñas y de dinámicas diferentes. No obstante, la posibilidad de regresar nunca ha pasado de ser una opción de tintes oníricos. Esta improbabilidad se asienta en el miedo a regresar, en no enfrentarme a una añoranza nueva, en desmontar la vida construida a lo largo de estos años. Estos pensamientos estaban consumiéndome. La decisión de quedarme nunca parecía tomada por mí, sino impuesta por el peso de los años. Lo que comenzó como unos meses de prácticas en una empresa, se han convertido en un lustro. Las decisiones tomadas a lo largo de estos años eran escalones de una misma escalera, no la escalera en sí. Decidí, entonces, conocer la experiencia de migración familiar, en la que existen dos caras de la misma moneda: los que fueron y regresaron, y los que se marcharon para nunca retornar.
+          </p>
+        </div>
+        <div class="single-img-container-push imgpinNoPush">
+          <div  class="single-img-far-far-right horizontal-img">
+            <img
+              srcset="images/thirdChapter/4-Film/000056.jpg 650w,
+                      images/thirdChapter/4-Film/000056.jpg 1500w"
+              src="images/thirdChapter/4-Film/000056.jpg"
+              alt="attempt">
+          </div>
+        </div>
+
+        <div class="text-far-left mgB20">
+          <p>Al final del verano de 2016 tuve la oportunidad de pasar innumerables horas reflexionando sobre cómo podía incorporar mi amada fotografía a un proyecto de investigación en el campo del diseño. Me encontraba con mi buen amigo Juš Škraban transitando en un viaje en bicicleta desde mi antiguo hogar en Gijón al suyo en Ljubljana. Juš se dedica a escuchar a los demás, a través de la antropología y la psiquiatría social, así que fue de gran ayuda a la hora de definir una historia que contar. Y así fue como me giré hacia lo conocido, a lo cercano, para hablar de problemas mucho más generales. Al fin y al cabo, investigar y reflexionar sobre las experiencias y decisiones de tus seres queridos genera un aluvión de emociones, ideas y preguntas. Es necesario hacer un esfuerzo para no juzgar desde tu propia perspectiva decisiones que condicionaron tu propia existencia, en cuanto fueron tus antepasados quienes las tomaron. Después de cinco años, podría dedicar muchos meses de trabajo a dar forma a una historia sobre la familia que dejé atrás, y sobre la parte de la familia que siempre creció paralela a mí, en Renania–Westfalia. Sería una forma de hacer las paces con esa parte de ti que teme una distancia emocional cada vez mayor, hasta poder llegar a volverse insalvable. Conocer más y mejor las dificultades y crudezas de la existencia de quien hizo su vida –o una parte de la misma– fuera de la tierra que los vio nacer me ayudaría a poner mi propia experiencia en perspectiva.
+          </p>
+        </div>
+        <div class="single-img-container-push imgpinNoPush">
+          <div  class="single-img-far-far-right horizontal-img">
+            <img
+              srcset="images/thirdChapter/4-Film/F1000035.jpg 650w,
+                      images/thirdChapter/4-Film/F1000035.jpg 1500w"
+              src="images/thirdChapter/4-Film/F1000035.jpg"
+              alt="attempt">
+          </div>
+        </div>
+        <div class="single-img-container ">
+          <div  class="single-img-far-far-left horizontal-img">
+            <img
+              srcset="images/thirdChapter/4-Film/F1000008.jpg 650w,
+                      images/thirdChapter/4-Film/F1000008.jpg 1500w"
+              src="images/thirdChapter/4-Film/F1000008.jpg"
+              alt="attempt">
+          </div>
+        </div>
+
+        <div class="text-center mgT20">
+          <p>Por encima de todos, un pensamiento se manifiesta una y otra vez, una idea que una vez generada no puedo dejar tras de mí. Si en los primeros años de haber salido de Asturias recomendaba a mis amigos que buscaran oportunidades al otro lado de la frontera, hoy ya no lo haría. Emigrar trae consecuencias enormes, muchas de ellas en un plano psicológico, que te acompañarán el resto de la vida. Lo que parecía algo baladí, una experiencia de la que puedes retrotraerte en un cierto momento, es una losa imposible de ignorar. No me refiero únicamente a consecuencias adversas, sino a consecuencias profundas, radicales, tanto en un sentido positivo como negativo. Nunca podrás recuperar los años que perdiste de las infancias de los pequeños de la familia, o los últimos años de senectud de quien te dio la vida a ti y a los tuyos. Pero tampoco podrás olvidar aquellos años descubriendo otro país, a todas las personas cuyos encuentros improbables han ido dando forma a tu día a día.
+          </p>
+        </div>
+        <div class="single-img-container-push imgpinNoPush">
+          <div  class="single-img-far-far-right horizontal-img">
+            <img
+              srcset="images/thirdChapter/4-Film/F1010029.jpg 650w,
+                      images/thirdChapter/4-Film/F1010029.jpg 1500w"
+              src="images/thirdChapter/4-Film/F1010029.jpg"
+              alt="attempt">
+          </div>
+        </div>
+        <div class="single-img-container-push imgpinNoPush">
+          <div  class="single-img-far-far-left horizontal-img">
+            <img
+              srcset="images/thirdChapter/4-Film/000048.jpg 650w,
+                      images/thirdChapter/4-Film/000048.jpg 1500w"
+              src="images/thirdChapter/4-Film/000048.jpg"
+              alt="attempt">
+          </div>
+        </div>
+        <div class="text-far-far-right mgB30">
+          <p>Existen ciertas afirmaciones que si bien pueden tildarse de clichés, no pueden ignorarse cuando hablamos de migraciones. Una de ellas es que no solo cambia quien parte, sino que también lo hace el territorio y las personas que se dejaron atrás. Este hecho da lugar a una cierta paradoja en la forma en la que el migrante se relaciona con su vida anterior. Por una parte, el sueño de regresar a la vida pasada no se desvanece. Intentamos imaginarnos esa vida paralizada en el tiempo, esperando por nosotros. Una vez retornados, la frustración aflora al encontrarse una realidad que se construyó divergente desde el día de tu partida. Si entendemos nuestro día a día, nuestra “realidad”, como el conjunto de vivencias en tiempo presente, las personas y el espacio físico que te rodean, podría afirmarse que cada individuo tiene su propia “realidad”. Esta es una visión idealista del mundo, y en nuestro fuero interno sabemos que es incorrecta: el tiempo se mueve a la misma velocidad en tu presente y en el hogar añorado. Es un único mundo real, pese a que esté fuera de nuestro alcance. Se generan entonces frustraciones por esa vida que te pertenecía y que se escapa entre los dedos. De hecho, esa vida terminó el día que la dejaste atrás y dejaste de influir en ella. Tu “realidad” es una, es el presente. No puedes experimentar dos presentes diferentes. En cierta manera, un presente que no estás viviendo no existe para ti. Ya se ha desvanecido. Asumir esta derrota vital es fundamental para seguir adelante No significa seguir avanzando sin mirar atrás, sino dejar de sufrir por lo que ya no puede recuperarse, o por lo que ni siquiera existió. Los cinco años pasados en Portugal, alejados de mi familia y mis amigos, parecen eclipsar y bloquear mi acceso a esos cinco años en Asturias que nunca tuvieron lugar. No existen experiencias perdidas, puestos que ellas nunca han existido. Fue este pensamiento el que ha logrado rebajar el estrés crónico que genera la añoranza. Regresar se convierte en un verbo obsoleto, una vez que ya no existe el lugar y tiempo en cuestión. Será, de ahora en adelante, la posibilidad de construir una nueva “realidad” en el lugar querido la que genere excitación y no tristeza.
+          </p>
+        </div>
+
+
+        <div id="improbableFs" class="fsParallax">
+        </div>
+
+      </div>
+
+
+      <div id="improbable" class="fadeSection">
+
+        <!-- <div class="subtitleIntro">
+          <h2>Encuentros <br class="break-here">improbables</h2>
+        </div> -->
+
+        <div class="text-center mgT20">
+          <p class="initialParagraph">Como la mayoría de migrantes, tanto antaño como hoy en día, mi vida cotidiana camina lado a lado con la de otros expatriados. Existe, no obstante, una diferencia sustancial entre las distintas generaciones que buscaron una nueva vida en el extranjero. Esta radica en que las comunidades migrantes se establecían en base a la nacionalidad, allá por los años 60 y 70, y hoy en día se da una mayor permeabilidad, al menos en el caso de Europa occidental. El complejo proceso por el que el inglés se convirtió en lengua franca ha posibilitado estos encuentros.
+          </p>
+        </div>
+
+        <div id="JusSection" class="pinContainer">
+          <section class="panel" id="JusSection1">
+          </section>
+          <section class="panel" id="JusSection2">
+
+            <div class="parallelStoriesTitle">
+              <div class="text-center">
+                <h3>Encuentros Improbables (I)</h3>
+              </div>
+              <h1>Juš</h1>
+              <div class="text-center">
+                <i>
+                  Juš Škraban es un joven antropólogo, psiquiatra y poeta –entre otros– nacido en Ljubljana, Eslovenia y para el que Portugal fue su país de acogida durante tres años.
+                </i>
+              </div>
+
+            </div>
+
+          </section>
+          <section class="panel" id="JusSection3">
+            <img
+              src="images/thirdChapter/Friends/jus.jpg"
+              alt="#">
+
+          </section>
+          <!-- <section class="panel" id="JusSection4">
+            <img class="maskReverse"
+              src="images/thirdChapter/friends/jus.jpg"
+              alt="#">
+          </section> -->
+          <section class="panel" id="JusSection5">
+            <div class="parallelStoriesFinalText">
+              <h2>Juš Škraban</h2>
+              <div class="text-far-left">
+                <p>
+                  Al igual que el río que ahonda el valle, los dos siglos de fuerte actividad minerosiderúrgica han tallado una vívida personalidad a las llamadas Cuencas Mineras asturianas. La Cuenca del Nalón, situada en el norte de España, ha sido testimonio de una industrialización pesada que dió lugar a un mundo rural e industrial que todavía hoy coexisten en extraño equilibrio.
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+
+        <div class="text-center">
+          <p>Aquella menor mezcla entre migrantes, o entre población nativa y migrantes, hacía que se mantuviera la inercia de nuevas familias de la misma nacionalidad, que facilitaban la posibilidad de regresar pasados unos años en el extranjero. Mi experiencia hoy en día es radicalmente diferente. Por una parte, las amistades trascienden las nacionalidades y giran en torno a situaciones vitales similares. Esta es la base de la que surgen numerosas parejas de migrantes de distintos orígenes. No es tan relevante el hecho de la procedencia, sino el hecho de que se dé en un tercer país. Al igual que durante la Segunda Guerra Mundial, Portugal como territorio neutral no estaba exento de tensiones –manifestadas en los numerosos espías de los bandos en contienda–, hoy en día esa tensión se refleja en la pugna por a dónde “regresar”. No será posible resolver esta contradicción con medias tintas: o se escoge el país de uno de los miembros de la pareja, o se acepta Portugal como mal menor, como forma de acallar las inquietudes. Las familias que surgirán de estas situaciones sufrirán de un cierto “nomadismo”, siempre a camino entre dos países, teniendo dos o más lenguas. Las raíces se desvanecerán. Las identidades también. Los individuos que surjan de estos nuevos fenómenos migratorios se cuestionarán fuertemente su pasado, lucharán por entenderse a sí mismos. En cierto modo, podemos ver estos procesos en la Turquía moderna. Una gran mayoría del pueblo turco sitúa a sus generaciones predecesoras en países que hoy en día están fuera de sus fronteras. Familias de procedencias tan dispares como Grecia y Georgia se consideran turcas dos generaciones más tarde. Al fin y al cabo, la Turquía moderna tiene poco más de cien años.
+          </p>
+        </div>
+
+        <div id="EzgiEmilienSection" class="pinContainer">
+          <section class="panel" id="EzgiEmilienSection1">
+          </section>
+          <section class="panel" id="EzgiEmilienSection2">
+
+            <div class="parallelStoriesTitle">
+              <div class="text-center">
+                <h3>Encuentros Improbables (II)</h3>
+              </div>
+              <h1>Ezgi</br>& Emilien</h1>
+              <div class="text-center">
+                <i>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                </i>
+              </div>
+
+            </div>
+
+          </section>
+          <section class="panel" id="EzgiEmilienSection3">
+            <img
+              src="images/thirdChapter/Friends/_DSC1966.jpg"
+              alt="#">
+
+          </section>
+          <!-- <section class="panel" id="EzgiEmilienSection4">
+            <img class="maskReverse"
+              src="images/thirdChapter/friends/_DSC1966.jpg"
+              alt="#">
+          </section> -->
+          <section class="panel" id="EzgiEmilienSection5">
+            <div class="parallelStoriesFinalText">
+              <h2>Ezgi & Emilien</h2>
+              <div class="text-far-left">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+
+        <div class="text-center">
+          <p>No sé si los procesos a los que me estoy refiriendo serán tan relevantes como para resultar visibles de aquí a unas generaciones. Puedo asegurar sin duda que a nivel personal lo serán. Cuando eche la vista atrás y piense en los inicios de las amistades entre migrantes que configuran mi vida actual, encontraré respuestas a las preguntas en las que me cuestione mi identidad. Estas amistades suelen obedecer a dinámicas muy diferentes. En primer lugar, lo efímero de muchas de ellas. Esto no significa que los lazos se disuelvan o banalicen, sino que nuestras vidas solo se cruzarán por un período limitado de tiempo. Las despedidas se han convertido en algo muy habitual, si bien el paso de los años las han relativizado: han sido casi tantos los adioses como los reencuentros.
+          </p>
+        </div>
+        <div class="text-center">
+          <p>Existen consecuencias en la fisonomía de estas amistades, fruto de la falta de contexto. Conocemos migrantes fuera de su país de origen, apenas les oímos usar su lengua nativa. No conocemos a sus familias, o el aspecto de su ciudad, de sus paisajes. Tampoco a muchos de sus amigos. Esto no significa que dicha fraternidad sea más superficial, sino que está basada en el presente, alejado y equidistante del origen de las dos partes. Viéndolo desde una perspectiva positiva, siempre tendrá algo nuevo que ofrecer, un mundo para descubrir. Una de las razones por las que los migrantes congeniamos fácilmente es por nuestro interés sincero en conocer y entender al otro, en descubrirnos mutuamente. Se conjugan la voluntad de hacerte entender, a ti y a tu pasado, con la de desvelar de una vez por todas los secretos que la aparente superficialidad encierra.
+          </p>
+        </div>
+        <div id="CanberkChiaraSection" class="pinContainer">
+          <section class="panel" id="CanberkChiaraSection1">
+          </section>
+          <section class="panel" id="CanberkChiaraSection2">
+
+            <div class="parallelStoriesTitle">
+              <div class="text-center">
+                <h3>Encuentros Improbables (III)</h3>
+              </div>
+              <h1>Canberk</br>& Chiara</h1>
+              <div class="text-center">
+                <i>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                </i>
+              </div>
+
+            </div>
+
+          </section>
+          <section class="panel" id="CanberkChiaraSection3">
+            <img
+              src="images/thirdChapter/Friends/_DSC2014-2.jpg"
+              alt="#">
+
+          </section>
+          <!-- <section class="panel" id="CanberkChiaraSection4">
+            <img class="maskReverse"
+              src="images/thirdChapter/friends/_DSC2014-2.jpg"
+              alt="#">
+          </section> -->
+          <section class="panel" id="CanberkChiaraSection5">
+            <div class="parallelStoriesFinalText">
+              <h2>Canberk & Chiara</h2>
+              <div class="text-far-left">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div class="text-center">
+          <p>El tiempo se relativiza en lo que toca a las amistades del lugar de origen. Una vida de separación puede traer consigo una paciencia estratégica. Es decir, no es necesario hablar muy a menudo con quien dejaste atrás, ya que al fin y al cabo los encuentros cara a cara siempre se contarán con los dedos de las manos. Esos efusivos abrazos del reencuentro darán lugar a conversaciones en las que parecerá que el tiempo no ha pasado, excepto por la cantidad de anécdotas con las que nos bombardeamos mutuamente. También el tiempo parece transitar a ritmos diferentes, o por lo menos desconectados del ritmo del presente, cuando nos referimos a amistades que se reúnen pasados unos años. La naturalidad y cercanía que sentí al volver a ver a nuestra amiga Bárbara en Génova, durante el viaje en bicicleta del año pasado, no son fáciles de describir. Habían pasado dos años enteros sin habernos visto y prácticamente sin haber intercambiado palabras desde entonces. Esto no fue suficiente para enrarecer el ambiente, sino todo lo contrario: volvimos a descubrirnos mutuamente, con esa curiosidad en el otro y en cómo la vida nos fue moldeando durante este tiempo.
+          </p>
+        </div>
+        <div class="text-center">
+          <p>Escribir estas líneas me ha ayudado a poner sobre el papel ciertos pensamientos constantes en los últimos años. Ahora mi mente parece mucho más ligera. En cierto modo, este proyecto ha significado tanto una investigación sobre las vivencias de otros, como una investigación personal. Me ha facilitado poner en orden ideas y sentimientos, a relativizarlos, así como renovar la paciencia y actitud positiva acerca de mi condición de migrante. También me ha hecho volver a mirar con cariño a Lisboa, al lograr entender cómo y por qué ha cambiado mi visión de la ciudad. No ha traído consigo una decisión certera sobre la eterna pregunta de si debo regresar, o cuándo, pero ha contribuido a rebajar tensiones a la hora de formulármela. He conseguido acercarme más a aquellas amistades, que sé que son ya para toda la vida. De nuevo, un proyecto de comunicación, editorial y de diseño me ha llevado a reflexionar y a cuestionarme mi identidad.
+          </p>
+        </div>
+
+
+      </div>
+
+
+
+
+
+      </div>
+    </div>
+
+  </body>
+</html>
