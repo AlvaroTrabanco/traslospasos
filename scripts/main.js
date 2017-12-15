@@ -1,6 +1,93 @@
 $(document).ready(function(){
   console.log("start!");
 
+
+
+
+
+
+/*clearfix from right alignment*/
+  $('.text-right').after('<div class="clearfix"></div>');
+  $('.text-far-right').after('<div class="clearfix"></div>');
+  $('.text-far-far-right').after('<div class="clearfix"></div>');
+  $('.single-img-right').after('<div class="clearfix"></div>');
+  $('.single-img-far-right').after('<div class="clearfix"></div>');
+  $('.single-img-far-far-right').after('<div class="clearfix"></div>');
+/*until here*/
+
+
+//menu beginning
+
+  var Menu = {
+
+    el: {
+      ham: $('.menu'),
+      menuTop: $('.menu-top'),
+      menuMiddle: $('.menu-middle'),
+      menuBottom: $('.menu-bottom')
+    },
+
+    init: function() {
+      Menu.bindUIactions();
+    },
+
+    bindUIactions: function() {
+      Menu.el.ham
+          .on(
+            'click',
+          function(event) {
+          Menu.activateMenu(event);
+          event.preventDefault();
+        }
+      );
+    },
+
+    activateMenu: function() {
+      Menu.el.menuTop.toggleClass('menu-top-click');
+      Menu.el.menuMiddle.toggleClass('menu-middle-click');
+      Menu.el.menuBottom.toggleClass('menu-bottom-click');
+    }
+  };
+
+  Menu.init();
+
+    $('#articlesMenuRight').hover(function(){
+      $('#articlesMenuRight').toggleClass('down');
+      $('#backgroundColor').toggleClass('darkBackground');
+    });
+    $('#articlesMenuLeft').hover(function(){
+      $('#articlesMenuLeft').toggleClass('down');
+      $('#backgroundColor').toggleClass('darkBackground');
+    });
+    $('#nav-icon3').click(function(){
+      $('#menu').addClass('enabled');
+      $('body').addClass('stop-scrolling');
+    });
+    $('#menu button').click(function(){
+        $('#menu').removeClass('enabled');
+        $('body').removeClass('stop-scrolling');
+    });
+
+
+  var $hamburger = $("#nav-icon3");
+
+  function hideMenu(){
+      if ($("#menu").css("display") == "inherit") {
+          $hamburger.addClass("hide");
+      } else {
+          $hamburger.removeClass("hide");
+      }
+    }
+
+  hideMenu();
+  $(window).resize(hideMenu);
+
+/*until here*/
+
+
+
+
+
 /*Fadein/out gallery according to a certain word. Beginning of chapter*/
   var $markerFadeImg1 = $("#markerFadeImg1");
   var $singleImgFade1 = $("#imgFadeIntro1");
@@ -164,6 +251,8 @@ function checkSizeLola(){
 
 
 
+
+
 /*pinned videos*/
   var controller = new ScrollMagic.Controller();
 
@@ -269,6 +358,12 @@ $('#familyEzequiel .seeMoreButton').click(function(){
   $('html,body').animate({ scrollTop:$("#familyEzequiel .hiddenTitleMore").offset().top}, 500);
   var cuencasMinerasHeight = $("#moreInfoCuencaNalon").height();
   $(".bgControllerEl").css("height", cuencasMinerasHeight/2);
+  // checkSize();
+  // pepitaFadingSide();
+  // checkSizeHouse();
+  // checkSizeJuntos();
+  // cuencaBackgroundImages();
+  // ArbeitFsController();
   setTimeout(function () {
     checkSizeLola();
   }, 1000);
@@ -288,6 +383,11 @@ $('#seeLessFamily').click(function(){
 
 $('#seeMoreCuenca').click(function(){
   $("#CuencaNalonBeginning.beginningSectionVideo").addClass("noHeight noOpacity");
+  // setTimeout(function () {
+  //   // $("#videoFamilyIntro").remove();
+  //   $("#videoCuenca").addClass("noDisplay");
+  //   $("#videoCuenca").css("transform", "translateY(-500px)");
+  // }, 1000);
   setTimeout(function () {
     $("#seeLessCuenca").addClass("fullOpacity");
   }, 1000);
@@ -299,6 +399,9 @@ $('#seeMoreCuenca').click(function(){
   $(".bgControllerEl").css("height", cuencasMinerasHeight/2);
   checkSize();
   pepitaFadingSide();
+  // checkSizeHouse();
+  // checkSizeJuntos();
+  // cuencaBackgroundImages();
 
   setTimeout(function () {
     $(window).on("load resize",function(){
@@ -314,7 +417,7 @@ $('#seeMoreCuenca').click(function(){
 
   }, 2000);
 
-
+  // ArbeitFsController();
 });
 
 $('#seeLessCuenca').click(function(){
@@ -342,7 +445,10 @@ $('#Ricardo .seeMoreButton').click(function(){
   $(".bgControllerEl").css("height", ricardoHeight/2);
   checkSize();
   pepitaFadingSide();
-
+  // checkSizeHouse();
+  // checkSizeJuntos();
+  // cuencaBackgroundImages();
+  // ArbeitFsController();
 });
 
 $('#seeLessRicardo').click(function(){
@@ -390,7 +496,6 @@ $('#seeLessRicardo').click(function(){
 
 
 /*until here*/
-
 
 
 /*hamburger button*/
@@ -449,6 +554,7 @@ $(window).on('load resize', function() {
       $layer2V3.addClass('activeDecreasing');
   }, 3200);
 
+
 });
 
 
@@ -490,6 +596,15 @@ moveBackground();
 
 
 /*until here*/
+
+
+
+
+
+
+
+
+
 
   var $markerFadeHouse = $("#markerFadeHouse");
   var $singleImgFadeHouse1 = $("#imgFadeHouse1");
@@ -546,6 +661,7 @@ moveBackground();
 
 
 
+
   /*Fadein/out gallery according to a certain word. Together in Germany*/
     var $markerFadeJuntosImg1 = $("#markerFadeJuntosImg1");
     var $singleImgFadeJuntos1 = $("#imgFadeJuntos1");
@@ -595,6 +711,7 @@ moveBackground();
     // run test on resize of the window
     $(window).resize(checkSizeJuntos());
   /*until here*/
+
 
 
 /*attempt to put all the events launched by scroll together*/
@@ -906,19 +1023,19 @@ $(window).on("load resize scroll",function(){
 
 
           /*map path walking*/
-    // var pathController = $("#pathController");
-    //
-    // if (pathController.withinViewport()) {
-    //   $("#mapaSvg").addClass("fullOpacity")
-    //   $("#germanyPath").addClass("activePath");
-    //   $("#mapaSvg div img").addClass("activePath");
-    // }else{
-    //   setTimeout(function () {
-    //     $("#mapaSvg").removeClass("fullOpacity")
-    //   }, 1000);
-    //   $("#germanyPath").removeClass("activePath");
-    //   $("#mapaSvg div img").removeClass("activePath");
-    // }
+    var pathController = $("#pathController");
+
+    if (pathController.withinViewport()) {
+      $("#mapaSvg").addClass("fullOpacity")
+      $("#germanyPath").addClass("activePath");
+      $("#mapaSvg div img").addClass("activePath");
+    }else{
+      setTimeout(function () {
+        $("#mapaSvg").removeClass("fullOpacity")
+      }, 1000);
+      $("#germanyPath").removeClass("activePath");
+      $("#mapaSvg div img").removeClass("activePath");
+    }
             /*end of map path*/
 
 
