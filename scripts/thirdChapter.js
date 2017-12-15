@@ -230,7 +230,7 @@ $(window).on('load resize scroll', function() {
 
 
 $(".mouse").click(function(){
-  $('html,body').animate({ scrollTop:$("#introduction").offset().top}, 500);
+  $('html,body').animate({ scrollTop:$("#beginning").offset().top}, 500);
 });
 /*until here*/
 
@@ -1428,6 +1428,7 @@ $(window).on('load resize scroll', function() {
 
 
 /*old times in Asturias*/
+
 
   var $markerFadeAsPortas = $("#markerFadeAsPortas");
   var $singleImgFadeAsPortas1 = $("#imgFadeAsPortas1");

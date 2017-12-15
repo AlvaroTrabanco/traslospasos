@@ -6,7 +6,7 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 
 function onYouTubeIframeAPIReady() {
-  playerFamilyIntro = new YT.Player('videoFamilyIntro', {
+  playerCuenca = new YT.Player('videoCuenca', {
     height: 'auto',
     width: '100%',
     playerVars: {
@@ -16,8 +16,8 @@ function onYouTubeIframeAPIReady() {
     },
     videoId: 'KkY4dZqw0eo',
     events: {
-      'onReady': onPlayerReadyFamilyIntro,
-      'onStateChange': onPlayerStateChangeFamilyIntro
+      'onReady': onPlayerReadyCuenca,
+      'onStateChange': onPlayerStateChangeCuenca
     }
   });
 
@@ -135,12 +135,10 @@ function onYouTubeIframeAPIReady() {
 //posters//
 
 var posterRoad = $("#posterRoad");
-var CuencaNalonBeginning = $("#CuencaNalonBeginning");
+// var CuencaNalonBeginning = $("#CuencaNalonBeginning");
 
-function onPlayerReadyFamilyIntro(event) {
-  var obj = $("#CuencaNalonBeginning");
-  var pos = obj.offset();
-  var bottom = obj.offset() + obj.outerHeight(true);
+function onPlayerReadyCuenca(event) {
+
   var muteButton = document.getElementById("muteButton");
 
   $('.speaker').click(function(e) {
@@ -152,7 +150,7 @@ function onPlayerReadyFamilyIntro(event) {
       $('body video, body audio').each(function(){
         $(this).prop('muted', true);
       });
-      playerFamilyIntro.mute();
+      playerCuenca.mute();
       // playerC.mute();
       // playerHagel.mute();
 
@@ -162,59 +160,67 @@ function onPlayerReadyFamilyIntro(event) {
       $('body video, body audio').each(function(){
          $(this).prop('muted', false);
       });
-      playerFamilyIntro.unMute();
+      playerCuenca.unMute();
       // playerC.unMute();
       // playerHagel.unMute();
     }
   });
 
 
-  $.fn.isInViewport = function() {
-    var elementTop = $(this).offset().top;
-    var elementBottom = elementTop + $(this).outerHeight();
-    var viewportTop = $(window).scrollTop();
-    var viewportBottom = viewportTop + $(window).height();
-    return viewportTop < elementTop  && viewportBottom > elementBottom;
-  };
 
-  $.fn.isNotInViewport = function() {
-    var elementTop = $(this).offset().top;
-    var elementBottom = elementTop + $(this).outerHeight();
-    var viewportTop = $(window).scrollTop();
-    var viewportBottom = viewportTop + $(window).height();
-    return elementBottom < viewportTop || elementTop > viewportBottom;
-  };
+
 
   var lastScrollTop = 0;
 
-  $(document).on('load resize scroll', function() {
+  function cuencaVideoSection(){
+    $.fn.isInViewport = function() {
+      var elementTop = $(this).offset().top;
+      var elementBottom = elementTop + $(this).outerHeight();
+      var viewportTop = $(window).scrollTop();
+      var viewportBottom = viewportTop + $(window).height();
+      return elementBottom > viewportTop  && elementTop < viewportBottom;
+    };
 
-    var scrollTop = $(window).scrollTop();
     var st = $(this).scrollTop();
 
-
-    if ($("#CuencaNalonBeginning").isInViewport() && !$("#muteButton").hasClass("muted")) {
-
-      playerFamilyIntro.playVideo();
-      playerFamilyIntro.unMute();
-      $("#posterCuencaNalon").addClass("noOpacity");
-    }else if ($("#CuencaNalonBeginning").isInViewport() && $("#muteButton").hasClass("muted")) {
-      //scrollTop < pos.top - obj.outerHeight(true)
-      playerFamilyIntro.playVideo();
-      playerFamilyIntro.mute();
-      $("#posterCuencaNalon").addClass("noOpacity");
+    if ($(".videoSectionShadow").isInViewport() && !$("#muteButton").hasClass("muted") && !$("#videoCuenca").hasClass("disabledVideo")) {
+      playerCuenca.playVideo();
+      playerCuenca.unMute();
+      setTimeout(function () {
+        $("#posterCuencaNalon").addClass("noOpacity");
+      }, 1500);
+    }else if ($(".videoSectionShadow").isInViewport() && $("#muteButton").hasClass("muted")&& !$("#videoCuenca").hasClass("disabledVideo"))  {
+      playerCuenca.playVideo();
+      playerCuenca.mute();
+      setTimeout(function () {
+        $("#posterCuencaNalon").addClass("noOpacity");
+      }, 1500);
     }else {
-      playerFamilyIntro.stopVideo();
+      playerCuenca.stopVideo();
       $("#posterCuencaNalon").removeClass("noOpacity");
     }
 
     lastScrollTop = st;
-});
+  }
+
+  $(window).on("load resize scroll",function(e){
+    cuencaVideoSection();
+  });
+  $('#seeMoreCuenca').click(function(){
+    setTimeout(function () {
+      playerCuenca.stopVideo();
+      $("#videoCuenca").addClass("disabledVideo");
+    }, 1000);
+  });
+  $('#seeLessCuenca').click(function(){
+    $("#videoCuenca").removeClass("disabledVideo");
+  });
+
 }
 
-function onPlayerStateChangeFamilyIntro(event) {
+function onPlayerStateChangeCuenca(event) {
   if (event.data == 0) {
-    playerFamilyIntro.stopVideo();
+    playerCuenca.stopVideo();
     $("#posterCuencaNalon").removeClass("noOpacity");
     return false;
   }
@@ -632,7 +638,6 @@ function onPlayerReadyLandingSecond(event) {
 
         $("#posterSecondChapter").removeClass("noOpacity");
       }else if ($("#landingFadeOutMarker").isInViewport() && !$("#muteButton").hasClass("muted")) {
-        console.log("I should be playing unmuted");
         playerLandingSecond.playVideo();
         playerLandingSecond.unMute();
         setTimeout(function () {
@@ -641,7 +646,6 @@ function onPlayerReadyLandingSecond(event) {
 
 
       } else if ($("#landingFadeOutMarker").isInViewport() && $("#muteButton").hasClass("muted")){
-        console.log("I should be playing");
         playerLandingSecond.playVideo();
         playerLandingSecond.mute();
         setTimeout(function () {
