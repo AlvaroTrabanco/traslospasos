@@ -930,6 +930,9 @@ a
 /*useful classes*/
 .noOpacity
   opacity: 0!important
+.noOpacityTransition
+  opacity: 0!important
+  transition: all 0.2 ease-in-out
 .fullOpacity
   opacity: 1
 
@@ -965,6 +968,8 @@ a
   position: fixed!important
   // top: 0!important
   width: 100%!important
+// .fixed
+//   position: sticky!important
 
 /*until here*/
 
@@ -1217,7 +1222,7 @@ a
   bottom: 0px
   margin: 0
   PADDING: 0
-  background-color: #3d3d3d
+  background-color: #222222
 .grid__col
   height: 100%
   @include mobile
@@ -1911,6 +1916,8 @@ audio
   transition: opacity 0.5s ease-in-out
   cursor: pointer
   margin-left: 11.11111%
+  margin-top: 40px
+  margin-bottom: 40px
   .seeLessButton
     border: solid 1px
     display: inline
@@ -2012,7 +2019,7 @@ audio
   overflow: hidden
   display: none
   max-height: 0
-  margin-top: 50vh
+  margin-top: 25%
   -moz-transition: max-height 0.5s cubic-bezier(0, 1, 0, 1)
   -webkit-transition: max-height 0.5s cubic-bezier(0, 1, 0, 1)
   -ms-transition: max-height 0.5s cubic-bezier(0, 1, 0, 1)
