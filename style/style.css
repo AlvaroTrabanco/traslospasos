@@ -367,7 +367,8 @@
   padding-right: 0;
   opacity: 0;
   position: fixed;
-  height: 100vh; }
+  height: 100vh;
+  display: none; }
   #menu tbody {
     height: 100%; }
     #menu tbody tr {
@@ -428,14 +429,12 @@
 #vertical {
   margin: auto;
   padding: 0; }
-  @media (max-width: 40em) and (orientation: landscape) {
-    #vertical {
-      display: none; } }
 
 .enabled {
   opacity: 1 !important;
   z-index: 3000;
-  position: fixed; }
+  position: fixed;
+  display: inherit !important; }
 
 .disabled {
   animation: menuDisabling 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.2s forwards; }
@@ -558,12 +557,12 @@
   left: 50%; }
 
 .separationLineContainer {
-  height: 2px !important; }
+  height: 1px !important; }
   .separationLineContainer:hover {
     background: none; }
 
 .separationLine {
-  height: 2px !important;
+  height: 1px !important;
   background-color: white;
   transform: scaleX(0);
   opacity: 0; }
@@ -1166,13 +1165,13 @@ a {
   #landingIntro.landing #darkScreen {
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
-    position: fixed; }
+    position: absolute; }
   #landingIntro.landing .landingImage {
     width: 100%;
     height: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
@@ -1484,11 +1483,11 @@ a {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.35);
     z-index: 1;
-    position: fixed; }
+    position: absolute; }
   #landingSecond.landing .landingImage {
     width: 100%;
     height: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
@@ -1649,18 +1648,18 @@ a {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.35);
     z-index: 1;
-    position: fixed; }
+    position: absolute; }
   #landingThird.landing .landingImage {
     width: 100%;
     height: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
     transition: opacity 0.5s linear, max-height 1s linear;
     -webkit-transition: opacity 0.5s linear, max-height 1s linear; }
     #landingThird.landing .landingImage .landingImgContainer {
-      position: fixed;
+      position: absolute;
       top: -50%;
       left: -50%;
       width: 200%;
@@ -2647,7 +2646,7 @@ html.noScroll {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 2;
-  position: fixed; }
+  position: absolute; }
 
 .rotate45 {
   animation: rotateQuarter 0.25s ease-in-out;
@@ -2943,9 +2942,6 @@ html.noScroll {
     width: 100%;
     height: 100vh; }
 
-#introParagraph {
-  padding-bottom: 25vh; }
-
 #mapaSvg {
   transition: opacity 1s;
   opacity: 0;
@@ -2985,24 +2981,64 @@ html.noScroll {
   right: 0;
   left: auto !important; }
 
-#theReturn {
-  margin-bottom: 40vh; }
+#nextChapter {
+  height: 80vh;
+  position: relative; }
 
-.nextChapter {
-  width: 25vw;
-  height: 25vw;
+.nextChapterContent {
+  width: 100%;
+  position: absolute;
+  top: 48%;
+  transform: translateY(-50%); }
+
+.creditsContainer {
+  background-color: #000;
+  width: 100%;
+  height: 100%; }
+
+.credits {
+  width: 33.33333%;
   margin: auto;
-  outline-color: #ffd600;
-  outline-style: solidf;
-  outline-width: 1px;
-  position: relative;
-  margin-bottom: 25vh; }
-  .nextChapter div {
-    position: absolute;
+  padding-top: 5%;
+  padding-bottom: 5%; }
+  .credits p {
+    font-size: 15px;
+    line-height: 1; }
+
+.cellNextchapter {
+  text-align: center;
+  height: 50vh;
+  width: 33.3%;
+  margin-left: 11.11111%;
+  float: left;
+  border: solid 1px rgba(255, 214, 0, 0); }
+  .cellNextchapter:hover {
+    border: solid 1px #ffd600; }
+  .cellNextchapter div {
     top: 50%;
-    left: 50%;
     transform: translateY(-50%);
-    transform: translateX(-50%); }
+    position: absolute;
+    width: 33.3333%;
+    padding: 25px; }
+    .cellNextchapter div h3 {
+      color: #ffd600; }
+    .cellNextchapter div h2 {
+      font-size: 3vw; }
+
+#containerIntro .cellNextchapter {
+  margin-left: 0; }
+  #containerIntro .cellNextchapter > div {
+    padding: 30px; }
+
+#containerThird .cellNextchapter {
+  background-color: rgba(0, 0, 0, 0.05);
+  margin-left: 0; }
+  #containerThird .cellNextchapter:hover {
+    background-color: #ffd600; }
+  #containerThird .cellNextchapter h2 {
+    color: #323232; }
+  #containerThird .cellNextchapter > div {
+    padding: 30px; }
 
 .siblingGalleryTitle {
   position: fixed;

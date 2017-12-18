@@ -264,17 +264,6 @@ $(document).ready(function(){
     });
 
 
-
-    // $('#menu button').click(function(){
-    //   if !$(this).hasClass("menuActivated"){
-    //     $('#menu').removeClass('enabled');
-    //     $('body').off('scroll mousewheel touchmove', stopScrolling);
-    //     $("#menu button").addClass("menuActivated");
-    //   } else {
-    //     $("#menu button").removeClass("menuActivated");
-    //   }
-    //     // $('body').removeClass('stop-scrolling');
-    // });
   var $hamburger = $("#nav-icon3");
   function hideMenu(){
       if ($("#menu").css("display") == "inherit") {

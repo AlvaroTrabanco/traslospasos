@@ -121,6 +121,7 @@
   opacity: 0
   position: fixed
   height: 100vh
+  display: none
   @extend %transition-02
   tbody
     height: 100%
@@ -211,8 +212,8 @@
 #vertical
   margin: auto
   padding: 0
-  @media (max-width: $small) and (orientation: landscape)
-    display: none
+  // @media (max-width: $small) and (orientation: landscape)
+  //   display: none
 
 // #horizontal
 //   display: none
@@ -240,6 +241,7 @@
   // display: inherit!important
   z-index: 3000
   position: fixed
+  display: inherit!important
   // animation: menuEnabling 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.2s forwards
 .disabled
   animation: menuDisabling 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.2s forwards
@@ -383,12 +385,12 @@
 
 
 .separationLineContainer
-  height: 2px!important
+  height: 1px!important
   &:hover
     background: none
 
 .separationLine
-  height: 2px!important
+  height: 1px!important
   background-color: white
   transform: scaleX(0)
   opacity: 0
