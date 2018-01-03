@@ -1,5 +1,19 @@
 $(document).ready(function(){
   console.log("start!");
+
+
+    if(navigator.userAgent.toLowerCase().indexOf("firefox") > -1){
+      console.log("I am in firefox");
+      $(".pinLauncher").remove();
+      $(".manualPin").css("height", "auto");
+    }
+
+setTimeout(function(){
+  $(".ytp-gradient-top").remove();
+},1000);
+
+
+
   /*rectangles landing animation*/
   function rectangles(){
 
@@ -562,6 +576,47 @@ function fadingJuntos(){
     }
 /*until here*/
 
+
+/*Fadein/out gallery according to a certain word. The Return*/
+var $markerFadeReturnImg1 = $("#markerFadeReturnImg1");
+var $singleImgFadeReturn1 = $("#imgFadeReturn1");
+var $singleImgFadeReturn2 = $("#imgFadeReturn2");
+function fadingReturn(){
+      if ($("#imgFadingContainerReturn").css("position") == "fixed" ){
+        $markerFadeReturnImg1.waypoint(function(direction) {
+          if (direction == "down"){
+            $singleImgFadeReturn1.addClass("active");
+          } else {
+            $singleImgFadeReturn1.removeClass('active');
+          }
+        }, {offset: "100%"} );
+        $markerFadeReturnImg1.waypoint(function(direction) {
+          if (direction == "down"){
+            $singleImgFadeReturn1.removeClass("active");
+          } else {
+            $singleImgFadeReturn1.addClass('active');
+          }
+        }, {offset: "50%"} );
+
+
+        $markerFadeReturnImg1.waypoint(function(direction) {
+          if (direction == "down"){
+            $singleImgFadeReturn2.addClass("active");
+          } else {
+            $singleImgFadeReturn2.removeClass('active');
+          }
+        }, {offset: "50%"} );
+        $markerFadeReturnImg1.waypoint(function(direction) {
+          if (direction == "down"){
+            $singleImgFadeReturn2.removeClass("active");
+          } else {
+            $singleImgFadeReturn2.addClass('active');
+          }
+        }, {offset: "0%"} );
+      }
+    }
+/*until here*/
+
 /*Arbeit fs gallery with waypoint*/
 var $arbeitFsGalleryControllerEl1 = $("#arbeitFsGalleryControllerEl1");
 var $arbeitFsGalleryControllerEl2 = $("#arbeitFsGalleryControllerEl2");
@@ -790,6 +845,10 @@ $('#seeMoreCuenca').click(function(){
     timeline();
     fadingHouse();
     fadingJuntos();
+    fadingReturn();
+
+    correctBgCuenca();
+
 
     cuencaFsGalleryWaypoint();
     arbeitFsGalleryWaypoint();
@@ -808,6 +867,7 @@ $('#seeLessCuenca').click(function(){
     timeline();
     fadingHouse();
     fadingJuntos();
+    fadingReturn();
   }, 2000);
 });
 
@@ -827,6 +887,7 @@ $('#seeMoreFamily').click(function(){
     timeline();
     fadingHouse();
     fadingJuntos();
+    fadingReturn();
 
     cuencaFsGalleryWaypoint();
     arbeitFsGalleryWaypoint();
@@ -845,6 +906,7 @@ $('#seeLessFamily').click(function(){
     timeline();
     fadingHouse();
     fadingJuntos();
+    fadingReturn();
   }, 2000);
 });
 
@@ -864,6 +926,7 @@ $('#seeMoreButtonRicardo').click(function(){
     timeline();
     fadingHouse();
     fadingJuntos();
+    fadingReturn();
 
     cuencaFsGalleryWaypoint();
     arbeitFsGalleryWaypoint();
@@ -882,6 +945,7 @@ $('#seeLessRicardo').click(function(){
     timeline();
     fadingHouse();
     fadingJuntos();
+    fadingReturn();
   }, 2000);
 });
 /*until here*/
@@ -894,23 +958,25 @@ $('.imgInfoButton').click(function(){
 
   if ($(".imgInfoButton").hasClass("used")){
     $('body').on('scroll mousewheel touchmove', stopScrolling);
-    $("#darkScreen").removeClass("noDisplay");
+    setTimeout(function () {
+      $(".infoImgShadow").addClass("infoShadowActive");
+    }, 500);
     $(this).addClass("rotate45");
     $(this).parents().addClass("zIndexHigh");
     $(this).siblings().addClass("doDisplay");
     $('html,body').animate({ scrollTop:$(this).offset().top}, 500);
   }else{
     $('body').off('scroll mousewheel touchmove', stopScrolling);
-    $("#darkScreen").addClass("noDisplay");
+    $(".infoImgShadow").removeClass("infoShadowActive");
     $(this).removeClass("rotate45");
     $(this).parents().removeClass("zIndexHigh");
     $(this).siblings().removeClass("doDisplay");
   }
 });
 function stopScrolling (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      return false;
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
   }
 /*until here*/
 
@@ -1114,14 +1180,251 @@ $(window).on("load resize",function(){
   timeline();
   fadingHouse();
   fadingJuntos();
+  fadingReturn();
   rectangles();
 
   arbeitFsGalleryWaypoint();
   cuencaFsGalleryWaypoint();
 
-  correctBgCuenca();
+  // setTimeout(function () {
+  //   correctBgCuenca();
+  // }, 2000);
+
   arbeitCheckSize();
+
+  var viewportTop = $(window).scrollTop();
+  var viewportBottom = viewportTop + $(window).height();
+
+  $.fn.withinViewport = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+    return viewportTop <= elementTop && viewportBottom >= elementBottom;
+  };
+
+
+  $.fn.audioSomehowOutOfViewport = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+    return elementBottom <= viewportTop || elementTop >= viewportBottom;
+  };
+  $('#introAudioMarker').each(function() {
+    if ($(this).withinViewport() && !$(this).hasClass('played')) {
+      $("#introAudio").get(0).play();
+      $introAudio.stop(true,true);
+      $("#introAudio").animate({volume: 1}, 200);
+      $("#introAudioMarker").addClass("played");
+      // console.log("in");
+    } else if ($(this).audioSomehowOutOfViewport()) {
+      $("#introAudio").animate({volume: 0}, 1000);
+      $("#introAudioMarker").removeClass("played");
+      // console.log("OUT_down");
+    }
+  });
 });
+/*until here*/
+
+
+/*declaration of function for landing fade out*/
+$landingFading = function() {
+  if ($("#landingFadeOutMarker").halfOutOfViewport()) {
+    $(".landingImage").addClass("noOpacity");
+    $(".landingText").addClass("noOpacity");
+    $(".scrollCalling").addClass("noOpacity");
+    $(".firstRectanglesGroup").addClass("noOpacity");
+    $("#darkScreen").addClass("noDisplay");
+  } else {
+    $(".landingImage").removeClass("noOpacity");
+    $(".landingText").removeClass("noOpacity");
+    $(".scrollCalling").removeClass("noOpacity");
+    $(".firstRectanglesGroup").addClass("noOpacity");
+    $("#darkScreen").removeClass("noDisplay");
+  }
+}
+/*until here*/
+
+
+
+
+
+// $(window).on("load resize",function(){
+//
+//   var viewportTop = $(window).scrollTop();
+//   var viewportBottom = viewportTop + $(window).height();
+//
+//   $.fn.withinViewport = function() {
+//     var elementTop = $(this).offset().top;
+//     var elementBottom = elementTop + $(this).outerHeight();
+//     return viewportTop <= elementTop && viewportBottom >= elementBottom;
+//   };
+//
+//
+//   $.fn.audioSomehowOutOfViewport = function() {
+//     var elementTop = $(this).offset().top;
+//     var elementBottom = elementTop + $(this).outerHeight();
+//     return elementBottom <= viewportTop || elementTop >= viewportBottom;
+//   };
+//
+//   $('#introMusicMarker').each(function() {
+//     if ($(this).withinViewport() && !$(this).hasClass('played')) {
+//       $("#introMusic").get(0).play();
+//       $introMusic.stop(true,true);
+//       $("#introMusic").animate({volume: 1}, 200);
+//       $("#introMusicMarker").addClass("played");
+//       // console.log("in");
+//     } else if ($(this).audioSomehowOutOfViewport()) {
+//       $("#introMusic").animate({volume: 0}, 2000);
+//       $("#introMusicMarker").removeClass("played");
+//       // console.log("OUT_down");
+//     }
+//   });
+// });
+
+/*attempt to throttle*/
+
+
+var throttled = _.throttle(updatePosition, 100, {leading: false});
+$("body").on("load, resize, scroll, mousewheel", throttled);
+function updatePosition(){
+  /*audio while reading*/
+  var viewportTop = $(window).scrollTop();
+  var viewportBottom = viewportTop + $(window).height();
+
+  $.fn.withinViewport = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+    return viewportTop <= elementTop && viewportBottom >= elementBottom;
+  };
+
+  $.fn.somehowOutOfViewport = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+    return elementBottom <= viewportBottom || elementTop >= viewportTop;
+  };
+
+  $.fn.audioSomehowOutOfViewport = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+    return elementBottom <= viewportTop || elementTop >= viewportBottom;
+  };
+
+  $.fn.halfOutOfViewport = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+    return elementBottom <= viewportBottom - $(window).height()/4;
+  };
+
+  var $introAudio = $("#introAudio");
+  var $introAudioGrillos = $("#introAudioGrillos");
+  var $introAudioMetalNoise = $("#introAudioMetalNoise");
+  var $maquinaCoserAudio = $("#maquinaCoserAudio");
+  var $endAudio = $("#endAudio");
+  var $introMusic = $("#introMusic");
+
+
+  $('#introAudioMarker').each(function() {
+    if ($(this).withinViewport() && !$(this).hasClass('played')) {
+      $("#introAudio").get(0).play();
+      $introAudio.stop(true,true);
+      $("#introAudio").animate({volume: 1}, 200);
+      $("#introAudioMarker").addClass("played");
+      // console.log("in");
+    } else if ($(this).audioSomehowOutOfViewport()) {
+      $("#introAudio").animate({volume: 0}, 1000);
+      $("#introAudioMarker").removeClass("played");
+      // console.log("OUT_down");
+    }
+  });
+
+
+
+
+  $('#introAudioMetalNoiseMarker').each(function() {
+    if ($(this).withinViewport() && !$(this).hasClass('played')) {
+      $("#introAudioMetalNoise").get(0).play();
+      $introAudioMetalNoise.stop(true,true);
+      $("#introAudioMetalNoise").animate({volume: 0.02}, 500);
+      $("#introAudioMetalNoiseMarker").addClass("played");
+
+      // console.log("in");
+    } else if ($(this).audioSomehowOutOfViewport()) {
+      $("#introAudioMetalNoise").animate({volume: 0}, 2000);
+      $("#introAudioMetalNoiseMarker").removeClass("played");
+      // console.log("OUT_down");
+    }
+  });
+
+  $('#introAudioGrillosMarker').each(function() {
+    if ($(this).withinViewport() && !$(this).hasClass('played')) {
+      $("#introAudioGrillos").get(0).play();
+      $introAudioGrillos.stop(true,true);
+      $("#introAudioGrillos").animate({volume: 1}, 200);
+      $("#introAudioGrillosMarker").addClass("played");
+
+      // console.log("in");
+    } else if ($(this).audioSomehowOutOfViewport()) {
+      $("#introAudioGrillos").animate({volume: 0}, 2000);
+      $("#introAudioGrillosMarker").removeClass("played");
+      // console.log("OUT_down");
+    }
+  });
+
+  $('#maquinaCoserAudioMarker').each(function() {
+    if ($(this).withinViewport() && !$(this).hasClass('played')) {
+      $("#maquinaCoserAudio").get(0).play();
+      $maquinaCoserAudio.stop(true,true);
+      $("#maquinaCoserAudio").animate({volume: 0.5}, 200);
+      $("#maquinaCoserAudioMarker").addClass("played");
+
+      // console.log("in");
+    } else if ($(this).audioSomehowOutOfViewport()) {
+      $("#maquinaCoserAudio").animate({volume: 0}, 2000);
+      $("#maquinaCoserAudioMarker").removeClass("played");
+    }
+  });
+
+  $('#theReturn').each(function() {
+    setTimeout(function () {
+      if ($("#theReturn").someOfItIsInViewport() && !$(this).hasClass('played')) {
+        $("#endAudio").get(0).play();
+        $endAudio.stop(true,true);
+        $("#endAudio").animate({volume: 1}, 500);
+        $("#theReturn").addClass("played");
+      } else  {
+        $("#endAudio").animate({volume: 0}, 2000);
+        $("#theReturn").removeClass("played");
+      }
+    }, 1000);
+  });
+          /*end of audio while reading*/
+
+  $landingFading();
+
+
+
+  /* fading end of sections*/
+  $('.fadeSection').each(function() {
+  var $el = $(".afterFadeSection");
+  if ($(this).bottomInViewport() && !$(this).hasClass('noOpacity')) {
+  $(this).addClass("noOpacity");
+  setTimeout(function () {
+    $el.addClass('afterFadeSectionActive');
+    $el.removeClass("noOpacity");
+  }, 500);
+  } else if(!$(this).bottomInViewport() && $(this).hasClass('noOpacity')) {
+  $(this).removeClass("noOpacity");
+  $el.addClass("noOpacity");
+  setTimeout(function () {
+    $el.removeClass('afterFadeSectionActive');
+  }, 500);
+  }
+  });
+  /*end of fading sections*/
+}
+// $(window).scroll(throttled);
+/*until here*/
+
+
+
 
 /*all the events launched by scroll*/
 $(window).on("load resize scroll",function(){
@@ -1138,7 +1441,7 @@ $(window).on("load resize scroll",function(){
   $.fn.somehowOutOfViewport = function() {
     var elementTop = $(this).offset().top;
     var elementBottom = elementTop + $(this).outerHeight();
-    return elementBottom <= viewportTop || elementTop >= viewportBottom;
+    return elementBottom <= viewportBottom || elementTop >= viewportTop;
   };
 
   $.fn.someOfItIsInViewport = function() {
@@ -1147,10 +1450,16 @@ $(window).on("load resize scroll",function(){
     return elementTop < viewportBottom && elementBottom > viewportBottom;
   };
 
+  $.fn.someInViewport = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+    return elementTop < viewportBottom && elementBottom > viewportTop;
+  };
+
   $.fn.bottomInViewport = function() {
     var elementTop = $(this).offset().top;
     var elementBottom = elementTop + $(this).outerHeight();
-    return elementBottom < viewportBottom - $(window).height()/4;
+    return elementBottom < viewportBottom - $(window).height()/2;
   };
 
   $.fn.enteringInViewport = function() {
@@ -1183,116 +1492,106 @@ $(window).on("load resize scroll",function(){
   };
   /*end of pinning functions*/
 
-  /*audio while reading*/
-  var $introAudio = $("#introAudio");
-  var $introAudioGrillos = $("#introAudioGrillos");
-  var $introAudioMetalNoise = $("#introAudioMetalNoise");
-  var $maquinaCoserAudio = $("#maquinaCoserAudio");
-  var $endAudio = $("#endAudio");
-  var $introMusic = $("#introMusic");
+  // /*audio while reading*/
+  // var $introAudio = $("#introAudio");
+  // var $introAudioGrillos = $("#introAudioGrillos");
+  // var $introAudioMetalNoise = $("#introAudioMetalNoise");
+  // var $maquinaCoserAudio = $("#maquinaCoserAudio");
+  // var $endAudio = $("#endAudio");
+  // var $introMusic = $("#introMusic");
+  //
 
-  $('#introAudioMarker').each(function() {
-    if ($(this).withinViewport() && !$(this).hasClass('played')) {
-      $("#introAudio").get(0).play();
-      $introAudio.stop(true,true);
-      $("#introAudio").animate({volume: 1}, 200);
-      $("#introAudioMarker").addClass("played");
-      // console.log("in");
-    } else if ($(this).somehowOutOfViewport()) {
-      $("#introAudio").animate({volume: 0}, 1000);
-      $("#introAudioMarker").removeClass("played");
-      // console.log("OUT_down");
-    }
-  });
-
-  $('#introMusicMarker').each(function() {
-    if ($(this).withinViewport() && !$(this).hasClass('played')) {
-      $("#introMusic").get(0).play();
-      $introMusic.stop(true,true);
-      $("#introMusic").animate({volume: 1}, 200);
-      $("#introMusicMarker").addClass("played");
-      // console.log("in");
-    } else if ($(this).somehowOutOfViewport()) {
-      $("#introMusic").animate({volume: 0}, 2000);
-      $("#introMusicMarker").removeClass("played");
-      // console.log("OUT_down");
-    }
-  });
-
-  $('#introAudioMetalNoiseMarker').each(function() {
-    if ($(this).withinViewport() && !$(this).hasClass('played')) {
-      $("#introAudioMetalNoise").get(0).play();
-      $introAudioMetalNoise.stop(true,true);
-      $("#introAudioMetalNoise").animate({volume: 0.02}, 500);
-      $("#introAudioMetalNoiseMarker").addClass("played");
-
-      // console.log("in");
-    } else if ($(this).somehowOutOfViewport()) {
-      $("#introAudioMetalNoise").animate({volume: 0}, 2000);
-      $("#introAudioMetalNoiseMarker").removeClass("played");
-      // console.log("OUT_down");
-    }
-  });
-
-  $('#introAudioGrillosMarker').each(function() {
-    if ($(this).withinViewport() && !$(this).hasClass('played')) {
-      $("#introAudioGrillos").get(0).play();
-      $introAudioGrillos.stop(true,true);
-      $("#introAudioGrillos").animate({volume: 1}, 200);
-      $("#introAudioGrillosMarker").addClass("played");
-
-      // console.log("in");
-    } else if ($(this).somehowOutOfViewport()) {
-      $("#introAudioGrillos").animate({volume: 0}, 2000);
-      $("#introAudioGrillosMarker").removeClass("played");
-      // console.log("OUT_down");
-    }
-  });
-
-  $('#maquinaCoserAudioMarker').each(function() {
-    if ($(this).withinViewport() && !$(this).hasClass('played')) {
-      $("#maquinaCoserAudio").get(0).play();
-      $maquinaCoserAudio.stop(true,true);
-      $("#maquinaCoserAudio").animate({volume: 0.5}, 200);
-      $("#maquinaCoserAudioMarker").addClass("played");
-
-      // console.log("in");
-    } else if ($(this).somehowOutOfViewport()) {
-      $("#maquinaCoserAudio").animate({volume: 0}, 2000);
-      $("#maquinaCoserAudioMarker").removeClass("played");
-    }
-  });
-
-  $('#endAudioMarker').each(function() {
-    setTimeout(function () {
-      if ($("#endAudioMarker").withinViewport() && !$(this).hasClass('played')) {
-        $("#endAudio").get(0).play();
-        $endAudio.stop(true,true);
-        $("#endAudio").animate({volume: 1}, 500);
-        $("#endAudioMarker").addClass("played");
-      } else if ($("#endAudioMarker").somehowOutOfViewport()) {
-        $("#endAudio").animate({volume: 0}, 2000);
-        $("#endAudioMarker").removeClass("played");
-      }
-    }, 1000);
-  });
-          /*end of audio while reading*/
+  //
+  // $('#introMusicMarker').each(function() {
+  //   if ($(this).withinViewport() && !$(this).hasClass('played')) {
+  //     $("#introMusic").get(0).play();
+  //     $introMusic.stop(true,true);
+  //     $("#introMusic").animate({volume: 1}, 200);
+  //     $("#introMusicMarker").addClass("played");
+  //     // console.log("in");
+  //   } else if ($(this).somehowOutOfViewport()) {
+  //     $("#introMusic").animate({volume: 0}, 2000);
+  //     $("#introMusicMarker").removeClass("played");
+  //     // console.log("OUT_down");
+  //   }
+  // });
+  //
+  // $('#introAudioMetalNoiseMarker').each(function() {
+  //   if ($(this).withinViewport() && !$(this).hasClass('played')) {
+  //     $("#introAudioMetalNoise").get(0).play();
+  //     $introAudioMetalNoise.stop(true,true);
+  //     $("#introAudioMetalNoise").animate({volume: 0.02}, 500);
+  //     $("#introAudioMetalNoiseMarker").addClass("played");
+  //
+  //     // console.log("in");
+  //   } else if ($(this).somehowOutOfViewport()) {
+  //     $("#introAudioMetalNoise").animate({volume: 0}, 2000);
+  //     $("#introAudioMetalNoiseMarker").removeClass("played");
+  //     // console.log("OUT_down");
+  //   }
+  // });
+  //
+  // $('#introAudioGrillosMarker').each(function() {
+  //   if ($(this).withinViewport() && !$(this).hasClass('played')) {
+  //     $("#introAudioGrillos").get(0).play();
+  //     $introAudioGrillos.stop(true,true);
+  //     $("#introAudioGrillos").animate({volume: 1}, 200);
+  //     $("#introAudioGrillosMarker").addClass("played");
+  //
+  //     // console.log("in");
+  //   } else if ($(this).somehowOutOfViewport()) {
+  //     $("#introAudioGrillos").animate({volume: 0}, 2000);
+  //     $("#introAudioGrillosMarker").removeClass("played");
+  //     // console.log("OUT_down");
+  //   }
+  // });
+  //
+  // $('#maquinaCoserAudioMarker').each(function() {
+  //   if ($(this).withinViewport() && !$(this).hasClass('played')) {
+  //     $("#maquinaCoserAudio").get(0).play();
+  //     $maquinaCoserAudio.stop(true,true);
+  //     $("#maquinaCoserAudio").animate({volume: 0.5}, 200);
+  //     $("#maquinaCoserAudioMarker").addClass("played");
+  //
+  //     // console.log("in");
+  //   } else if ($(this).somehowOutOfViewport()) {
+  //     $("#maquinaCoserAudio").animate({volume: 0}, 2000);
+  //     $("#maquinaCoserAudioMarker").removeClass("played");
+  //   }
+  // });
+  //
+  // $('#theReturn').each(function() {
+  //   setTimeout(function () {
+  //     if ($("#theReturn").someOfItIsInViewport() && !$(this).hasClass('played')) {
+  //       $("#endAudio").get(0).play();
+  //       $endAudio.stop(true,true);
+  //       $("#endAudio").animate({volume: 1}, 500);
+  //       $("#theReturn").addClass("played");
+  //     } else  {
+  //       $("#endAudio").animate({volume: 0}, 2000);
+  //       $("#theReturn").removeClass("played");
+  //     }
+  //   }, 1000);
+  // });
+  //         /*end of audio while reading*/
 
 
           /*landing activity*/
-  $('#landingFadeOutMarker').each(function() {
-    if ($(this).withinViewport()) {
-      $(".landingImage").removeClass("noOpacity");
-      $(".landingText").removeClass("noOpacity");
-      $(".scrollCalling").removeClass("noOpacity");
-      $(".firstRectanglesGroup").addClass("noOpacity");
-    } else if ($(this).somehowOutOfViewport()) {
-      $(".landingImage").addClass("noOpacity");
-      $(".landingText").addClass("noOpacity");
-      $(".scrollCalling").addClass("noOpacity");
-      $(".firstRectanglesGroup").addClass("noOpacity");
-    }
-  });
+  // $('#landingFadeOutMarker').each(function() {
+  //   if ($(this).withinViewport()) {
+  //     $(".landingImage").removeClass("noOpacity");
+  //     $(".landingText").removeClass("noOpacity");
+  //     $(".scrollCalling").removeClass("noOpacity");
+  //     $(".firstRectanglesGroup").addClass("noOpacity");
+  //     $("#darkScreen").removeClass("noDisplay");
+  //   } else if ($(this).somehowOutOfViewport()) {
+  //     $(".landingImage").addClass("noOpacity");
+  //     $(".landingText").addClass("noOpacity");
+  //     $(".scrollCalling").addClass("noOpacity");
+  //     $(".firstRectanglesGroup").addClass("noOpacity");
+  //     $("#darkScreen").addClass("noDisplay");
+  //   }
+  // });
           /*end of landing activity*/
 
 
@@ -1351,37 +1650,37 @@ $(window).on("load resize scroll",function(){
 
 
 
-          /* fading end of sections*/
-    $('.fadeSection').each(function() {
-      var $el = $(".afterFadeSection");
-      if ($(this).bottomInViewport() && !$(this).hasClass('noOpacity')) {
-        $(this).addClass("noOpacity");
-        setTimeout(function () {
-            $el.addClass('afterFadeSectionActive');
-            $el.removeClass("noOpacity");
-        }, 500);
-      } else if(!$(this).bottomInViewport() && $(this).hasClass('noOpacity')) {
-        $(this).removeClass("noOpacity");
-        $el.addClass("noOpacity");
-        setTimeout(function () {
-            $el.removeClass('afterFadeSectionActive');
-        }, 500);
-      }
-    });
-          /*end of fading sections*/
+    //       /* fading end of sections*/
+    // $('.fadeSection').each(function() {
+    //   var $el = $(".afterFadeSection");
+    //   if ($(this).bottomInViewport() && !$(this).hasClass('noOpacity')) {
+    //     $(this).addClass("noOpacity");
+    //     setTimeout(function () {
+    //         $el.addClass('afterFadeSectionActive');
+    //         $el.removeClass("noOpacity");
+    //     }, 500);
+    //   } else if(!$(this).bottomInViewport() && $(this).hasClass('noOpacity')) {
+    //     $(this).removeClass("noOpacity");
+    //     $el.addClass("noOpacity");
+    //     setTimeout(function () {
+    //         $el.removeClass('afterFadeSectionActive');
+    //     }, 500);
+    //   }
+    // });
+    //       /*end of fading sections*/
 
 
           /*map path walking*/
     var pathController = $("#pathController");
 
-    if (pathController.withinViewport()) {
+    if (pathController.someInViewport()) {
       $("#mapaSvg").addClass("fullOpacity")
       $("#germanyPath").addClass("activePath");
       $("#mapaSvg div img").addClass("activePath");
     }else{
-      setTimeout(function () {
+      // setTimeout(function () {
         $("#mapaSvg").removeClass("fullOpacity")
-      }, 1000);
+      // }, 1000);
       $("#germanyPath").removeClass("activePath");
       $("#mapaSvg div img").removeClass("activePath");
     }
@@ -1488,16 +1787,38 @@ $('.pinLauncher').each(function() {
 /*end of pinning system*/
 
 
+
+
 /*small animations of single images*/
 $('.single-img-container').each(function() {
   if (  $(this).enteringInViewport() && !$(this).hasClass('activeSingleImg')) {
     $(this).addClass("activeSingleImg");
   }
-  });
+});
 /*end of small animations of single images*/
 
 });
 /*until here*/
+
+
+
+
+// $('.pinWaypoint').each(function(){
+//
+//   var sticky = new Waypoint.Sticky({
+//     element: $(this)
+//   })
+//
+//   $(this).waypoint(function(direction) {
+//
+//     if (direction == "down"){
+//       $(this).toggleClass("stuck");
+//       console.log("I should have been removed");
+//     }
+//   }, {offset: "-100%"} );
+//
+//
+// });
 
 
 

@@ -5,7 +5,7 @@
 
 /*burger*/
 .hamburger-slim
-  z-index: 2
+  // z-index: 2
   background: rgba(0, 0, 0,0.7)
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.7), 0 0 20px 0 rgba(0, 0, 0, 0.7)
   @include mobile
@@ -112,6 +112,9 @@
     opacity: 1
     transform: scaleX(1)
 
+#menuContainer
+  position: relative
+  z-index: 2
 #menu
   // @extend %menu-gradient
   background-color: rgba(0,0,0,0.9)
@@ -238,11 +241,10 @@
 
 .enabled
   opacity: 1!important
-  // display: inherit!important
-  z-index: 3000
+  // z-index: 3000
   position: fixed
   display: inherit!important
-  // animation: menuEnabling 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.2s forwards
+
 .disabled
   animation: menuDisabling 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.2s forwards
 
@@ -322,7 +324,7 @@
   -o-transition: .5s ease-in-out
   transition: .5s ease-in-out
   cursor: pointer
-  z-index: 3001
+  z-index: 1
 
 
 #nav-icon1 span, #nav-icon3 span, #nav-icon4 span

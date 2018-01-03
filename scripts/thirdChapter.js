@@ -1,7 +1,10 @@
 $(document).ready(function(){
   console.log("start!");
 
-
+  if(navigator.userAgent.toLowerCase().indexOf("firefox") > -1){
+    console.log("I am in firefox");
+    $("div").removeClass("imgpinNoPush");
+  }
 
   /*Audio with text*/
   var $introAudio = $("#introAudio");
@@ -430,129 +433,106 @@ $(window).on('load resize scroll', function() {
       $layer2V3.addClass('activeDecreasing');
   }, 3200);
 
-
-  var $layer3 = $("#firstRectanglesGroup .rectanglesAnimation.layer3.firstMoment");
-  setTimeout(function () {
-      $layer3.addClass('activeGrowing');
-  }, 800);
-  setTimeout(function () {
-      $layer3.addClass('activeDecreasing');
-  }, 1200);
-  var $layer3V2 = $("#firstRectanglesGroup .rectanglesAnimation.layer3.secondMoment");
-  setTimeout(function () {
-      $layer3V2.addClass('activeGrowing');
-  }, 2000);
-  setTimeout(function () {
-      $layer3V2.addClass('activeDecreasing');
-  }, 2400);
-  var $layer3V3 = $("#firstRectanglesGroup .rectanglesAnimation.layer3.thirdMoment");
-  setTimeout(function () {
-      $layer3V3.addClass('activeGrowing');
-  }, 3200);
-  setTimeout(function () {
-      $layer3V3.addClass('activeDecreasing');
-  }, 3600);
-
 });
 
 
 /*trying to repeat the animation of the rectangles*/
-
-  $.fn.rectangleInViewport = function() {
-    var elementTop = $(this).offset().top;
-    var viewportTop = $(window).scrollTop();
-    return viewportTop >= elementTop-300;
-  };
-
-  $.fn.prueba2 = function() {
-    var elementTop = $(this).offset().top;
-    var viewportTop = $(window).scrollTop();
-    return viewportTop <= elementTop;
-  };
-
-  var lastScrollTop = 0;
-
-  $(window).on('load resize scroll', function() {
-    var st = $(this).scrollTop();
-    // console.log($("#textRectangles").offset().top);
-    // console.log($(window).scrollTop());
-
-    $('#textRectangles').each(function() {
-      if ($(this).rectangleInViewport()) {
-        var $layer1 = $("#secondRectanglesGroup #firstRectanglesGroup .rectanglesAnimation.layer1.firstMoment");
-        setTimeout(function () {
-            $layer1.addClass('activeGrowing');
-        }, 000);
-        setTimeout(function () {
-            $layer1.addClass('activeDecreasing');
-        }, 400);
-        var $layer1V2 = $("#secondRectanglesGroup .rectanglesAnimation.layer1.secondMoment");
-        setTimeout(function () {
-            $layer1V2.addClass('activeGrowing');
-        }, 1200);
-        setTimeout(function () {
-            $layer1V2.addClass('activeDecreasing');
-        }, 1600);
-        var $layer1V3 = $("#secondRectanglesGroup .rectanglesAnimation.layer1.thirdMoment");
-        setTimeout(function () {
-            $layer1V3.addClass('activeGrowing');
-        }, 2400);
-        setTimeout(function () {
-            $layer1V3.addClass('activeDecreasing');
-        }, 2800);
-
-
-        var $layer2 = $("#secondRectanglesGroup .rectanglesAnimation.layer2.firstMoment");
-        setTimeout(function () {
-            $layer2.addClass('activeGrowing');
-        }, 400);
-        setTimeout(function () {
-            $layer2.addClass('activeDecreasing');
-        }, 800);
-        var $layer2V2 = $("#secondRectanglesGroup .rectanglesAnimation.layer2.secondMoment");
-        setTimeout(function () {
-            $layer2V2.addClass('activeGrowing');
-        }, 1600);
-        setTimeout(function () {
-            $layer2V2.addClass('activeDecreasing');
-        }, 2000);
-        var $layer2V3 = $("#secondRectanglesGroup .rectanglesAnimation.layer2.thirdMoment");
-        setTimeout(function () {
-            $layer2V3.addClass('activeGrowing');
-        }, 2800);
-        setTimeout(function () {
-            $layer2V3.addClass('activeDecreasing');
-        }, 3200);
-
-
-        var $layer3 = $("#secondRectanglesGroup .rectanglesAnimation.layer3.firstMoment");
-        setTimeout(function () {
-            $layer3.addClass('activeGrowing');
-        }, 800);
-        setTimeout(function () {
-            $layer3.addClass('activeDecreasing');
-        }, 1200);
-        var $layer3V2 = $("#secondRectanglesGroup .rectanglesAnimation.layer3.secondMoment");
-        setTimeout(function () {
-            $layer3V2.addClass('activeGrowing');
-        }, 2000);
-        setTimeout(function () {
-            $layer3V2.addClass('activeDecreasing');
-        }, 2400);
-        var $layer3V3 = $("#secondRectanglesGroup .rectanglesAnimation.layer3.thirdMoment");
-        setTimeout(function () {
-            $layer3V3.addClass('activeGrowing');
-        }, 3200);
-        setTimeout(function () {
-            $layer3V3.addClass('activeDecreasing');
-        }, 3600);
-        // console.log("in");
-      }
-
-    });
-    lastScrollTop = st;
-  });
-
+  //
+  // $.fn.rectangleInViewport = function() {
+  //   var elementTop = $(this).offset().top;
+  //   var viewportTop = $(window).scrollTop();
+  //   return viewportTop >= elementTop-300;
+  // };
+  //
+  // $.fn.prueba2 = function() {
+  //   var elementTop = $(this).offset().top;
+  //   var viewportTop = $(window).scrollTop();
+  //   return viewportTop <= elementTop;
+  // };
+  //
+  // var lastScrollTop = 0;
+  //
+  // $(window).on('load resize scroll', function() {
+  //   var st = $(this).scrollTop();
+  //   // console.log($("#textRectangles").offset().top);
+  //   // console.log($(window).scrollTop());
+  //
+  //   $('#textRectangles').each(function() {
+  //     if ($(this).rectangleInViewport()) {
+  //       var $layer1 = $("#secondRectanglesGroup #firstRectanglesGroup .rectanglesAnimation.layer1.firstMoment");
+  //       setTimeout(function () {
+  //           $layer1.addClass('activeGrowing');
+  //       }, 000);
+  //       setTimeout(function () {
+  //           $layer1.addClass('activeDecreasing');
+  //       }, 400);
+  //       var $layer1V2 = $("#secondRectanglesGroup .rectanglesAnimation.layer1.secondMoment");
+  //       setTimeout(function () {
+  //           $layer1V2.addClass('activeGrowing');
+  //       }, 1200);
+  //       setTimeout(function () {
+  //           $layer1V2.addClass('activeDecreasing');
+  //       }, 1600);
+  //       var $layer1V3 = $("#secondRectanglesGroup .rectanglesAnimation.layer1.thirdMoment");
+  //       setTimeout(function () {
+  //           $layer1V3.addClass('activeGrowing');
+  //       }, 2400);
+  //       setTimeout(function () {
+  //           $layer1V3.addClass('activeDecreasing');
+  //       }, 2800);
+  //
+  //
+  //       var $layer2 = $("#secondRectanglesGroup .rectanglesAnimation.layer2.firstMoment");
+  //       setTimeout(function () {
+  //           $layer2.addClass('activeGrowing');
+  //       }, 400);
+  //       setTimeout(function () {
+  //           $layer2.addClass('activeDecreasing');
+  //       }, 800);
+  //       var $layer2V2 = $("#secondRectanglesGroup .rectanglesAnimation.layer2.secondMoment");
+  //       setTimeout(function () {
+  //           $layer2V2.addClass('activeGrowing');
+  //       }, 1600);
+  //       setTimeout(function () {
+  //           $layer2V2.addClass('activeDecreasing');
+  //       }, 2000);
+  //       var $layer2V3 = $("#secondRectanglesGroup .rectanglesAnimation.layer2.thirdMoment");
+  //       setTimeout(function () {
+  //           $layer2V3.addClass('activeGrowing');
+  //       }, 2800);
+  //       setTimeout(function () {
+  //           $layer2V3.addClass('activeDecreasing');
+  //       }, 3200);
+  //
+  //
+  //       var $layer3 = $("#secondRectanglesGroup .rectanglesAnimation.layer3.firstMoment");
+  //       setTimeout(function () {
+  //           $layer3.addClass('activeGrowing');
+  //       }, 800);
+  //       setTimeout(function () {
+  //           $layer3.addClass('activeDecreasing');
+  //       }, 1200);
+  //       var $layer3V2 = $("#secondRectanglesGroup .rectanglesAnimation.layer3.secondMoment");
+  //       setTimeout(function () {
+  //           $layer3V2.addClass('activeGrowing');
+  //       }, 2000);
+  //       setTimeout(function () {
+  //           $layer3V2.addClass('activeDecreasing');
+  //       }, 2400);
+  //       var $layer3V3 = $("#secondRectanglesGroup .rectanglesAnimation.layer3.thirdMoment");
+  //       setTimeout(function () {
+  //           $layer3V3.addClass('activeGrowing');
+  //       }, 3200);
+  //       setTimeout(function () {
+  //           $layer3V3.addClass('activeDecreasing');
+  //       }, 3600);
+  //       // console.log("in");
+  //     }
+  //
+  //   });
+  //   lastScrollTop = st;
+  // });
+  //
 
 /*attempt to move image with mouse position*/
 
@@ -1579,13 +1559,13 @@ $(function () { // wait for document ready
     .fromTo("#JusSection2", 1, {x: "-100%"}, {x: "0%", ease: Linear.easeNone})  // in from left
     .fromTo("#JusSection3",    1, {x:  "100%"}, {x: "0%", ease: Linear.easeNone})  // in from right
     // .fromTo("#JusSection4", 1, {y: "-100%"}, {y: "0%", ease: Linear.easeNone}) // in from top
-    .fromTo("#JusSection5", 1, {y: "200%"}, {y: "0%", ease: Linear.easeNone}); // in from top
+    .fromTo("#JusSection5", 1, {y: "100%"}, {y: "-100%", ease: Linear.easeNone}); // in from top
 
   // create scene to pin and link animation
   new ScrollMagic.Scene({
       triggerElement: "#JusSection",
       triggerHook: "onLeave",
-      duration: "450%"
+      duration: "400%"
     })
     .setPin("#JusSection")
     .setTween(wipeAnimation)
@@ -1603,13 +1583,13 @@ $(function () { // wait for document ready
     .fromTo("#EzgiEmilienSection2", 1, {x: "100%"}, {x: "0%", ease: Linear.easeNone})  // in from left
     .fromTo("#EzgiEmilienSection3", 1, {x:  "-100%"}, {x: "0%", ease: Linear.easeNone})  // in from right
     // .fromTo("#EzgiEmilienSection4", 1, {x: "100%", y: "-100%"}, {x: "0%", y: "0%", ease: Linear.easeNone}) // in from top
-    .fromTo("#EzgiEmilienSection5", 1, {y: "200%"}, {y: "0%", ease: Linear.easeNone}); // in from top
+    .fromTo("#EzgiEmilienSection5", 1, {y: "200%"}, {y: "-100%", ease: Linear.easeNone}); // in from top
 
   // create scene to pin and link animation
   new ScrollMagic.Scene({
       triggerElement: "#EzgiEmilienSection",
       triggerHook: "onLeave",
-      duration: "450%"
+      duration: "400%"
     })
     .setPin("#EzgiEmilienSection")
     .setTween(wipeAnimation)
@@ -1628,13 +1608,13 @@ $(function () { // wait for document ready
     .fromTo("#CanberkChiaraSection2", 1, {x: "-100%"}, {x: "0%", ease: Linear.easeNone})  // in from left
     .fromTo("#CanberkChiaraSection3",    1, {x:  "100%"}, {x: "0%", ease: Linear.easeNone})  // in from right
     // .fromTo("#CanberkChiaraSection4", 1, {y: "-100%"}, {y: "0%", ease: Linear.easeNone}) // in from top
-    .fromTo("#CanberkChiaraSection5", 1, {y: "200%"}, {y: "0%", ease: Linear.easeNone}); // in from top
+    .fromTo("#CanberkChiaraSection5", 1, {y: "200%"}, {y: "-100%", ease: Linear.easeNone}); // in from top
 
   // create scene to pin and link animation
   new ScrollMagic.Scene({
       triggerElement: "#CanberkChiaraSection",
       triggerHook: "onLeave",
-      duration: "450%"
+      duration: "400%"
     })
     .setPin("#CanberkChiaraSection")
     .setTween(wipeAnimation)

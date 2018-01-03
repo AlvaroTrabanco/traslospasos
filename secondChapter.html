@@ -18,7 +18,7 @@
     <script type="text/javascript" src="scripts/inview.min.js"></script>
     <!-- <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script> -->
     <script type="text/javascript" src="scripts/secondChapter.js"></script>
-    <script type="text/javascript" src="scripts/youtubeAPI_.js"></script>
+    <script type="text/javascript" src="scripts/youtubeAPI.js"></script>
 
     <script src="scripts/scrollmagic/uncompressed/ScrollMagic.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
@@ -124,64 +124,7 @@
             </div><!----></div>
 
       <!-- <div class="hamburger-slim"></div> -->
-      <div id="menuContainer">
-        <div id="nav-icon3">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
 
-        <div id="menu">
-          <div id="menu-alignment-box">
-            <div id="menu-alignment-box2">
-              <table id="vertical" class="">
-                <tr>
-                  <th class=""><h2>Menú</h2></th>
-                </tr>
-                <tr>
-                  <td class=""><a href="intro.html"><p>Inicio</p></a></td>
-                </tr>
-                <tr class="separationLineContainer">
-                  <td>
-                    <div class="separationLine"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class=""><a href="index.html"><p>1 · Raíces</p></a></td>
-                </tr>
-                <tr class="separationLineContainer">
-                  <td>
-                    <div class="separationLine"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class=""><a href="secondChapter.html"><p>2 · Búsqueda</p></a></td>
-                </tr>
-                <tr class="separationLineContainer">
-                  <td>
-                    <div class="separationLine"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class=""><a href="thirdChapter.html"><p>3 · Encuentros improbables</p></a></td>
-                </tr>
-                <tr class="separationLineContainer">
-                  <td>
-                    <div class="separationLine"></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td class=""><a href="#"><p>Sobre el proyecto</p></a></td>
-                </tr>
-              </table>
-
-            </div>
-
-          </div>
-
-        </div>
-      </div>
 
       <div class="sound"> <!--The JS of the button is within the YT plugin. If there is no YT content it should be placed in the main.js -->
         <a id="muteButton" href="#" class="speaker">
@@ -190,79 +133,84 @@
       </div>
 
     </div>
+    <div id="menuContainer">
+      <div id="nav-icon3">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
+      <div id="menu">
+        <div id="menu-alignment-box">
+          <div id="menu-alignment-box2">
+            <table id="vertical" class="">
+              <tr>
+                <th class=""><h2>Menú</h2></th>
+              </tr>
+              <tr>
+                <td class=""><a href="index.html"><p>Inicio</p></a></td>
+              </tr>
+              <tr class="separationLineContainer">
+                <td>
+                  <div class="separationLine"></div>
+                </td>
+              </tr>
+              <tr>
+                <td class=""><a href="firstChapter.html"><p>1 · Raíces</p></a></td>
+              </tr>
+              <tr class="separationLineContainer">
+                <td>
+                  <div class="separationLine"></div>
+                </td>
+              </tr>
+              <tr>
+                <td class=""><a href="secondChapter.html"><p>2 · Los caminos se bifurcan</p></a></td>
+              </tr>
+              <tr class="separationLineContainer">
+                <td>
+                  <div class="separationLine"></div>
+                </td>
+              </tr>
+              <tr>
+                <td class=""><a href="thirdChapter.html"><p>3 · Encuentros improbables</p></a></td>
+              </tr>
+              <tr class="separationLineContainer">
+                <td>
+                  <div class="separationLine"></div>
+                </td>
+              </tr>
+              <tr>
+                <td class=""><a href="#"><p>Sobre el proyecto</p></a></td>
+              </tr>
+            </table>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
     <div id="container">
 
 
 
       <div id="landingSecond" class="landing">
-        <!--new design attempt-->
-        <div class="scrollCalling">
-          <div class="mouse">
-            <div class="scroll"></div>
-          </div>
-        </div>
-        <div id="firstRectanglesGroup" class="rectanglesAnimationBox">
-          <div id="rectangleAnimation1" class="rectanglesAnimation layer1 firstMoment"></div>
-          <div id="rectangleAnimation1" class="rectanglesAnimation layer1 secondMoment"></div>
-          <div id="rectangleAnimation1" class="rectanglesAnimation layer1 thirdMoment"></div>
-
-          <div id="rectangleAnimation2"  class="rectanglesAnimation layer2 firstMoment"></div>
-          <div id="rectangleAnimation2"  class="rectanglesAnimation layer2 secondMoment"></div>
-          <div id="rectangleAnimation2"  class="rectanglesAnimation layer2 thirdMoment"></div>
-
-          <div id="rectangleAnimation3"  class="rectanglesAnimation layer3 firstMoment"></div>
-          <div id="rectangleAnimation3"  class="rectanglesAnimation layer3 secondMoment"></div>
-          <div id="rectangleAnimation3"  class="rectanglesAnimation layer3 thirdMoment"></div>
-
-          <div id="rectangleAnimation4"  class="rectanglesAnimation layer1 firstMoment"></div>
-          <div id="rectangleAnimation4"  class="rectanglesAnimation layer1 secondMoment"></div>
-          <div id="rectangleAnimation4"  class="rectanglesAnimation layer1 thirdMoment"></div>
-
-          <div id="rectangleAnimation5"  class="rectanglesAnimation layer2 firstMoment"></div>
-          <div id="rectangleAnimation5"  class="rectanglesAnimation layer2 secondMoment"></div>
-          <div id="rectangleAnimation5"  class="rectanglesAnimation layer2 thirdMoment"></div>
-
-          <div id="rectangleAnimation6"  class="rectanglesAnimation layer3 firstMoment"></div>
-          <div id="rectangleAnimation6"  class="rectanglesAnimation layer3 secondMoment"></div>
-          <div id="rectangleAnimation6"  class="rectanglesAnimation layer3 thirdMoment"></div>
-
-          <div id="rectangleAnimation7"  class="rectanglesAnimation layer1 firstMoment"></div>
-          <div id="rectangleAnimation7"  class="rectanglesAnimation layer1 secondMoment"></div>
-          <div id="rectangleAnimation7"  class="rectanglesAnimation layer1 thirdMoment"></div>
-
-          <div id="rectangleAnimation8"  class="rectanglesAnimation layer2 firstMoment"></div>
-          <div id="rectangleAnimation8"  class="rectanglesAnimation layer2 secondMoment"></div>
-          <div id="rectangleAnimation8"  class="rectanglesAnimation layer2 thirdMoment"></div>
-
-          <div id="rectangleAnimation9"  class="rectanglesAnimation layer3 firstMoment"></div>
-          <div id="rectangleAnimation9"  class="rectanglesAnimation layer3 secondMoment"></div>
-          <div id="rectangleAnimation9"  class="rectanglesAnimation layer3 thirdMoment"></div>
-
-        </div>
-
         <div id="landingFadeOutMarker">
-
         </div>
 
         <div class="landingText">
           <div class="boxTitleLanding">
             <h1><span id="titlePiece1Second" style="color:rgb(255, 222, 0);">2.</span><span id="titlePiece2Second">Los </span><span id="titlePiece3Second">caminos</span><span id="titlePiece4Second">se</span><span id="titlePiece5Second">bifurcan</span></h1>
           </div>
-
           <div id="introAudioMarker" class="boxParagraphLanding">
-            <h3><i>Tras los pasos</i> es un cruce de la historia de tres generaciones migrantes. Una visión contemporánea de un dilema familiar, económico y social.</h3>
+            <h3>Las decisiones de sus padres situarían sus corazones a medio camino entre el origen y la tierra de acogida. Es esta una segunda generación marcada por una emigración que siempre pareció inevitable.</h3>
             <p>por <i>Álvaro Trabanco</i></p>
           </div>
-
-
-
-        </div>
-
-        <div id="darkScreen" class="">
         </div>
 
         <div class="landingImage">
+          <div class="shadowLanding"></div>
           <div id="playerSecondChapter" class="video">
             <div id="videoSecondChapter"></div>
             <div id="posterSecondChapter" class="poster">
@@ -273,58 +221,29 @@
           </div>
         </div>
 
-
-
+        <div class="scrollCalling">
+          <div class="mouse">
+            <div class="scroll"></div>
+          </div>
+        </div>
 
       </div>
 
-      <div id="introParagraph" class="introduction fadeSection">
+      <div id="introParagraph" class="introduction fadeSection mgB100">
         <div id="afterVideoSecondChapter" class="afterVideo"></div>
 
-        <div id="secondRectanglesGroup" class="rectanglesAnimationBox">
-          <div id="rectangleAnimationV2-1" class="rectanglesAnimation layer1 firstMoment"></div>
-          <div id="rectangleAnimationV2-1" class="rectanglesAnimation layer1 thirdMoment"></div>
-          <div id="rectangleAnimationV2-1" class="rectanglesAnimation layer1 secondMoment"></div>
 
-          <div id="rectangleAnimationV2-2"  class="rectanglesAnimation layer2 firstMoment"></div>
-          <div id="rectangleAnimationV2-2"  class="rectanglesAnimation layer2 secondMoment"></div>
-          <div id="rectangleAnimationV2-2"  class="rectanglesAnimation layer2 thirdMoment"></div>
-
-          <div id="rectangleAnimationV2-3"  class="rectanglesAnimation layer3 firstMoment"></div>
-          <div id="rectangleAnimationV2-3"  class="rectanglesAnimation layer3 secondMoment"></div>
-          <div id="rectangleAnimationV2-3"  class="rectanglesAnimation layer3 thirdMoment"></div>
-
-          <div id="rectangleAnimationV2-4"  class="rectanglesAnimation layer1 firstMoment"></div>
-          <div id="rectangleAnimationV2-4"  class="rectanglesAnimation layer1 secondMoment"></div>
-          <div id="rectangleAnimationV2-4"  class="rectanglesAnimation layer1 thirdMoment"></div>
-
-          <div id="rectangleAnimationV2-5"  class="rectanglesAnimation layer2 firstMoment"></div>
-          <div id="rectangleAnimationV2-5"  class="rectanglesAnimation layer2 secondMoment"></div>
-          <div id="rectangleAnimationV2-5"  class="rectanglesAnimation layer2 thirdMoment"></div>
-
-          <div id="rectangleAnimationV2-6"  class="rectanglesAnimation layer3 firstMoment"></div>
-          <div id="rectangleAnimationV2-6"  class="rectanglesAnimation layer3 secondMoment"></div>
-          <div id="rectangleAnimationV2-6"  class="rectanglesAnimation layer3 thirdMoment"></div>
-
-          <div id="rectangleAnimationV2-7"  class="rectanglesAnimation layer1 firstMoment"></div>
-          <div id="rectangleAnimationV2-7"  class="rectanglesAnimation layer1 secondMoment"></div>
-          <div id="rectangleAnimationV2-7"  class="rectanglesAnimation layer1 thirdMoment"></div>
-
-          <div id="rectangleAnimationV2-8"  class="rectanglesAnimation layer2 firstMoment"></div>
-          <div id="rectangleAnimationV2-8"  class="rectanglesAnimation layer2 secondMoment"></div>
-          <div id="rectangleAnimationV2-8"  class="rectanglesAnimation layer2 thirdMoment"></div>
-
-          <div id="rectangleAnimationV2-9"  class="rectanglesAnimation layer3 firstMoment"></div>
-          <div id="rectangleAnimationV2-9"  class="rectanglesAnimation layer3 secondMoment"></div>
-          <div id="rectangleAnimationV2-9"  class="rectanglesAnimation layer3 thirdMoment"></div>
-        </div>
         <div  class="text-center">
-          <p class="initialParagraph">Esta <span id="textRectangles">es</span> la historia de quienes partieron y regresaron, de aquellos que se quedaron y de quienes todavía no se han ido. Habla de una familia marcada por la emigración en Europa, dividida por la búsqueda de una prosperidad que nunca pareció corresponderle. Vidas construidas en torno a la dureza del esfuerzo físico, nocturno, repetitivo y peligroso, en equilibrios imposibles entre dos zonas mineras a mil setecientos kilómetros de distancia. Es el mundo del trabajo llevado a lo concreto, dotado de rostro, humanizado y reconstruido para ser contado. Esta es la historia de Ezequiel y Pepita, quienes engrosaron las filas de la emigración asturiana en los años sesenta, convirtiendo Alemania en su hogar durante una década. Inevitablemente es también la de sus hijos y descendientes –varios de los cuales hicieron suyo aquel país hasta el día de hoy–, la de identidades cuestionadas, ausencias, distancias y preguntas de difícil respuesta.
+          <p class="initialParagraph">Las historias de esas segundas generaciones son mucho más heterogéneas que las de sus padres. En primer lugar, porque los acuerdos para la importación de mano de obra extranjera estaban perdiendo relevancia, a la par que basculaban hacia Turquía y otros países no europeos. En segundo lugar, porque será esta una generación con una identidad difusa, donde no existiría ya un proyecto común en el que verse reflejados, a diferencia de los masivos procesos migratorios en los que estaban envueltos sus progenitores.
+          </p>
+          <p>
+          José Luis, Ezequiel y Eugenia. Los tres hermanos son esa segunda generación condicionada por las decisiones migratorias de sus padres. Es hora de situarlos en el centro de la historia para, desde su perspectiva, desde su experiencia, completar el esbozo de la compleja identidad forjada en una familia con un pie en cada país. Los dos varones nacieron en España, mientras que su hermana Eugenia lo haría en Aldenhoven, a la mitad de la década que Ezequiel y Pepita dedicaron a trabajar en el extranjero. Los tres serán, no obstante, hijos de la emigración.
           </p>
         </div>
 
 
       </div>
+
 
       <div id="siblingsGalleriesContainer">
 
@@ -464,33 +383,33 @@
 
             <div id="siblingFsGalleryControllerEl1" class="galleryControllerEl">
               <div class="text-far-far-right">
-                <p>Mientras esta historia era desarrollada, anunciaba el cierre el Pozo María Luisa, la explotación más emblemática de Asturias, en la sibling del Nalón.</p>
+                <p>Eugenia dejó Alemania con seis meses de edad. La vida la llevaría de vuelta a la tierra en la que nació veintidós años más tarde. En la foto, Eugenia mira fíjamente a la cámara en la cocina de su casa en Jülich.</p>
               </div>
 
             </div>
             <div id="siblingFsGalleryControllerEl2" class="galleryControllerEl">
               <div class="text-far-far-right">
-                <p>Así lucía el pozo un día después de paralizar su actividad. El silencio presenciado actuaba como metáfora del declive industrial de Asturias.</p>
+                <p>Eugenia nació en casa, en el hogar que la mina Emile Mayrisch proporcionaba a parte de sus obreros. En la foto, su madre Pepita, de 33 años de edad, la sostiene, todavía en Alemania.</p>
               </div>
             </div>
             <div id="siblingFsGalleryControllerEl3" class="galleryControllerEl">
               <div class="text-far-far-right">
-                <p>Un carbón que cala hasta los huesos. Un descampado cercano al Pozo Sotón cubierto en una mezcla de barro y carbón.</p>
+                <p>Ezequiel, el hermano de Eugenia, la observa y ríe desde el coche. Los dos hermanos vivirían juntos de forma permanente a partir de 1971, cuando Eugenia ya tenía 6 años de edad. Nunca viviría con su hermano José Luis.</p>
               </div>
             </div>
             <div id="siblingFsGalleryControllerEl4" class="galleryControllerEl">
-              <div class="text-far-far-right">
-                <p>En el Pozo Sotón, cuyas instalaciones son aquí reproducidas, trabajaría Ezequiel en tareas nocturnas de mantenimiento mecánico.</p>
-              </div>
+              <!-- <div class="text-far-far-right">
+                <p></p>
+              </div> -->
             </div>
             <div id="siblingFsGalleryControllerEl5" class="galleryControllerEl">
               <div class="text-far-far-right">
-                <p>La fuerte presencia industrial se funde con la belleza natural de la cual el río Nalón es su centro.</p>
+                <p>Eugenia y su hermano Ezequiel posan serios delante de los abuelos maternos: Covadonga y Carlos, quienes cuidaron a Eugenia durante sus primeros seis años de vida.</p>
               </div>
             </div>
             <div id="siblingFsGalleryControllerEl6" class="galleryControllerEl">
               <div class="text-far-far-right">
-                <p>Altos picos se extienden a lo largo del valle. En los contados días de buen tiempo, éstos brillan con luz propia.</p>
+                <p>En el mismo lugar que esta foto fue encontrada, Eugenia y su cuñada Puri miran fotos antiguas. Las conexiones que generan los archivos familiares se extienden a lo largo de generaciones</p>
               </div>
             </div>
           </div>
@@ -499,38 +418,38 @@
           <div id="galleryEzequiel">
             <div id="siblingFsGalleryControllerEl7" class="galleryControllerEl">
               <div class="text-far-far-right">
-                <p>Mientras esta historia era desarrollada, anunciaba el cierre el Pozo María Luisa, la explotación más emblemática de Asturias, en la sibling del Nalón.</p>
+                <p>Ezequiel vive en España desde que, con ocho años de edad, los padres le trajeron desde Alemania. Será el único de los hermanos que viviría en el país hasta el día de hoy.</p>
               </div>
 
             </div>
             <div id="siblingFsGalleryControllerEl8" class="galleryControllerEl">
-              <div class="text-far-far-right">
-                <p>Así lucía el pozo un día después de paralizar su actividad. El silencio presenciado actuaba como metáfora del declive industrial de Asturias.</p>
-              </div>
+              <!-- <div class="text-far-far-right">
+                <p>.</p>
+              </div> -->
             </div>
             <div id="siblingFsGalleryControllerEl9" class="galleryControllerEl">
-              <div class="text-far-far-right">
-                <p>Un carbón que cala hasta los huesos. Un descampado cercano al Pozo Sotón cubierto en una mezcla de barro y carbón.</p>
-              </div>
+              <!-- <div class="text-far-far-right">
+                <p></p>
+              </div> -->
             </div>
             <div id="siblingFsGalleryControllerEl10" class="galleryControllerEl">
               <div class="text-far-far-right">
-                <p>En el Pozo Sotón, cuyas instalaciones son aquí reproducidas, trabajaría Ezequiel en tareas nocturnas de mantenimiento mecánico.</p>
+                <p>En una tierna imagen, Ezequiel padre e hijo transitan en moto por las calles Alemanas.</p>
               </div>
             </div>
             <div id="siblingFsGalleryControllerEl11" class="galleryControllerEl">
               <div class="text-far-far-right">
-                <p>La fuerte presencia industrial se funde con la belleza natural de la cual el río Nalón es su centro.</p>
+                <p>En la foto, comparten mesa Ezequiel y Eugenia con su madre Pepita. No hay prácticamente fotos de los tres hermanos juntos, hasta muchoas años más tarde.</p>
               </div>
             </div>
             <div id="siblingFsGalleryControllerEl12" class="galleryControllerEl">
               <div class="text-far-far-right">
-                <p>Altos picos se extienden a lo largo del valle. En los contados días de buen tiempo, éstos brillan con luz propia.</p>
+                <p>Ezequiel y su pareja Puri visitarían Alemania para la confirmación de sus sobrinas. En la foto comparten mesa con Eugenia, quien poco tiempo atrás habría emigrado a Alemania nuevamente.</p>
               </div>
             </div>
             <div id="siblingFsGalleryControllerEl13" class="galleryControllerEl">
               <div class="text-far-far-right">
-                <p>Mientras esta historia era desarrollada, anunciaba el cierre el Pozo María Luisa, la explotación más emblemática de Asturias, en la sibling del Nalón.</p>
+                <p>Ezequiel sostiene risueño en sus brazos a su primera hija, Aida, durante su bautizo, acompañado de sus abuelas, Covadonga y Lola.</p>
               </div>
             </div>
 
@@ -539,37 +458,37 @@
           <div id="galleryJose">
             <div id="siblingFsGalleryControllerEl14" class="galleryControllerEl">
               <div class="text-far-far-right">
-                <p>Así lucía el pozo un día después de paralizar su actividad. El silencio presenciado actuaba como metáfora del declive industrial de Asturias.</p>
+                <p>José Luis usa su computador en su acogedor hogar en Aldenhoven, el pueblo al que originariamente emigraron sus padres en 1961.</p>
               </div>
             </div>
             <div id="siblingFsGalleryControllerEl15" class="galleryControllerEl">
               <div class="text-far-far-right">
-                <p>Un carbón que cala hasta los huesos. Un descampado cercano al Pozo Sotón cubierto en una mezcla de barro y carbón.</p>
+                <p>José Luis da la mano a su distraído hermano Ezequiel en una foto de familia en Alemania.</p>
               </div>
             </div>
             <div id="siblingFsGalleryControllerEl16" class="galleryControllerEl">
               <div class="text-far-far-right">
-                <p>En el Pozo Sotón, cuyas instalaciones son aquí reproducidas, trabajaría Ezequiel en tareas nocturnas de mantenimiento mecánico.</p>
+                <p>Foto polaroid que José Luis envió a sus padres en la que aparece almorzando en la pausa del trabajo, en Alsdorf, ya en 1974.</p>
               </div>
             </div>
             <div id="siblingFsGalleryControllerEl17" class="galleryControllerEl">
               <div class="text-far-far-right">
-                <p>La fuerte presencia industrial se funde con la belleza natural de la cual el río Nalón es su centro.</p>
+                <p>Buena parte de su vida José trabajó en la mampostería. La alta calidad de sus trabajos le permitió hacer obras de gran interés estético como la aquí presentada.</p>
               </div>
             </div>
             <div id="siblingFsGalleryControllerEl18" class="galleryControllerEl">
               <div class="text-far-far-right">
-                <p>Altos picos se extienden a lo largo del valle. En los contados días de buen tiempo, éstos brillan con luz propia.</p>
+                <p>Wilma, la mujer de José, con sus dos hijas y su perro durante unas navidades en los años 70.</p>
               </div>
             </div>
             <div id="siblingFsGalleryControllerEl19" class="galleryControllerEl">
               <div class="text-far-far-right">
-                <p>La fuerte presencia industrial se funde con la belleza natural de la cual el río Nalón es su centro.</p>
+                <p>Wilma y José con los padres de éste, Ezequiel y Pepita.</p>
               </div>
             </div>
             <div id="siblingFsGalleryControllerEl20" class="galleryControllerEl">
               <div class="text-far-far-right">
-                <p>Altos picos se extienden a lo largo del valle. En los contados días de buen tiempo, éstos brillan con luz propia.</p>
+                <p>José ha mantenido desde niño una enorme afición por la pesca. Con seguridad ha sido su principal <i>hobby</i>.</p>
               </div>
             </div>
           </div>
@@ -582,72 +501,52 @@
       </div>
 
       <div id="plotTwist">
+        <div class="scrollCalling">
+          <div class="mouse">
+            <div class="scroll"></div>
+          </div>
+        </div>
+
         <div id="plotTwistEl1" class="twistEl">
           <div class="twistElContent plotTwistDisabled">
-            <h2><em>Tras los pasos</em> es la historia de tres generaciones de migrantes.</h2>
+            <h2>En <em>Tras los pasos</em> se cruzan los caminos de tres generaciones migrantes.</h2>
+
           </div>
         </div>
         <div id="plotTwistEl2"  class="twistEl">
           <div class="twistElContent plotTwistDisabled">
             <h2>Ezequiel y Pepita dedicaron una década de sus vidas al trabajo industrial en Alemania.</h2>
+
           </div>
         </div>
         <div id="plotTwistEl3"  class="twistEl">
           <div class="twistElContent plotTwistDisabled">
-            <h2>Dos de sus tres hijos harían su vida en Alemania hasta el día de hoy.</h2>
+            <h2>Dos de sus tres hijos, José Luis y Eugenia, harían su vida en Alemania hasta el día de hoy.</h2>
+
           </div>
         </div>
-        <div id="plotTwistEl4"  class="twistEl">
+        <div id="plotTwistEl4"  class="twistEl mgB70">
           <div class="twistElContent plotTwistDisabled">
-            <h2>Y uno de sus nietos es el que escribe estas líneas.</h2>
+            <h2><em>Y uno de sus nietos escribe estas líneas,</em> en su sexto año fuera del país.</h2>
+
           </div>
         </div>
-        <div id="plotTwistEl5"  class="twistEl">
+        <!-- <div id="plotTwistEl5"  class="twistEl">
           <div class="twistElContent plotTwistDisabled">
             <h2>Portugal ha sido su hogar desde hace cinco años.</h2>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <div id="textIntroduction">
-        <div class="text-center">
-          <p>En el momento de escribir estas líneas, la sombra de cinco años alejado de la familia se cierne sobre mi cabeza. Dejando de lado las contadas ocasiones en las que pasé por Asturias a modo de visita, Portugal ha puesto una notable distancia física entre nosotros. Ha sido el transcurso del tiempo lo que ha relativizado la añoranza y de cierta manera la ha paralizado en el tiempo, dotándola de un ritmo distinto al del día a día presente. Mi relación con la familia tiene lapsos de meses, pero se retoma exactamente donde se dejó.
+        <div class="text-center mgB100">
+          <p>Hasta que no me convertí en migrante, la relación con mi familia alemana era en cierto modo diferente a la que mi padre, sus hermanos y mis abuelos tenían entre sí. Ellos se cuestionaban el sentido mismo de la lejanía y de los años transcurridos. Para mí eran simplemente eso, la familia alemana, y no la familia asturiana surgida tras la emigración.
           </p>
-        </div>
-
-        <!-- <div class="single-img-container">
-          <div  class="single-img-center vertical-img">
-            <img
-              srcset="images/chapterone/7-Ezequiel3.png 650w,
-                      images/chapterone/7-Ezequiel3.png 1500w"
-              src="images/chapterone/7-Ezequiel3.png"
-              alt="attempt">
-          </div>
-        </div> -->
-
-        <div class="text-far-right">
           <p>
-          Hasta que no me convertí en migrante, la relación con mi familia alemana era en cierto modo diferente a la que mi padre, sus hermanos y mis abuelos tenían entre sí. Ellos se cuestionaban el sentido mismo de la lejanía y de los años transcurridos. Para mí eran simplemente eso, la familia alemana, y no la familia asturiana surgida tras la emigración. Al poco de comenzar este proyecto, un hecho aparentemente banal removió mi conciencia. Uno de los pequeños de la familia, Diego, de cinco años de edad, es el hijo de una de mis primas asturianas. Le he podido ver en contadas veces, aunque tengo la suerte de que se acuerda de mí. En una de esas ocasiones me di cuenta de que para él soy ya Álvaro, “el primo portugués”.
+          Hace casi quince años que tuvo lugar mi único viaje a Aldenhoven. Tenía por aquel entonces diez años y el trayecto en autobús duró un día entero. Recuerdo la gran apatía y aburrimiento de esas veinticuatro horas. También la emoción de finalmente poner un contexto a esos familiares que tanto apreciaba: ver donde vivían, oírles hablar alemán en su entorno, visitar sus ciudades. En noviembre de 2016 volvía a pisar las mismas tierras, esta vez en una época más fría del año, lo que terminaría añadiendo un aura de drama a la visita. Tendría la posibilidad de encontrarme con prácticamente todos los miembros de mi familia. A algunos de ellos no los había visto desde mi infancia.
           </p>
         </div>
 
-
-        <!-- <div id="playerHorse" class="video">
-          <div id="videoHorse"></div>
-          <div id="posterHorse" class="poster">
-            <img src="images/secondChapter/general/posterHorse.jpg" alt=""></img>
-          </div>
-        </div>
-
-        <div id="afterVideoHorse" class="afterVideo"></div> -->
-
-
-
-        <div class="text-right mgB80">
-          <p>
-          A medida que pasaba el tiempo, empecé a darme cuenta de cómo la nueva vida elegida ha ido moldeándome de forma significativamente diferente a como lo habría hecho si no me hubiera marchado. Comencé a sentir empatía y curiosidad por quienes se fueron antes que yo, quienes construyeron una vida divergente de la de su entorno. Fue entonces cuando decidí comenzar este proyecto, así como ir a visitar a mi familia en Alemania, en vez de esperar yo sus visitas, como era costumbre. Hace casi quince años que tuvo lugar mi único viaje a Aldenhoven. Tenía por aquel entonces diez años y el trayecto en autobús duró un día entero. Recuerdo la gran apatía y aburrimiento del trayecto. También la emoción de finalmente poner un contexto a esos familiares que tanto apreciaba: ver donde vivían, oírles hablar alemán en su entorno, visitar sus ciudades. En noviembre de 2016 volvía a pisar las mismas tierras, esta vez en una época más fría del año, lo que terminaría añadiendo un aura de drama a la visita. Tendría la posibilidad de encontrarme con prácticamente todos los miembros de mi familia. A algunos de ellos no los había visto desde mi infancia.
-          </p>
-        </div>
 
         <div id="plotTwistGallery" class="bgFsImg">
 
@@ -671,13 +570,13 @@
 
             <div id="plotTwistFsGalleryControllerEl1" class="galleryControllerEl">
               <div class="text-far-far-right">
-                <p>Mientras esta historia era desarrollada, anunciaba el cierre el Pozo María Luisa, la explotación más emblemática de Asturias, en la sibling del Nalón.</p>
+                <p>Uno de los recuerdos más vívidos que tengo de ese primer viaje tiene lugar a los mandos de la gran locomotora presente en el parque de Alsdorf.</p>
               </div>
             </div>
 
             <div id="plotTwistFsGalleryControllerEl2" class="galleryControllerEl">
               <div class="text-far-far-right">
-                <p>Así lucía el pozo un día después de paralizar su actividad. El silencio presenciado actuaba como metáfora del declive industrial de Asturias.</p>
+                <p>Al visitarla quince años después, la encontré destartalada, rodeada por una valla que parecía intentar preservar y contener la memoria de aquel lugar.</p>
               </div>
             </div>
 
@@ -690,24 +589,26 @@
 
       <div id="wayToGermany" class="fadeSection">
         <div class="subtitleIntro">
-          <h2>Mi camino a Aldenhoven</h2>
+          <h2>Aldenhoven,</br>punto de encuentro</h2>
         </div>
 
         <div class="text-center">
-          <p>Al igual que el de mis abuelos, mi itinerario hacia Aldenhoven pasó por París. Aproveché un vuelo barato para facilitar el camino hacia Renania-Westfalia. Tuve la oportunidad de pasar cinco días en la capital francesa, gracias a la hospitalidad de unas amigas. Me dediqué a pasear durante incontables horas por la fría ciudad, mientras ellas trabajaban, exactamente un año después de mi última visita, la cual había coincidido con los ataques en la Sala Bataclán. Había pensado en esos días previos a Alemania como una oportunidad para planificar las fotografías o vídeo que captaría una vez allí, pero esto no sucedió. De hecho, fue absolutamente imposible pensar en términos prácticos acerca de cómo afrontar un proyecto tan personal. Decidí dejar volar mi mente durante cinco días de pausa, con muchas horas de soledad y frío en el rostro, permitiendo trabajar a la intuición y a los sentimientos que aflorarían tras el reencuentro.</p>
+          <p><i>Tras los pasos</i> estaba dando sus primeros pasos cuando emprendí el viaje hacia el pueblo que acogió a mis abuelos en 1961. Esta visita sería un momento fundamental en esta investigación ya que pondría a mis tíos, esa segunda generación de migrantes, en el centro de la narrativa, obteniendo su visión de las decisiones que precipitaron esta determinada serie de acontecimientos. Haría esto situándolos en su contexto, con tiempo suficiente para retirar mis propias conclusiones y construir un ensayo visual que permitiese abordar –con base en su ejemplo– la complejidad vital de quienes eran todavía niños durante la oleada migratoria de los años 60.
+          </p>
+          <p>Al igual que el de mis abuelos, mi itinerario hacia Aldenhoven pasó por París. Tuve la oportunidad de pasar cinco días en la capital francesa, gracias a la hospitalidad de unas amigas. Me dediqué a pasear durante incontables horas por la fría ciudad, mientras ellas trabajaban. Había pensado en esos días previos a Alemania como una oportunidad para planificar las fotografías o vídeo que captaría una vez allí, pero esto no sucedió. De hecho, fue absolutamente imposible pensar en términos prácticos acerca de cómo afrontar un proyecto tan personal. Decidí dejar volar mi mente durante cinco días de pausa, con muchas horas de soledad y frío en el rostro, permitiendo trabajar a la intuición y a los sentimientos que aflorarían tras el reencuentro.</p>
         </div>
 
         <div id="parisFs" class="fsParallax">
         </div>
 
         <div class="text-center">
-          <p>De nuevo, siguiendo los pasos de Pepita y Ezequiel, cogí un tren en la Gare du Nord. Con certeza el ambiente estaba mucho más enrarecido que cincuenta y cinco años atrás: maletas escaneadas, fuertes controles antiterroristas y una cierta tensión en el ambiente. Me despedí de mi amiga con gran emoción: nos habíamos conocido unos años atrás en la isla de São Jorge, en medio del Océano Atlántico. Cada reunión reaviva las memorias de una época añorada, que se percibe ya muy lejana.
+          <p>De nuevo, siguiendo los pasos de Pepita y Ezequiel, cogí un tren en la Gare du Nord. Con certeza el ambiente estaba mucho más enrarecido que cincuenta y cinco años atrás: maletas escaneadas, fuertes controles antiterroristas y una cierta tensión en el ambiente.
           </p>
         </div>
 
 
         <div class="text-far-right">
-          <p>En esta ocasión, el tren me llevó también a través de Lieja, donde yo no necesité validar mis documentos con la gendarmería belga ni entrar en el país con la excusa de un falso bautizo. En el recorrido tuve la oportunidad de conocer a Marie, una chica alemana que vivía en París e iba camino de visitar a un amigo en Düsseldorf durante el fin de semana. Le expliqué brevemente las razones que me llevaban a estar en ese tren aquel viernes y ella me sorprendió diciéndome que había pasado su infancia y adolescencia en la zona a la que me dirigía. Tras varios años viviendo en el este de Alemania, que yo conociera su pequeña ciudad también la cogió por sorpresa. Pude fotografiar la escuela que frecuentó y a la que no volvía desde hacía cinco años, Gymnasium Haus Overbach, y posteriormente enviarle las fotografías de tan improbable visita.
+          <p>En el recorrido tuve la oportunidad de conocer a Marie, una chica alemana que vivía en París e iba camino de visitar a un amigo en Düsseldorf durante el fin de semana. Joven emigrada, tanto dentro de Alemania y ahora en Francia, tenía su hogar en la misma zona que acogió a la familia Suárez–Álvarez. Tras muchos años sin haber regresado, abrazando la feliz coincidencia, fui yo quien visitaría su escuela, Gymnasium Haus Overbach, aquí retratada.
           </p>
         </div>
 
@@ -751,6 +652,10 @@
           </p>
         </div>
 
+        <div id="fieldsFS" class="fsParallax">
+        </div>
+      </div>
+
       <div id="JoseStory" class="fadeSection">
         <div class="subtitleIntro">
           <h2>La historia de José Luis</h2>
@@ -761,15 +666,11 @@
           </p>
         </div>
 
-        <div id="fieldsFS" class="fsParallax">
-        </div>
 
-        <div class="text-center">
-          <p>Jose heredó buena parte del humor de su padre Ezequiel. Heredó también aquellas características tan mineras: el orgullo y la tozudez. Por suerte para él, pese a que haya pocas personas más tozudas en la faz de la tierra, Jose es claramente muy inteligente. Tiene una gran capacidad de ver las cosas en perspectiva, con distancia. Tiene opinión para todo y la defenderá con ahínco. Derrocha fortaleza por todos los poros. No solo física —una vida dedicada al trabajo manual y a la construcción transforman el cuerpo— , sino de espíritu. Y es que una existencia difícil transforma la mente. Hoy en día, las horas cargando pesos o agachado colocando piedra han hecho mella, y dos hernias en las cervicales le pasan factura. Jose alterna días no muy malos con otros con grandes dolores. Las pastillas para calmarlos le machacan el cuerpo. A pesar de los problemas, Jose cuenta con un gran sentido del humor. Ha sido siempre un bromista, característica que me recuerda en cierta forma a su padre Ezequiel. Siempre me acuerdo de cuando nos mataba a cosquillas a mi hermana y a mi —creo que a ella no le hacía tanta gracia—, o cuando me cogía por los pies y me dejaba colgado boca abajo en el jardín de una casa rural en Quirós, donde veraneaba muchos años atrás.
-          </p>
-        </div>
 
         <div class="single-img-container">
+          <div class="infoImgShadow" class="noDisplay">
+          </div>
           <div class="single-img-far-right horizontal-img">
             <img class="imgInfo"
               srcset="images/secondChapter/general/11.jpg 650w,
@@ -777,12 +678,14 @@
               src="images/secondChapter/general/11.jpg"
               alt="attempt">
             <div class="text-far-left">
-              <p>La terquedad de Ezequiel está aquí representada: los dos amigos a hombros no creían que, como aseguraba, pudiese llevar los terneros a hombros.</p>
+              <p>Este grupo de árboles plantados de forma geométrica se erigen en el terreno en el que habían estado instalados los barracones de madera que alojaban a las familias obreras inmigrantes. Las lamentables condiciones para estos <i>gastarbeiter</i> ha intentado ser borrada de la historia de estos procesos. No se conservan fotografías de aquel lugar. Visitamos este terreno con José Luis. No había regresado a él desde que era niño, a pesar de estar a unos cinco minutos en coche de su casa.</p>
             </div>
           </div>
         </div>
 
         <div class="single-img-container">
+          <div class="infoImgShadow" class="noDisplay">
+          </div>
           <div class="single-img-far-right horizontal-img">
             <img class="imgInfo"
               srcset="images/secondChapter/general/12.jpg 650w,
@@ -790,10 +693,18 @@
               src="images/secondChapter/general/12.jpg"
               alt="attempt">
             <div class="text-far-left">
-              <p>La terquedad de Ezequiel está aquí representada: los dos amigos a hombros no creían que, como aseguraba, pudiese llevar los terneros a hombros.</p>
+              <p>Así es como luce una mina de carbón actual en Alemania. Las explotaciones mineras verticales, bajo tierra, dieron paso a extensas minas a cielo abierto con poca mano de obra. Este tipo de actividad minera desplaza poblaciones enteras frecuentemente.</p>
             </div>
           </div>
         </div>
+
+
+        <div class="text-center">
+          <p>Jose heredó buena parte del humor de su padre Ezequiel. Heredó también aquellas características tan mineras: el orgullo y la tozudez. Por suerte para él, pese a que haya pocas personas más tozudas en la faz de la tierra, Jose es claramente muy inteligente. Tiene una gran capacidad de ver las cosas en perspectiva, con distancia. Tiene opinión para todo y la defenderá con ahínco. Derrocha fortaleza por todos los poros. No solo física —una vida dedicada al trabajo manual y a la construcción transforman el cuerpo— , sino de espíritu. Y es que una existencia difícil transforma la mente. Hoy en día, las horas cargando pesos o agachado colocando piedra han hecho mella, y dos hernias en las cervicales le pasan factura. Jose alterna días no muy malos con otros con grandes dolores. Las pastillas para calmarlos le machacan el cuerpo. A pesar de los problemas, Jose cuenta con un gran sentido del humor. Ha sido siempre un bromista, característica que me recuerda en cierta forma a su padre Ezequiel. Siempre me acuerdo de cuando nos mataba a cosquillas a mi hermana y a mi —creo que a ella no le hacía tanta gracia—, o cuando me cogía por los pies y me dejaba colgado boca abajo en el jardín de una casa rural en Quirós, donde veraneaba muchos años atrás.
+          </p>
+        </div>
+
+
 
         <div id="horsesFs" class="fsParallax">
         </div>
@@ -833,31 +744,7 @@
           </p>
         </div>
 
-        <div class="single-img-container">
-          <div class="single-img-far-right horizontal-img">
-            <img class="imgInfo"
-              srcset="images/secondChapter/general/15.jpg 650w,
-                      images/secondChapter/general/15.jpg 1500w"
-              src="images/secondChapter/general/15.jpg"
-              alt="attempt">
-            <div class="text-far-left">
-              <p>La terquedad de Ezequiel está aquí representada: los dos amigos a hombros no creían que, como aseguraba, pudiese llevar los terneros a hombros.</p>
-            </div>
-          </div>
-        </div>
 
-        <div class="single-img-container">
-          <div class="single-img-far-right horizontal-img">
-            <img class="imgInfo"
-              srcset="images/secondChapter/general/13.jpg 650w,
-                      images/secondChapter/general/13.jpg 1500w"
-              src="images/secondChapter/general/13.jpg"
-              alt="attempt">
-            <div class="text-far-left">
-              <p>La terquedad de Ezequiel está aquí representada: los dos amigos a hombros no creían que, como aseguraba, pudiese llevar los terneros a hombros.</p>
-            </div>
-          </div>
-        </div>
 
         <div class="text-center">
           <p>Jose comenzó a salir con su futura mujer, Wilma, hija de Billy von Vover, compañero de su padre en el mantenimiento de la mina. Al poco tiempo, ella se quedaría embarazada de su primera hija, Manuela. Se lo contaron a sus familias y, estando un día Jose en su habitación, oyó hablar en alemán a su padre Ezequiel y a Billy. Ambos querían seguir caminos diferentes: Billy dijo que él se haría cargo de su nieta. En ese momento, Jose salió a su encuentro y tomaría las riendas de su propia vida al decidir cuidar de su hija y pasar su vida al lado de Wilma. La joven pareja fue entonces presionada para casarse por la iglesia, ceremonia en la que sus hermanos no estuvieron presentes. Pepita y Ezequiel llevaban meses preparándose para regresar a España, así que estuvieron manteniendo un pulso con su hijo y trataron de llevarlo a empujones al coche en el que partirían. Jose se negó a que esto sucediera y se quedó en Aldenhoven. Su segunda hija, Karin, nació dos años más tarde. Era 1971. Jose tenía entonces dieciocho años.
@@ -865,6 +752,8 @@
         </div>
 
         <div class="single-img-container">
+          <div class="infoImgShadow" class="noDisplay">
+          </div>
           <div class="single-img-far-right vertical-img">
             <img class="imgInfo"
               srcset="images/secondChapter/general/10.jpg 650w,
@@ -872,12 +761,14 @@
               src="images/secondChapter/general/10.jpg"
               alt="attempt">
             <div class="text-far-left">
-              <p>La terquedad de Ezequiel está aquí representada: los dos amigos a hombros no creían que, como aseguraba, pudiese llevar los terneros a hombros.</p>
+              <p>Esta es la vivienda familiar que los Suárez-Álvarez ocuparían durante casi una década en Aldenhoven. La ventana da a la cocina de la vivienda familiar. Este apartamento les permitía tener un espacio exterior.</p>
             </div>
           </div>
         </div>
 
         <div class="single-img-container">
+          <div class="infoImgShadow" class="noDisplay">
+          </div>
           <div class="single-img-far-right horizontal-img">
             <img class="imgInfo"
               srcset="images/secondChapter/general/3.jpg 650w,
@@ -885,12 +776,14 @@
               src="images/secondChapter/general/3.jpg"
               alt="attempt">
             <div class="text-far-left">
-              <p>La terquedad de Ezequiel está aquí representada: los dos amigos a hombros no creían que, como aseguraba, pudiese llevar los terneros a hombros.</p>
+              <p>La casa de José y Wilma tiene varios elementos recordatorios de Asturias y España, escogidos seguramente por Wilma, quien siempre cultivó un interés por la cultura del país de su marido. A pesar de ello, la barera idiomática se ha mantenido hasta hoy. No obstante, las visitas a la tierra de José han sido innumerables a lo largo de los años, siendo su principal y casi único destino de vacaciones.</p>
             </div>
           </div>
         </div>
 
         <div class="single-img-container">
+          <div class="infoImgShadow" class="noDisplay">
+          </div>
           <div class="single-img-far-right horizontal-img">
             <img class="imgInfo"
               srcset="images/secondChapter/general/3_1.jpg 650w,
@@ -898,7 +791,7 @@
               src="images/secondChapter/general/3_1.jpg"
               alt="attempt">
             <div class="text-far-left">
-              <p>La terquedad de Ezequiel está aquí representada: los dos amigos a hombros no creían que, como aseguraba, pudiese llevar los terneros a hombros.</p>
+              <p><i>Lobo</i> es el anciano perro de José y Wilma. Un nuevo pastor alemán, adoptado pocos meses después del fallecimiento de su anterior cánido. Wilma siempre se ha dedicado con cariño a los perros de la familia y ha disfrutado de su compañía también durante los viajes a España.</p>
             </div>
           </div>
         </div>
@@ -911,9 +804,37 @@
           </p>
         </div>
 
+        <div class="single-img-container">
+          <div class="infoImgShadow" class="noDisplay">
+          </div>
+          <div class="single-img-far-right horizontal-img">
+            <img class="imgInfo"
+              srcset="images/secondChapter/general/15.jpg 650w,
+                      images/secondChapter/general/15.jpg 1500w"
+              src="images/secondChapter/general/15.jpg"
+              alt="attempt">
+            <div class="text-far-left">
+              <p>En el inicio de la noche, bajo la luz de los focos, está la puerta de la antigua fábrica Philips, donde Pepita trabajó casi una década.</p>
+            </div>
+          </div>
+        </div>
 
+        <div class="single-img-container">
+          <div class="infoImgShadow" class="noDisplay">
+          </div>
+          <div class="single-img-far-right horizontal-img">
+            <img class="imgInfo"
+              srcset="images/secondChapter/general/13.jpg 650w,
+                      images/secondChapter/general/13.jpg 1500w"
+              src="images/secondChapter/general/13.jpg"
+              alt="attempt">
+            <div class="text-far-left">
+              <p>Este es uno de los más interesantes trabajos de mampostería que José ha realizado: un homenaje a los judíos asesinados en Aldenhoven durante el terror nazi. Una mancha roja vandaliza la estrella de David tallada en la piedra.</p>
+            </div>
+          </div>
+        </div>
 
-        <div class="single-img-container-push imgpinNoPush">
+        <!-- <div class="single-img-container-push imgpinNoPush">
           <div  class="single-img-far-left vertical-img">
             <img
               srcset="images/secondChapter/general/8.jpg 650w,
@@ -931,16 +852,25 @@
               src="images/secondChapter/general/9.jpg"
               alt="attempt">
           </div>
-        </div>
+        </div> -->
 
         <div class="text-center">
           <p>Jose y Wilma completarían su familia con el nacimiento de sus tres nietos: Luca, Noah y Marcelina. La guinda en una vida inesperada, con decisiones difíciles y plagada de viajes. Si bien siempre pensé en ellos como mi “familia alemana”, la realidad es que es una familia mestiza, que lleva con orgullo sus raíces españolas. Esta es la historia de quien emigró y se quedó, en pleno contraste con la decisión que tomaron mis abuelos. Jose eligió hacer su vida en la misma zona que sus padres y por la que no profesa una gran admiración. Sus sentimientos hacia Asturias, la tierra que le vio nacer y le dio tan buenos recuerdos, son intensos. Cada año, al igual que muchos emigrados, decidía regresar para pasar sus vacaciones en los verdes valles. Siento una gran empatía por mi tío, ya que compartimos la percepción de nuestra tierra como un lugar excepcional tanto desde un punto de vista natural como a nivel humano. Creo que mantiene vivo el espíritu de los migrantes idealizar la patria que dejamos, para conservar una identidad en un ambiente eternamente ajeno. Nunca dejamos de ser extranjeros, nunca podemos engañarnos a nosotros mismos. Me parece importante no renegar de tus raíces, con el objetivo de mantener vivo el sueño y alejar la idea de un pesado “para siempre”.
           </p>
         </div>
 
+        <div id="playerHorse" class="video">
+          <div id="videoHorse"></div>
+          <div id="posterHorse" class="poster">
+            <img src="images/secondChapter/general/posterHorse.jpg" alt=""></img>
+          </div>
+        </div>
 
+        <div id="afterVideoHorse" class="afterVideo"></div>
 
       </div>
+
+
 
 
       <div id="EugeniaStory" class="fadeSection">
@@ -999,6 +929,8 @@
         </div>
 
         <div class="single-img-container">
+          <div class="infoImgShadow" class="noDisplay">
+          </div>
           <div class="single-img-far-right horizontal-img">
             <img class="imgInfo"
               srcset="images/secondChapter/general/18.jpg 650w,
@@ -1006,12 +938,14 @@
               src="images/secondChapter/general/18.jpg"
               alt="attempt">
             <div class="text-far-left">
-              <p>La terquedad de Ezequiel está aquí representada: los dos amigos a hombros no creían que, como aseguraba, pudiese llevar los terneros a hombros.</p>
+              <p>Mario, el marido de Eugenia, es de Cerdeña. En su hogar en Jülich muchos elementos mantienen viva la identidad plurinacional de la familia.</p>
             </div>
           </div>
         </div>
 
         <div class="single-img-container">
+          <div class="infoImgShadow" class="noDisplay">
+          </div>
           <div class="single-img-far-right horizontal-img">
             <img class="imgInfo"
               srcset="images/secondChapter/general/21.jpg 650w,
@@ -1019,7 +953,7 @@
               src="images/secondChapter/general/21.jpg"
               alt="attempt">
             <div class="text-far-left">
-              <p>La terquedad de Ezequiel está aquí representada: los dos amigos a hombros no creían que, como aseguraba, pudiese llevar los terneros a hombros.</p>
+              <p>Eugenia y Mario, en la penumbra de la oscuridad invernal de Jülich. Han sido muchos años separados: sus visitas a España han sido menos frecuentes que las de José y Wilma y la mía a Alemania se ha hecho esperar quince años.</p>
             </div>
           </div>
         </div>
@@ -1061,12 +995,12 @@
         <div id="nextChapter">
 
           <div class="nextChapterContent">
-            <a href="index.html">
+            <a href="firstChapter.html">
               <div class="cellNextchapter">
                 <div>
                   <!-- <h3 style="color:white">Ver el capítulo anterior</h3> -->
                   <h2>1 · Raíces</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <p>La primera generación de migrantes, artífice de la reconstrucción económica europea, marcarían con sus pasos el camino desde España hasta Alemania en los años 60.</p>
                 </div>
               </div>
             </a>
@@ -1075,7 +1009,7 @@
                 <div class="">
                   <h3>Ver el último capítulo</h3>
                   <h2 style="color: rgb(255, 214, 0)">3 · La historia</br>se repite</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  <p>Cuando la historia había echado tierra encima de aquellas generaciones migrantes, miles de jóvenes europeos saldrían del país ante el drama vital provocado por la crisis. Sus consecuencias están por llegar.</p>
                 </div>
               </div>
             </a>

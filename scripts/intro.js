@@ -4,49 +4,54 @@ $(document).ready(function(){
 
 
   /*Audio with text*/
-  var $introAudio = $("#introAudio");
-  var $introAudioMarker = $("#introAudioMarker");
-
-  var lastScrollTop = 0;
-
-  $(window).on('load resize scroll', function() {
-
-    $.fn.isInViewport = function() {
-      var elementTop = $(this).offset().top;
-      var elementBottom = elementTop + $(this).outerHeight();
-      var viewportTop = $(window).scrollTop();
-      var viewportBottom = viewportTop + $(window).height();
-      return viewportTop <= elementTop && viewportBottom >= elementBottom;
-    };
-
-    $.fn.isNotInViewport = function() {
-      var elementTop = $(this).offset().top;
-      var elementBottom = elementTop + $(this).outerHeight();
-      var viewportTop = $(window).scrollTop();
-      var viewportBottom = viewportTop + $(window).height();
-      return elementBottom <= viewportTop || elementTop >= viewportBottom;
-    };
-
-    var st = $(this).scrollTop();
-
-    $('#introAudioMarker').each(function() {
-      if ($(this).isInViewport() && !$(this).hasClass('played')) {
+  $(window).on('load resize', function() {
+    $('body').each(function() {
+      if (!$(this).hasClass('played')) {
         $("#introAudio").get(0).play();
-        $introAudio.stop(true,true);
+        $("#introAudio").stop(true,true);
         $("#introAudio").animate({volume: 1}, 200);
         $("#introAudioMarker").addClass("played");
-        // console.log("in");
-      } else if ($(this).isNotInViewport()) {
+      } else {
         $("#introAudio").animate({volume: 0}, 1000);
-        // console.log("OUT_down");
       }
     });
-
-
-
-
-    lastScrollTop = st;
   });
+  // var $introAudio = $("#introAudio");
+  // var $introAudioMarker = $("#introAudioMarker");
+  //
+  // $(window).on('load resize scroll', function() {
+  //
+  //   $.fn.isInViewport = function() {
+  //     var elementTop = $(this).offset().top;
+  //     var elementBottom = elementTop + $(this).outerHeight();
+  //     var viewportTop = $(window).scrollTop();
+  //     var viewportBottom = viewportTop + $(window).height();
+  //     return viewportTop <= elementTop && viewportBottom >= elementBottom;
+  //   };
+  //
+  //   $.fn.isNotInViewport = function() {
+  //     var elementTop = $(this).offset().top;
+  //     var elementBottom = elementTop + $(this).outerHeight();
+  //     var viewportTop = $(window).scrollTop();
+  //     var viewportBottom = viewportTop + $(window).height();
+  //     return elementBottom <= viewportTop || elementTop >= viewportBottom;
+  //   };
+  //
+  //   var st = $(this).scrollTop();
+  //
+  //   $('#introAudioMarker').each(function() {
+  //     if ($(this).isInViewport() && !$(this).hasClass('played')) {
+  //       $("#introAudio").get(0).play();
+  //       $introAudio.stop(true,true);
+  //       $("#introAudio").animate({volume: 1}, 200);
+  //       $("#introAudioMarker").addClass("played");
+  //       // console.log("in");
+  //     } else if ($(this).isNotInViewport()) {
+  //       $("#introAudio").animate({volume: 0}, 1000);
+  //       // console.log("OUT_down");
+  //     }
+  //   });
+  // });
 
   /*until here*/
 
@@ -75,17 +80,13 @@ $(window).on('load resize scroll', function() {
       $(".scrollCalling").removeClass("noOpacity");
       $(".firstRectanglesGroup").addClass("noOpacity");
 
-    } else if ($(this).isNotInViewport()) {
+    } else {
       $(".landingImage").addClass("noOpacity");
       $(".landingText").addClass("noOpacity");
       $(".scrollCalling").addClass("noOpacity");
       $(".firstRectanglesGroup").addClass("noOpacity");
     }
   });
-
-
-
-  lastScrollTop = st;
 });
 
 
@@ -108,6 +109,13 @@ $(".mouse").click(function(){
 /*until here*/
 
 //menu beginning
+function stopScrolling (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+}
+
+
   var Menu = {
 
     el: {
@@ -185,9 +193,9 @@ $(".mouse").click(function(){
   $(window).resize(hideMenu);
 
 function stopScrolling (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      return false;
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
 }
 /*until here*/
 
@@ -211,7 +219,7 @@ $.fn.bottomInViewport = function() {
   var elementBottom = elementTop + $(this).outerHeight();
   var viewportTop = $(window).scrollTop();
   var viewportBottom = viewportTop + $(window).height();
-  return elementBottom < viewportBottom - $(window).height()/4;
+  return elementBottom < viewportBottom - $(window).height()/1.5;
 };
 
 var lastScrollTop = 0;
@@ -247,13 +255,6 @@ $(window).on('load resize scroll', function() {
 
 
 
-/*hamburger button*/
-$(document).ready(function(){
-	$('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
-		$(this).toggleClass('open');
-	});
-});
-/*until here*/
 
 
 /*attempt animation of rectangles*/

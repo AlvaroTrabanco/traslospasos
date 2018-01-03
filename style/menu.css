@@ -13,7 +13,6 @@
 
 /*burger */
 .hamburger-slim {
-  z-index: 2;
   background: rgba(0, 0, 0, 0.7);
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.7), 0 0 20px 0 rgba(0, 0, 0, 0.7);
   margin-left: 4%;
@@ -71,6 +70,10 @@
   100% {
     opacity: 1;
     transform: scaleX(1); } }
+#menuContainer {
+  position: relative;
+  z-index: 2; }
+
 #menu {
   background-color: rgba(0, 0, 0, 0.9);
   width: 100%;
@@ -143,7 +146,6 @@
 
 .enabled {
   opacity: 1 !important;
-  z-index: 3000;
   position: fixed;
   display: inherit !important; }
 
@@ -216,7 +218,7 @@
   -o-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   cursor: pointer;
-  z-index: 3001; }
+  z-index: 1; }
 
 #nav-icon1 span, #nav-icon3 span, #nav-icon4 span {
   display: block;
